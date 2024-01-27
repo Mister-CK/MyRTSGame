@@ -1,0 +1,4 @@
+repository "MyRTSGame@Mister_CK@cloud"
+  path "/"
+    br "/main"
+    co "/main"
