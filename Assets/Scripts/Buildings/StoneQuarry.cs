@@ -7,18 +7,18 @@ namespace MyRTSGame.Model
     public class StoneQuarry : Building
     {
         //Constructor
-        public StoneQuarry() {
-            SetBuildingType(BuildingType.StoneQuarry);
+        public StoneQuarry()
+        {
+            BuildingType = BuildingType.StoneQuarry;
         }
         protected override void Start()
         {
-            SetBuildingType(BuildingType.StoneQuarry);
-            state = new FoundationState(buildingType);
+            State = new FoundationState(BuildingType);
             ResourceType[] resourceTypes = new ResourceType[] { ResourceType.Stone };
             int[] resourceQuantities = new int[] { 0 };
-            inventory = InitInventory(resourceTypes, resourceQuantities);
-            _capacity = 5;
-            _inputTypes = new ResourceType[0];
+            Inventory = InitInventory(resourceTypes, resourceQuantities);
+            Capacity = 5;
+            InputTypes = new ResourceType[0];
             StartCoroutine(CreateStone());
         }
 
@@ -27,8 +27,8 @@ namespace MyRTSGame.Model
             while (true)
             {
                 yield return new WaitForSeconds(15);
-                Resource lumberResource = Array.Find(inventory, resource => resource.ResourceType == ResourceType.Stone);
-                if (lumberResource != null && lumberResource.Quantity < _capacity)
+                Resource lumberResource = Array.Find(Inventory, resource => resource.ResourceType == ResourceType.Stone);
+                if (lumberResource != null && lumberResource.Quantity < Capacity)
                 {
                     AddResource(ResourceType.Stone, 1);
                 }

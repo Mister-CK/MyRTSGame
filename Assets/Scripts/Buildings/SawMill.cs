@@ -8,17 +8,16 @@ namespace MyRTSGame.Model
     {
         //Constructor
         public SawMill() {
-            SetBuildingType(BuildingType.SawMill);
+            BuildingType = BuildingType.SawMill;
         }
         protected override void Start()
         {
-            SetBuildingType(BuildingType.SawMill);
-            state = new FoundationState(buildingType);
+            State = new FoundationState(BuildingType);
             ResourceType[] resourceTypes = new ResourceType[] {ResourceType.Lumber, ResourceType.Wood };
             int[] resourceQuantities = new int[] {0, 0};
-            inventory = InitInventory(resourceTypes, resourceQuantities);
-            _inputTypes = new ResourceType[] { ResourceType.Lumber };
-            _capacity = 5;
+            Inventory = InitInventory(resourceTypes, resourceQuantities);
+            InputTypes = new ResourceType[] { ResourceType.Lumber };
+            Capacity = 5;
 
             StartCoroutine(CreateWoodFromLumber());
         }
@@ -32,9 +31,9 @@ namespace MyRTSGame.Model
             {
                 yield return new WaitForSeconds(10);
                 bool hasRequiredResources = true;
-                bool isNotFull = Array.Find(inventory, res => res.ResourceType == ResourceType.Wood).Quantity < _capacity;
+                bool isNotFull = Array.Find(Inventory, res => res.ResourceType == ResourceType.Wood).Quantity < Capacity;
                 foreach(Resource resource in input) {
-                    if (Array.Find(inventory, res => res.ResourceType == resource.ResourceType).Quantity < resource.Quantity) {
+                    if (Array.Find(Inventory, res => res.ResourceType == resource.ResourceType).Quantity < resource.Quantity) {
                         hasRequiredResources = false;
                     }
                 }

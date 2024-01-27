@@ -6,46 +6,47 @@ namespace MyRTSGame.Model
 
     public abstract class Building : MonoBehaviour
     {
-        protected IBuildingState state;
-        protected GameObject buildingObject;
-        protected BuildingType buildingType;
-        protected Resource[] inventory;
-        protected JobQueue jobQueue;
-        protected ResourceType[] _inputTypes = new ResourceType[0];
-        protected int _capacity = 999;
+        protected IBuildingState State;
+        public BuildingType BuildingType { get; protected set; }
+        protected ResourceType[] InputTypes = Array.Empty<ResourceType>();
+        protected Resource[] Inventory;
+        protected int Capacity = 999;
+        
+        private GameObject _buildingObject;
+        private JobQueue _jobQueue;
 
         protected virtual void Start()
         {
-            state = new FoundationState(buildingType);
+            State = new FoundationState(BuildingType);
         }
 
         public void OnClick()
         {
-            state.OnClick(this);
+            State.OnClick(this);
         }
 
         public void SetState(IBuildingState newState)
         {
-            state = newState;
-            state.SetObject(this);
+            State = newState;
+            State.SetObject(this);
         }
 
         public void SetObject(GameObject newObject)
         {
-            if (buildingObject != null)
+            if (_buildingObject != null)
             {
-                Destroy(buildingObject);
+                Destroy(_buildingObject);
             }
-            buildingObject = Instantiate(newObject, transform.position, Quaternion.identity, transform);
+            _buildingObject = Instantiate(newObject, transform.position, Quaternion.identity, transform);
         }
 
         void Awake()
         {
-            jobQueue = JobQueue.GetInstance();
+            _jobQueue = JobQueue.GetInstance();
             ResourceType[] reourceTypes = new ResourceType[0];
             int[] resourceQuantities = new int[0];
-            _inputTypes = new ResourceType[0];
-            inventory = InitInventory(reourceTypes, resourceQuantities);
+            InputTypes = new ResourceType[0];
+            Inventory = InitInventory(reourceTypes, resourceQuantities);
         }
 
         public virtual bool IsWarehouse
@@ -53,7 +54,7 @@ namespace MyRTSGame.Model
             get { return false; }
         }
 
-        public Resource[] InitInventory(ResourceType[] types, int[] quantities)
+        protected static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
             if (types.Length != quantities.Length)
             {
@@ -76,7 +77,7 @@ namespace MyRTSGame.Model
 
         public void AddResource(ResourceType resourceType, int quantity)
         {
-            foreach(Resource resource in inventory) {
+            foreach(Resource resource in Inventory) {
                 if (resource.ResourceType == resourceType) {
                     resource.Quantity += quantity;
                     return;
@@ -87,7 +88,7 @@ namespace MyRTSGame.Model
 
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
-            foreach (Resource resource in inventory)
+            foreach (Resource resource in Inventory)
             {
                 if (resource.ResourceType == resourceType)
                 {
@@ -100,7 +101,7 @@ namespace MyRTSGame.Model
 
         public bool CheckHasOutput()
         {
-            foreach (Resource resource in inventory)
+            foreach (Resource resource in Inventory)
             {
                 if (resource.Quantity > 0)
                 {
@@ -110,13 +111,13 @@ namespace MyRTSGame.Model
             return false;
         }
 
-        public void CreateJob(Job job)
+        protected void CreateJob(Job job)
         {
-            jobQueue.AddJob(job);
+            _jobQueue.AddJob(job);
         }
 
         public Resource[] GetInventory() {
-            return this.inventory;
+            return Inventory;
         }
 
         protected void TransmuteResource(Resource[] input, Resource[] output) {
@@ -133,22 +134,11 @@ namespace MyRTSGame.Model
 
         public ResourceType[] GetInputTypes()
         {
-            return this._inputTypes;
+            return InputTypes;
         }
 
         public int GetCapacity() {
-            return this._capacity;
-        }
-
-        public BuildingType GetBuildingType()
-        {
-            return this.buildingType;
-        }
-
-
-        protected void SetBuildingType(BuildingType newBuildingtype)
-        {
-            this.buildingType = newBuildingtype;
+            return Capacity;
         }
     }
 }

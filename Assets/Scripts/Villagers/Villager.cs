@@ -92,7 +92,7 @@ namespace MyRTSGame.Model
 
                 foreach (var building in buildings)
                 {
-                    if (building.GetBuildingType() == BuildingType.Warehouse)
+                    if (building.BuildingType == BuildingType.Warehouse)
                     {
                         warehouse = building;
                         continue;

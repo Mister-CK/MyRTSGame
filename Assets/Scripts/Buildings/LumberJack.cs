@@ -7,17 +7,17 @@ namespace MyRTSGame.Model
     public class Lumberjack : Building
     {
         //Constructor
-        public Lumberjack() {
-            SetBuildingType(BuildingType.LumberJack);
+        public Lumberjack()
+        {
+            BuildingType = BuildingType.LumberJack;
         }
         protected override void Start()
         {
-            SetBuildingType(BuildingType.LumberJack);
-            state = new FoundationState(buildingType);
+            State = new FoundationState(BuildingType);
             ResourceType[] resourceTypes = new ResourceType[] { ResourceType.Lumber };
             int[] resourceQuantities = new int[] { 0};
-            inventory = InitInventory(resourceTypes, resourceQuantities);
-            _capacity = 5;
+            Inventory = InitInventory(resourceTypes, resourceQuantities);
+            Capacity = 5;
             StartCoroutine(CreateLumber());
         }
 
@@ -26,8 +26,8 @@ namespace MyRTSGame.Model
             while (true)
             {
                 yield return new WaitForSeconds(5);
-                Resource lumberResource = Array.Find(inventory, resource => resource.ResourceType == ResourceType.Lumber);
-                if (lumberResource != null && lumberResource.Quantity < _capacity)
+                Resource lumberResource = Array.Find(Inventory, resource => resource.ResourceType == ResourceType.Lumber);
+                if (lumberResource != null && lumberResource.Quantity < Capacity)
                 {
                     AddResource(ResourceType.Lumber, 1);
                 }

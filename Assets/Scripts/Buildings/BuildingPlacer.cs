@@ -11,7 +11,7 @@ public class BuildingPlacer : MonoBehaviour
     {
         _isPlacing = true;
         _building = Instantiate(buildingPrefab);
-        _building.SetState(new FoundationState(_building.GetBuildingType()));
+        _building.SetState(new FoundationState(_building.BuildingType));
     }
 
     void Update()
@@ -39,7 +39,7 @@ public class BuildingPlacer : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 _isPlacing = false;
-                _building.SetState(new CompletedState(_building.GetBuildingType()));
+                _building.SetState(new CompletedState(_building.BuildingType));
             }
             
             // If the right mouse button is clicked, cancel the placement

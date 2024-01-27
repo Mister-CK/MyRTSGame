@@ -5,17 +5,16 @@ namespace MyRTSGame.Model
     {
         //Constructor
         public Warehouse() {
-            SetBuildingType(BuildingType.Warehouse);
+            BuildingType = BuildingType.Warehouse;
         }
 
         protected override void Start()
         {
-            SetBuildingType(BuildingType.Warehouse);
-            state = new FoundationState(buildingType);
+            State = new FoundationState(BuildingType);
             ResourceType[] resourceTypes = new ResourceType[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood };
             int[] resourceQuantities = new int[] { 0, 0, 0};
-            inventory = InitInventory(resourceTypes, resourceQuantities);
-            _inputTypes = resourceTypes;
+            Inventory = InitInventory(resourceTypes, resourceQuantities);
+            InputTypes = resourceTypes;
         }
 
         public override bool IsWarehouse

@@ -37,7 +37,7 @@ namespace MyRTSGame.Model
             {
                 Resource[] inventory = building.GetInventory();
                 string inventoryText = GetTextForInventory(inventory);
-                buildingList += building.GetBuildingType() + ": " + inventoryText + "\n";
+                buildingList += building.BuildingType + ": " + inventoryText + "\n";
             }
             textComponent.text = buildingList;
         }
