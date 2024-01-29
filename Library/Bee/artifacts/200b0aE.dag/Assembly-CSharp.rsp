@@ -366,6 +366,7 @@
 "Assets/Scripts/Buildings/BuildingStates/CompletedState.cs"
 "Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs"
 "Assets/Scripts/Buildings/BuildingStates/FoundationState.cs"
+"Assets/Scripts/Buildings/BuildingStates/PlacingState.cs"
 "Assets/Scripts/Buildings/LumberJack.cs"
 "Assets/Scripts/Buildings/SawMill.cs"
 "Assets/Scripts/Buildings/StoneQuarry.cs"

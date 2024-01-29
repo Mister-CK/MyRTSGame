@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
         }
         protected override void Start()
         {
-            State = new FoundationState(BuildingType);
+            State = new PlacingState(BuildingType);
             ResourceType[] resourceTypes = new ResourceType[] { ResourceType.Stone };
             int[] resourceQuantities = new int[] { 0 };
             Inventory = InitInventory(resourceTypes, resourceQuantities);

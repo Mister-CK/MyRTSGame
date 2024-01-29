@@ -8,21 +8,21 @@ namespace MyRTSGame.Model
         public static BuildingManager Instance { get; private set; }
 
 
-        public Dictionary<BuildingType, GameObject> foundationObjects;
-        public Dictionary<BuildingType, GameObject> completedObjects;
+        public Dictionary<BuildingType, GameObject> FoundationObjects;
+        public Dictionary<BuildingType, GameObject> CompletedObjects;
 
         //foundations
-        [SerializeField] GameObject warehouseFoundation;
-        [SerializeField] GameObject stoneQuarryFoundation;
-        [SerializeField] GameObject lumberJackFoundation;
-        [SerializeField] GameObject sawMillFoundation;
+        [SerializeField] private GameObject warehouseFoundation;
+        [SerializeField] private GameObject stoneQuarryFoundation;
+        [SerializeField] private GameObject lumberJackFoundation;
+        [SerializeField] private GameObject sawMillFoundation;
 
 
         //completed
-        [SerializeField] GameObject warehouseCompleted;
-        [SerializeField] GameObject stoneQuarryCompleted;
-        [SerializeField] GameObject lumberJackCompleted;
-        [SerializeField] GameObject sawMillCompleted;
+        [SerializeField] private GameObject warehouseCompleted;
+        [SerializeField] private GameObject stoneQuarryCompleted;
+        [SerializeField] private GameObject lumberJackCompleted;
+        [SerializeField] private GameObject sawMillCompleted;
 
         private void Awake()
         {
@@ -39,20 +39,19 @@ namespace MyRTSGame.Model
 
         void Start()
         {
-            foundationObjects = new Dictionary<BuildingType, GameObject>();
-            completedObjects = new Dictionary<BuildingType, GameObject>();
+            FoundationObjects = new Dictionary<BuildingType, GameObject>();
+            CompletedObjects = new Dictionary<BuildingType, GameObject>();
 
             // Add the foundation and completed GameObjects for each building type
-            foundationObjects.Add(BuildingType.Warehouse, warehouseFoundation);
-            foundationObjects.Add(BuildingType.StoneQuarry, stoneQuarryFoundation);
-            foundationObjects.Add(BuildingType.LumberJack, lumberJackFoundation);
-            foundationObjects.Add(BuildingType.SawMill, sawMillFoundation);
+            FoundationObjects.Add(BuildingType.Warehouse, warehouseFoundation);
+            FoundationObjects.Add(BuildingType.StoneQuarry, stoneQuarryFoundation);
+            FoundationObjects.Add(BuildingType.LumberJack, lumberJackFoundation);
+            FoundationObjects.Add(BuildingType.SawMill, sawMillFoundation);
 
-            completedObjects.Add(BuildingType.Warehouse, warehouseCompleted);
-            completedObjects.Add(BuildingType.StoneQuarry, stoneQuarryCompleted);
-            completedObjects.Add(BuildingType.LumberJack, lumberJackCompleted);
-            completedObjects.Add(BuildingType.SawMill, sawMillCompleted);
-
+            CompletedObjects.Add(BuildingType.Warehouse, warehouseCompleted);
+            CompletedObjects.Add(BuildingType.StoneQuarry, stoneQuarryCompleted);
+            CompletedObjects.Add(BuildingType.LumberJack, lumberJackCompleted);
+            CompletedObjects.Add(BuildingType.SawMill, sawMillCompleted);
         }
     }
 }

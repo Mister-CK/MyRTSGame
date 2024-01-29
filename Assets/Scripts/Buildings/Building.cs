@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using MyRTSGame.Interface;
+using Unity.VisualScripting;
+
 namespace MyRTSGame.Model
 {
 
@@ -11,16 +13,31 @@ namespace MyRTSGame.Model
         protected ResourceType[] InputTypes = Array.Empty<ResourceType>();
         protected Resource[] Inventory;
         protected int Capacity = 999;
-        
+        public BoxCollider BCollider { get; private set; }
         private GameObject _buildingObject;
         private JobQueue _jobQueue;
-
+        
+        void Awake()
+        {
+            BCollider = this.AddComponent<BoxCollider>();
+            BCollider.size = new Vector3(3, 3, 3);
+            _jobQueue = JobQueue.GetInstance();
+            ResourceType[] resourceTypes = new ResourceType[0];
+            int[] resourceQuantities = new int[0];
+            InputTypes = new ResourceType[0];
+            Inventory = InitInventory(resourceTypes, resourceQuantities);
+        }
+        
         protected virtual void Start()
         {
-            State = new FoundationState(BuildingType);
+            State = new PlacingState(BuildingType);
         }
-
-        public void OnClick()
+        public void OnMouseDown()
+        {
+            Debug.Log("onMouseDown");
+            OnClick();
+        }
+        private void OnClick()
         {
             State.OnClick(this);
         }
@@ -37,16 +54,7 @@ namespace MyRTSGame.Model
             {
                 Destroy(_buildingObject);
             }
-            _buildingObject = Instantiate(newObject, transform.position, Quaternion.identity, transform);
-        }
-
-        void Awake()
-        {
-            _jobQueue = JobQueue.GetInstance();
-            ResourceType[] reourceTypes = new ResourceType[0];
-            int[] resourceQuantities = new int[0];
-            InputTypes = new ResourceType[0];
-            Inventory = InitInventory(reourceTypes, resourceQuantities);
+            _buildingObject = Instantiate(newObject, transform.position + newObject.transform.position, Quaternion.identity, transform);
         }
 
         public virtual bool IsWarehouse

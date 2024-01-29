@@ -1,29 +1,30 @@
 ﻿using System;
 using MyRTSGame.Model;
 using MyRTSGame.Interface;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FoundationState : IBuildingState
 {
-    readonly BuildingManager _buildingManager = BuildingManager.Instance;
-
-
-    public BuildingType buildingType;
+    private readonly BuildingManager _buildingManager = BuildingManager.Instance;
+    private readonly BuildingType _buildingType;
 
     public FoundationState(BuildingType buildingType)
     {
-        this.buildingType = buildingType;
+        _buildingType = buildingType;
     }
 
     public void OnClick(Building building)
     {
-        // Transition from FoundationState to ConstructionState
-        building.SetState(new ConstructionState());
+        building.SetState(new ConstructionState(_buildingType));
     }
 
     public void SetObject(Building building)
     {
-        // Set the GameObject to a foundation
-        building.SetObject(_buildingManager.foundationObjects[buildingType]);
+        var foundation = _buildingManager.FoundationObjects[_buildingType];
+        building.SetObject(foundation);
+        building.BCollider.size = foundation.transform.localScale;
+        building.BCollider.center = foundation.transform.localScale / 2;
+
     }
 }

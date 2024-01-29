@@ -1,16 +1,18 @@
 ﻿using MyRTSGame.Model;
 using MyRTSGame.Interface;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class CompletedState : IBuildingState
 {
-    readonly BuildingManager _buildingManager = BuildingManager.Instance;
-    readonly BuildingList _buildingList = BuildingList.Instance;
+    private readonly BuildingManager _buildingManager = BuildingManager.Instance;
+    private readonly BuildingList _buildingList = BuildingList.Instance;
 
-    public BuildingType buildingType;
+    private readonly BuildingType _buildingType;
 
     public CompletedState(BuildingType buildingType)
     {
-        this.buildingType = buildingType;
+        _buildingType = buildingType;
     }
 
     public void OnClick(Building building)
@@ -20,7 +22,10 @@ public class CompletedState : IBuildingState
 
     public void SetObject(Building building)
     {
-        building.SetObject(_buildingManager.completedObjects[buildingType]);
+        var completedObject = _buildingManager.CompletedObjects[_buildingType];
+        building.SetObject(completedObject);
+        building.BCollider.size = completedObject.transform.localScale;
+        building.BCollider.center = completedObject.transform.localScale / 2;
         _buildingList.AddBuilding(building);
     }
 }
