@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using MyRTSGame.Interface;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace MyRTSGame.Model
 {
-    public class Villager : MonoBehaviour
+    public class Villager : MonoBehaviour, ISelectable
     {
-
+        private SelectionManager _selectionManager;
         private BuildingList _buildingList;
 
         private NavMeshAgent _agent;
@@ -19,6 +20,7 @@ namespace MyRTSGame.Model
 
         void Awake()
         {
+            _selectionManager = SelectionManager.Instance;
             _agent = GetComponent<NavMeshAgent>();
             jobQueue = JobQueue.GetInstance();
         }
@@ -37,6 +39,17 @@ namespace MyRTSGame.Model
             }
         }
 
+        public void HandleClick()
+        {
+            Debug.Log("handle");
+            OnClick();
+        }
+        private void OnClick()
+        {
+            Debug.Log(_selectionManager);
+            _selectionManager.SelectObject(this);
+        }
+        
         private void CheckIfDestinationIsReached()
         {
             if (!_agent.pathPending)

@@ -6,8 +6,10 @@ using Unity.VisualScripting;
 namespace MyRTSGame.Model
 {
 
-    public abstract class Building : MonoBehaviour
+    public abstract class Building : MonoBehaviour, ISelectable
     {
+        private SelectionManager _selectionManager;
+
         protected IBuildingState State;
         public BuildingType BuildingType { get; protected set; }
         protected ResourceType[] InputTypes = Array.Empty<ResourceType>();
@@ -26,6 +28,7 @@ namespace MyRTSGame.Model
             int[] resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
+            _selectionManager = SelectionManager.Instance;
         }
         
         protected virtual void Start()
@@ -34,18 +37,23 @@ namespace MyRTSGame.Model
         }
         public void OnMouseDown()
         {
-            Debug.Log("onMouseDown");
             OnClick();
         }
         private void OnClick()
         {
             State.OnClick(this);
+            _selectionManager.SelectObject(this);
         }
 
         public void SetState(IBuildingState newState)
         {
             State = newState;
             State.SetObject(this);
+        }
+        
+        public IBuildingState GetState()
+        {
+            return State;
         }
 
         public void SetObject(GameObject newObject)

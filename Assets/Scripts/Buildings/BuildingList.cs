@@ -8,7 +8,7 @@ namespace MyRTSGame.Model
     {
         public static BuildingList Instance { get; private set; }
 
-        [SerializeField] private TextMeshProUGUI textComponent;
+        // [SerializeField] private TextMeshProUGUI textComponent;
         private List<Building> _buildings;
 
         private void Awake()
@@ -28,27 +28,27 @@ namespace MyRTSGame.Model
 
         private void Update()
         {
-            UpdateList();
+            // UpdateList();
         }
-        private void UpdateList()
-        {
-            string buildingList = "";
-            foreach (Building building in _buildings)
-            {
-                Resource[] inventory = building.GetInventory();
-                string inventoryText = GetTextForInventory(inventory);
-                buildingList += building.BuildingType + ": " + inventoryText + "\n";
-            }
-            textComponent.text = buildingList;
-        }
+        // private void UpdateList()
+        // {
+        //     string buildingList = "";
+        //     foreach (Building building in _buildings)
+        //     {
+        //         Resource[] inventory = building.GetInventory();
+        //         string inventoryText = GetTextForInventory(inventory);
+        //         buildingList += building.BuildingType + ": " + inventoryText + "\n";
+        //     }
+        //     textComponent.text = buildingList;
+        // }
 
-        private static string GetTextForInventory(Resource[] inventory) {
-            string inventoryText = "";
-            foreach (Resource resource in inventory) {
-                inventoryText += resource.ResourceType + ":" + resource.Quantity + " ";
-            }
-            return inventoryText;
-        }
+        // private static string GetTextForInventory(Resource[] inventory) {
+        //     string inventoryText = "";
+        //     foreach (Resource resource in inventory) {
+        //         inventoryText += resource.ResourceType + ":" + resource.Quantity + " ";
+        //     }
+        //     return inventoryText;
+        // }
 
         public List<Building> GetBuildings() {
             return _buildings;

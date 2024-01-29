@@ -373,12 +373,15 @@
 "Assets/Scripts/Buildings/Warehouse.cs"
 "Assets/Scripts/Enums/BuildingType.cs"
 "Assets/Scripts/Enums/ResourceType.cs"
-"Assets/Scripts/Interfaces/IBuildingState.cs"
+"Assets/Scripts/Interface/IBuildingState.cs"
+"Assets/Scripts/Interface/ISelectable.cs"
 "Assets/Scripts/JobSystem/Job.cs"
 "Assets/Scripts/JobSystem/JobQueue.cs"
 "Assets/Scripts/Resource.cs"
+"Assets/Scripts/SelectionManager.cs"
 "Assets/Scripts/UI/UIButtonHandler.cs"
 "Assets/Scripts/Villagers/Villager.cs"
+"Assets/Scripts/Villagers/VillagerChild.cs"
 "Assets/Scripts/Villagers/VillagerList.cs"
 -langversion:9.0
 
