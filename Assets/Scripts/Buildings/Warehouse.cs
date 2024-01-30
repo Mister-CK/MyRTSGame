@@ -22,10 +22,5 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = resourceTypes;
             HasInput = true;
         }
-
-        public override bool IsWarehouse
-        {
-            get { return true; }
-        }
     }
 }

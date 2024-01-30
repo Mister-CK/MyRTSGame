@@ -76,11 +76,6 @@ namespace MyRTSGame.Model
             _buildingObject = Instantiate(newObject, transform.position + newObject.transform.position, Quaternion.identity, transform);
         }
 
-        public virtual bool IsWarehouse
-        {
-            get { return false; }
-        }
-
         protected static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
             if (types.Length != quantities.Length)
