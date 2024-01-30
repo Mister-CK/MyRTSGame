@@ -8,6 +8,7 @@ namespace MyRTSGame.Model
 
     public abstract class Building : MonoBehaviour, ISelectable
     {
+        public Material Material { get; set; }
         public bool HasInput = false;
         private SelectionManager _selectionManager;
         public abstract Resource[] GetRequiredResources();
@@ -31,6 +32,14 @@ namespace MyRTSGame.Model
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             _selectionManager = SelectionManager.Instance;
+        }
+        
+        void Update()
+        {
+            if (State is PlacingState placingState)
+            {
+                placingState.CheckOverlap(this);
+            }
         }
         
         protected virtual void Start()

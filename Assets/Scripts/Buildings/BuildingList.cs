@@ -26,10 +26,10 @@ namespace MyRTSGame.Model
             _buildings = new List<Building>(FindObjectsOfType<Building>());
         }
 
-        private void Update()
-        {
-            // UpdateList();
-        }
+        // void Update()
+        // {
+        //     // UpdateList();
+        // }
         // private void UpdateList()
         // {
         //     string buildingList = "";
