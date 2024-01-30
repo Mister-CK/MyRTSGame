@@ -16,7 +16,6 @@ public class SelectionManager: MonoBehaviour
 
     private void Awake()
     {
-        // Ensure there is only one instance of SelectionManager
         if (Instance == null)
         {
             Instance = this;
@@ -29,7 +28,6 @@ public class SelectionManager: MonoBehaviour
     
     public void SelectObject(ISelectable newObject)
     {
-        Debug.Log("selected object");
         if (CurrentSelectedObject != null)
         {
             // You can add code here to hide the details of the previously selected object
