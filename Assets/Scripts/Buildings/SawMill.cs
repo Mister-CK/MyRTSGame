@@ -24,10 +24,14 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = new ResourceType[] { ResourceType.Lumber };
             Capacity = 5;
             HasInput = true;
-
-            StartCoroutine(CreateWoodFromLumber());
         }
 
+                
+        protected override void StartResourceCreationCoroutine()
+        {
+            StartCoroutine(CreateWoodFromLumber());
+        }
+        
         private IEnumerator CreateWoodFromLumber()
         {
             Resource[] input = new Resource[] { new Resource() { ResourceType = ResourceType.Lumber, Quantity = 1 } };

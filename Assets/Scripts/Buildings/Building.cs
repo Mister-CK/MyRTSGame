@@ -47,10 +47,19 @@ namespace MyRTSGame.Model
             _selectionManager.SelectObject(this);
         }
 
+        protected virtual void StartResourceCreationCoroutine()
+        {
+            // This method can be overridden in derived classes to start the specific coroutine for each building type.
+        }
+        
         public void SetState(IBuildingState newState)
         {
             State = newState;
             State.SetObject(this);
+            if (State is CompletedState)
+            {
+                StartResourceCreationCoroutine();
+            }
         }
         
         public IBuildingState GetState()
@@ -95,15 +104,18 @@ namespace MyRTSGame.Model
 
         public void AddResource(ResourceType resourceType, int quantity)
         {
-            foreach(Resource resource in Inventory) {
-                if (resource.ResourceType == resourceType) {
-                    resource.Quantity += quantity;
-                    if (State is FoundationState)
-                    {
-                        ((FoundationState)State).CheckRequiredResources(this);
-                    }
-                    return;
+            Debug.Log("AddResource");
+            foreach(var resource in Inventory) {
+                Debug.Log($"res add ${resource.ResourceType}");
+                if (resource.ResourceType != resourceType) continue;
+
+                resource.Quantity += quantity;
+                if (State is FoundationState foundationState)
+                {
+                    foundationState.CheckRequiredResources(this);
                 }
+                return;
+                
             }
             throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
         }

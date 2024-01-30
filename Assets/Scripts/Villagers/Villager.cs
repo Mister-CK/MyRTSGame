@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
 
         private NavMeshAgent _agent;
         private bool _hasDestination;
-        private bool _hasResource = false;
+        private bool _hasResource;
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1};
         private Building _destination;
         private JobQueue _jobQueue;

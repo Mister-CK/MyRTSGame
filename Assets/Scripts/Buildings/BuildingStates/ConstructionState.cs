@@ -12,7 +12,7 @@ public class ConstructionState : IBuildingState
     }
     public void OnClick(Building building)
     {
-        building.SetState(new CompletedState(_buildingType));
+        // building.SetState(new CompletedState(_buildingType)); turned off for now
     }
 
     public void SetObject(Building building)
@@ -20,6 +20,6 @@ public class ConstructionState : IBuildingState
         building.SetObject(_buildingManager.FoundationObjects[_buildingType]);
         building.BCollider.size = _buildingManager.FoundationObjects[_buildingType].transform.localScale;
         building.BCollider.center = _buildingManager.FoundationObjects[_buildingType].transform.localScale / 2;
-        OnClick(building); // immediately transition to completed state
+        building.SetState(new CompletedState(_buildingType));; // immediately transition to completed state
     }
 }

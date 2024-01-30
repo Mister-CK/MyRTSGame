@@ -24,9 +24,13 @@ namespace MyRTSGame.Model
             int[] resourceQuantities = new int[] { 0};
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             Capacity = 5;
+        }
+        
+        protected override void StartResourceCreationCoroutine()
+        {
             StartCoroutine(CreateLumber());
         }
-
+        
         private IEnumerator CreateLumber()
         {
             while (true)

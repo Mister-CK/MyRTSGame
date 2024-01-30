@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using MyRTSGame.Interface;
 using MyRTSGame.Model;
 using TMPro;
@@ -48,9 +50,11 @@ public class SelectionManager: MonoBehaviour
         }
         if (CurrentSelectedObject is Building building)
         {
-            string text = building.BuildingType.ToString()  + "\n"+ 
-                          GetTextForInventory(building.GetInventory()) +  "\n" + 
-                          building.GetState();
+            var text = building.BuildingType + "\n" +
+                       GetTextForInventory(building.GetInventory()) + "\n" +
+                       building.GetState() + "\n" +
+                       GetTextForInputTypes(building.InputTypes) + "\n" +
+                       building.GetCapacity();
             textComponent.text = text;
             return;
         }
@@ -60,6 +64,11 @@ public class SelectionManager: MonoBehaviour
             textComponent.text = "Villager";
             return;
         }
+    }
+    
+    private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes) 
+    {
+        return inputTypes.Aggregate("input types: ", (current, resourceType) => current + resourceType + ", ").TrimEnd(',', ' ');
     }
     
     private static string GetTextForInventory(Resource[] inventory) {

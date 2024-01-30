@@ -25,9 +25,6 @@ public class CompletedState : IBuildingState
         building.BCollider.size = completedObject.transform.localScale;
         building.BCollider.center = completedObject.transform.localScale / 2;
 
-        if (building.HasInput)
-        {
-            building.InputTypes = building.InputTypesWhenCompleted;
-        }
+        building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
     }
 }

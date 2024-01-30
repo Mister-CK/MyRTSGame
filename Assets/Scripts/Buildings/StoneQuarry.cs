@@ -26,9 +26,13 @@ namespace MyRTSGame.Model
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             Capacity = 5;
             InputTypes = new ResourceType[0];
-            StartCoroutine(CreateStone());
         }
 
+        protected override void StartResourceCreationCoroutine()
+        {
+            StartCoroutine(CreateStone());
+        }
+        
         private IEnumerator CreateStone()
         {
             while (true)
@@ -42,12 +46,5 @@ namespace MyRTSGame.Model
                 CreateJob(new Job() { Destination = this, ResourceType = ResourceType.Stone });
             }
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-        }
-
-        
     }
 }
