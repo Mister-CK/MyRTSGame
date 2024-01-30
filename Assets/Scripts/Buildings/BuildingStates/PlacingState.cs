@@ -1,8 +1,5 @@
-using System;
 using MyRTSGame.Model;
 using MyRTSGame.Interface;
-using Unity.VisualScripting;
-using UnityEngine;
 
 public class PlacingState : IBuildingState
 {
@@ -24,6 +21,5 @@ public class PlacingState : IBuildingState
         building.SetObject(_buildingManager.FoundationObjects[_buildingType]);
         building.BCollider.size = _buildingManager.FoundationObjects[_buildingType].transform.localScale;
         building.BCollider.center = _buildingManager.FoundationObjects[_buildingType].transform.localScale / 2;
-
     }
 }

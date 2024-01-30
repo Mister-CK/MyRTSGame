@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -11,6 +12,12 @@ namespace MyRTSGame.Model
         {
             BuildingType = BuildingType.StoneQuarry;
         }
+        
+        public override Resource[] GetRequiredResources()
+        {
+            return new Resource[] { new Resource() { ResourceType = ResourceType.Wood, Quantity = 3 }, new Resource() { ResourceType = ResourceType.Stone, Quantity = 2 } };
+        }
+        
         protected override void Start()
         {
             State = new PlacingState(BuildingType);

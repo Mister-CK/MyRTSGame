@@ -1,7 +1,5 @@
 ﻿using MyRTSGame.Model;
 using MyRTSGame.Interface;
-using Unity.VisualScripting;
-using UnityEngine;
 
 public class CompletedState : IBuildingState
 {
@@ -26,6 +24,10 @@ public class CompletedState : IBuildingState
         building.SetObject(completedObject);
         building.BCollider.size = completedObject.transform.localScale;
         building.BCollider.center = completedObject.transform.localScale / 2;
-        _buildingList.AddBuilding(building);
+
+        if (building.HasInput)
+        {
+            building.InputTypes = building.InputTypesWhenCompleted;
+        }
     }
 }

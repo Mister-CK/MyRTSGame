@@ -10,14 +10,20 @@ namespace MyRTSGame.Model
         public SawMill() {
             BuildingType = BuildingType.SawMill;
         }
+        
+        public override Resource[] GetRequiredResources()
+        {
+            return new Resource[] { new Resource() { ResourceType = ResourceType.Wood, Quantity = 4 }, new Resource() { ResourceType = ResourceType.Stone, Quantity = 3 } };
+        }
         protected override void Start()
         {
             State = new PlacingState(BuildingType);
             ResourceType[] resourceTypes = new ResourceType[] {ResourceType.Lumber, ResourceType.Wood };
             int[] resourceQuantities = new int[] {0, 0};
             Inventory = InitInventory(resourceTypes, resourceQuantities);
-            InputTypes = new ResourceType[] { ResourceType.Lumber };
+            InputTypesWhenCompleted = new ResourceType[] { ResourceType.Lumber };
             Capacity = 5;
+            HasInput = true;
 
             StartCoroutine(CreateWoodFromLumber());
         }

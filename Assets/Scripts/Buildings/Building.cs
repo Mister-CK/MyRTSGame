@@ -8,11 +8,13 @@ namespace MyRTSGame.Model
 
     public abstract class Building : MonoBehaviour, ISelectable
     {
+        public bool HasInput = false;
         private SelectionManager _selectionManager;
-
+        public abstract Resource[] GetRequiredResources();
         protected IBuildingState State;
         public BuildingType BuildingType { get; protected set; }
-        protected ResourceType[] InputTypes = Array.Empty<ResourceType>();
+        public ResourceType[] InputTypes { get; set; }
+        public ResourceType[] InputTypesWhenCompleted { get; set; }
         protected Resource[] Inventory;
         protected int Capacity = 999;
         public BoxCollider BCollider { get; private set; }
@@ -96,6 +98,10 @@ namespace MyRTSGame.Model
             foreach(Resource resource in Inventory) {
                 if (resource.ResourceType == resourceType) {
                     resource.Quantity += quantity;
+                    if (State is FoundationState)
+                    {
+                        ((FoundationState)State).CheckRequiredResources(this);
+                    }
                     return;
                 }
             }
@@ -146,11 +152,6 @@ namespace MyRTSGame.Model
             {
                 AddResource(resource.ResourceType, resource.Quantity);
             }
-        }
-
-        public ResourceType[] GetInputTypes()
-        {
-            return InputTypes;
         }
 
         public int GetCapacity() {

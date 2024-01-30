@@ -11,6 +11,12 @@ namespace MyRTSGame.Model
         {
             BuildingType = BuildingType.LumberJack;
         }
+        
+        public override Resource[] GetRequiredResources()
+        {
+            return new Resource[] { new Resource() { ResourceType = ResourceType.Wood, Quantity = 3 }, new Resource() { ResourceType = ResourceType.Stone, Quantity = 2 } };
+        }
+        
         protected override void Start()
         {
             State = new PlacingState(BuildingType);
