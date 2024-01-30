@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/Buildings/StoneQuarry.cs" />
+    <Compile Include="Assets/Scripts/UI/UIDeleteButton.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobQueue.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Assets/Scripts/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/Villagers/VillagerChild.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/SelectionManager.cs" />
     <Compile Include="Assets/Scripts/Villagers/VillagerList.cs" />

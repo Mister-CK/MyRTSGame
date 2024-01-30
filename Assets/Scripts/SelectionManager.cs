@@ -4,12 +4,14 @@ using MyRTSGame.Interface;
 using MyRTSGame.Model;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectionManager: MonoBehaviour
 {
     public static SelectionManager Instance;
-    private ISelectable CurrentSelectedObject { get; set; }
+    public ISelectable CurrentSelectedObject { get; private set; }
     
+    [SerializeField] private Button deleteButton;
     [SerializeField] private TextMeshProUGUI textComponent;
 
     private void Awake()
@@ -35,6 +37,10 @@ public class SelectionManager: MonoBehaviour
 
         CurrentSelectedObject = newObject;
     }
+    private void SetDeleteButton(bool show)
+    {
+        deleteButton.gameObject.SetActive(show);
+    }
     
     private void Update()
     {
@@ -46,6 +52,7 @@ public class SelectionManager: MonoBehaviour
         if (CurrentSelectedObject == null)
         {
             textComponent.text = "";
+            SetDeleteButton(false);
             return;
         }
         if (CurrentSelectedObject is Building building)
@@ -56,6 +63,7 @@ public class SelectionManager: MonoBehaviour
                        GetTextForInputTypes(building.InputTypes) + "\n" +
                        building.GetCapacity();
             textComponent.text = text;
+            SetDeleteButton(true);
             return;
         }
         

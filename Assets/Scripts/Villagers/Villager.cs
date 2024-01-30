@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
 
         private NavMeshAgent _agent;
         private bool _hasDestination;
-        private bool _hasResource;
+        private bool _hasResource = false;
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1};
         private Building _destination;
         private JobQueue _jobQueue;
@@ -90,7 +90,7 @@ namespace MyRTSGame.Model
 
         private void SetDestination()
         {
-            if (_hasResource)
+            if (!_hasResource)
             {
                 PerformNextJob();
                 return;

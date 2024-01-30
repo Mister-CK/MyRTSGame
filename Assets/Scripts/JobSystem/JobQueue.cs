@@ -31,6 +31,11 @@ namespace MyRTSGame.Model
             _jobs.RemoveAt(0);
             return job;
         }
+        
+        public IEnumerable<Job> GetJobs()
+        {
+            return _jobs;
+        }
     }
 
 }
