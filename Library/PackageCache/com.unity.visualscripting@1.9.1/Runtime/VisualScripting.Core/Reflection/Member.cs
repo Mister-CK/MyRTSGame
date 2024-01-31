@@ -735,7 +735,7 @@ namespace Unity.VisualScripting
 
             // Exclude static constructors (type initializers) because calling them
             // is always a violation of types expecting it to be called only once.
-            // http://stackoverflow.com/a/2524938
+            // https://stackoverflow.com/a/2524938
             _constructorInfo = candidates.OfType<ConstructorInfo>().Where(c => !c.IsStatic).Disambiguate(targetType, parameterTypes);
 
             if (_constructorInfo == null)

@@ -227,7 +227,7 @@ https://www.plasticscm.com/download/help/securityguide
     --^coparent          針對要新增項目的上層執行簽出。
     --^filetypes         要使用的檔案類型檔案。如需詳細資訊，
                         請查看以下連結：
-                        http://blog.plasticscm.com/2008/03/custom-file-types.html
+                        https://blog.plasticscm.com/2008/03/custom-file-types.html
     --^noinfo            不列印進度資訊。
     --^format            以指定的格式擷取輸出訊息。如需詳細資訊，
                         請查看範例。
@@ -370,7 +370,7 @@ https://www.plasticscm.com/download/help/securityguide
     --^dateformat    設定輸出格式以列印日期。
     --^encoding      指定輸出編碼，例如：utf-8。
                     請參閱 MSDN 文件 (網址為 
-                    http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                    https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                     )，以取得可支援之編碼及其格式的表格 
                     (在頁尾的 [名稱] 欄中)。
     --^stats         顯示統計資料資訊。
@@ -1177,7 +1177,7 @@ https://www.plasticscm.com/download/help/securityguide
 
     cm ^trigger ^edit ^after-setselector 6 --^name="Backup2 管理員" --^script="/new/path/al/script"
     cm ^tr ^edit ^before-mklabel 7 --^position=4 --^server=myserver:8084
-    cm ^trigger ^edit ^after-add 2 --^script="^webtrigger http://myserver.org/api"
+    cm ^trigger ^edit ^after-add 2 --^script="^webtrigger https://myserver.org/api"
 
 == CMD_DESCRIPTION_CODEREVIEW ==
 建立、編輯或刪除程式碼檢閱。
@@ -1397,7 +1397,7 @@ https://www.plasticscm.com/download/help/securityguide
                         差異內容。
     --^encoding          指定輸出編碼，例如：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
     --^ignore            設定指定的比較方法。
@@ -1510,7 +1510,7 @@ https://www.plasticscm.com/download/help/securityguide
                       詳細資訊，請參閱備註。
     --^encoding        指定輸出編碼，例如：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
     --^ignore          設定指定的比較方法。
@@ -1700,7 +1700,7 @@ https://www.plasticscm.com/download/help/securityguide
                         套用至目標。
     --^encoding          指定輸出編碼，例如：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
 
@@ -1850,7 +1850,7 @@ https://www.plasticscm.com/download/help/securityguide
     --^xml               將 XML 格式的輸出列印至標準輸出。
     --^encoding          指定輸出編碼，例如：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
 
@@ -2614,7 +2614,7 @@ Jira 參數 (皆為強制):
     --^encoding          與 '--^xml' 選項搭配使用，指定要在
                         XML 輸出中使用的編碼，亦即：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
     --^fullpaths, --^fp   如果可能，會強制列印檔案和目錄的
@@ -2741,7 +2741,7 @@ Jira 參數 (皆為強制):
     --^encoding          與 '--^xml' 選項搭配使用，指定要在
                         XML 輸出中使用的編碼，亦即：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
 
@@ -3384,7 +3384,7 @@ Jira 參數 (皆為強制):
     --^encoding          指定要用於輸出的編碼，
                         例如：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
     --^format            以指定的格式擷取輸出訊息。如需
@@ -3704,7 +3704,7 @@ Jira 參數 (皆為強制):
     (只有當標籤名稱以 'LB' 為開頭，且建立所在儲存庫名為
     'myRep' 時，這個觸發器才會執行。)
 
-    cm ^tr ^mk ^after-checkin NotifyTeam "^webtrigger http://myserver.org/api"
+    cm ^tr ^mk ^after-checkin NotifyTeam "^webtrigger https://myserver.org/api"
 
 == CMD_DESCRIPTION_MOVE ==
 移動或重新命名檔案或目錄。
@@ -4692,8 +4692,8 @@ Jira 參數 (皆為強制):
 重要：
 
     這個命令需要使用差異比對 (Diff) 和修補 (Patch) 工具，公開提供於 
-    http://gnuwin32.sourceforge.net/packages/patch.htm 和
-    http://gnuwin32.sourceforge.net/packages/diffutils.htm
+    https://gnuwin32.sourceforge.net/packages/patch.htm 和
+    https://gnuwin32.sourceforge.net/packages/diffutils.htm
 
     安裝完成之後，建議在 PATH 環境變數中
     新增其路徑。
@@ -5438,7 +5438,7 @@ Jira 參數 (皆為強制):
     --^encoding          與 '--^xml' 選項搭配使用，指定要在
                         XML 輸出中使用的編碼，亦即：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
 
@@ -5822,7 +5822,7 @@ Jira 參數 (皆為強制):
                         擱置集。
     --^encoding          指定輸出編碼，例如：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
     --^comparisonmethod  設定比較方法。如需詳細資訊，請參閱備註。
@@ -5992,7 +5992,7 @@ Jira 參數 (皆為強制):
     --^mount             指定儲存庫的裝載點。
     --^encoding          指定輸出編碼，例如：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
     --^comparisonmethod  設定比較方法。如需詳細資訊，請參閱備註。
@@ -6633,7 +6633,7 @@ Jira 參數 (皆為強制):
       --^encoding        與 '--^xml' 選項搭配使用，指定要在
                         XML 輸出中使用的編碼，亦即：utf-8。
                         請參閱 MSDN 文件 (網址為 
-                        http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                        https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                         )，以取得可支援之編碼及其格式的表格 
                         (在頁尾的 [名稱] 欄中)。
 
@@ -7478,7 +7478,7 @@ Jira 參數 (皆為強制):
     --^encoding              與 --^xml 選項搭配使用，指定要在 XML 輸出中
                             使用的編碼，亦即：utf-8。
                             請參閱 MSDN 文件 (網址為 
-                            http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                            https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                             )，以取得可支援之編碼及其格式的表格 
                             (在頁尾的 [名稱] 欄中)。
     --^machinereadable       以易於剖析的格式輸出結果。
@@ -7802,7 +7802,7 @@ Jira 參數 (皆為強制):
     --^encoding            與 --^xml 選項搭配使用，指定要在 XML 輸出中
                           使用的編碼，亦即：utf-8。
                           請參閱 MSDN 文件 (網址為 
-                          http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
+                          https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx
                           )，以取得可支援之編碼及其格式的表格 
                           (在頁尾的 [名稱] 欄中)。
      --^wrp                列印工作區根目錄相對路徑，而非

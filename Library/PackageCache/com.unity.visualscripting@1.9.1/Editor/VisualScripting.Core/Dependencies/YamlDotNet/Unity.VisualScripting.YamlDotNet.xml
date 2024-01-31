@@ -1187,7 +1187,7 @@
         </member>
         <member name="T:YamlDotNet.Core.MergingParser">
             <summary>
-            Simple implementation of <see cref="T:YamlDotNet.Core.IParser"/> that implements merging: http://yaml.org/type/merge.html
+            Simple implementation of <see cref="T:YamlDotNet.Core.IParser"/> that implements merging: https://yaml.org/type/merge.html
             </summary>
         </member>
         <member name="T:YamlDotNet.Core.Parser">

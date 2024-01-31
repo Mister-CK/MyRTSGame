@@ -13,20 +13,20 @@ namespace MyRTSGame.Model
 
         private NavMeshAgent _agent;
         private bool _hasDestination;
-        private bool _hasResource = false;
+        private bool _hasResource;
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1};
         private Building _destination;
         private JobQueue _jobQueue;
 
         void Awake()
         {
-            _selectionManager = SelectionManager.Instance;
-            _agent = GetComponent<NavMeshAgent>();
+            _agent = GetComponentInChildren<NavMeshAgent>();
             _jobQueue = JobQueue.GetInstance();
         }
 
         private void Start()
         {
+            _selectionManager = SelectionManager.Instance;
             _buildingList = BuildingList.Instance;
         }
 
@@ -39,12 +39,8 @@ namespace MyRTSGame.Model
                 SetDestination();
             }
         }
-
+        
         public void HandleClick()
-        {
-            OnClick();
-        }
-        private void OnClick()
         {
             _selectionManager.SelectObject(this);
         }
