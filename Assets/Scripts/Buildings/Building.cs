@@ -52,7 +52,12 @@ namespace MyRTSGame.Model
         }
         private void OnClick()
         {
-            State.OnClick(this);
+            if (GetState() is FoundationState foundationState)
+            {
+                foundationState.OnClick(this);
+
+            }
+
             _selectionManager.SelectObject(this);
         }
 

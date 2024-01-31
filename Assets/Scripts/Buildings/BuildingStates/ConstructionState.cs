@@ -10,10 +10,6 @@ public class ConstructionState : IBuildingState
     {
         _buildingType = buildingType;
     }
-    public void OnClick(Building building)
-    {
-        // building.SetState(new CompletedState(_buildingType)); turned off for now
-    }
 
     public void SetObject(Building building)
     {

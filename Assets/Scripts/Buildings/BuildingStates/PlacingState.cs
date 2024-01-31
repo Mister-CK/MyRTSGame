@@ -1,5 +1,6 @@
 using MyRTSGame.Model;
 using MyRTSGame.Interface;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class PlacingState : IBuildingState
@@ -8,18 +9,10 @@ public class PlacingState : IBuildingState
     private readonly BuildingType _buildingType;
     private readonly SelectionManager _selectionManager = SelectionManager.Instance;
     private Building _currentBuilding;
-
+    
     public PlacingState(BuildingType buildingType)
     {
         _buildingType = buildingType;
-    }
-
-    public void OnClick(Building building)
-    {
-        if (building.Material.color == Color.green)
-        {
-            building.SetState(new FoundationState(_buildingType));
-        }    
     }
 
     public void SetObject(Building building)
@@ -39,14 +32,8 @@ public class PlacingState : IBuildingState
     {
         var boxSize = building.BCollider.size;
         var boxCenter = building.transform.position + building.BCollider.center;
-
         var colliders = Physics.OverlapBox(boxCenter, boxSize / 2, building.transform.rotation);
-        foreach (var collider in colliders)
-        {
-            Debug.Log(collider);
-            Debug.Log(collider.name);
 
-        }
         if (building.Material != null)
         {
             building.Material.color = colliders.Length > 2 ? Color.red : Color.green; // 2 because the building itself and the ground are also included

@@ -13,11 +13,6 @@ public class CompletedState : IBuildingState
         _buildingType = buildingType;
     }
 
-    public void OnClick(Building building)
-    {
-        // Handle click when in CompletedState
-    }
-
     public void SetObject(Building building)
     {
         var completedObject = _buildingManager.CompletedObjects[_buildingType];

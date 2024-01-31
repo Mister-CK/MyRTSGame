@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using MyRTSGame.Model;
+using Unity.AI.Navigation;
 
 public class BuildingPlacer : MonoBehaviour
 {
-    private bool _isPlacing = false;
+    private bool _isPlacing;
     private Building _building;
+    [SerializeField] private NavMeshSurface navMeshSurface;
 
 
     public void StartPlacingBuildingFoundation(Building buildingPrefab)
@@ -18,6 +20,9 @@ public class BuildingPlacer : MonoBehaviour
     {
         if (_isPlacing)
         {
+            PlacingState placingState = (PlacingState)_building.GetState();
+            placingState.CheckOverlap(_building);
+            
             // Create a ray from the camera going through the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -38,8 +43,13 @@ public class BuildingPlacer : MonoBehaviour
             // If the mouse button is clicked, place the building
             if (Input.GetMouseButtonDown(0))
             {
-                _isPlacing = false;
-                _building.SetState(new FoundationState(_building.BuildingType));
+                if (_building.Material.color == Color.green)
+                {
+                    _isPlacing = false;
+                    _building.SetState(new FoundationState(_building.BuildingType));
+                    navMeshSurface.BuildNavMesh();
+                }    
+
             }
             
             // If the right mouse button is clicked, cancel the placement

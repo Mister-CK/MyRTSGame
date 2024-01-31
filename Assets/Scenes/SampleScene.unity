@@ -2846,6 +2846,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingPlacer
       objectReference: {fileID: 0}
+    - target: {fileID: 7755465208157846515, guid: 2992a9e33511345ae8bf844737f7607b, type: 3}
+      propertyPath: navMeshSurface
+      value: 
+      objectReference: {fileID: 1048523068}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2862,6 +2866,14 @@ PrefabInstance:
     - target: {fileID: 1294986029055520071, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_Name
       value: Villager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461457919024092144, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461457919024092144, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5733082183098548242, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
