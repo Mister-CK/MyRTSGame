@@ -10,7 +10,7 @@ namespace MyRTSGame.Model
     {
         private SelectionManager _selectionManager;
         private BuildingList _buildingList;
-
+        private Job _currentJob;
         private NavMeshAgent _agent;
         private bool _hasDestination;
         private bool _hasResource;
@@ -74,12 +74,12 @@ namespace MyRTSGame.Model
 
         private void PerformNextJob()
         {
-            var job = _jobQueue.GetNextJob();
-            if (job == null) {
+            _currentJob = _jobQueue.GetNextJob();
+            if (_currentJob == null) {
                 return;
             }
-            _destination = job.Destination;
-            _resource.ResourceType = job.ResourceType;
+            _destination = _currentJob.Destination;
+            _resource.ResourceType = _currentJob.ResourceType;
             _agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
         }
@@ -133,6 +133,9 @@ namespace MyRTSGame.Model
             _hasDestination = true;
 
         }
-        
+        public Job GetCurrentJob()
+        {
+            return _currentJob;
+        }
     }
 }

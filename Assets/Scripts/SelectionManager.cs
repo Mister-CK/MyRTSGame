@@ -67,7 +67,20 @@ public class SelectionManager: MonoBehaviour
         
         if (CurrentSelectedObject is Villager villager)
         {
-            textComponent.text = "Villager";
+            var text = "";
+            text += "Villager" + "\n";
+            var job = villager.GetCurrentJob();
+            if (job != null)
+            {
+                text += job.Destination + " " + job.ResourceType + "\n";
+            }
+            else
+            {
+                text += "No job" + "\n";
+            }
+            textComponent.text = text;
+            SetDeleteButton(true);
+
             return;
         }
     }
