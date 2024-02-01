@@ -1,5 +1,6 @@
 ﻿using MyRTSGame.Model;
 using MyRTSGame.Interface;
+using UnityEngine;
 
 public class ConstructionState : IBuildingState
 {
@@ -16,6 +17,5 @@ public class ConstructionState : IBuildingState
         building.SetObject(_buildingManager.FoundationObjects[_buildingType]);
         building.BCollider.size = _buildingManager.FoundationObjects[_buildingType].transform.localScale;
         building.BCollider.center = _buildingManager.FoundationObjects[_buildingType].transform.localScale / 2;
-        building.SetState(new CompletedState(_buildingType));; // immediately transition to completed state
     }
 }

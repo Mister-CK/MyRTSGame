@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
         private SelectionManager _selectionManager;
         public abstract Resource[] GetRequiredResources();
         protected IBuildingState State;
-        public BuildingType BuildingType { get; protected set; }
+        public BuildingType BuildingType { get; set; }
         public ResourceType[] InputTypes { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         protected Resource[] Inventory;
@@ -21,7 +21,7 @@ namespace MyRTSGame.Model
         public BoxCollider BCollider { get; private set; }
         private GameObject _buildingObject;
         private JobQueue _jobQueue;
-        
+
         void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -69,7 +69,15 @@ namespace MyRTSGame.Model
         public void SetState(IBuildingState newState)
         {
             State = newState;
+            
+            // immediately transition to completed state
+            if (State is ConstructionState)
+            {
+                State = new CompletedState(BuildingType);
+            }
             State.SetObject(this);
+
+            
             if (State is CompletedState)
             {
                 StartResourceCreationCoroutine();
@@ -131,7 +139,7 @@ namespace MyRTSGame.Model
 
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
-            foreach (Resource resource in Inventory)
+            foreach (var resource in Inventory)
             {
                 if (resource.ResourceType == resourceType)
                 {
@@ -142,17 +150,17 @@ namespace MyRTSGame.Model
             throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
         }
 
-        public bool CheckHasOutput()
-        {
-            foreach (Resource resource in Inventory)
-            {
-                if (resource.Quantity > 0)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        // public bool CheckHasOutput()
+        // {
+        //     foreach (Resource resource in Inventory)
+        //     {
+        //         if (resource.Quantity > 0)
+        //         {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
 
         protected void CreateJob(Job job)
         {

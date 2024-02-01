@@ -13,6 +13,7 @@ public class BuildingPlacer : MonoBehaviour
     {
         _isPlacing = true;
         _building = Instantiate(buildingPrefab);
+        _building.BuildingType = buildingPrefab.BuildingType;
         _building.SetState(new PlacingState(_building.BuildingType));
     }
 

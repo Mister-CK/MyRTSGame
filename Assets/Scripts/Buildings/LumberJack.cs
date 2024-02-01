@@ -14,14 +14,14 @@ namespace MyRTSGame.Model
         
         public override Resource[] GetRequiredResources()
         {
-            return new Resource[] { new Resource() { ResourceType = ResourceType.Wood, Quantity = 3 }, new Resource() { ResourceType = ResourceType.Stone, Quantity = 2 } };
+            return new Resource[] { new() { ResourceType = ResourceType.Wood, Quantity = 3 }, new() { ResourceType = ResourceType.Stone, Quantity = 2 } };
         }
         
         protected override void Start()
         {
             State = new PlacingState(BuildingType);
-            ResourceType[] resourceTypes = new ResourceType[] { ResourceType.Lumber };
-            int[] resourceQuantities = new int[] { 0};
+            var resourceTypes = new ResourceType[] { ResourceType.Lumber };
+            var resourceQuantities = new int[] {0};
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             Capacity = 5;
         }
