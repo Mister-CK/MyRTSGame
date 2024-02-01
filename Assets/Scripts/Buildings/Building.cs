@@ -9,7 +9,6 @@ namespace MyRTSGame.Model
         public bool HasInput;
         private GameObject _buildingObject;
         private JobQueue _jobQueue;
-        private SelectionManager _selectionManager;
         protected int Capacity = 999;
         protected Resource[] Inventory;
         protected IBuildingState State;
@@ -18,7 +17,8 @@ namespace MyRTSGame.Model
         public ResourceType[] InputTypes { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
-        private BuildingList _buildingList;
+        protected BuildingList _buildingList;
+        protected SelectionManager _selectionManager;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -32,13 +32,14 @@ namespace MyRTSGame.Model
 
         protected virtual void Start()
         {
+            _buildingList = BuildingList.Instance; 
+            _selectionManager = SelectionManager.Instance;
             State = new PlacingState(BuildingType);
         }
 
         private void Update()
         {
-            _buildingList = BuildingList.Instance; // should be in start, but start is virtual here
-            _selectionManager = SelectionManager.Instance; // should be in start, but start is virtual here
+
 
             if (State is PlacingState placingState) placingState.CheckOverlap(this);
         }

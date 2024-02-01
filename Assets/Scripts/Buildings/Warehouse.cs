@@ -14,7 +14,8 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
-            _buildingList = BuildingList.Instance;
+            _buildingList = BuildingList.Instance; 
+            _selectionManager = SelectionManager.Instance;            
             State = new PlacingState(BuildingType);
             var resourceTypes = new[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood };
             if (_buildingList.GetFirstWareHouse())

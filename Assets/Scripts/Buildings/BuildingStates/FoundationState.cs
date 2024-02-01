@@ -32,7 +32,6 @@ namespace MyRTSGame.Model
 
         public void CheckRequiredResources(Building building)
         {
-            Debug.Log("checking resources");
             var requiredResources = building.GetRequiredResources();
             var inventory = building.GetInventory();
 
