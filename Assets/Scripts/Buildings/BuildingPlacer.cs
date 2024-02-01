@@ -1,64 +1,63 @@
-﻿using UnityEngine;
-using MyRTSGame.Model;
-using Unity.AI.Navigation;
+﻿using Unity.AI.Navigation;
+using UnityEngine;
 
-public class BuildingPlacer : MonoBehaviour
+namespace MyRTSGame.Model
 {
-    private bool _isPlacing;
-    private Building _building;
-    [SerializeField] private NavMeshSurface navMeshSurface;
-
-
-    public void StartPlacingBuildingFoundation(Building buildingPrefab)
+    public class BuildingPlacer : MonoBehaviour
     {
-        _isPlacing = true;
-        _building = Instantiate(buildingPrefab);
-        _building.BuildingType = buildingPrefab.BuildingType;
-        _building.SetState(new PlacingState(_building.BuildingType));
-    }
+        [SerializeField] private NavMeshSurface navMeshSurface;
+        private Building _building;
+        private bool _isPlacing;
 
-    void Update()
-    {
-        if (_isPlacing)
+        private void Update()
         {
-            PlacingState placingState = (PlacingState)_building.GetState();
-            placingState.CheckOverlap(_building);
-            
-            // Create a ray from the camera going through the mouse position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            // Perform the raycast
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (_isPlacing)
             {
-                // Define the size of the grid
-                float gridSize = 1.0f;
+                var placingState = (PlacingState)_building.GetState();
+                placingState.CheckOverlap(_building);
 
-                // Round the x and z coordinates to the nearest grid size
-                float x = Mathf.Round(hit.point.x / gridSize) * gridSize;
-                float z = Mathf.Round(hit.point.z / gridSize) * gridSize;
+                // Create a ray from the camera going through the mouse position
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                // If the ray hits something, move the building to the grid intersection
-                _building.transform.position = new Vector3(x, 0, z);
-            }
+                // Perform the raycast
+                if (Physics.Raycast(ray, out var hit))
+                {
+                    // Define the size of the grid
+                    var gridSize = 1.0f;
 
-            // If the mouse button is clicked, place the building
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (_building.Material.color == Color.green)
+                    // Round the x and z coordinates to the nearest grid size
+                    var x = Mathf.Round(hit.point.x / gridSize) * gridSize;
+                    var z = Mathf.Round(hit.point.z / gridSize) * gridSize;
+
+                    // If the ray hits something, move the building to the grid intersection
+                    _building.transform.position = new Vector3(x, 0, z);
+                }
+
+                // If the mouse button is clicked, place the building
+                if (Input.GetMouseButtonDown(0))
+                    if (_building.Material.color == Color.green)
+                    {
+                        _isPlacing = false;
+                        _building.SetState(new FoundationState(_building.BuildingType));
+                        navMeshSurface.BuildNavMesh();
+                    }
+
+                // If the right mouse button is clicked, cancel the placement
+                if (Input.GetMouseButtonDown(1))
                 {
                     _isPlacing = false;
-                    _building.SetState(new FoundationState(_building.BuildingType));
-                    navMeshSurface.BuildNavMesh();
-                }    
+                    Destroy(_building.gameObject);
+                }
+            }
+        }
 
-            }
-            
-            // If the right mouse button is clicked, cancel the placement
-            if (Input.GetMouseButtonDown(1))
-            {
-                _isPlacing = false;
-                Destroy(_building.gameObject);
-            }
+
+        public void StartPlacingBuildingFoundation(Building buildingPrefab)
+        {
+            _isPlacing = true;
+            _building = Instantiate(buildingPrefab);
+            _building.BuildingType = buildingPrefab.BuildingType;
+            _building.SetState(new PlacingState(_building.BuildingType));
         }
     }
 }

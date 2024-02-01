@@ -1,16 +1,10 @@
 ﻿using System.Collections.Generic;
-using MyRTSGame.Model;
 using UnityEngine;
+
 namespace MyRTSGame.Model
 {
     public class BuildingManager : MonoBehaviour
     {
-        public static BuildingManager Instance { get; private set; }
-
-
-        public Dictionary<BuildingType, GameObject> FoundationObjects;
-        public Dictionary<BuildingType, GameObject> CompletedObjects;
-
         //foundations
         [SerializeField] private GameObject warehouseFoundation;
         [SerializeField] private GameObject stoneQuarryFoundation;
@@ -23,21 +17,22 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject stoneQuarryCompleted;
         [SerializeField] private GameObject lumberJackCompleted;
         [SerializeField] private GameObject sawMillCompleted;
+        public Dictionary<BuildingType, GameObject> CompletedObjects;
+
+
+        public Dictionary<BuildingType, GameObject> FoundationObjects;
+        public static BuildingManager Instance { get; private set; }
 
         private void Awake()
         {
             // Ensure there is only one instance of BuildingManager
             if (Instance == null)
-            {
                 Instance = this;
-            }
             else
-            {
                 Destroy(gameObject);
-            }
         }
 
-        void Start()
+        private void Start()
         {
             FoundationObjects = new Dictionary<BuildingType, GameObject>();
             CompletedObjects = new Dictionary<BuildingType, GameObject>();

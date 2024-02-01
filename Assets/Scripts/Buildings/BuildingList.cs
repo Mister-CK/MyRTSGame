@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 namespace MyRTSGame.Model
 {
     public class BuildingList : MonoBehaviour
     {
-        public static BuildingList Instance { get; private set; }
-
         // [SerializeField] private TextMeshProUGUI textComponent;
         private List<Building> _buildings;
+        public static BuildingList Instance { get; private set; }
 
         private void Awake()
         {
@@ -50,7 +48,8 @@ namespace MyRTSGame.Model
         //     return inventoryText;
         // }
 
-        public List<Building> GetBuildings() {
+        public List<Building> GetBuildings()
+        {
             return _buildings;
         }
 

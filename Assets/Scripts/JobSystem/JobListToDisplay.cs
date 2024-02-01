@@ -1,20 +1,25 @@
-using UnityEngine;
-using MyRTSGame.Model;
 using System.Linq;
 using TMPro;
+using UnityEngine;
 
-public class JobListDisplay : MonoBehaviour
+namespace MyRTSGame.Model
 {
-    [SerializeField] private TextMeshProUGUI jobListText; 
-    private JobQueue _jobQueue;
-    void Awake()
+    public class JobListDisplay : MonoBehaviour
     {
-        _jobQueue = JobQueue.GetInstance();
-    }
-    void Update()
-    {
-        var jobs = _jobQueue.GetJobs();
+        [SerializeField] private TextMeshProUGUI jobListText;
+        private JobQueue _jobQueue;
 
-        jobListText.text = string.Join("\n", jobs.Select(job => job.ResourceType + " " + job.Destination.BuildingType));
+        private void Awake()
+        {
+            _jobQueue = JobQueue.GetInstance();
+        }
+
+        private void Update()
+        {
+            var jobs = _jobQueue.GetJobs();
+
+            jobListText.text = string.Join("\n",
+                jobs.Select(job => job.ResourceType + " " + job.Destination.BuildingType));
+        }
     }
 }

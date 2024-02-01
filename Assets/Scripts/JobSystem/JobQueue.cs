@@ -26,16 +26,15 @@ namespace MyRTSGame.Model
         public Job GetNextJob()
         {
             if (_jobs.Count <= 0) return null;
-            
+
             var job = _jobs[0];
             _jobs.RemoveAt(0);
             return job;
         }
-        
+
         public IEnumerable<Job> GetJobs()
         {
             return _jobs;
         }
     }
-
 }

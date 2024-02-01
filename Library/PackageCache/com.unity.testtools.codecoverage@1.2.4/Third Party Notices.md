@@ -22,8 +22,8 @@ License Type: **MIT**
 Copyright (c) 2011-2019 Shaun Wilde
 
 OpenCover is released under the following MIT compatible software licence
-this does not apply to any other software, be that source code, compiled 
-libraries or tools, that OpenCover may rely on or use and that that software 
+this does not apply to any other software, be that source code, compiled
+libraries or tools, that OpenCover may rely on or use and that that software
 will continue to retain whatever licence they were released under.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -109,7 +109,7 @@ For further details visit https://github.com/jbevain/mono.reflection/tree/master
 
 ---------
 
-Component Name: **SixLabors.Fonts**, **SixLabors.ImageSharp** 
+Component Name: **SixLabors.Fonts**, **SixLabors.ImageSharp**
 
 License Type: **Apache 2.0**
 

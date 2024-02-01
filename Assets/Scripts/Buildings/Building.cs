@@ -1,62 +1,56 @@
 using System;
-using UnityEngine;
-using MyRTSGame.Interface;
 using Unity.VisualScripting;
+using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-
     public abstract class Building : MonoBehaviour, ISelectable
     {
-        public Material Material { get; set; }
-        public bool HasInput = false;
+        public bool HasInput;
+        private GameObject _buildingObject;
+        private JobQueue _jobQueue;
         private SelectionManager _selectionManager;
-        public abstract Resource[] GetRequiredResources();
+        protected int Capacity = 999;
+        protected Resource[] Inventory;
         protected IBuildingState State;
+        public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
         public ResourceType[] InputTypes { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
-        protected Resource[] Inventory;
-        protected int Capacity = 999;
         public BoxCollider BCollider { get; private set; }
-        private GameObject _buildingObject;
-        private JobQueue _jobQueue;
 
-        void Awake()
+        private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
             BCollider.size = new Vector3(3, 3, 3);
             _jobQueue = JobQueue.GetInstance();
-            ResourceType[] resourceTypes = new ResourceType[0];
-            int[] resourceQuantities = new int[0];
+            var resourceTypes = new ResourceType[0];
+            var resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
         }
-        
-        void Update()
-        {
-            _selectionManager = SelectionManager.Instance;
-            if (State is PlacingState placingState)
-            {
-                placingState.CheckOverlap(this);
-            }
-        }
-        
+
         protected virtual void Start()
         {
             State = new PlacingState(BuildingType);
         }
+
+        private void Update()
+        {
+            _selectionManager = SelectionManager.Instance;
+            if (State is PlacingState placingState) placingState.CheckOverlap(this);
+        }
+
         public void OnMouseDown()
         {
             OnClick();
         }
+
+        public abstract Resource[] GetRequiredResources();
+
         private void OnClick()
         {
-            if (GetState() is FoundationState foundationState)
-            {
-                foundationState.OnClick(this);
-
-            }
+            if (GetState() is FoundationState foundationState) foundationState.OnClick(this);
 
             _selectionManager.SelectObject(this);
         }
@@ -65,25 +59,19 @@ namespace MyRTSGame.Model
         {
             // This method can be overridden in derived classes to start the specific coroutine for each building type.
         }
-        
+
         public void SetState(IBuildingState newState)
         {
             State = newState;
-            
+
             // immediately transition to completed state
-            if (State is ConstructionState)
-            {
-                State = new CompletedState(BuildingType);
-            }
+            if (State is ConstructionState) State = new CompletedState(BuildingType);
             State.SetObject(this);
 
-            
-            if (State is CompletedState)
-            {
-                StartResourceCreationCoroutine();
-            }
+
+            if (State is CompletedState) StartResourceCreationCoroutine();
         }
-        
+
         public IBuildingState GetState()
         {
             return State;
@@ -91,30 +79,24 @@ namespace MyRTSGame.Model
 
         public void SetObject(GameObject newObject)
         {
-            if (_buildingObject != null)
-            {
-                Destroy(_buildingObject);
-            }
-            _buildingObject = Instantiate(newObject, transform.position + newObject.transform.position, Quaternion.identity, transform);
+            if (_buildingObject != null) Destroy(_buildingObject);
+            _buildingObject = Instantiate(newObject, transform.position + newObject.transform.position,
+                Quaternion.identity, transform);
         }
 
         protected static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
             if (types.Length != quantities.Length)
-            {
                 throw new ArgumentException("Types and quantities arrays must have the same length.");
-            }
 
-            Resource[] resources = new Resource[types.Length];
+            var resources = new Resource[types.Length];
 
-            for (int i = 0; i < types.Length; i++)
-            {
-                resources[i] = new Resource()
+            for (var i = 0; i < types.Length; i++)
+                resources[i] = new Resource
                 {
                     ResourceType = types[i],
                     Quantity = quantities[i]
                 };
-            }
 
             return resources;
         }
@@ -122,31 +104,28 @@ namespace MyRTSGame.Model
         public void AddResource(ResourceType resourceType, int quantity)
         {
             Debug.Log("AddResource");
-            foreach(var resource in Inventory) {
+            foreach (var resource in Inventory)
+            {
                 Debug.Log($"res add ${resource.ResourceType}");
                 if (resource.ResourceType != resourceType) continue;
 
                 resource.Quantity += quantity;
-                if (State is FoundationState foundationState)
-                {
-                    foundationState.CheckRequiredResources(this);
-                }
+                if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
                 return;
-                
             }
+
             throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
         }
 
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
             foreach (var resource in Inventory)
-            {
                 if (resource.ResourceType == resourceType)
                 {
                     resource.Quantity -= quantity;
                     return;
                 }
-            }
+
             throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
         }
 
@@ -167,23 +146,20 @@ namespace MyRTSGame.Model
             _jobQueue.AddJob(job);
         }
 
-        public Resource[] GetInventory() {
+        public Resource[] GetInventory()
+        {
             return Inventory;
         }
 
-        protected void TransmuteResource(Resource[] input, Resource[] output) {
-            foreach (Resource resource in input)
-            {
-                RemoveResource(resource.ResourceType, resource.Quantity);
-            }
+        protected void TransmuteResource(Resource[] input, Resource[] output)
+        {
+            foreach (var resource in input) RemoveResource(resource.ResourceType, resource.Quantity);
 
-            foreach (Resource resource in output)
-            {
-                AddResource(resource.ResourceType, resource.Quantity);
-            }
+            foreach (var resource in output) AddResource(resource.ResourceType, resource.Quantity);
         }
 
-        public int GetCapacity() {
+        public int GetCapacity()
+        {
             return Capacity;
         }
     }

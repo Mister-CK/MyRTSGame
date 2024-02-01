@@ -6,4 +6,3 @@
         public ResourceType ResourceType { get; set; }
     }
 }
-

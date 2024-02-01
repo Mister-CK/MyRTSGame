@@ -1,6 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 namespace MyRTSGame.Model
 {
@@ -15,7 +13,7 @@ namespace MyRTSGame.Model
 
         public Villager[] GetVillagers()
         {
-            return this._villagers;
+            return _villagers;
         }
     }
 }

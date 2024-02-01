@@ -10,7 +10,7 @@
     margin-left: 0px;
 }
 
-.organization-left{
+.organization-left {
     flex: auto;
     margin-top: 3px;
 }
@@ -23,6 +23,6 @@
     background-color: black;
 }
 
-#joinSingleOrganizationButton{
+#joinSingleOrganizationButton {
     height: 19px;
 }

@@ -11,37 +11,38 @@ namespace MyRTSGame.Model
         {
             BuildingType = BuildingType.LumberJack;
         }
-        
-        public override Resource[] GetRequiredResources()
-        {
-            return new Resource[] { new() { ResourceType = ResourceType.Wood, Quantity = 3 }, new() { ResourceType = ResourceType.Stone, Quantity = 2 } };
-        }
-        
+
         protected override void Start()
         {
             State = new PlacingState(BuildingType);
-            var resourceTypes = new ResourceType[] { ResourceType.Lumber };
-            var resourceQuantities = new int[] {0};
+            var resourceTypes = new[] { ResourceType.Lumber };
+            var resourceQuantities = new[] { 0 };
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             Capacity = 5;
         }
-        
+
+        public override Resource[] GetRequiredResources()
+        {
+            return new Resource[]
+            {
+                new() { ResourceType = ResourceType.Wood, Quantity = 3 },
+                new() { ResourceType = ResourceType.Stone, Quantity = 2 }
+            };
+        }
+
         protected override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateLumber());
         }
-        
+
         private IEnumerator CreateLumber()
         {
             while (true)
             {
                 yield return new WaitForSeconds(5);
-                Resource lumberResource = Array.Find(Inventory, resource => resource.ResourceType == ResourceType.Lumber);
-                if (lumberResource != null && lumberResource.Quantity < Capacity)
-                {
-                    AddResource(ResourceType.Lumber, 1);
-                }
-                CreateJob(new Job() { Destination = this, ResourceType = ResourceType.Lumber});
+                var lumberResource = Array.Find(Inventory, resource => resource.ResourceType == ResourceType.Lumber);
+                if (lumberResource != null && lumberResource.Quantity < Capacity) AddResource(ResourceType.Lumber, 1);
+                CreateJob(new Job { Destination = this, ResourceType = ResourceType.Lumber });
             }
         }
     }

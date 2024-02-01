@@ -1,15 +1,13 @@
-using System;
-using MyRTSGame.Model;
 using UnityEngine;
 
-public class VillagerChild : MonoBehaviour
+namespace MyRTSGame.Model
 {
-    private void OnMouseDown()
+    public class VillagerChild : MonoBehaviour
     {
-        var villager = GetComponentInParent<Villager>();
-        if (villager != null)
+        private void OnMouseDown()
         {
-            villager.HandleClick();
+            var villager = GetComponentInParent<Villager>();
+            if (villager != null) villager.HandleClick();
         }
     }
 }

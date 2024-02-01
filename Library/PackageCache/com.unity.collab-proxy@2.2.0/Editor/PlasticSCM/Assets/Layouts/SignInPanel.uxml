@@ -5,14 +5,14 @@
             <Label name="signUpLabel"/>
         </VisualElement>
         <Button name="unityIDButton" class="sign-in-buttons">
-            <Image name="iconUnity" />
+            <Image name="iconUnity"/>
         </Button>
         <Button name="emailButton" class="sign-in-buttons">
-            <Image name="iconEmail" />
+            <Image name="iconEmail"/>
         </Button>
     </VisualElement>
     <VisualElement class="footer">
-        <Label name="privacyStatementText" />
-        <Button name="privacyStatement" class="anchor" />
+        <Label name="privacyStatementText"/>
+        <Button name="privacyStatement" class="anchor"/>
     </VisualElement>
 </UXML>

@@ -27,6 +27,6 @@
     width: 125px;
 }
 
-#signUpNeededNotificationLabel{
+#signUpNeededNotificationLabel {
     color: red;
 }

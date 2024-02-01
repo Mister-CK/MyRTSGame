@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <UXML
-    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
-    xmlns="UnityEngine.UIElements"
-    xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd"
-    xsi:schemaLocation="UnityEngine.UIElements ../UIElementsSchema/UnityEngine.UIElements.xsd">
+        xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+        xmlns="UnityEngine.UIElements"
+        xsi:noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd"
+        xsi:schemaLocation="UnityEngine.UIElements ../UIElementsSchema/UnityEngine.UIElements.xsd">
     <VisualElement name="loginContainer" class="flex-container main">
         <Label name="signInLabel" class="title"/>
         <TextField name="email"/>

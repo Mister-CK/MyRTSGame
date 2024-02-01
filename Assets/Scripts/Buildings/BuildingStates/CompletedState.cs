@@ -1,25 +1,25 @@
-﻿using MyRTSGame.Model;
-using MyRTSGame.Interface;
-
-public class CompletedState : IBuildingState
+﻿namespace MyRTSGame.Model
 {
-    private readonly BuildingManager _buildingManager = BuildingManager.Instance;
-    private readonly BuildingList _buildingList = BuildingList.Instance;
-
-    private readonly BuildingType _buildingType;
-
-    public CompletedState(BuildingType buildingType)
+    public class CompletedState : IBuildingState
     {
-        _buildingType = buildingType;
-    }
+        private readonly BuildingList _buildingList = BuildingList.Instance;
+        private readonly BuildingManager _buildingManager = BuildingManager.Instance;
 
-    public void SetObject(Building building)
-    {
-        var completedObject = _buildingManager.CompletedObjects[_buildingType];
-        building.SetObject(completedObject);
-        building.BCollider.size = completedObject.transform.localScale;
-        building.BCollider.center = completedObject.transform.localScale / 2;
+        private readonly BuildingType _buildingType;
 
-        building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
+        public CompletedState(BuildingType buildingType)
+        {
+            _buildingType = buildingType;
+        }
+
+        public void SetObject(Building building)
+        {
+            var completedObject = _buildingManager.CompletedObjects[_buildingType];
+            building.SetObject(completedObject);
+            building.BCollider.size = completedObject.transform.localScale;
+            building.BCollider.center = completedObject.transform.localScale / 2;
+
+            building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
+        }
     }
 }

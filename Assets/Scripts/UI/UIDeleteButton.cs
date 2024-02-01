@@ -1,19 +1,21 @@
 using UnityEngine;
-using MyRTSGame.Model;
 
-public class UIDeleteButton : MonoBehaviour
+namespace MyRTSGame.Model
 {
-    private SelectionManager _selectionManager;
-
-    public void OnButtonClick()
+    public class UIDeleteButton : MonoBehaviour
     {
-        _selectionManager = SelectionManager.Instance;
-        var selectedObject = _selectionManager.CurrentSelectedObject;
+        private SelectionManager _selectionManager;
 
-        if (selectedObject is Building selectedBuilding)
+        public void OnButtonClick()
         {
-            Destroy(selectedBuilding.gameObject);
-            _selectionManager.SelectObject(null);
+            _selectionManager = SelectionManager.Instance;
+            var selectedObject = _selectionManager.CurrentSelectedObject;
+
+            if (selectedObject is Building selectedBuilding)
+            {
+                Destroy(selectedBuilding.gameObject);
+                _selectionManager.SelectObject(null);
+            }
         }
     }
 }

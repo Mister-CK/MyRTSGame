@@ -1,7 +1,6 @@
-namespace MyRTSGame.Interface
+namespace MyRTSGame.Model
 {
     public interface ISelectable
     {
-        
     }
 }

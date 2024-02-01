@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using MyRTSGame.Interface;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,17 +6,17 @@ namespace MyRTSGame.Model
 {
     public class Villager : MonoBehaviour, ISelectable
     {
-        private SelectionManager _selectionManager;
+        private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
+        private NavMeshAgent _agent;
         private BuildingList _buildingList;
         private Job _currentJob;
-        private NavMeshAgent _agent;
+        private Building _destination;
         private bool _hasDestination;
         private bool _hasResource;
-        private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1};
-        private Building _destination;
         private JobQueue _jobQueue;
+        private SelectionManager _selectionManager;
 
-        void Awake()
+        private void Awake()
         {
             _agent = GetComponentInChildren<NavMeshAgent>();
             _jobQueue = JobQueue.GetInstance();
@@ -30,33 +28,30 @@ namespace MyRTSGame.Model
             _buildingList = BuildingList.Instance;
         }
 
-        void Update()
+        private void Update()
         {
             if (_hasDestination)
-            {
                 CheckIfDestinationIsReached();
-            } else {
+            else
                 SetDestination();
-            }
         }
-        
+
         public void HandleClick()
         {
             _selectionManager.SelectObject(this);
         }
-        
+
         private void CheckIfDestinationIsReached()
         {
             if (_agent.pathPending) return;
             if (_agent.remainingDistance > _agent.stoppingDistance) return;
             if (_agent.hasPath || _agent.velocity.sqrMagnitude != 0f) return;
-                
-            if (_hasResource) {
+
+            if (_hasResource)
                 DeliverResource(_destination, _resource.ResourceType);
-            } else {
+            else
                 TakeResource(_destination, _resource.ResourceType);
-            }
-            
+
             _hasDestination = false;
         }
 
@@ -75,9 +70,7 @@ namespace MyRTSGame.Model
         private void PerformNextJob()
         {
             _currentJob = _jobQueue.GetNextJob();
-            if (_currentJob == null) {
-                return;
-            }
+            if (_currentJob == null) return;
             _destination = _currentJob.Destination;
             _resource.ResourceType = _currentJob.ResourceType;
             _agent.SetDestination(_destination.transform.position);
@@ -91,9 +84,9 @@ namespace MyRTSGame.Model
                 PerformNextJob();
                 return;
             }
-            
+
             var buildings = _buildingList.GetBuildings();
-            _destination = null; 
+            _destination = null;
             Building warehouse = null;
             var resourceType = _resource.ResourceType;
 
@@ -104,18 +97,13 @@ namespace MyRTSGame.Model
                     warehouse = building;
                     continue;
                 }
+
                 var inputTypes = building.InputTypes;
                 var inventory = building.GetInventory();
 
-                if (Array.IndexOf(inputTypes, resourceType) == -1)
-                {
-                    continue;
-                }
+                if (Array.IndexOf(inputTypes, resourceType) == -1) continue;
                 var resourceInInventory = Array.Find(inventory, res => res.ResourceType == resourceType);
-                if (resourceInInventory != null && resourceInInventory.Quantity >= building.GetCapacity())
-                {
-                    continue;
-                }
+                if (resourceInInventory != null && resourceInInventory.Quantity >= building.GetCapacity()) continue;
                 _destination = building;
                 break;
             }
@@ -124,15 +112,13 @@ namespace MyRTSGame.Model
             if (_destination == null)
             {
                 _destination = warehouse;
-                if (_destination == null)
-                {
-                    throw new Exception("No Destination found");
-                }
+                if (_destination == null) throw new Exception("No Destination found");
             }
+
             _agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
-
         }
+
         public Job GetCurrentJob()
         {
             return _currentJob;

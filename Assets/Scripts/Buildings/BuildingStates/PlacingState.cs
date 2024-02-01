@@ -1,47 +1,45 @@
-using MyRTSGame.Model;
-using MyRTSGame.Interface;
-using Unity.AI.Navigation;
 using UnityEngine;
 
-public class PlacingState : IBuildingState
+namespace MyRTSGame.Model
 {
-    private readonly BuildingManager _buildingManager = BuildingManager.Instance;
-    private readonly BuildingType _buildingType;
-    private readonly SelectionManager _selectionManager = SelectionManager.Instance;
-    private Building _currentBuilding;
-    
-    public PlacingState(BuildingType buildingType)
+    public class PlacingState : IBuildingState
     {
-        _buildingType = buildingType;
-    }
+        private readonly BuildingManager _buildingManager = BuildingManager.Instance;
+        private readonly BuildingType _buildingType;
+        private readonly SelectionManager _selectionManager = SelectionManager.Instance;
+        private Building _currentBuilding;
 
-    public void SetObject(Building building)
-    {
-        building.SetObject(_buildingManager.FoundationObjects[_buildingType]);
-        building.BCollider.size = _buildingManager.FoundationObjects[_buildingType].transform.localScale;
-        building.BCollider.center = _buildingManager.FoundationObjects[_buildingType].transform.localScale / 2;
-
-        MeshRenderer renderer = building.GetComponentInChildren<MeshRenderer>();
-        building.Material = renderer.material;
-
-        CheckOverlap(building);
-        _selectionManager.SelectObject(building);
-    }
-    
-    public void CheckOverlap(Building building)
-    {
-        var boxSize = building.BCollider.size;
-        var boxCenter = building.transform.position + building.BCollider.center;
-        var colliders = Physics.OverlapBox(boxCenter, boxSize / 2, building.transform.rotation);
-
-        if (building.Material != null)
+        public PlacingState(BuildingType buildingType)
         {
-            building.Material.color = colliders.Length > 2 ? Color.red : Color.green; // 2 because the building itself and the ground are also included
-        }
-        else
-        {
-            Debug.LogError("Material is null");
+            _buildingType = buildingType;
         }
 
+        public void SetObject(Building building)
+        {
+            building.SetObject(_buildingManager.FoundationObjects[_buildingType]);
+            building.BCollider.size = _buildingManager.FoundationObjects[_buildingType].transform.localScale;
+            building.BCollider.center = _buildingManager.FoundationObjects[_buildingType].transform.localScale / 2;
+
+            var renderer = building.GetComponentInChildren<MeshRenderer>();
+            building.Material = renderer.material;
+
+            CheckOverlap(building);
+            _selectionManager.SelectObject(building);
+        }
+
+        public void CheckOverlap(Building building)
+        {
+            var boxSize = building.BCollider.size;
+            var boxCenter = building.transform.position + building.BCollider.center;
+            var colliders = Physics.OverlapBox(boxCenter, boxSize / 2, building.transform.rotation);
+
+            if (building.Material != null)
+                building.Material.color =
+                    colliders.Length > 2
+                        ? Color.red
+                        : Color.green; // 2 because the building itself and the ground are also included
+            else
+                Debug.LogError("Material is null");
+        }
     }
 }

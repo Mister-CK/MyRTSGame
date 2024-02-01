@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 namespace MyRTSGame.Model
 {
     public class UIButtonHandler : MonoBehaviour

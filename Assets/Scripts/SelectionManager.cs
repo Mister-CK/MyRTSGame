@@ -1,100 +1,92 @@
 using System.Collections.Generic;
 using System.Linq;
-using MyRTSGame.Interface;
-using MyRTSGame.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectionManager: MonoBehaviour
+namespace MyRTSGame.Model
 {
-    public static SelectionManager Instance;
-    public ISelectable CurrentSelectedObject { get; private set; }
-    
-    [SerializeField] private Button deleteButton;
-    [SerializeField] private TextMeshProUGUI textComponent;
+    public class SelectionManager : MonoBehaviour
+    {
+        public static SelectionManager Instance;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    
-    public void SelectObject(ISelectable newObject)
-    {
-        if (CurrentSelectedObject != null)
-        {
-            // You can add code here to hide the details of the previously selected object
-        }
+        [SerializeField] private Button deleteButton;
+        [SerializeField] private TextMeshProUGUI textComponent;
+        public ISelectable CurrentSelectedObject { get; private set; }
 
-        CurrentSelectedObject = newObject;
-    }
-    private void SetDeleteButton(bool show)
-    {
-        deleteButton.gameObject.SetActive(show);
-    }
-    
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
+        private void Awake()
         {
-            CurrentSelectedObject = null;
-        }
-        
-        if (CurrentSelectedObject == null)
-        {
-            textComponent.text = "";
-            SetDeleteButton(false);
-            return;
-        }
-        if (CurrentSelectedObject is Building building)
-        {
-            var text = building.BuildingType + "\n" +
-                       GetTextForInventory(building.GetInventory()) + "\n" +
-                       building.GetState() + "\n" +
-                       GetTextForInputTypes(building.InputTypes) + "\n" +
-                       building.GetCapacity();
-            textComponent.text = text;
-            SetDeleteButton(true);
-            return;
-        }
-        
-        if (CurrentSelectedObject is Villager villager)
-        {
-            var text = "";
-            text += "Villager" + "\n";
-            var job = villager.GetCurrentJob();
-            if (job != null)
-            {
-                text += job.Destination + " " + job.ResourceType + "\n";
-            }
+            if (Instance == null)
+                Instance = this;
             else
-            {
-                text += "No job" + "\n";
-            }
-            textComponent.text = text;
-            SetDeleteButton(true);
+                Destroy(gameObject);
+        }
 
-            return;
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(1)) CurrentSelectedObject = null;
+
+            if (CurrentSelectedObject == null)
+            {
+                textComponent.text = "";
+                SetDeleteButton(false);
+                return;
+            }
+
+            if (CurrentSelectedObject is Building building)
+            {
+                var text = building.BuildingType + "\n" +
+                           GetTextForInventory(building.GetInventory()) + "\n" +
+                           building.GetState() + "\n" +
+                           GetTextForInputTypes(building.InputTypes) + "\n" +
+                           building.GetCapacity();
+                textComponent.text = text;
+                SetDeleteButton(true);
+                return;
+            }
+
+            if (CurrentSelectedObject is Villager villager)
+            {
+                var text = "";
+                text += "Villager" + "\n";
+                var job = villager.GetCurrentJob();
+                if (job != null)
+                    text += job.Destination + " " + job.ResourceType + "\n";
+                else
+                    text += "No job" + "\n";
+
+                textComponent.text = text;
+                SetDeleteButton(true);
+            }
         }
-    }
-    
-    private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes) 
-    {
-        return inputTypes.Aggregate("input types: ", (current, resourceType) => current + resourceType + ", ").TrimEnd(',', ' ');
-    }
-    
-    private static string GetTextForInventory(Resource[] inventory) {
-        string inventoryText = "";
-        foreach (Resource resource in inventory) {
-            inventoryText += resource.ResourceType + ":" + resource.Quantity + " ";
+
+        public void SelectObject(ISelectable newObject)
+        {
+            if (CurrentSelectedObject != null)
+            {
+                // You can add code here to hide the details of the previously selected object
+            }
+
+            CurrentSelectedObject = newObject;
         }
-        return inventoryText;
+
+        private void SetDeleteButton(bool show)
+        {
+            deleteButton.gameObject.SetActive(show);
+        }
+
+        private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes)
+        {
+            return inputTypes.Aggregate("input types: ", (current, resourceType) => current + resourceType + ", ")
+                .TrimEnd(',', ' ');
+        }
+
+        private static string GetTextForInventory(Resource[] inventory)
+        {
+            var inventoryText = "";
+            foreach (var resource in inventory) inventoryText += resource.ResourceType + ":" + resource.Quantity + " ";
+
+            return inventoryText;
+        }
     }
 }

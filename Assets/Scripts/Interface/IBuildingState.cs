@@ -1,11 +1,7 @@
-﻿using System;
-using MyRTSGame.Model;
-namespace MyRTSGame.Interface
+﻿namespace MyRTSGame.Model
 {
-
     public interface IBuildingState
     {
         void SetObject(Building building);
     }
-
 }
