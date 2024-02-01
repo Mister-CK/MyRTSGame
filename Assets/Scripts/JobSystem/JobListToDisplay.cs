@@ -19,7 +19,7 @@ namespace MyRTSGame.Model
             var jobs = _jobQueue.GetJobs();
 
             jobListText.text = string.Join("\n",
-                jobs.Select(job => job.ResourceType + " " + job.Destination.BuildingType));
+                jobs.Select(job => job.ResourceType + " " + job.Origin.BuildingType+ " " + job.Destination.BuildingType));
         }
     }
 }

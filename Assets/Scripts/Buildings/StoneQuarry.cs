@@ -43,7 +43,7 @@ namespace MyRTSGame.Model
                 yield return new WaitForSeconds(15);
                 var lumberResource = Array.Find(Inventory, resource => resource.ResourceType == ResourceType.Stone);
                 if (lumberResource != null && lumberResource.Quantity < Capacity) AddResource(ResourceType.Stone, 1);
-                CreateJob(new Job { Destination = this, ResourceType = ResourceType.Stone });
+                CreateJob(new Job { Origin = this, ResourceType = ResourceType.Stone });
             }
         }
     }

@@ -18,7 +18,7 @@ namespace MyRTSGame.Model
         public ResourceType[] InputTypes { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
-
+        private BuildingList _buildingList;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -37,7 +37,9 @@ namespace MyRTSGame.Model
 
         private void Update()
         {
-            _selectionManager = SelectionManager.Instance;
+            _buildingList = BuildingList.Instance; // should be in start, but start is virtual here
+            _selectionManager = SelectionManager.Instance; // should be in start, but start is virtual here
+
             if (State is PlacingState placingState) placingState.CheckOverlap(this);
         }
 
@@ -143,7 +145,43 @@ namespace MyRTSGame.Model
 
         protected void CreateJob(Job job)
         {
+            job.Destination = FindDestinationForJob(job);
             _jobQueue.AddJob(job);
+        }
+        
+        private Building FindDestinationForJob(Job job)
+        {
+            var buildings = _buildingList.GetBuildings();
+            Building destination = null;
+            Building warehouse = null;
+            var resourceType = job.ResourceType;
+
+            foreach (var building in buildings)
+            {
+                if (building.BuildingType == BuildingType.Warehouse)
+                {
+                    warehouse = building;
+                    continue;
+                }
+
+                var inputTypes = building.InputTypes;
+                var inventory = building.GetInventory();
+
+                if (Array.IndexOf(inputTypes, resourceType) == -1) continue;
+                var resourceInInventory = Array.Find(inventory, res => res.ResourceType == resourceType);
+                if (resourceInInventory != null && resourceInInventory.Quantity >= building.GetCapacity()) continue;
+                destination = building;
+                break;
+            }
+
+            // If no suitable building is found, set destination to Warehouse
+            if (destination == null)
+            {
+                destination = warehouse;
+                if (destination == null) throw new Exception("No Destination found");
+            }
+
+            return destination;
         }
 
         public Resource[] GetInventory()

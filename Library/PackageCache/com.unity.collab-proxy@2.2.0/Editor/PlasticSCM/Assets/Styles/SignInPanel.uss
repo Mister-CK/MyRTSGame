@@ -16,7 +16,7 @@
     background-color: black;
 }
 
-#signUpLabel {
+#signUpLabel{
     margin-top: 3px;
 }
 

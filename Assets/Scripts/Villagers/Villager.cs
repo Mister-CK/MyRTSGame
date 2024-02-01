@@ -8,7 +8,6 @@ namespace MyRTSGame.Model
     {
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private NavMeshAgent _agent;
-        private BuildingList _buildingList;
         private Job _currentJob;
         private Building _destination;
         private bool _hasDestination;
@@ -25,7 +24,6 @@ namespace MyRTSGame.Model
         private void Start()
         {
             _selectionManager = SelectionManager.Instance;
-            _buildingList = BuildingList.Instance;
         }
 
         private void Update()
@@ -71,7 +69,7 @@ namespace MyRTSGame.Model
         {
             _currentJob = _jobQueue.GetNextJob();
             if (_currentJob == null) return;
-            _destination = _currentJob.Destination;
+            _destination = _currentJob.Origin;
             _resource.ResourceType = _currentJob.ResourceType;
             _agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
@@ -84,37 +82,7 @@ namespace MyRTSGame.Model
                 PerformNextJob();
                 return;
             }
-
-            var buildings = _buildingList.GetBuildings();
-            _destination = null;
-            Building warehouse = null;
-            var resourceType = _resource.ResourceType;
-
-            foreach (var building in buildings)
-            {
-                if (building.BuildingType == BuildingType.Warehouse)
-                {
-                    warehouse = building;
-                    continue;
-                }
-
-                var inputTypes = building.InputTypes;
-                var inventory = building.GetInventory();
-
-                if (Array.IndexOf(inputTypes, resourceType) == -1) continue;
-                var resourceInInventory = Array.Find(inventory, res => res.ResourceType == resourceType);
-                if (resourceInInventory != null && resourceInInventory.Quantity >= building.GetCapacity()) continue;
-                _destination = building;
-                break;
-            }
-
-            // If no suitable building is found, set destination to Warehouse
-            if (_destination == null)
-            {
-                _destination = warehouse;
-                if (_destination == null) throw new Exception("No Destination found");
-            }
-
+            _destination = _currentJob.Destination;
             _agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
         }
