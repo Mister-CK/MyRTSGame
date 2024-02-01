@@ -51,7 +51,7 @@ namespace MyRTSGame.Model
                 text += "Villager" + "\n";
                 var job = villager.GetCurrentJob();
                 if (job != null)
-                    text += job.Origin + "\n" + job.ResourceType + "\n" + job.Origin;
+                    text += job.Origin + "\n" + job.ResourceType + "\n" + job.Destination;
                 else
                     text += "No job" + "\n";
 
