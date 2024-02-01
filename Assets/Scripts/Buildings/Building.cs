@@ -131,18 +131,6 @@ namespace MyRTSGame.Model
             throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
         }
 
-        // public bool CheckHasOutput()
-        // {
-        //     foreach (Resource resource in Inventory)
-        //     {
-        //         if (resource.Quantity > 0)
-        //         {
-        //             return true;
-        //         }
-        //     }
-        //     return false;
-        // }
-
         protected void CreateJob(Job job)
         {
             job.Destination = FindDestinationForJob(job);
