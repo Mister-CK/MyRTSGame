@@ -8,7 +8,17 @@ namespace MyRTSGame.Model
         // [SerializeField] private TextMeshProUGUI textComponent;
         private List<Building> _buildings;
         public static BuildingList Instance { get; private set; }
+        private bool _firstWarehouse = true;
 
+        public void SetFirstWareHouse(bool firstWarehouse)
+        {
+            _firstWarehouse = firstWarehouse;
+        }
+        
+        public bool GetFirstWareHouse()
+        {
+            return _firstWarehouse;
+        }
         private void Awake()
         {
             if (Instance == null)
