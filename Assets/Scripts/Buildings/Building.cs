@@ -31,11 +31,11 @@ namespace MyRTSGame.Model
             int[] resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
-            _selectionManager = SelectionManager.Instance;
         }
         
         void Update()
         {
+            _selectionManager = SelectionManager.Instance;
             if (State is PlacingState placingState)
             {
                 placingState.CheckOverlap(this);
