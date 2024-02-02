@@ -33,8 +33,6 @@ namespace MyRTSGame.Model
 
         protected virtual void Start()
         {
-            _buildingList = BuildingList.Instance; 
-            _selectionManager = SelectionManager.Instance;
             State = new PlacingState(BuildingType);
         }
 
@@ -105,10 +103,8 @@ namespace MyRTSGame.Model
 
         public void AddResource(ResourceType resourceType, int quantity)
         {
-            Debug.Log("AddResource");
             foreach (var resource in Inventory)
             {
-                Debug.Log($"res add ${resource.ResourceType}");
                 if (resource.ResourceType != resourceType) continue;
 
                 resource.Quantity += quantity;
