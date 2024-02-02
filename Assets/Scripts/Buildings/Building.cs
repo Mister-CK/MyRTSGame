@@ -10,11 +10,12 @@ namespace MyRTSGame.Model
         private GameObject _buildingObject;
         private JobQueue _jobQueue;
         protected int Capacity = 999;
-        protected Resource[] Inventory;
+        public Resource[] Inventory { get; set; }
         protected IBuildingState State;
         public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
         public ResourceType[] InputTypes { get; set; }
+        public Resource[] InventoryWhenCompleted { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
         protected BuildingList _buildingList;
@@ -26,7 +27,7 @@ namespace MyRTSGame.Model
             _jobQueue = JobQueue.GetInstance();
             var resourceTypes = new ResourceType[0];
             var resourceQuantities = new int[0];
-            InputTypes = new ResourceType[0];
+            // InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
         }
 
@@ -39,8 +40,6 @@ namespace MyRTSGame.Model
 
         private void Update()
         {
-
-
             if (State is PlacingState placingState) placingState.CheckOverlap(this);
         }
 
@@ -87,7 +86,7 @@ namespace MyRTSGame.Model
                 Quaternion.identity, transform);
         }
 
-        protected static Resource[] InitInventory(ResourceType[] types, int[] quantities)
+        public static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
             if (types.Length != quantities.Length)
                 throw new ArgumentException("Types and quantities arrays must have the same length.");

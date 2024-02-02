@@ -25,6 +25,7 @@ namespace MyRTSGame.Model
 
             CheckOverlap(building);
             _selectionManager.SelectObject(building);
+            building.InputTypes = new ResourceType[0];
         }
 
         public void CheckOverlap(Building building)

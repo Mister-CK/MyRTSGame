@@ -20,6 +20,7 @@
             building.BCollider.center = completedObject.transform.localScale / 2;
 
             building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
+            building.Inventory = building.InventoryWhenCompleted;
         }
     }
 }

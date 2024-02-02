@@ -20,6 +20,7 @@ namespace MyRTSGame.Model
             ResourceType[] resourceTypes = { ResourceType.Lumber, ResourceType.Wood };
             int[] resourceQuantities = { 0, 0 };
             Inventory = InitInventory(resourceTypes, resourceQuantities);
+            InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
             InputTypesWhenCompleted = new[] { ResourceType.Lumber };
             Capacity = 5;
             HasInput = true;

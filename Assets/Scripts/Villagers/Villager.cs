@@ -41,9 +41,25 @@ namespace MyRTSGame.Model
 
         private void CheckIfDestinationIsReached()
         {
-            if (_agent.pathPending) return;
-            if (_agent.remainingDistance > _agent.stoppingDistance) return;
-            if (_agent.hasPath || _agent.velocity.sqrMagnitude != 0f) return;
+            if (_agent.pathPending)
+            {
+                return;
+            }
+            if (_agent.remainingDistance > _agent.stoppingDistance +  0.5f)
+            {
+                return;
+            }
+            if (_agent.hasPath || _agent.velocity.sqrMagnitude != 0f)
+            {
+                // If the agent is not moving but still has a path, clear the path
+                if (_agent.velocity.sqrMagnitude == 0f && _agent.hasPath)
+                {
+                    Debug.Log("Agent is frozen but still has a path. Clearing path.");
+                    _agent.ResetPath();
+                }
+                
+                return;
+            }
 
             if (_hasResource)
                 DeliverResource(_destination, _resource.ResourceType);
@@ -61,6 +77,9 @@ namespace MyRTSGame.Model
 
         private void DeliverResource(Building building, ResourceType resourceType)
         {
+            foreach(ResourceType res in building.InputTypes){
+                Debug.Log($"inputTypes ${res}");
+            }
             _hasResource = false;
             building.AddResource(resourceType, 1);
         }
@@ -90,6 +109,11 @@ namespace MyRTSGame.Model
         public Job GetCurrentJob()
         {
             return _currentJob;
+        }
+        
+        public bool HasDestination()
+        {
+            return _hasDestination;
         }
     }
 }

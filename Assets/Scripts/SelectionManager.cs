@@ -39,7 +39,8 @@ namespace MyRTSGame.Model
                            GetTextForInventory(building.GetInventory()) + "\n" +
                            building.GetState() + "\n" +
                            GetTextForInputTypes(building.InputTypes) + "\n" +
-                           building.GetCapacity();
+                           building.GetCapacity() +
+                           building.InputTypes;
                 textComponent.text = text;
                 SetDeleteButton(true);
                 return;
@@ -50,8 +51,12 @@ namespace MyRTSGame.Model
                 var text = "";
                 text += "Villager" + "\n";
                 var job = villager.GetCurrentJob();
+                var destinationString = villager.HasDestination() ? "hasDestination" : "noDestination" + "\n";
                 if (job != null)
-                    text += job.Origin + "\n" + job.ResourceType + "\n" + job.Destination;
+                    text += job.Origin.BuildingType + "\n" 
+                                                    + job.ResourceType + "\n" 
+                                                    + job.Destination.BuildingType + "\n"
+                                                    + destinationString;    
                 else
                     text += "No job" + "\n";
 

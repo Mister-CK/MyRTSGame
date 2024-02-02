@@ -28,6 +28,7 @@ namespace MyRTSGame.Model
             {
                 var resourceQuantities = new[] { 0, 0, 0 };
                 Inventory = InitInventory(resourceTypes, resourceQuantities);
+                InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
             }
 
             InputTypesWhenCompleted = resourceTypes;

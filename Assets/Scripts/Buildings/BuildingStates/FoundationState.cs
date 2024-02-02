@@ -20,9 +20,11 @@ namespace MyRTSGame.Model
             building.SetObject(foundation);
             building.BCollider.size = foundation.transform.localScale;
             building.BCollider.center = foundation.transform.localScale / 2;
-            _buildingList.AddBuilding(building);
-
             building.InputTypes = new[] { ResourceType.Wood, ResourceType.Stone };
+            int[] inputQuantities = { 0, 0 };
+            building.Inventory = Building.InitInventory(building.InputTypes, inputQuantities);
+            
+            _buildingList.AddBuilding(building);
         }
 
         public void OnClick(Building building)
@@ -44,6 +46,7 @@ namespace MyRTSGame.Model
 
             // If we reach this point, all required resources are present in the required quantities.
             // We can transition the building to the next state.
+            Debug.Log("Set buildingState to ConstructionState for building: " + building.BuildingType);
             building.SetState(new ConstructionState(_buildingType));
         }
     }

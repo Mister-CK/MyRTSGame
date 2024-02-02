@@ -20,8 +20,9 @@ namespace MyRTSGame.Model
             ResourceType[] resourceTypes = { ResourceType.Stone };
             int[] resourceQuantities = { 0 };
             Inventory = InitInventory(resourceTypes, resourceQuantities);
+            InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
+
             Capacity = 5;
-            InputTypes = new ResourceType[0];
         }
 
         public override Resource[] GetRequiredResources()
