@@ -1,4 +1,6 @@
-﻿namespace MyRTSGame.Model
+﻿using System;
+
+namespace MyRTSGame.Model
 {
     public class CompletedState : IBuildingState
     {
@@ -20,7 +22,10 @@
             building.BCollider.center = completedObject.transform.localScale / 2;
 
             building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
-            building.Inventory = building.InventoryWhenCompleted;
+            building.Inventory = (Resource[])building.InventoryWhenCompleted.Clone();
+            var inputQuantities = new int[building.InputTypes.Length];
+            Array.Fill(inputQuantities, 0);
+            building.ResourcesInJobForBuilding = Building.InitInventory(building.InputTypes, inputQuantities);
         }
     }
 }

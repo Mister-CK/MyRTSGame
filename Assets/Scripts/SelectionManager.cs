@@ -40,7 +40,9 @@ namespace MyRTSGame.Model
                            building.GetState() + "\n" +
                            GetTextForInputTypes(building.InputTypes) + "\n" +
                            building.GetCapacity() +
-                           building.InputTypes;
+                           building.InputTypes + "\n" +
+                           GetTextForResourcesInJobsForBuilding(building.GetResourcesInJobForBuilding());
+                           
                 textComponent.text = text;
                 SetDeleteButton(true);
                 return;
@@ -92,6 +94,14 @@ namespace MyRTSGame.Model
             foreach (var resource in inventory) inventoryText += resource.ResourceType + ":" + resource.Quantity + " ";
 
             return inventoryText;
+        }
+        
+        private static string GetTextForResourcesInJobsForBuilding(Resource[] resInJobs)
+        {
+            var resInJobsText = "";
+            foreach (var resource in resInJobs) resInJobsText += resource.ResourceType + ":" + resource.Quantity + " ";
+
+            return resInJobsText;
         }
     }
 }

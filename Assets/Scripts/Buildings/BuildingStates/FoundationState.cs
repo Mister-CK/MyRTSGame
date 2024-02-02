@@ -23,7 +23,7 @@ namespace MyRTSGame.Model
             building.InputTypes = new[] { ResourceType.Wood, ResourceType.Stone };
             int[] inputQuantities = { 0, 0 };
             building.Inventory = Building.InitInventory(building.InputTypes, inputQuantities);
-            
+            building.ResourcesInJobForBuilding = Building.InitInventory(building.InputTypes, inputQuantities);
             _buildingList.AddBuilding(building);
         }
 

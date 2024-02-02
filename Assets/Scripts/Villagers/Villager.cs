@@ -80,6 +80,10 @@ namespace MyRTSGame.Model
             foreach(ResourceType res in building.InputTypes){
                 Debug.Log($"inputTypes ${res}");
             }
+            foreach(var res in building.ResourcesInJobForBuilding)
+            {
+                if (res.ResourceType == resourceType) res.Quantity--;
+            }
             _hasResource = false;
             building.AddResource(resourceType, 1);
         }

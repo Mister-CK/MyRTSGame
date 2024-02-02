@@ -5,7 +5,6 @@ namespace MyRTSGame.Model
     public class Warehouse : Building
     {
         [SerializeField] private int[] startingResourceQuantities = { 0, 0, 0 };
-        private BuildingList _buildingList;
         //Constructor
         public Warehouse()
         {
@@ -14,13 +13,13 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
-            _buildingList = BuildingList.Instance; 
-            _selectionManager = SelectionManager.Instance;            
+            BuildingList = BuildingList.Instance; 
+            SelectionManager = SelectionManager.Instance;            
             State = new PlacingState(BuildingType);
             var resourceTypes = new[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood };
-            if (_buildingList.GetFirstWareHouse())
+            if (BuildingList.GetFirstWareHouse())
             {
-                _buildingList.SetFirstWareHouse(false);
+                BuildingList.SetFirstWareHouse(false);
                 Inventory = InitInventory(resourceTypes, startingResourceQuantities);
                 State = new CompletedState(BuildingType);
             }

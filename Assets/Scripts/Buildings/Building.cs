@@ -18,8 +18,9 @@ namespace MyRTSGame.Model
         public Resource[] InventoryWhenCompleted { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
-        protected BuildingList _buildingList;
-        protected SelectionManager _selectionManager;
+        protected BuildingList BuildingList;
+        protected SelectionManager SelectionManager;
+        public Resource[] ResourcesInJobForBuilding { get; set; }
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -27,8 +28,9 @@ namespace MyRTSGame.Model
             _jobQueue = JobQueue.GetInstance();
             var resourceTypes = new ResourceType[0];
             var resourceQuantities = new int[0];
-            // InputTypes = new ResourceType[0];
+            InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
+            ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
         }
 
         protected virtual void Start()
@@ -52,7 +54,7 @@ namespace MyRTSGame.Model
         {
             if (GetState() is FoundationState foundationState) foundationState.OnClick(this);
 
-            _selectionManager.SelectObject(this);
+            SelectionManager.SelectObject(this);
         }
 
         protected virtual void StartResourceCreationCoroutine()
@@ -135,7 +137,7 @@ namespace MyRTSGame.Model
         
         private Building FindDestinationForJob(Job job)
         {
-            var buildings = _buildingList.GetBuildings();
+            var buildings = BuildingList.GetBuildings();
             Building destination = null;
             Building warehouse = null;
             var resourceType = job.ResourceType;
@@ -155,6 +157,11 @@ namespace MyRTSGame.Model
                 var resourceInInventory = Array.Find(inventory, res => res.ResourceType == resourceType);
                 if (resourceInInventory != null && resourceInInventory.Quantity >= building.GetCapacity()) continue;
                 destination = building;
+                
+                foreach(var res in destination.ResourcesInJobForBuilding)
+                {
+                    if (res.ResourceType == resourceType) res.Quantity++;
+                }
                 break;
             }
 
@@ -171,6 +178,11 @@ namespace MyRTSGame.Model
         public Resource[] GetInventory()
         {
             return Inventory;
+        }
+        
+        public Resource[] GetResourcesInJobForBuilding()
+        {
+            return ResourcesInJobForBuilding;
         }
 
         protected void TransmuteResource(Resource[] input, Resource[] output)
