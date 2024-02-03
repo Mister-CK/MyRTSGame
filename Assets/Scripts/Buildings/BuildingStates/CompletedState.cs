@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor.Experimental.GraphView;
 
 namespace MyRTSGame.Model
 {
@@ -16,6 +17,7 @@ namespace MyRTSGame.Model
 
         public void SetObject(Building building)
         {
+            building.Capacity = building.capacityForCompletedBuilding;
             var completedObject = _buildingManager.CompletedObjects[_buildingType];
             building.SetObject(completedObject);
             building.BCollider.size = completedObject.transform.localScale;

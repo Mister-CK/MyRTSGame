@@ -15,6 +15,8 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
+            capacityForCompletedBuilding = 999;
+            resourceCountNeededForConstruction = 3;
             JobQueue = JobQueue.GetInstance();
             JobController = JobController.GetInstance();
             BuildingList = BuildingList.Instance; 

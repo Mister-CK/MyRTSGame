@@ -16,6 +16,7 @@ namespace MyRTSGame.Model
 
         public void SetObject(Building building)
         {
+            building.Capacity = building.resourceCountNeededForConstruction;
             var foundation = _buildingManager.FoundationObjects[_buildingType];
             building.SetObject(foundation);
             building.BCollider.size = foundation.transform.localScale;
@@ -29,19 +30,19 @@ namespace MyRTSGame.Model
 
         public void OnClick(Building building)
         {
-            building.SetState(new ConstructionState(_buildingType));
+            // building.SetState(new ConstructionState(_buildingType));
         }
 
         public void CheckRequiredResources(Building building)
         {
-            var requiredResources = building.GetRequiredResources();
+            var requiredResources = new[] { ResourceType.Wood, ResourceType.Stone };
             var inventory = building.GetInventory();
-
+            
             foreach (var requiredResource in requiredResources)
             {
                 var inventoryResource = Array.Find(inventory,
-                    resource => resource.ResourceType == requiredResource.ResourceType);
-                if (inventoryResource == null || inventoryResource.Quantity < requiredResource.Quantity) return;
+                    resource => resource.ResourceType == requiredResource);
+                if (inventoryResource == null || inventoryResource.Quantity < building.resourceCountNeededForConstruction) return;
             }
 
             // If we reach this point, all required resources are present in the required quantities.

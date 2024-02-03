@@ -2825,15 +2825,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.data[0]
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.data[1]
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.data[2]
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7802370745600136873, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: m_LocalPosition.x

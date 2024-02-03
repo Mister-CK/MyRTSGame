@@ -10,7 +10,8 @@ namespace MyRTSGame.Model
         public bool HasInput;
         private GameObject _buildingObject;
         protected JobQueue JobQueue;
-        protected int Capacity = 999;
+        public int Capacity = 999;
+        public int capacityForCompletedBuilding { get; set; }
         public Resource[] Inventory { get; set; }
         protected IBuildingState State;
         public Material Material { get; set; }
@@ -23,6 +24,7 @@ namespace MyRTSGame.Model
         protected SelectionManager SelectionManager;
         public Resource[] ResourcesInJobForBuilding { get; set; }
         protected JobController JobController;
+        public int resourceCountNeededForConstruction = 0;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
