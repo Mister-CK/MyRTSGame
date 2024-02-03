@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -13,6 +14,7 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
+            JobController = JobController.GetInstance();
             BuildingList = BuildingList.Instance; 
             SelectionManager = SelectionManager.Instance;            
             State = new PlacingState(BuildingType);
@@ -34,7 +36,7 @@ namespace MyRTSGame.Model
             HasInput = true;
         }
 
-        public override Resource[] GetRequiredResources()
+        public override IEnumerable<Resource> GetRequiredResources()
         {
             return new Resource[]
             {
@@ -42,5 +44,21 @@ namespace MyRTSGame.Model
                 new() { ResourceType = ResourceType.Stone, Quantity = 1 }
             };
         }
+        
+        // protected override void StartResourceCreationCoroutine()
+        // {
+        //     StartCoroutine(CreateJobsForDeliverableResources());
+        // }
+        //
+        // private void CreateJobsForDeliverableResources()
+        // {         
+        //     foreach (var resource in Inventory)
+        //     {
+        //         if (resource.Quantity > 0)
+        //         {
+        //             CreateJob(new Job { Origin = this, ResourceType = resource.ResourceType });
+        //         }
+        //     }
+        // }
     }
 }

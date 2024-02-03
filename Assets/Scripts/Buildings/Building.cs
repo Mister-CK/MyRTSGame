@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ namespace MyRTSGame.Model
         protected BuildingList BuildingList;
         protected SelectionManager SelectionManager;
         public Resource[] ResourcesInJobForBuilding { get; set; }
+        protected JobController JobController;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -48,7 +50,7 @@ namespace MyRTSGame.Model
             OnClick();
         }
 
-        public abstract Resource[] GetRequiredResources();
+        public abstract IEnumerable<Resource> GetRequiredResources();
 
         private void OnClick()
         {
@@ -127,54 +129,6 @@ namespace MyRTSGame.Model
                 }
 
             throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
-        }
-
-        protected void CreateJob(Job job)
-        {
-            job.Destination = FindDestinationForJob(job);
-            _jobQueue.AddJob(job);
-        }
-        
-        private Building FindDestinationForJob(Job job)
-        {
-            var buildings = BuildingList.GetBuildings();
-            Building destination = null;
-            Building warehouse = null;
-            var resourceType = job.ResourceType;
-
-            foreach (var building in buildings)
-            {
-                if (building.BuildingType == BuildingType.Warehouse)
-                {
-                    warehouse = building;
-                    continue;
-                }
-
-                var inputTypes = building.InputTypes;
-                var inventory = building.GetInventory();
-                var resourcesInJobForBuilding = building.ResourcesInJobForBuilding;
-
-                if (Array.IndexOf(inputTypes, resourceType) == -1) continue;
-                var resourceInInventory = Array.Find(inventory, res => res.ResourceType == resourceType);
-                var resourceInJobForBuilding = Array.Find(resourcesInJobForBuilding, res => res.ResourceType == resourceType);
-                if (resourceInInventory != null && resourceInInventory.Quantity + resourceInJobForBuilding.Quantity >= building.GetCapacity()) continue;
-                destination = building;
-                
-                foreach(var res in destination.ResourcesInJobForBuilding)
-                {
-                    if (res.ResourceType == resourceType) res.Quantity++;
-                }
-                break;
-            }
-
-            // If no suitable building is found, set destination to Warehouse
-            if (destination == null)
-            {
-                destination = warehouse;
-                if (destination == null) throw new Exception("No Destination found");
-            }
-
-            return destination;
         }
 
         public Resource[] GetInventory()

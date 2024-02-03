@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -14,6 +15,7 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
+            JobController = JobController.GetInstance();
             BuildingList = BuildingList.Instance; 
             SelectionManager = SelectionManager.Instance;
             State = new PlacingState(BuildingType);
@@ -25,7 +27,7 @@ namespace MyRTSGame.Model
             Capacity = 5;
         }
 
-        public override Resource[] GetRequiredResources()
+        public override IEnumerable<Resource> GetRequiredResources()
         {
             return new Resource[]
             {
@@ -46,7 +48,7 @@ namespace MyRTSGame.Model
                 yield return new WaitForSeconds(15);
                 var lumberResource = Array.Find(Inventory, resource => resource.ResourceType == ResourceType.Stone);
                 if (lumberResource != null && lumberResource.Quantity < Capacity) AddResource(ResourceType.Stone, 1);
-                CreateJob(new Job { Origin = this, ResourceType = ResourceType.Stone });
+                JobController.CreateJob(new Job { Origin = this, ResourceType = ResourceType.Stone });
             }
         }
     }
