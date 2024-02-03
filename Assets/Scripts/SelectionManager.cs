@@ -39,7 +39,7 @@ namespace MyRTSGame.Model
                            GetTextForInventory(building.GetInventory()) + "\n" +
                            building.GetState() + "\n" +
                            GetTextForInputTypes(building.InputTypes) + "\n" +
-                           building.GetCapacity() +
+                           "Capacity: " + building.GetCapacity() +
                            building.InputTypes + "\n" +
                            GetTextForResourcesInJobsForBuilding(building.GetResourcesInJobForBuilding());
                            
