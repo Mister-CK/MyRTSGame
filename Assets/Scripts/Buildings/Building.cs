@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace MyRTSGame.Model
         protected JobController JobController;
         public int resourceCountNeededForConstruction = 0;
         
-        private BuildingController _buildingController;
+        protected BuildingController BuildingController;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -36,7 +37,7 @@ namespace MyRTSGame.Model
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
-            _buildingController = new BuildingController(this);
+            BuildingController = new BuildingController(this);
 
         }
 
@@ -69,7 +70,7 @@ namespace MyRTSGame.Model
 
         public void SetState(IBuildingState newState)
         {
-            _buildingController.SetState(newState);
+            BuildingController.SetState(newState);
         }
 
         public IBuildingState GetState()
@@ -103,12 +104,12 @@ namespace MyRTSGame.Model
 
         public void AddResource(ResourceType resourceType, int quantity)
         {
-            _buildingController.AddResource(resourceType, quantity);
+            BuildingController.AddResource(resourceType, quantity);
         }
 
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
-            _buildingController.RemoveResource(resourceType, quantity);
+            BuildingController.RemoveResource(resourceType, quantity);
         }
 
         public Resource[] GetInventory()
@@ -119,13 +120,6 @@ namespace MyRTSGame.Model
         public Resource[] GetResourcesInJobForBuilding()
         {
             return ResourcesInJobForBuilding;
-        }
-
-        protected void TransmuteResource(Resource[] input, Resource[] output)
-        {
-            foreach (var resource in input) RemoveResource(resource.ResourceType, resource.Quantity);
-
-            foreach (var resource in output) AddResource(resource.ResourceType, resource.Quantity);
         }
 
         public int GetCapacity()

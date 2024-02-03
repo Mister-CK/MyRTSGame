@@ -30,18 +30,7 @@ namespace MyRTSGame.Model
         
         public override void StartResourceCreationCoroutine()
         {
-            StartCoroutine(CreateLumber());
-        }
-
-        private IEnumerator CreateLumber()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(5);
-                var lumberResource = Array.Find(Inventory, resource => resource.ResourceType == ResourceType.Lumber);
-                if (lumberResource != null && lumberResource.Quantity < Capacity) AddResource(ResourceType.Lumber, 1);
-                JobController.CreateJob(new Job { Origin = this, ResourceType = ResourceType.Lumber });
-            }
+            StartCoroutine(BuildingController.CreateResource(5, ResourceType.Wood));
         }
     }
 }

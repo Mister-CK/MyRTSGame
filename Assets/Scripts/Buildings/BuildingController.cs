@@ -1,13 +1,17 @@
 using System;
+using System.Collections;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
 namespace MyRTSGame.Model
 {
     public class BuildingController
     {
         private Building _building;
-
+        private JobController _jobController;
         public BuildingController(Building building)
         {
+            _jobController = JobController.GetInstance();
             _building = building;
         }
 
@@ -52,6 +56,17 @@ namespace MyRTSGame.Model
             foreach (var resource in input) RemoveResource(resource.ResourceType, resource.Quantity);
 
             foreach (var resource in output) AddResource(resource.ResourceType, resource.Quantity);
+        }
+        
+        public IEnumerator CreateResource(int timeInSeconds, ResourceType resourceType)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(timeInSeconds);
+                var resToCreate = Array.Find(_building.Inventory, resource => resource.ResourceType == resourceType);
+                if (resToCreate != null && resToCreate.Quantity < _building.Capacity) AddResource(resourceType, 1);
+                _jobController.CreateJob(new Job { Origin = _building, ResourceType = resourceType });
+            }
         }
     }
 }

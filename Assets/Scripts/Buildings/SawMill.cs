@@ -51,7 +51,7 @@ namespace MyRTSGame.Model
                         hasRequiredResources = false;
                 if (hasRequiredResources && isNotFull)
                 {
-                    TransmuteResource(input, output);
+                    BuildingController.TransmuteResource(input, output);
                     JobController.CreateJob(new Job { Origin = this, ResourceType = ResourceType.Wood });
                 }
             }
