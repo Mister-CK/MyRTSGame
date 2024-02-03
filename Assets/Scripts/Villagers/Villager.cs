@@ -18,11 +18,11 @@ namespace MyRTSGame.Model
         private void Awake()
         {
             _agent = GetComponentInChildren<NavMeshAgent>();
-            _jobQueue = JobQueue.GetInstance();
         }
 
         private void Start()
         {
+            _jobQueue = JobQueue.GetInstance();
             _selectionManager = SelectionManager.Instance;
         }
 

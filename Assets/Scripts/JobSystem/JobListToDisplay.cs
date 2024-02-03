@@ -9,7 +9,7 @@ namespace MyRTSGame.Model
         [SerializeField] private TextMeshProUGUI jobListText;
         private JobQueue _jobQueue;
 
-        private void Awake()
+        private void Start()
         {
             _jobQueue = JobQueue.GetInstance();
         }
