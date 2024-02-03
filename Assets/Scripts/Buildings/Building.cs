@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
         public int Capacity = 999;
         public int capacityForCompletedBuilding { get; set; }
         public Resource[] Inventory { get; set; }
-        protected IBuildingState State;
+        public IBuildingState State;
         public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
         public ResourceType[] InputTypes { get; set; }
@@ -25,6 +25,8 @@ namespace MyRTSGame.Model
         public Resource[] ResourcesInJobForBuilding { get; set; }
         protected JobController JobController;
         public int resourceCountNeededForConstruction = 0;
+        
+        private BuildingController _buildingController;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -34,6 +36,8 @@ namespace MyRTSGame.Model
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
+            _buildingController = new BuildingController(this);
+
         }
 
         protected virtual void Start()
@@ -58,21 +62,14 @@ namespace MyRTSGame.Model
             SelectionManager.SelectObject(this);
         }
 
-        protected virtual void StartResourceCreationCoroutine()
+        public virtual void StartResourceCreationCoroutine()
         {
             // This method can be overridden in derived classes to start the specific coroutine for each building type.
         }
 
         public void SetState(IBuildingState newState)
         {
-            State = newState;
-
-            // immediately transition to completed state
-            if (State is ConstructionState) State = new CompletedState(BuildingType);
-            State.SetObject(this);
-
-
-            if (State is CompletedState) StartResourceCreationCoroutine();
+            _buildingController.SetState(newState);
         }
 
         public IBuildingState GetState()
@@ -106,28 +103,12 @@ namespace MyRTSGame.Model
 
         public void AddResource(ResourceType resourceType, int quantity)
         {
-            foreach (var resource in Inventory)
-            {
-                if (resource.ResourceType != resourceType) continue;
-
-                resource.Quantity += quantity;
-                if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
-                return;
-            }
-
-            throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
+            _buildingController.AddResource(resourceType, quantity);
         }
 
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
-            foreach (var resource in Inventory)
-                if (resource.ResourceType == resourceType)
-                {
-                    resource.Quantity -= quantity;
-                    return;
-                }
-
-            throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
+            _buildingController.RemoveResource(resourceType, quantity);
         }
 
         public Resource[] GetInventory()

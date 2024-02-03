@@ -41,7 +41,7 @@ namespace MyRTSGame.Model
             HasInput = true;
         }
         
-        protected override void StartResourceCreationCoroutine()
+        public override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateJobsForDeliverableResources(this));
         }

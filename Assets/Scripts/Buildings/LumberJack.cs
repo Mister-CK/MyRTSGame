@@ -28,7 +28,7 @@ namespace MyRTSGame.Model
             Capacity = 5;
         }
         
-        protected override void StartResourceCreationCoroutine()
+        public override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateLumber());
         }
