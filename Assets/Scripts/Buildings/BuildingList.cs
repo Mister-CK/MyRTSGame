@@ -8,16 +8,7 @@ namespace MyRTSGame.Model
         private List<Building> _buildings;
         public static BuildingList Instance { get; private set; }
         private bool _firstWarehouse = true;
-
-        public void SetFirstWareHouse(bool firstWarehouse)
-        {
-            _firstWarehouse = firstWarehouse;
-        }
         
-        public bool GetFirstWareHouse()
-        {
-            return _firstWarehouse;
-        }
         private void Awake()
         {
             if (Instance == null)
@@ -33,6 +24,16 @@ namespace MyRTSGame.Model
             _buildings = new List<Building>(FindObjectsOfType<Building>());
         }
 
+        public void SetFirstWareHouse(bool firstWarehouse)
+        {
+            _firstWarehouse = firstWarehouse;
+        }
+        
+        public bool GetFirstWareHouse()
+        {
+            return _firstWarehouse;
+        }
+        
         public List<Building> GetBuildings()
         {
             return _buildings;
