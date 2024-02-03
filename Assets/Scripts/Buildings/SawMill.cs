@@ -31,7 +31,7 @@ namespace MyRTSGame.Model
             return new Resource[]
             {
                 new() { ResourceType = ResourceType.Wood, Quantity = 4 },
-                new() { ResourceType = ResourceType.Stone, Quantity = 3 }
+                new() { ResourceType = ResourceType.Stone, Quantity = 4 }
             };
         }
 
