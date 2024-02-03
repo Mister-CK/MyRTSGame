@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace MyRTSGame.Model
 {
@@ -85,6 +86,29 @@ namespace MyRTSGame.Model
             }
 
             return destination;
+        }
+        
+        public void CreateJobsForBuilding(Building building)
+        {
+            foreach (var resource in building.GetInventory())
+            {
+                if (resource.Quantity == 0)
+                {
+                    continue;
+                }
+                
+                var job = new Job { Origin = building, ResourceType = resource.ResourceType };
+                var destination = FindDestinationForJob(job);
+                
+                if (destination == null)
+                {
+                    continue;
+                }
+                
+                job.Destination = destination;
+                _jobQueue.AddJob(job);
+            }
+            
         }
     }
 }

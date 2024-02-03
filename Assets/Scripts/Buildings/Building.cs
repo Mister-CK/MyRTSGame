@@ -9,7 +9,7 @@ namespace MyRTSGame.Model
     {
         public bool HasInput;
         private GameObject _buildingObject;
-        private JobQueue _jobQueue;
+        protected JobQueue JobQueue;
         protected int Capacity = 999;
         public Resource[] Inventory { get; set; }
         protected IBuildingState State;
@@ -27,7 +27,6 @@ namespace MyRTSGame.Model
         {
             BCollider = this.AddComponent<BoxCollider>();
             BCollider.size = new Vector3(3, 3, 3);
-            _jobQueue = JobQueue.GetInstance();
             var resourceTypes = new ResourceType[0];
             var resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];

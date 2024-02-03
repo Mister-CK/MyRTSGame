@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
+            JobQueue = JobQueue.GetInstance();
             JobController = JobController.GetInstance();
             BuildingList = BuildingList.Instance; 
             SelectionManager = SelectionManager.Instance;            
@@ -24,6 +26,7 @@ namespace MyRTSGame.Model
                 BuildingList.SetFirstWareHouse(false);
                 Inventory = InitInventory(resourceTypes, startingResourceQuantities);
                 State = new CompletedState(BuildingType);
+                StartResourceCreationCoroutine();
             }
             else
             {
@@ -45,20 +48,18 @@ namespace MyRTSGame.Model
             };
         }
         
-        // protected override void StartResourceCreationCoroutine()
-        // {
-        //     StartCoroutine(CreateJobsForDeliverableResources());
-        // }
-        //
-        // private void CreateJobsForDeliverableResources()
-        // {         
-        //     foreach (var resource in Inventory)
-        //     {
-        //         if (resource.Quantity > 0)
-        //         {
-        //             CreateJob(new Job { Origin = this, ResourceType = resource.ResourceType });
-        //         }
-        //     }
-        // }
+        protected override void StartResourceCreationCoroutine()
+        {
+            StartCoroutine(CreateJobsForDeliverableResources(this));
+        }
+        
+        private IEnumerator CreateJobsForDeliverableResources(Warehouse warehouse)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(5);
+                JobController.CreateJobsForBuilding(warehouse);
+            }
+        }
     }
 }
