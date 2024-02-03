@@ -40,15 +40,6 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = resourceTypes;
             HasInput = true;
         }
-
-        public override IEnumerable<Resource> GetRequiredResources()
-        {
-            return new Resource[]
-            {
-                new() { ResourceType = ResourceType.Lumber, Quantity = 1 },
-                new() { ResourceType = ResourceType.Stone, Quantity = 1 }
-            };
-        }
         
         protected override void StartResourceCreationCoroutine()
         {

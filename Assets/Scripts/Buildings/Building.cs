@@ -50,9 +50,7 @@ namespace MyRTSGame.Model
         {
             OnClick();
         }
-
-        public abstract IEnumerable<Resource> GetRequiredResources();
-
+        
         private void OnClick()
         {
             if (GetState() is FoundationState foundationState) foundationState.OnClick(this);

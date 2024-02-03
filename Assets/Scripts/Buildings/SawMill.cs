@@ -29,17 +29,7 @@ namespace MyRTSGame.Model
             Capacity = 5;
             HasInput = true;
         }
-
-        public override IEnumerable<Resource> GetRequiredResources()
-        {
-            return new Resource[]
-            {
-                new() { ResourceType = ResourceType.Wood, Quantity = 4 },
-                new() { ResourceType = ResourceType.Stone, Quantity = 4 }
-            };
-        }
-
-
+        
         protected override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateWoodFromLumber());

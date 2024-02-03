@@ -27,16 +27,7 @@ namespace MyRTSGame.Model
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
             Capacity = 5;
         }
-
-        public override IEnumerable<Resource> GetRequiredResources()
-        {
-            return new Resource[]
-            {
-                new() { ResourceType = ResourceType.Wood, Quantity = 3 },
-                new() { ResourceType = ResourceType.Stone, Quantity = 3 }
-            };
-        }
-
+        
         protected override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateLumber());
