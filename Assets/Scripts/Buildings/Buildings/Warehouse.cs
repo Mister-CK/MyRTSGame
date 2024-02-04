@@ -14,13 +14,11 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
+            base.Start();
+            
             capacityForCompletedBuilding = 999;
-            resourceCountNeededForConstruction = 3;
+
             JobQueue = JobQueue.GetInstance();
-            JobController = JobController.GetInstance();
-            BuildingList = BuildingList.Instance; 
-            SelectionManager = SelectionManager.Instance;            
-            State = new PlacingState(BuildingType);
             var resourceTypes = new[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood };
             if (BuildingList.GetFirstWareHouse())
             {

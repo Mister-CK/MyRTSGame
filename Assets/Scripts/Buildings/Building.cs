@@ -42,7 +42,13 @@ namespace MyRTSGame.Model
 
         protected virtual void Start()
         {
+            JobController = JobController.GetInstance();
+            BuildingList = BuildingList.Instance; 
+            SelectionManager = SelectionManager.Instance;
             State = new PlacingState(BuildingType);
+            
+            capacityForCompletedBuilding = 5;
+            resourceCountNeededForConstruction = 3;
         }
 
         private void Update()

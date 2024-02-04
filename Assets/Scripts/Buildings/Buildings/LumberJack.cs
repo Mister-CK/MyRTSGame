@@ -10,17 +10,13 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
-            capacityForCompletedBuilding = 5;
-            resourceCountNeededForConstruction = 3;
-            JobController = JobController.GetInstance();
-            BuildingList = BuildingList.Instance;
-            SelectionManager = SelectionManager.Instance;
-            State = new PlacingState(BuildingType);
+            base.Start();
+            
+
             var resourceTypes = new[] { ResourceType.Lumber };
             var resourceQuantities = new[] { 0 };
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
-            Capacity = 5;
         }
         
         public override void StartResourceCreationCoroutine()
