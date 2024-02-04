@@ -72,7 +72,7 @@ namespace MyRTSGame.Model
         {
             foreach (var resource in building.GetInventory())
             {
-                if (resource.Quantity == 0)
+                if (resource.Quantity <= 0)
                 {
                     continue;
                 }
