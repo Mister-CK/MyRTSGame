@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace MyRTSGame.Model
 {
     public class Builder : Unit
@@ -7,10 +5,11 @@ namespace MyRTSGame.Model
         private BuilderJobQueue _builderJobQueue;
         private BuilderJob _currentJob;
         private Building _destination;
-        private void Start()
+        
+        protected override void Start()
         {
+            base.Start();
             _builderJobQueue = BuilderJobQueue.GetInstance();
-            SelectionManager = SelectionManager.Instance;
         }
         
         protected override void ExecuteJob()

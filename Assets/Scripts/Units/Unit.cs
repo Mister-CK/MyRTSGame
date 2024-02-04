@@ -8,10 +8,17 @@ namespace MyRTSGame.Model
         protected NavMeshAgent Agent;
         protected SelectionManager SelectionManager;
         protected bool HasDestination;
+        
         private void Awake()
         {
             Agent = GetComponentInChildren<NavMeshAgent>();
         }
+
+        protected virtual void Start()
+        {
+            SelectionManager = SelectionManager.Instance;
+        }
+
         
         protected void Update()
         {

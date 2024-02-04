@@ -10,10 +10,10 @@ namespace MyRTSGame.Model
         private bool _hasResource;
         private JobQueue _jobQueue;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _jobQueue = JobQueue.GetInstance();
-            SelectionManager = SelectionManager.Instance;
         }
 
         protected override void ExecuteJob()
