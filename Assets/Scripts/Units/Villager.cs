@@ -16,7 +16,7 @@ namespace MyRTSGame.Model
             SelectionManager = SelectionManager.Instance;
         }
 
-        protected override void ExcecuteJob()
+        protected override void ExecuteJob()
         {
             if (_hasResource)
                 DeliverResource(_destination, _resource.ResourceType);

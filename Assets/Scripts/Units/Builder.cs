@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
             SelectionManager = SelectionManager.Instance;
         }
         
-        protected override void ExcecuteJob()
+        protected override void ExecuteJob()
         {
             _destination.SetState(new CompletedState(_destination.BuildingType));
             

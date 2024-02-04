@@ -49,10 +49,10 @@ namespace MyRTSGame.Model
             }
 
             //Destination reached
-            ExcecuteJob();
+            ExecuteJob();
         }
 
-        protected virtual void ExcecuteJob() {}
+        protected virtual void ExecuteJob() {}
         protected virtual void SetDestination() {}
             
     }
