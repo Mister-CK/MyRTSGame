@@ -53,7 +53,7 @@ namespace MyRTSGame.Model
                 var text = "";
                 text += "Villager" + "\n";
                 var job = villager.GetCurrentJob();
-                var destinationString = villager.HasDestination() ? "hasDestination" : "noDestination" + "\n";
+                var destinationString = villager.GetHasDestination() ? "hasDestination" : "noDestination" + "\n";
                 if (job != null)
                     text += job.Origin.BuildingType + "\n" 
                                                     + job.ResourceType + "\n" 

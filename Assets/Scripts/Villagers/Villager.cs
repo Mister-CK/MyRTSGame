@@ -7,7 +7,6 @@ namespace MyRTSGame.Model
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private VillagerJob _currentVillagerJob;
         private Building _destination;
-        private bool _hasDestination;
         private bool _hasResource;
         private JobQueue _jobQueue;
 
@@ -17,43 +16,14 @@ namespace MyRTSGame.Model
             SelectionManager = SelectionManager.Instance;
         }
 
-        private void Update()
+        protected override void ExcecuteJob()
         {
-            if (_hasDestination)
-                CheckIfDestinationIsReached();
-            else
-                SetDestination();
-        }
-
-        private void CheckIfDestinationIsReached()
-        {
-            if (Agent.pathPending)
-            {
-                return;
-            }
-            if (Agent.remainingDistance > Agent.stoppingDistance +  0.5f)
-            {
-                return;
-            }
-            if (Agent.hasPath || Agent.velocity.sqrMagnitude != 0f)
-            {
-                // If the agent is not moving but still has a path, clear the path
-                if (Agent.velocity.sqrMagnitude == 0f && Agent.hasPath)
-                {
-                    Debug.Log("Agent is frozen but still has a path. Clearing path.");
-                    Agent.ResetPath();
-                }
-                
-                return;
-            }
-
-            //Destination reached
             if (_hasResource)
                 DeliverResource(_destination, _resource.ResourceType);
             else
                 TakeResource(_destination, _resource.ResourceType);
 
-            _hasDestination = false;
+            HasDestination = false;
         }
 
         private void TakeResource(Building building, ResourceType resourceType)
@@ -79,10 +49,10 @@ namespace MyRTSGame.Model
             _destination = _currentVillagerJob.Origin;
             _resource.ResourceType = _currentVillagerJob.ResourceType;
             Agent.SetDestination(_destination.transform.position);
-            _hasDestination = true;
+            HasDestination = true;
         }
 
-        private void SetDestination()
+        protected override void SetDestination()
         {
             if (!_hasResource)
             {
@@ -91,7 +61,7 @@ namespace MyRTSGame.Model
             }
             _destination = _currentVillagerJob.Destination;
             Agent.SetDestination(_destination.transform.position);
-            _hasDestination = true;
+            HasDestination = true;
         }
 
         public VillagerJob GetCurrentJob()
@@ -99,9 +69,9 @@ namespace MyRTSGame.Model
             return _currentVillagerJob;
         }
         
-        public bool HasDestination()
+        public bool GetHasDestination()
         {
-            return _hasDestination;
+            return HasDestination;
         }
     }
 }
