@@ -6,9 +6,9 @@ namespace MyRTSGame.Model
 
     public class JobController
     {
-        private JobQueue _jobQueue;
+        private readonly JobQueue _jobQueue;
         private static JobController _instance;
-        private BuildingList _buildingList => BuildingList.Instance;
+        private static BuildingList BuildingList => BuildingList.Instance;
         
         private JobController()
         {
@@ -26,9 +26,9 @@ namespace MyRTSGame.Model
             job.Destination = FindDestinationForJob(job);
             _jobQueue.AddJob(job);
         }
-        private Building FindDestinationForJob(Job job)
+        private static Building FindDestinationForJob(Job job)
         {
-            var buildings = _buildingList.GetBuildings();
+            var buildings = BuildingList.GetBuildings();
             Building destination = null;
             Building warehouse = null;
             var resourceType = job.ResourceType;
