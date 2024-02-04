@@ -52,10 +52,10 @@
     <Compile Include="Assets/Scripts/JobSystem/JobQueue.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Warehouse.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
     <Compile Include="Assets/Scripts/UI/UIButtonHandler.cs" />
-    <Compile Include="Assets/Scripts/JobSystem/Job.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Villagers/Builder.cs" />

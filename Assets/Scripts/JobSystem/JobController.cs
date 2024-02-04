@@ -21,18 +21,18 @@ namespace MyRTSGame.Model
             return _instance ??= new JobController();
         }
         
-        public void CreateJob(Job job)
+        public void CreateJob(VillagerJob villagerJob)
         {
-            job.Destination = FindDestinationForJob(job);
-            _jobQueue.AddJob(job);
+            villagerJob.Destination = FindDestinationForJob(villagerJob);
+            _jobQueue.AddJob(villagerJob);
         }
         
-        private static Building FindDestinationForJob(Job job)
+        private static Building FindDestinationForJob(VillagerJob villagerJob)
         {
             var buildings = BuildingList.GetBuildings();
             Building destination = null;
             Building warehouse = null;
-            var resourceType = job.ResourceType;
+            var resourceType = villagerJob.ResourceType;
 
             foreach (var building in buildings)
             {
@@ -78,7 +78,7 @@ namespace MyRTSGame.Model
                     continue;
                 }
                 
-                var job = new Job { Origin = building, ResourceType = resource.ResourceType };
+                var job = new VillagerJob { Origin = building, ResourceType = resource.ResourceType };
                 var destination = FindDestinationForJob(job);
                 
                 if (destination == null)

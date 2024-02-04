@@ -5,7 +5,7 @@ namespace MyRTSGame.Model
     public class Villager : Unit
     {
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
-        private Job _currentJob;
+        private VillagerJob _currentVillagerJob;
         private Building _destination;
         private bool _hasDestination;
         private bool _hasResource;
@@ -74,10 +74,10 @@ namespace MyRTSGame.Model
 
         private void PerformNextJob()
         {
-            _currentJob = _jobQueue.GetNextJob();
-            if (_currentJob == null) return;
-            _destination = _currentJob.Origin;
-            _resource.ResourceType = _currentJob.ResourceType;
+            _currentVillagerJob = _jobQueue.GetNextJob();
+            if (_currentVillagerJob == null) return;
+            _destination = _currentVillagerJob.Origin;
+            _resource.ResourceType = _currentVillagerJob.ResourceType;
             Agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
         }
@@ -89,14 +89,14 @@ namespace MyRTSGame.Model
                 PerformNextJob();
                 return;
             }
-            _destination = _currentJob.Destination;
+            _destination = _currentVillagerJob.Destination;
             Agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
         }
 
-        public Job GetCurrentJob()
+        public VillagerJob GetCurrentJob()
         {
-            return _currentJob;
+            return _currentVillagerJob;
         }
         
         public bool HasDestination()

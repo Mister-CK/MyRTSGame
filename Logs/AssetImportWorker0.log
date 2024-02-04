@@ -1058,3 +1058,11 @@ AssetImportParameters requested are different than current active one (requested
   custom:scripting/monoscript/fileName/LumberJack.cs: d893a38aa60ece3450bfc74b7aada30c -> 3fb7dda4fb7274d16657afbf16f45480
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:scripting/monoscript/fileName/SawMill.cs: 1b4629f5c5f3bc6f60d27180feae07c6 -> 4f544b0dbc80fb9569873a25d87facd2
+========================================================================
+Received Import Request.
+  Time since last request: 634.220593 seconds.
+  path: Assets/Prefabs/Units/Villager.prefab
+  artifactKey: Guid(584ca8a7c6e614579b4a7bdd51e491fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Units/Villager.prefab using Guid(584ca8a7c6e614579b4a7bdd51e491fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ce0078c577f6a3efafd26003d3f47e3') in 0.049496 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12

@@ -5,12 +5,12 @@ namespace MyRTSGame.Model
     public class JobQueue
     {
         private static JobQueue _instance;
-        private readonly List<Job> _jobs;
+        private readonly List<VillagerJob> _jobs;
 
         // Private constructor to prevent instantiation
         private JobQueue()
         {
-            _jobs = new List<Job>();
+            _jobs = new List<VillagerJob>();
         }
 
         public static JobQueue GetInstance()
@@ -18,12 +18,12 @@ namespace MyRTSGame.Model
             return _instance ??= new JobQueue();
         }
 
-        public void AddJob(Job job)
+        public void AddJob(VillagerJob villagerJob)
         {
-            _jobs.Add(job);
+            _jobs.Add(villagerJob);
         }
 
-        public Job GetNextJob()
+        public VillagerJob GetNextJob()
         {
             if (_jobs.Count <= 0) return null;
 
@@ -32,7 +32,7 @@ namespace MyRTSGame.Model
             return job;
         }
 
-        public IEnumerable<Job> GetJobs()
+        public IEnumerable<VillagerJob> GetJobs()
         {
             return _jobs;
         }
