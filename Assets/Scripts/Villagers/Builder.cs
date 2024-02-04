@@ -45,7 +45,7 @@ namespace MyRTSGame.Model
             }
 
             //Destination reached
-            //TODO: Build building here
+            _destination.SetState(new CompletedState(_destination.BuildingType));
             
             _hasDestination = false;
         }

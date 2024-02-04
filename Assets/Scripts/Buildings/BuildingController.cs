@@ -21,7 +21,7 @@ namespace MyRTSGame.Model
         {
             _building.State = newState;
 
-            if (_building.State is ConstructionState) _building.State = new CompletedState(_building.BuildingType);
+            // if (_building.State is ConstructionState) _building.State = new CompletedState(_building.BuildingType); // skip constructionState
             _building.State.SetObject(_building);
 
             if (_building.State is CompletedState) _building.StartResourceCreationCoroutine();

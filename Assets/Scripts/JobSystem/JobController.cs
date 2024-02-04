@@ -26,6 +26,7 @@ namespace MyRTSGame.Model
             job.Destination = FindDestinationForJob(job);
             _jobQueue.AddJob(job);
         }
+        
         private static Building FindDestinationForJob(Job job)
         {
             var buildings = BuildingList.GetBuildings();
