@@ -30,7 +30,7 @@ namespace MyRTSGame.Model
         
         public override void StartResourceCreationCoroutine()
         {
-            StartCoroutine(BuildingController.CreateResource(5, ResourceType.Wood));
+            StartCoroutine(BuildingController.CreateResource(5, ResourceType.Lumber));
         }
     }
 }
