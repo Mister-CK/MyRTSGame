@@ -27,7 +27,7 @@ namespace MyRTSGame.Model
         protected JobController JobController;
         public int resourceCountNeededForConstruction = 0;
         
-        protected BuildingController BuildingController;
+        public BuildingController BuildingController;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -38,7 +38,6 @@ namespace MyRTSGame.Model
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
             BuildingController = new BuildingController(this);
-
         }
 
         protected virtual void Start()
@@ -100,16 +99,6 @@ namespace MyRTSGame.Model
                 };
 
             return resources;
-        }
-
-        public void AddResource(ResourceType resourceType, int quantity)
-        {
-            BuildingController.AddResource(resourceType, quantity);
-        }
-
-        public void RemoveResource(ResourceType resourceType, int quantity)
-        {
-            BuildingController.RemoveResource(resourceType, quantity);
         }
 
         public Resource[] GetInventory()

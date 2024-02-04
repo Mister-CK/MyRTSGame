@@ -7,38 +7,18 @@ namespace MyRTSGame.Model
     public class JobController
     {
         private JobQueue _jobQueue;
-        private BuildingList _buildingList;
         private static JobController _instance;
-
+        private BuildingList _buildingList => BuildingList.Instance;
+        
         private JobController()
         {
             _jobQueue = JobQueue.GetInstance();
-            _buildingList = BuildingList.Instance;
         }
 
         // Public method to get the instance of JobController
         public static JobController GetInstance()
         {
             return _instance ??= new JobController();
-        }
-        
-        
-        
-        public void CreateJobsForDeliverableResources(Warehouse warehouse)
-        {
-            foreach (var resource in warehouse.GetInventory())
-            {
-                if (resource.Quantity > 0)
-                {
-                    var job = new Job { Origin = warehouse, ResourceType = resource.ResourceType };
-                    var destination = FindDestinationForJob(job);
-                    if (destination != null)
-                    {
-                        job.Destination = destination;
-                        _jobQueue.AddJob(job);
-                    }
-                }
-            }
         }
         
         public void CreateJob(Job job)

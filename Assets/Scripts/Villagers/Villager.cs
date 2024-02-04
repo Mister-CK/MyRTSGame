@@ -72,20 +72,17 @@ namespace MyRTSGame.Model
         private void TakeResource(Building building, ResourceType resourceType)
         {
             _hasResource = true;
-            building.RemoveResource(resourceType, 1);
+            building.BuildingController.RemoveResource(resourceType, 1);
         }
 
         private void DeliverResource(Building building, ResourceType resourceType)
         {
-            foreach(ResourceType res in building.InputTypes){
-                Debug.Log($"inputTypes ${res}");
-            }
             foreach(var res in building.ResourcesInJobForBuilding)
             {
                 if (res.ResourceType == resourceType) res.Quantity--;
             }
             _hasResource = false;
-            building.AddResource(resourceType, 1);
+            building.BuildingController.AddResource(resourceType, 1);
         }
 
         private void PerformNextJob()

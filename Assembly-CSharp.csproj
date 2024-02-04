@@ -53,6 +53,7 @@
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingPlacer.cs" />
+    <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
     <Compile Include="Assets/Scripts/UI/UIButtonHandler.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Job.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />

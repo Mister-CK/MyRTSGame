@@ -25,7 +25,6 @@ namespace MyRTSGame.Model
             int[] resourceQuantities = { 0 };
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
-
             Capacity = 5;
         }
 
