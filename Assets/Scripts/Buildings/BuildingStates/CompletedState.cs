@@ -5,7 +5,6 @@ namespace MyRTSGame.Model
 {
     public class CompletedState : IBuildingState
     {
-        private readonly BuildingList _buildingList = BuildingList.Instance;
         private readonly BuildingManager _buildingManager = BuildingManager.Instance;
 
         private readonly BuildingType _buildingType;
