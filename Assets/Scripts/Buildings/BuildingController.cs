@@ -9,8 +9,8 @@ namespace MyRTSGame.Model
 {
     public class BuildingController
     {
-        private Building _building;
-        private JobController _jobController;
+        private readonly Building _building;
+        private readonly JobController _jobController;
         public BuildingController(Building building)
         {
             _jobController = JobController.GetInstance();
