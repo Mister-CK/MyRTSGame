@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/UI/UIDeleteButton.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobQueue.cs" />
@@ -56,11 +57,14 @@
     <Compile Include="Assets/Scripts/UI/UIButtonHandler.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Job.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
+    <Compile Include="Assets/Scripts/Villagers/Builder.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/StoneQuarry.cs" />
+    <Compile Include="Assets/Scripts/Villagers/BuilderChild.cs" />
     <Compile Include="Assets/Scripts/Villagers/Villager.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Building.cs" />
+    <Compile Include="Assets/Scripts/Villagers/Unit.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

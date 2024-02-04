@@ -47,6 +47,7 @@ namespace MyRTSGame.Model
                 return;
             }
 
+            //Destination reached
             if (_hasResource)
                 DeliverResource(_destination, _resource.ResourceType);
             else
