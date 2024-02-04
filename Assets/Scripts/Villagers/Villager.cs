@@ -1,29 +1,20 @@
-using System;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace MyRTSGame.Model
 {
-    public class Villager : MonoBehaviour, ISelectable
+    public class Villager : Unit
     {
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
-        private NavMeshAgent _agent;
         private Job _currentJob;
         private Building _destination;
         private bool _hasDestination;
         private bool _hasResource;
         private JobQueue _jobQueue;
-        private SelectionManager _selectionManager;
-
-        private void Awake()
-        {
-            _agent = GetComponentInChildren<NavMeshAgent>();
-        }
 
         private void Start()
         {
             _jobQueue = JobQueue.GetInstance();
-            _selectionManager = SelectionManager.Instance;
+            SelectionManager = SelectionManager.Instance;
         }
 
         private void Update()
@@ -34,28 +25,23 @@ namespace MyRTSGame.Model
                 SetDestination();
         }
 
-        public void HandleClick()
-        {
-            _selectionManager.SelectObject(this);
-        }
-
         private void CheckIfDestinationIsReached()
         {
-            if (_agent.pathPending)
+            if (Agent.pathPending)
             {
                 return;
             }
-            if (_agent.remainingDistance > _agent.stoppingDistance +  0.5f)
+            if (Agent.remainingDistance > Agent.stoppingDistance +  0.5f)
             {
                 return;
             }
-            if (_agent.hasPath || _agent.velocity.sqrMagnitude != 0f)
+            if (Agent.hasPath || Agent.velocity.sqrMagnitude != 0f)
             {
                 // If the agent is not moving but still has a path, clear the path
-                if (_agent.velocity.sqrMagnitude == 0f && _agent.hasPath)
+                if (Agent.velocity.sqrMagnitude == 0f && Agent.hasPath)
                 {
                     Debug.Log("Agent is frozen but still has a path. Clearing path.");
-                    _agent.ResetPath();
+                    Agent.ResetPath();
                 }
                 
                 return;
@@ -91,7 +77,7 @@ namespace MyRTSGame.Model
             if (_currentJob == null) return;
             _destination = _currentJob.Origin;
             _resource.ResourceType = _currentJob.ResourceType;
-            _agent.SetDestination(_destination.transform.position);
+            Agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
         }
 
@@ -103,7 +89,7 @@ namespace MyRTSGame.Model
                 return;
             }
             _destination = _currentJob.Destination;
-            _agent.SetDestination(_destination.transform.position);
+            Agent.SetDestination(_destination.transform.position);
             _hasDestination = true;
         }
 
