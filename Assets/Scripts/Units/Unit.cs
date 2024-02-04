@@ -8,7 +8,6 @@ namespace MyRTSGame.Model
         protected NavMeshAgent Agent;
         protected SelectionManager SelectionManager;
         protected bool HasDestination;
-
         private void Awake()
         {
             Agent = GetComponentInChildren<NavMeshAgent>();
@@ -27,7 +26,7 @@ namespace MyRTSGame.Model
             SelectionManager.SelectObject(this);
         }
         
-        protected void CheckIfDestinationIsReached()
+        private void CheckIfDestinationIsReached()
         {
             if (Agent.pathPending)
             {
@@ -55,6 +54,6 @@ namespace MyRTSGame.Model
 
         protected virtual void ExcecuteJob() {}
         protected virtual void SetDestination() {}
-
+            
     }
 }

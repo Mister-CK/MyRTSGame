@@ -386,12 +386,11 @@
 "Assets/Scripts/SelectionManager.cs"
 "Assets/Scripts/UI/UIButtonHandler.cs"
 "Assets/Scripts/UI/UIDeleteButton.cs"
-"Assets/Scripts/Villagers/Builder.cs"
-"Assets/Scripts/Villagers/BuilderChild.cs"
-"Assets/Scripts/Villagers/Unit.cs"
-"Assets/Scripts/Villagers/Villager.cs"
-"Assets/Scripts/Villagers/VillagerChild.cs"
-"Assets/Scripts/Villagers/VillagerList.cs"
+"Assets/Scripts/Units/Builder.cs"
+"Assets/Scripts/Units/BuilderChild.cs"
+"Assets/Scripts/Units/Unit.cs"
+"Assets/Scripts/Units/Villager.cs"
+"Assets/Scripts/Units/VillagerChild.cs"
 -langversion:9.0
 
 /deterministic
