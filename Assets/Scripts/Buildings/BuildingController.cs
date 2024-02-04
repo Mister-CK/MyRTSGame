@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -51,7 +53,7 @@ namespace MyRTSGame.Model
             throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
         }
 
-        public void TransmuteResource(Resource[] input, Resource[] output)
+        public void TransmuteResource(IEnumerable<Resource> input, IEnumerable<Resource> output)
         {
             foreach (var resource in input) RemoveResource(resource.ResourceType, resource.Quantity);
 
@@ -66,6 +68,31 @@ namespace MyRTSGame.Model
                 var resToCreate = Array.Find(_building.Inventory, resource => resource.ResourceType == resourceType);
                 if (resToCreate != null && resToCreate.Quantity < _building.Capacity) AddResource(resourceType, 1);
                 _jobController.CreateJob(new Job { Origin = _building, ResourceType = resourceType });
+            }
+        }
+        
+        public IEnumerator CreateOutputFromInput(int intervalInSeconds, Resource[] input, Resource[] output)
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(intervalInSeconds);
+
+                // Check if all required resources are present with quantity > 0
+                var hasRequiredResources = input.All(resource => 
+                    _building.Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity > 0);
+
+                // Check if all output resources have quantity < capacity
+                var isFull = output.All(resource => 
+                    _building.Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity >= _building.Capacity);
+
+                if (!hasRequiredResources || isFull) continue;
+                
+                TransmuteResource(input, output);
+                foreach (var resource in output)
+                {
+                    _jobController.CreateJob(new Job { Origin = _building, ResourceType = resource.ResourceType });
+                }
+                
             }
         }
     }
