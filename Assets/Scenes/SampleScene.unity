@@ -2853,6 +2853,10 @@ PrefabInstance:
       value: Warehouse
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: onNewJobNeeded
+      value: 
+      objectReference: {fileID: 11400000, guid: adce7a21395ac4148b3f4f579a08d433, type: 2}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.data[0]
       value: 15
       objectReference: {fileID: 0}

@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MyRTSGame.Model
 {
     public abstract class Building : MonoBehaviour, ISelectable
     {
+        [SerializeField] private GameEvent onNewBuilderJobNeeded;
+
         public bool HasInput;
         private GameObject _buildingObject;
         protected JobQueue JobQueue;
@@ -76,6 +79,11 @@ namespace MyRTSGame.Model
         public void SetState(IBuildingState newState)
         {
             BuildingController.SetState(newState);
+            
+            if (newState is ConstructionState)
+            {
+                onNewBuilderJobNeeded.Raise(this);
+            }
         }
 
         public IBuildingState GetState()

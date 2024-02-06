@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570cc00c777c14723862b1763402fdde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onNewBuilderJobNeeded: {fileID: 11400000, guid: adce7a21395ac4148b3f4f579a08d433, type: 2}
+  HasInput: 0
+  Capacity: 999
+  resourceCountNeededForConstruction: 0

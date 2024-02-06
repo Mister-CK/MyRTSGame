@@ -70,6 +70,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/StoneQuarry.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
+    <Compile Include="Assets/Scripts/GameEvent.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />

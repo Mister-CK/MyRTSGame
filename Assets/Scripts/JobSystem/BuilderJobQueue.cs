@@ -1,25 +1,15 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-    public class BuilderJobQueue
+    [CreateAssetMenu(fileName = "BuilderJobQueue", menuName = "ScriptableObjects/BuilderJobQueue", order = 1)]
+    public class BuilderJobQueue : ScriptableObject
     {
-        private static BuilderJobQueue _instance;
-        private readonly List<BuilderJob> _builderJobs;
+        private readonly List<BuilderJob> _builderJobs =  new ();
+        public GameEvent onNewBuilderJobNeeded;
 
-        
-        // Private constructor to prevent instantiation
-        private BuilderJobQueue()
-        {
-            _builderJobs = new List<BuilderJob>();
-        }
-
-        public static BuilderJobQueue GetInstance()
-        {
-            return _instance ??= new BuilderJobQueue();
-        }
-        
-        public void AddJob(BuilderJob job)
+        private void AddJob(BuilderJob job)
         {
             _builderJobs.Add(job);
         }
@@ -36,6 +26,22 @@ namespace MyRTSGame.Model
         public IEnumerable<BuilderJob> GetJobs()
         {
             return _builderJobs;
+        }
+
+        private void OnEnable()
+        {
+            onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
+        }
+
+        private void OnDisable()
+        {
+            onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
+        }
+
+        private void HandleNewJobNeeded(Building building)
+        {
+            var builderJob = new BuilderJob() {Destination = building};
+            AddJob(builderJob);
         }
     }
 }
