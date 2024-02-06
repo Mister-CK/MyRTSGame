@@ -4,8 +4,11 @@ using UnityEngine;
 namespace MyRTSGame.Model
 {
 
-    public class JobController
+    public class JobController :  MonoBehaviour
     {
+        [SerializeField] private GameEvent onNewBuilderJobNeeded;
+        [SerializeField] private BuilderJobQueue _builderJobQueue;
+        
         private readonly JobQueue _jobQueue;
         private static JobController _instance;
         private static BuildingList BuildingList => BuildingList.Instance;
@@ -90,6 +93,22 @@ namespace MyRTSGame.Model
                 _jobQueue.AddJob(job);
             }
             
+        }
+        
+        private void OnEnable()
+        {
+            onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
+        }
+
+        private void OnDisable()
+        {
+            onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
+        }
+
+        private void HandleNewJobNeeded(Building building)
+        {
+            var builderJob = new BuilderJob() {Destination = building};
+            _builderJobQueue.AddJob(builderJob);
         }
     }
 }

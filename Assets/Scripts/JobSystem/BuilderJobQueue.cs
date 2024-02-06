@@ -7,9 +7,8 @@ namespace MyRTSGame.Model
     public class BuilderJobQueue : ScriptableObject
     {
         private readonly List<BuilderJob> _builderJobs =  new ();
-        public GameEvent onNewBuilderJobNeeded;
 
-        private void AddJob(BuilderJob job)
+        public void AddJob(BuilderJob job)
         {
             _builderJobs.Add(job);
         }
@@ -28,20 +27,6 @@ namespace MyRTSGame.Model
             return _builderJobs;
         }
 
-        private void OnEnable()
-        {
-            onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
-        }
 
-        private void OnDisable()
-        {
-            onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
-        }
-
-        private void HandleNewJobNeeded(Building building)
-        {
-            var builderJob = new BuilderJob() {Destination = building};
-            AddJob(builderJob);
-        }
     }
 }
