@@ -41,7 +41,7 @@ namespace MyRTSGame.Model
             {
                 return;
             }
-            if (Agent.remainingDistance > Agent.stoppingDistance +  0.5f)
+            if (GetPathRemainingDistance(Agent) > Agent.stoppingDistance + 0.1f)
             {
                 return;
             }
@@ -56,9 +56,25 @@ namespace MyRTSGame.Model
                 
                 return;
             }
-
-            //Destination reached
+            
+            // Destination reached
             ExecuteJob();
+        }
+        
+        private static float GetPathRemainingDistance(NavMeshAgent navMeshAgent)
+        {
+            if (navMeshAgent.pathPending ||
+                navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid ||
+                navMeshAgent.path.corners.Length == 0)
+                return -1f;
+
+            var distance = 0.0f;
+            for (var i = 0; i < navMeshAgent.path.corners.Length - 1; ++i)
+            {
+                distance += Vector3.Distance(navMeshAgent.path.corners[i], navMeshAgent.path.corners[i + 1]);
+            }
+
+            return distance;
         }
 
         protected virtual void ExecuteJob() {}
