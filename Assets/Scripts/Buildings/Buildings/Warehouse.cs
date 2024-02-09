@@ -5,6 +5,7 @@ namespace MyRTSGame.Model
 {
     public class Warehouse : Building
     {
+        public GameEvent onCreateJobsForWarehouse;
         [SerializeField] private int[] startingResourceQuantities = { 0, 0, 0 };
         //Constructor
         public Warehouse()

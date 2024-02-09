@@ -6,7 +6,6 @@ namespace MyRTSGame.Model
 {
     public abstract class Building : MonoBehaviour, ISelectable
     {
-        public GameEvent onCreateJobsForWarehouse;
         public GameEvent onNewBuilderJobNeeded;
 
         public bool HasInput;
