@@ -1,26 +1,18 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MyRTSGame.Model
 {
-
     public class JobController :  MonoBehaviour
     {
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
         [SerializeField] private GameEvent onNewBuilderJobNeeded;
-        
+        [SerializeField] private GameEvent onNewVillagerJobNeeded;
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         
         private static JobController _instance;
         private static BuildingList BuildingList => BuildingList.Instance;
-        
-        public void CreateJob(VillagerJob villagerJob)
-        {
-            villagerJob.Destination = FindDestinationForJob(villagerJob);
-            villagerJobQueue.AddJob(villagerJob);
-        }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
         {
@@ -93,12 +85,14 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
+            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
         }
 
         private void OnDisable()
         {
             onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
+            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
 
         }
@@ -110,6 +104,15 @@ namespace MyRTSGame.Model
             var building = buildingEventArgs.Building;
             var builderJob = new BuilderJob() { Destination = building };
             builderJobQueue.AddJob(builderJob);
+        }
+        
+        private void HandleNewVillagerJobNeeded(IGameEventArgs args)
+        {
+            if (args is not BuildingResourceTypeEventArgs buildingResourceTypeEventArgs) return;
+            
+            var villagerJob = new VillagerJob { Origin = buildingResourceTypeEventArgs.Building, ResourceType = buildingResourceTypeEventArgs.ResourceType };
+            villagerJob.Destination = FindDestinationForJob(villagerJob);
+            villagerJobQueue.AddJob(villagerJob);
         }
     }
 }

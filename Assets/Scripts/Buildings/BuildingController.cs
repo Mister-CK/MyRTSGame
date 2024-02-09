@@ -24,33 +24,33 @@ namespace MyRTSGame.Model
             }
         }
 
-        public void SetState(Building _building, IBuildingState newState)
+        public void SetState(Building building, IBuildingState newState)
         {
-            _building.State = newState;
+            building.State = newState;
 
             // if (_building.State is ConstructionState) _building.State = new CompletedState(_building.BuildingType); // skip constructionState
-            _building.State.SetObject(_building);
+            building.State.SetObject(building);
 
-            if (_building.State is CompletedState) _building.StartResourceCreationCoroutine();
+            if (building.State is CompletedState) building.StartResourceCreationCoroutine();
         }
 
-        public void AddResource(Building _building, ResourceType resourceType, int quantity)
+        public void AddResource(Building building, ResourceType resourceType, int quantity)
         {
-            foreach (var resource in _building.Inventory)
+            foreach (var resource in building.Inventory)
             {
                 if (resource.ResourceType != resourceType) continue;
 
                 resource.Quantity += quantity;
-                if (_building.State is FoundationState foundationState) foundationState.CheckRequiredResources(_building);
+                if (building.State is FoundationState foundationState) foundationState.CheckRequiredResources(building);
                 return;
             }
 
             throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
         }
 
-        public void RemoveResource(Building _building, ResourceType resourceType, int quantity)
+        public void RemoveResource(Building building, ResourceType resourceType, int quantity)
         {
-            foreach (var resource in _building.Inventory)
+            foreach (var resource in building.Inventory)
                 if (resource.ResourceType == resourceType)
                 {
                     resource.Quantity -= quantity;
@@ -60,25 +60,26 @@ namespace MyRTSGame.Model
             throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
         }
 
-        public void TransmuteResource(Building _building, IEnumerable<Resource> input, IEnumerable<Resource> output)
+        public void TransmuteResource(Building building, IEnumerable<Resource> input, IEnumerable<Resource> output)
         {
-            foreach (var resource in input) RemoveResource(_building, resource.ResourceType, resource.Quantity);
+            foreach (var resource in input) RemoveResource(building, resource.ResourceType, resource.Quantity);
 
-            foreach (var resource in output) AddResource(_building, resource.ResourceType, resource.Quantity);
+            foreach (var resource in output) AddResource(building, resource.ResourceType, resource.Quantity);
         }
         
-        public IEnumerator CreateResource(Building _building, int timeInSeconds, ResourceType resourceType)
+        public IEnumerator CreateResource(Building building, int timeInSeconds, ResourceType resourceType)
         {
             while (true)
             {
                 yield return new WaitForSeconds(timeInSeconds);
-                var resToCreate = Array.Find(_building.Inventory, resource => resource.ResourceType == resourceType);
-                if (resToCreate != null && resToCreate.Quantity < _building.Capacity) AddResource(_building, resourceType, 1);
+                var resToCreate = Array.Find(building.Inventory, resource => resource.ResourceType == resourceType);
+                if (resToCreate != null && resToCreate.Quantity < building.Capacity) AddResource(building, resourceType, 1);
+                onNewVillagerJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resourceType));
                 // _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resourceType });
             }
         }
         
-        public IEnumerator CreateOutputFromInput(Building _building, int intervalInSeconds, Resource[] input, Resource[] output)
+        public IEnumerator CreateOutputFromInput(Building building, int intervalInSeconds, Resource[] input, Resource[] output)
         {
             while (true)
             {
@@ -86,17 +87,18 @@ namespace MyRTSGame.Model
 
                 // Check if all required resources are present with quantity > 0
                 var hasRequiredResources = input.All(resource => 
-                    _building.Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity > 0);
+                    building.Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity > 0);
 
                 // Check if all output resources have quantity < capacity
                 var isFull = output.All(resource => 
-                    _building.Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity >= _building.Capacity);
+                    building.Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity >= building.Capacity);
 
                 if (!hasRequiredResources || isFull) continue;
                 
-                TransmuteResource(_building, input, output);
+                TransmuteResource(building, input, output);
                 foreach (var resource in output)
                 {
+                    onNewVillagerJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resource.ResourceType));
                     // _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resource.ResourceType });
                 }
                 

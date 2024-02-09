@@ -1,14 +1,14 @@
 using System;
 using MyRTSGame.Model;
 
-public class BuildingResourceEventArgs : EventArgs, IGameEventArgs
+public class BuildingResourceTypeEventArgs : EventArgs, IGameEventArgs
 {
     public Building Building { get; }
-    public Resource Resource { get; }
+    public ResourceType ResourceType { get; }
 
-    public BuildingResourceEventArgs(Building building, Resource resource)
+    public BuildingResourceTypeEventArgs(Building building, ResourceType resourceType)
     {
         Building = building;
-        Resource = resource;
+        ResourceType = resourceType;
     }
 }
