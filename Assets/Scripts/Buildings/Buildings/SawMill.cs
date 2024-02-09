@@ -24,7 +24,7 @@ namespace MyRTSGame.Model
         {
             Resource[] input = { new() { ResourceType = ResourceType.Lumber, Quantity = 1 } };
             Resource[] output = { new() { ResourceType = ResourceType.Wood, Quantity = 1 } };
-            StartCoroutine(BuildingController.CreateOutputFromInput(10, input, output));
+            StartCoroutine(buildingController.CreateOutputFromInput(this, 10, input, output));
         }
     }
 }

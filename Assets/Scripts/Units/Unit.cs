@@ -8,7 +8,8 @@ namespace MyRTSGame.Model
         protected NavMeshAgent Agent;
         protected SelectionManager SelectionManager;
         protected bool HasDestination;
-        
+        protected BuildingController BuildingController;
+
         private void Awake()
         {
             Agent = GetComponentInChildren<NavMeshAgent>();
@@ -16,6 +17,7 @@ namespace MyRTSGame.Model
 
         protected virtual void Start()
         {
+            BuildingController = BuildingController.Instance;
             SelectionManager = SelectionManager.Instance;
         }
 

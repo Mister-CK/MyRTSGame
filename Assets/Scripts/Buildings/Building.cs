@@ -25,7 +25,7 @@ namespace MyRTSGame.Model
         public Resource[] ResourcesInJobForBuilding { get; set; }
         public int resourceCountNeededForConstruction = 0;
         
-        public BuildingController BuildingController;
+        public BuildingController buildingController;
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -35,7 +35,7 @@ namespace MyRTSGame.Model
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
-            BuildingController = new BuildingController(this);
+            buildingController = BuildingController.Instance;
         }
 
         protected virtual void Start()
@@ -73,7 +73,7 @@ namespace MyRTSGame.Model
 
         public void SetState(IBuildingState newState)
         {
-            BuildingController.SetState(newState);
+            buildingController.SetState(this, newState);
             
             if (newState is ConstructionState)
             {

@@ -9,7 +9,6 @@ namespace MyRTSGame.Model
         private Building _destination;
         private bool _hasResource; 
         [SerializeField] private VillagerJobQueue villagerJobQueue;
-        
         protected override void ExecuteJob()
         {
             if (_hasResource)
@@ -23,7 +22,7 @@ namespace MyRTSGame.Model
         private void TakeResource(Building building, ResourceType resourceType)
         {
             _hasResource = true;
-            building.BuildingController.RemoveResource(resourceType, 1);
+            BuildingController.RemoveResource(building, resourceType, 1);
         }
 
         private void DeliverResource(Building building, ResourceType resourceType)
@@ -33,7 +32,7 @@ namespace MyRTSGame.Model
                 if (res.ResourceType == resourceType) res.Quantity--;
             }
             _hasResource = false;
-            building.BuildingController.AddResource(resourceType, 1);
+            BuildingController.AddResource(building, resourceType, 1);
         }
 
         private void PerformNextJob()
