@@ -1,33 +1,27 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MyRTSGame.Model
 {
 
     public class JobController :  MonoBehaviour
     {
-        [SerializeField] private GameEvent onNewBuilderJobNeeded;
-        [SerializeField] private BuilderJobQueue _builderJobQueue;
+        [SerializeField] private GameEventBuilding onCreateJobsForWarehouse;
+        [SerializeField] private GameEventBuilding onNewBuilderJobNeeded;
         
-        private readonly JobQueue _jobQueue;
+        [SerializeField] private BuilderJobQueue builderJobQueue;
+        [SerializeField] private VillagerJobQueue villagerJobQueue;
+        
         private static JobController _instance;
         private static BuildingList BuildingList => BuildingList.Instance;
         
-        private JobController()
-        {
-            _jobQueue = JobQueue.GetInstance();
-        }
-
-        // Public method to get the instance of JobController
-        public static JobController GetInstance()
-        {
-            return _instance ??= new JobController();
-        }
+        public void Awake() {}
         
         public void CreateJob(VillagerJob villagerJob)
         {
             villagerJob.Destination = FindDestinationForJob(villagerJob);
-            _jobQueue.AddJob(villagerJob);
+            villagerJobQueue.AddJob(villagerJob);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -72,7 +66,7 @@ namespace MyRTSGame.Model
             return destination;
         }
         
-        public void CreateJobsForBuilding(Building building)
+        private void CreateJobsForBuilding(Building building)
         {
             foreach (var resource in building.GetInventory())
             {
@@ -90,7 +84,7 @@ namespace MyRTSGame.Model
                 }
                 
                 job.Destination = destination;
-                _jobQueue.AddJob(job);
+                villagerJobQueue.AddJob(job);
             }
             
         }
@@ -98,17 +92,20 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
+            onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
         }
 
         private void OnDisable()
         {
             onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
+            onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
+
         }
 
         private void HandleNewJobNeeded(Building building)
         {
             var builderJob = new BuilderJob() {Destination = building};
-            _builderJobQueue.AddJob(builderJob);
+            builderJobQueue.AddJob(builderJob);
         }
     }
 }

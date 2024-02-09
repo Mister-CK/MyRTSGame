@@ -7,16 +7,12 @@ namespace MyRTSGame.Model
     public class JobListDisplay : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI jobListText;
-        private JobQueue _jobQueue;
-
-        private void Start()
-        {
-            _jobQueue = JobQueue.GetInstance();
-        }
+        [SerializeField] private VillagerJobQueue villagerJobQueue;
+        
 
         private void Update()
         {
-            var jobs = _jobQueue.GetJobs();
+            var jobs = villagerJobQueue.GetJobs();
 
             jobListText.text = string.Join("\n",
                 jobs.Select(job => job.ResourceType + " " + job.Origin.BuildingType+ " " + job.Destination.BuildingType));

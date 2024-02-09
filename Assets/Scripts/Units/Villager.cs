@@ -7,15 +7,9 @@ namespace MyRTSGame.Model
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private VillagerJob _currentVillagerJob;
         private Building _destination;
-        private bool _hasResource;
-        private JobQueue _jobQueue;
-
-        protected override void Start()
-        {
-            base.Start();
-            _jobQueue = JobQueue.GetInstance();
-        }
-
+        private bool _hasResource; 
+        [SerializeField] private VillagerJobQueue villagerJobQueue;
+        
         protected override void ExecuteJob()
         {
             if (_hasResource)
@@ -44,7 +38,7 @@ namespace MyRTSGame.Model
 
         private void PerformNextJob()
         {
-            _currentVillagerJob = _jobQueue.GetNextJob();
+            _currentVillagerJob = villagerJobQueue.GetNextJob();
             if (_currentVillagerJob == null) return;
             _destination = _currentVillagerJob.Origin;
             _resource.ResourceType = _currentVillagerJob.ResourceType;

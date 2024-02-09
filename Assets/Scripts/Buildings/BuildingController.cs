@@ -9,11 +9,11 @@ namespace MyRTSGame.Model
 {
     public class BuildingController
     {
+        // [SerializeField] private GameEvent _onNewVillagerJobNeeded;
+
         private readonly Building _building;
-        private readonly JobController _jobController;
         public BuildingController(Building building)
         {
-            _jobController = JobController.GetInstance();
             _building = building;
         }
 
@@ -67,7 +67,7 @@ namespace MyRTSGame.Model
                 yield return new WaitForSeconds(timeInSeconds);
                 var resToCreate = Array.Find(_building.Inventory, resource => resource.ResourceType == resourceType);
                 if (resToCreate != null && resToCreate.Quantity < _building.Capacity) AddResource(resourceType, 1);
-                _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resourceType });
+                // _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resourceType });
             }
         }
         
@@ -90,7 +90,7 @@ namespace MyRTSGame.Model
                 TransmuteResource(input, output);
                 foreach (var resource in output)
                 {
-                    _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resource.ResourceType });
+                    // _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resource.ResourceType });
                 }
                 
             }

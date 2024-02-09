@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jobListText: {fileID: 1420246623}
+  villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
 --- !u!4 &8652102
 Transform:
   m_ObjectHideFlags: 0
@@ -2840,6 +2841,54 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!1 &1266247122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266247124}
+  - component: {fileID: 1266247123}
+  m_Layer: 0
+  m_Name: JobController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266247123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266247122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c265a2fa38441ada3ea721b5b189396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onCreateJobsForWarehouse: {fileID: 11400000, guid: aacfed1e9b1ae4f16a0b4f0e3cd517c7, type: 2}
+  onNewBuilderJobNeeded: {fileID: 11400000, guid: adce7a21395ac4148b3f4f579a08d433, type: 2}
+  builderJobQueue: {fileID: 11400000, guid: 8a95e7069ad5545aeb5d4883b074f7e3, type: 2}
+  villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
+--- !u!4 &1266247124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266247122}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1314023023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2855,7 +2904,15 @@ PrefabInstance:
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: onNewJobNeeded
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: onNewBuilderJobNeeded
+      value: 
       objectReference: {fileID: 11400000, guid: adce7a21395ac4148b3f4f579a08d433, type: 2}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: onCreateJobsForWarehouse
+      value: 
+      objectReference: {fileID: 11400000, guid: aacfed1e9b1ae4f16a0b4f0e3cd517c7, type: 2}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.data[0]
       value: 15
@@ -4334,3 +4391,4 @@ SceneRoots:
   - {fileID: 1960269512}
   - {fileID: 604154920}
   - {fileID: 1314023023}
+  - {fileID: 1266247124}

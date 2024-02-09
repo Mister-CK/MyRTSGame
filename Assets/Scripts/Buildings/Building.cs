@@ -9,11 +9,11 @@ namespace MyRTSGame.Model
 {
     public abstract class Building : MonoBehaviour, ISelectable
     {
-        [SerializeField] private GameEvent onNewBuilderJobNeeded;
+        public GameEventBuilding onCreateJobsForWarehouse;
+        public GameEventBuilding onNewBuilderJobNeeded;
 
         public bool HasInput;
         private GameObject _buildingObject;
-        protected JobQueue JobQueue;
         public int Capacity = 999;
         public int capacityForCompletedBuilding { get; set; }
         public Resource[] Inventory { get; set; }
@@ -27,7 +27,6 @@ namespace MyRTSGame.Model
         protected BuildingList BuildingList;
         protected SelectionManager SelectionManager;
         public Resource[] ResourcesInJobForBuilding { get; set; }
-        protected JobController JobController;
         public int resourceCountNeededForConstruction = 0;
         
         public BuildingController BuildingController;
@@ -45,7 +44,7 @@ namespace MyRTSGame.Model
 
         protected virtual void Start()
         {
-            JobController = JobController.GetInstance();
+            
             BuildingList = BuildingList.Instance; 
             SelectionManager = SelectionManager.Instance;
             State = new PlacingState(BuildingType);

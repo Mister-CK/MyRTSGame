@@ -18,7 +18,6 @@ namespace MyRTSGame.Model
             
             capacityForCompletedBuilding = 999;
 
-            JobQueue = JobQueue.GetInstance();
             var resourceTypes = new[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood };
             if (BuildingList.GetFirstWareHouse())
             {
@@ -43,12 +42,12 @@ namespace MyRTSGame.Model
             StartCoroutine(CreateJobsForDeliverableResources(this));
         }
         
-        private IEnumerator CreateJobsForDeliverableResources(Warehouse warehouse)
+        private IEnumerator CreateJobsForDeliverableResources(Building building)
         {
             while (true)
             {
                 yield return new WaitForSeconds(5);
-                JobController.CreateJobsForBuilding(warehouse);
+                onCreateJobsForWarehouse.Raise(building);
             }
         }
     }
