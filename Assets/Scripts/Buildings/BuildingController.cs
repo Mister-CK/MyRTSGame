@@ -9,7 +9,7 @@ namespace MyRTSGame.Model
 {
     public class BuildingController
     {
-        // [SerializeField] private GameEvent _onNewVillagerJobNeeded;
+        [SerializeField] private GameEvent onNewVillagerJobNeeded;
 
         private readonly Building _building;
         public BuildingController(Building building)

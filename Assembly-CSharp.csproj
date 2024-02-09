@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/UI/UIDeleteButton.cs" />
+    <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
     <Compile Include="Assets/Scripts/Units/Builder.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs" />
@@ -53,12 +54,15 @@
     <Compile Include="Assets/Scripts/Units/VillagerChild.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/Units/Unit.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Warehouse.cs" />
     <Compile Include="Assets/Scripts/JobSystem/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/Units/Villager.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
     <Compile Include="Assets/Scripts/UI/UIButtonHandler.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/BuldingResourceEventArgs.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/GameEventBuilding.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/Units/BuilderChild.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
@@ -67,10 +71,9 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/StoneQuarry.cs" />
-    <Compile Include="Assets/Scripts/GameEventBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
-    <Compile Include="Assets/Scripts/GameEvent.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />

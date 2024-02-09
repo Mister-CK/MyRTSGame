@@ -7,16 +7,14 @@ namespace MyRTSGame.Model
 
     public class JobController :  MonoBehaviour
     {
-        [SerializeField] private GameEventBuilding onCreateJobsForWarehouse;
-        [SerializeField] private GameEventBuilding onNewBuilderJobNeeded;
+        [SerializeField] private GameEvent onCreateJobsForWarehouse;
+        [SerializeField] private GameEvent onNewBuilderJobNeeded;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         
         private static JobController _instance;
         private static BuildingList BuildingList => BuildingList.Instance;
-        
-        public void Awake() {}
         
         public void CreateJob(VillagerJob villagerJob)
         {
@@ -66,8 +64,11 @@ namespace MyRTSGame.Model
             return destination;
         }
         
-        private void CreateJobsForBuilding(Building building)
+        private void CreateJobsForBuilding(IGameEventArgs args)
         {
+            if (args is not BuildingEventArgs buildingEventArgs) return;
+            
+            var building = buildingEventArgs.Building;
             foreach (var resource in building.GetInventory())
             {
                 if (resource.Quantity <= 0)
@@ -102,9 +103,12 @@ namespace MyRTSGame.Model
 
         }
 
-        private void HandleNewJobNeeded(Building building)
+        private void HandleNewJobNeeded(IGameEventArgs args)
         {
-            var builderJob = new BuilderJob() {Destination = building};
+            if (args is not BuildingEventArgs buildingEventArgs) return;
+            
+            var building = buildingEventArgs.Building;
+            var builderJob = new BuilderJob() { Destination = building };
             builderJobQueue.AddJob(builderJob);
         }
     }

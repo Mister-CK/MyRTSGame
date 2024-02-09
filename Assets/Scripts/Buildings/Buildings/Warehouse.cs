@@ -47,7 +47,7 @@ namespace MyRTSGame.Model
             while (true)
             {
                 yield return new WaitForSeconds(5);
-                onCreateJobsForWarehouse.Raise(building);
+                onCreateJobsForWarehouse.Raise(new BuildingEventArgs(building));
             }
         }
     }

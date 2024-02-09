@@ -1,16 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MyRTSGame.Model
 {
     public abstract class Building : MonoBehaviour, ISelectable
     {
-        public GameEventBuilding onCreateJobsForWarehouse;
-        public GameEventBuilding onNewBuilderJobNeeded;
+        public GameEvent onCreateJobsForWarehouse;
+        public GameEvent onNewBuilderJobNeeded;
 
         public bool HasInput;
         private GameObject _buildingObject;
@@ -81,7 +78,7 @@ namespace MyRTSGame.Model
             
             if (newState is ConstructionState)
             {
-                onNewBuilderJobNeeded.Raise(this);
+                onNewBuilderJobNeeded.Raise(new BuildingEventArgs(this));
             }
         }
 

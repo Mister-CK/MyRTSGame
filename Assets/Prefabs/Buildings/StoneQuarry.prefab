@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0ddcaf1bba547f2812c568b6f6a95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onNewBuilderJobNeeded: {fileID: 11400000, guid: adce7a21395ac4148b3f4f579a08d433, type: 2}
+  onCreateJobsForWarehouse: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
+  onNewBuilderJobNeeded: {fileID: 11400000, guid: 927d80f7b8794483ba2a686ef6256181, type: 2}
   HasInput: 0
   Capacity: 999
   resourceCountNeededForConstruction: 0
