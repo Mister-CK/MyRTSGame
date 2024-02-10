@@ -66,11 +66,13 @@
     <Compile Include="Assets/Scripts/Units/BuilderChild.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
+    <Compile Include="Assets/Scripts/UIController.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/StoneQuarry.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />
+    <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
