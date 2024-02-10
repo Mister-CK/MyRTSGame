@@ -6,7 +6,6 @@ namespace MyRTSGame.Model
     {
         private readonly BuildingManager _buildingManager = BuildingManager.Instance;
         private readonly BuildingType _buildingType;
-        private readonly SelectionManager _selectionManager = SelectionManager.Instance;
         private Building _currentBuilding;
 
         public PlacingState(BuildingType buildingType)
@@ -24,7 +23,6 @@ namespace MyRTSGame.Model
             building.Material = renderer.material;
 
             CheckOverlap(building);
-            _selectionManager.SelectObject(building);
             building.InputTypes = new ResourceType[0];
         }
 

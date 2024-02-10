@@ -6,7 +6,6 @@ namespace MyRTSGame.Model
     public abstract class Unit: MonoBehaviour, ISelectable
     {
         protected NavMeshAgent Agent;
-        protected SelectionManager SelectionManager;
         protected bool HasDestination;
         protected BuildingController BuildingController;
         protected Building Destination;
@@ -19,7 +18,6 @@ namespace MyRTSGame.Model
         protected virtual void Start()
         {
             BuildingController = BuildingController.Instance;
-            SelectionManager = SelectionManager.Instance;
         }
         
         protected void Update()
@@ -32,8 +30,7 @@ namespace MyRTSGame.Model
         
         public void HandleClick()
         {
-            SelectionManager.SelectObject(this);
-            onSelectionEvent.Raise(new UnitEventArgs(this));
+            onSelectionEvent.Raise(new SelectionEventArgs(this));
         }
         
         private Vector3 _lastPosition;

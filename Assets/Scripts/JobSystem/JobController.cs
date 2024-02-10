@@ -8,6 +8,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
         [SerializeField] private GameEvent onNewBuilderJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
+        
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         

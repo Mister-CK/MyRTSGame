@@ -66,7 +66,6 @@
     <Compile Include="Assets/Scripts/Units/BuilderChild.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
-    <Compile Include="Assets/Scripts/UIController.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
@@ -78,7 +77,9 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/SelectionManager.cs" />
+    <Compile Include="Assets/Scripts/UI/UIController.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEvenArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />

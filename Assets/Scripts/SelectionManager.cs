@@ -8,12 +8,26 @@ namespace MyRTSGame.Model
 {
     public class SelectionManager : MonoBehaviour
     {
-        public static SelectionManager Instance;
+        [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onDeselectionEvent;
+  
         [SerializeField] private Button deleteButton;
         [SerializeField] private TextMeshProUGUI textComponent;
-        public ISelectable CurrentSelectedObject { get; private set; }
 
+        public static SelectionManager Instance;
+
+        public ISelectable CurrentSelectedObject { get; private set; }
+        
+        private void OnEnable()
+        {
+            onSelectionEvent.RegisterListener(SelectObject);
+        }
+
+        private void OnDisable()
+        {
+            onSelectionEvent.UnregisterListener(SelectObject);
+        }
+        
         private void Awake()
         {
             if (Instance == null)
@@ -72,8 +86,12 @@ namespace MyRTSGame.Model
             }
         }
 
-        public void SelectObject(ISelectable newObject)
+        public void SelectObject(IGameEventArgs args)
         {
+            if (args is not SelectionEventArgs selectionEventArgs) return;
+
+            ISelectable newObject = selectionEventArgs.SelectedObject;
+
             if (CurrentSelectedObject != null)
             {
                 // You can add code here to hide the details of the previously selected object

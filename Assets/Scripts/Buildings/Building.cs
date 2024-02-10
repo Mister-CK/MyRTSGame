@@ -22,7 +22,6 @@ namespace MyRTSGame.Model
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
-        protected SelectionManager SelectionManager;
         public Resource[] ResourcesInJobForBuilding { get; set; }
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
@@ -43,7 +42,6 @@ namespace MyRTSGame.Model
         {
             
             BuildingList = BuildingList.Instance; 
-            SelectionManager = SelectionManager.Instance;
             State = new PlacingState(BuildingType);
             
             capacityForCompletedBuilding = 5;
@@ -57,8 +55,7 @@ namespace MyRTSGame.Model
 
         public void OnMouseDown()
         {
-            SelectionManager.SelectObject(this);
-            onSelectionEvent.Raise(new BuildingEventArgs(this));
+            onSelectionEvent.Raise(new SelectionEventArgs(this));
 
         }
 
