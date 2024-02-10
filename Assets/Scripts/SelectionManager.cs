@@ -10,7 +10,8 @@ namespace MyRTSGame.Model
     {
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onDeselectionEvent;
-  
+        [SerializeField] private GameEvent onDeleteEvent;
+
         [SerializeField] private Button deleteButton;
         [SerializeField] private TextMeshProUGUI textComponent;
 
@@ -21,11 +22,13 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onSelectionEvent.RegisterListener(SelectObject);
+            onDeleteEvent.RegisterListener(DeleteSelectedObject);
         }
 
         private void OnDisable()
         {
             onSelectionEvent.UnregisterListener(SelectObject);
+            onDeleteEvent.UnregisterListener(DeleteSelectedObject);
         }
         
         private void Awake()
@@ -100,6 +103,15 @@ namespace MyRTSGame.Model
             CurrentSelectedObject = newObject;
         }
 
+        private void DeleteSelectedObject(IGameEventArgs args)
+        {
+            if (CurrentSelectedObject is Building selectedBuilding)
+            {
+                Destroy(selectedBuilding.gameObject);
+                SelectObject(null);
+            }
+        }
+        
         private void SetDeleteButton(bool show)
         {
             deleteButton.gameObject.SetActive(show);
