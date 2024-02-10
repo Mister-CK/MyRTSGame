@@ -30,7 +30,7 @@ namespace MyRTSGame.Model
 
         public void CheckOverlap(Building building)
         {
-            var boxSize = building.BCollider.size;
+            var boxSize = building.BCollider.size + new Vector3(2,2,2); // Guarantee a gap of 2 between buildings
             var boxCenter = building.transform.position + building.BCollider.center;
             var colliders = Physics.OverlapBox(boxCenter, boxSize / 2, building.transform.rotation);
 
