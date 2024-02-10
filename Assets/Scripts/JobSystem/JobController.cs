@@ -73,7 +73,7 @@ namespace MyRTSGame.Model
         private void CreateJobsForBuilding(IGameEventArgs args)
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
-            
+
             var building = buildingEventArgs.Building;
             foreach (var resource in building.GetInventory())
             {
@@ -81,22 +81,25 @@ namespace MyRTSGame.Model
                 {
                     continue;
                 }
-                
-                var job = new VillagerJob { Origin = building, ResourceType = resource.ResourceType };
-                var destination = FindDestinationForJob(job);
-                
-                if (destination == null || destination == building)
+
+                var resourceCount = resource.Quantity;
+                while (resourceCount > 0)
                 {
-                    continue;
+                    var job = new VillagerJob { Origin = building, ResourceType = resource.ResourceType };
+                    var destination = FindDestinationForJob(job);
+
+                    if (destination == null || destination == building)
+                    {
+                        break;
+                    }
+
+                    job.Destination = destination;
+                    villagerJobQueue.AddJob(job);
+                    resourceCount--;
                 }
-                
-                job.Destination = destination;
-                villagerJobQueue.AddJob(job);
             }
-            
         }
         
-
         private void HandleNewJobNeeded(IGameEventArgs args)
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
