@@ -10,6 +10,7 @@ namespace MyRTSGame.Model
         protected bool HasDestination;
         protected BuildingController BuildingController;
         protected Building Destination;
+        [SerializeField] private GameEvent onSelectionEvent;
         private void Awake()
         {
             Agent = GetComponentInChildren<NavMeshAgent>();
@@ -20,7 +21,6 @@ namespace MyRTSGame.Model
             BuildingController = BuildingController.Instance;
             SelectionManager = SelectionManager.Instance;
         }
-
         
         protected void Update()
         {
@@ -33,6 +33,7 @@ namespace MyRTSGame.Model
         public void HandleClick()
         {
             SelectionManager.SelectObject(this);
+            onSelectionEvent.Raise(new UnitEventArgs(this));
         }
         
         private Vector3 _lastPosition;

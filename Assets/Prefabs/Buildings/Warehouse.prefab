@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b760ebe9da7204505955323731534124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onCreateJobsForWarehouse: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
   onNewBuilderJobNeeded: {fileID: 11400000, guid: 927d80f7b8794483ba2a686ef6256181, type: 2}
+  onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
   HasInput: 0
   Capacity: 999
   resourceCountNeededForConstruction: 0
+  buildingController: {fileID: 0}
+  onCreateJobsForWarehouse: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
   startingResourceQuantities: 000000000000000000000000

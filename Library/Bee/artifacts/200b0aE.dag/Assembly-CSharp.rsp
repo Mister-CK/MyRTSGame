@@ -377,6 +377,7 @@
 "Assets/Scripts/Enums/ResourceType.cs"
 "Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs"
+"Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs"
 "Assets/Scripts/GameEvents/GameEvent.cs"
 "Assets/Scripts/Interface/IBuildingState.cs"
 "Assets/Scripts/Interface/IGameEventArgs.cs"

@@ -6,7 +6,8 @@ namespace MyRTSGame.Model
 {
     public abstract class Building : MonoBehaviour, ISelectable
     {
-        public GameEvent onNewBuilderJobNeeded;
+        [SerializeField] private GameEvent onNewBuilderJobNeeded;
+        [SerializeField] private GameEvent onSelectionEvent;
 
         public bool HasInput;
         private GameObject _buildingObject;
@@ -24,8 +25,8 @@ namespace MyRTSGame.Model
         protected SelectionManager SelectionManager;
         public Resource[] ResourcesInJobForBuilding { get; set; }
         public int resourceCountNeededForConstruction = 0;
-        
         public BuildingController buildingController;
+        
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -57,6 +58,8 @@ namespace MyRTSGame.Model
         public void OnMouseDown()
         {
             SelectionManager.SelectObject(this);
+            onSelectionEvent.Raise(new BuildingEventArgs(this));
+
         }
 
         public virtual void StartResourceCreationCoroutine()

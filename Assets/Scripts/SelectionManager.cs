@@ -9,7 +9,7 @@ namespace MyRTSGame.Model
     public class SelectionManager : MonoBehaviour
     {
         public static SelectionManager Instance;
-
+        [SerializeField] private GameEvent onDeselectionEvent;
         [SerializeField] private Button deleteButton;
         [SerializeField] private TextMeshProUGUI textComponent;
         public ISelectable CurrentSelectedObject { get; private set; }
@@ -24,10 +24,15 @@ namespace MyRTSGame.Model
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(1)) CurrentSelectedObject = null;
+            if (Input.GetMouseButtonDown(1))
+            {
+                onDeselectionEvent.Raise(null);
+                CurrentSelectedObject = null;
+            }
 
             if (CurrentSelectedObject == null)
             {
+                
                 textComponent.text = "";
                 SetDeleteButton(false);
                 return;

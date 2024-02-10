@@ -79,6 +79,7 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/SelectionManager.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Building.cs" />
