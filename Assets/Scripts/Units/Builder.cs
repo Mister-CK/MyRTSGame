@@ -7,11 +7,10 @@ namespace MyRTSGame.Model
     {
         [SerializeField] private BuilderJobQueue builderJobQueue;
         private BuilderJob _currentJob;
-        private Building _destination;
         
         protected override void ExecuteJob()
         {
-            _destination.SetState(new CompletedState(_destination.BuildingType));
+            Destination.SetState(new CompletedState(Destination.BuildingType));
             
             HasDestination = false;
         }
@@ -25,8 +24,8 @@ namespace MyRTSGame.Model
         {
             _currentJob = builderJobQueue.GetNextJob();
             if (_currentJob == null) return;
-            _destination = _currentJob.Destination;
-            Agent.SetDestination(_destination.transform.position);
+            Destination = _currentJob.Destination;
+            Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
         }
         

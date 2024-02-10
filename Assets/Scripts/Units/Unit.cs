@@ -9,7 +9,7 @@ namespace MyRTSGame.Model
         protected SelectionManager SelectionManager;
         protected bool HasDestination;
         protected BuildingController BuildingController;
-
+        protected Building Destination;
         private void Awake()
         {
             Agent = GetComponentInChildren<NavMeshAgent>();
@@ -35,30 +35,22 @@ namespace MyRTSGame.Model
             SelectionManager.SelectObject(this);
         }
         
+        private Vector3 _lastPosition;
+        private float _stuckTimer;
+
         private void CheckIfDestinationIsReached()
         {
-            if (Agent.pathPending)
+            if (!Agent.pathPending)
             {
-                return;
-            }
-            if (GetPathRemainingDistance(Agent) > Agent.stoppingDistance + 0.1f)
-            {
-                return;
-            }
-            if (Agent.hasPath || Agent.velocity.sqrMagnitude != 0f)
-            {
-                // If the agent is not moving but still has a path, clear the path
-                if (Agent.velocity.sqrMagnitude == 0f && Agent.hasPath)
+                if (Agent.remainingDistance <= Agent.stoppingDistance && Agent.pathStatus == NavMeshPathStatus.PathComplete)
                 {
-                    Debug.Log("Agent is frozen but still has a path. Clearing path.");
-                    Agent.ResetPath();
+                    if (!Agent.hasPath || Agent.velocity.sqrMagnitude == 0f)
+                    {
+                        // The agent has reached its destination
+                        ExecuteJob();
+                    }
                 }
-                
-                return;
             }
-            
-            // Destination reached
-            ExecuteJob();
         }
         
         private static float GetPathRemainingDistance(NavMeshAgent navMeshAgent)

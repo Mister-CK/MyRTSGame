@@ -6,15 +6,14 @@ namespace MyRTSGame.Model
     {
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private VillagerJob _currentVillagerJob;
-        private Building _destination;
         private bool _hasResource; 
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         protected override void ExecuteJob()
         {
             if (_hasResource)
-                DeliverResource(_destination, _resource.ResourceType);
+                DeliverResource(Destination, _resource.ResourceType);
             else
-                TakeResource(_destination, _resource.ResourceType);
+                TakeResource(Destination, _resource.ResourceType);
 
             HasDestination = false;
         }
@@ -39,9 +38,9 @@ namespace MyRTSGame.Model
         {
             _currentVillagerJob = villagerJobQueue.GetNextJob();
             if (_currentVillagerJob == null) return;
-            _destination = _currentVillagerJob.Origin;
+            Destination = _currentVillagerJob.Origin;
             _resource.ResourceType = _currentVillagerJob.ResourceType;
-            Agent.SetDestination(_destination.transform.position);
+            Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
         }
 
@@ -52,8 +51,8 @@ namespace MyRTSGame.Model
                 PerformNextJob();
                 return;
             }
-            _destination = _currentVillagerJob.Destination;
-            Agent.SetDestination(_destination.transform.position);
+            Destination = _currentVillagerJob.Destination;
+            Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
         }
 
