@@ -14,6 +14,20 @@ namespace MyRTSGame.Model
         private static JobController _instance;
         private static BuildingList BuildingList => BuildingList.Instance;
         
+        private void OnEnable()
+        {
+            onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
+            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
+            onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
+        }
+
+        private void OnDisable()
+        {
+            onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
+            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
+            onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
+        }
+        
         private static Building FindDestinationForJob(VillagerJob villagerJob)
         {
             var buildings = BuildingList.GetBuildings();
@@ -71,7 +85,7 @@ namespace MyRTSGame.Model
                 var job = new VillagerJob { Origin = building, ResourceType = resource.ResourceType };
                 var destination = FindDestinationForJob(job);
                 
-                if (destination == null)
+                if (destination == null || destination == building)
                 {
                     continue;
                 }
@@ -82,20 +96,6 @@ namespace MyRTSGame.Model
             
         }
         
-        private void OnEnable()
-        {
-            onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
-            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
-            onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
-        }
-
-        private void OnDisable()
-        {
-            onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
-            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
-            onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
-
-        }
 
         private void HandleNewJobNeeded(IGameEventArgs args)
         {

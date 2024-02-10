@@ -49,6 +49,7 @@
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
     <Compile Include="Assets/Scripts/Units/Builder.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJob.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Units/VillagerChild.cs" />
@@ -61,8 +62,6 @@
     <Compile Include="Assets/Scripts/Units/Villager.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
     <Compile Include="Assets/Scripts/UI/UIButtonHandler.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/BuldingResourceEventArgs.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/GameEventBuilding.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/Units/BuilderChild.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
@@ -72,13 +71,13 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/StoneQuarry.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/SelectionManager.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Building.cs" />
     <Compile Include="Assets/Scripts/JobSystem/VillagerJobQueue.cs" />

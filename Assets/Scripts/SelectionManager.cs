@@ -88,20 +88,14 @@ namespace MyRTSGame.Model
                 .TrimEnd(',', ' ');
         }
 
-        private static string GetTextForInventory(Resource[] inventory)
+        private static string GetTextForInventory(IEnumerable<Resource> inventory)
         {
-            var inventoryText = "";
-            foreach (var resource in inventory) inventoryText += resource.ResourceType + ":" + resource.Quantity + " ";
-
-            return inventoryText;
+            return string.Join(" ", inventory.Select(resource => $"{resource.ResourceType}:{resource.Quantity}"));
         }
         
-        private static string GetTextForResourcesInJobsForBuilding(Resource[] resInJobs)
+        private static string GetTextForResourcesInJobsForBuilding(IEnumerable<Resource> resInJobs)
         {
-            var resInJobsText = "";
-            foreach (var resource in resInJobs) resInJobsText += resource.ResourceType + ":" + resource.Quantity + " ";
-
-            return resInJobsText;
+            return string.Join(" ", resInJobs.Select(resource => $"{resource.ResourceType}:{resource.Quantity}"));
         }
     }
 }
