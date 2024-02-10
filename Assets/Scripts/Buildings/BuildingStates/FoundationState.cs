@@ -28,11 +28,6 @@ namespace MyRTSGame.Model
             _buildingList.AddBuilding(building);
         }
 
-        public void OnClick(Building building)
-        {
-            // building.SetState(new ConstructionState(_buildingType));
-        }
-
         public void CheckRequiredResources(Building building)
         {
             var requiredResources = new[] { ResourceType.Wood, ResourceType.Stone };

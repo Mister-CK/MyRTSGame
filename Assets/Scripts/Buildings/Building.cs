@@ -56,13 +56,6 @@ namespace MyRTSGame.Model
 
         public void OnMouseDown()
         {
-            OnClick();
-        }
-        
-        private void OnClick()
-        {
-            if (GetState() is FoundationState foundationState) foundationState.OnClick(this);
-
             SelectionManager.SelectObject(this);
         }
 
