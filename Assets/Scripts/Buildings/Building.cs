@@ -30,11 +30,14 @@ namespace MyRTSGame.Model
         {
             BCollider = this.AddComponent<BoxCollider>();
             BCollider.size = new Vector3(3, 3, 3);
+            
+            // I don't think this should be necessary
             var resourceTypes = new ResourceType[0];
             var resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
+            
             buildingController = BuildingController.Instance;
         }
 
@@ -88,6 +91,8 @@ namespace MyRTSGame.Model
 
         public static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
+            Debug.Log(types.Length);
+            Debug.Log(quantities.Length);
             if (types.Length != quantities.Length)
                 throw new ArgumentException("Types and quantities arrays must have the same length.");
 

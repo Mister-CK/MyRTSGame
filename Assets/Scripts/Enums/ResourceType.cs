@@ -8,5 +8,9 @@
         Wheat,
         Flour,
         Bread,
+        Pork,
+        Hides,
+        Leather,
+        Sausage,
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ namespace MyRTSGame.Model
     public class Warehouse : Building
     {
         public GameEvent onCreateJobsForWarehouse;
-        [SerializeField] private int[] startingResourceQuantities = { 0, 0, 0, 0, 0, 0 };
+        private readonly ResourceType[] _resourceTypes = (ResourceType[]) Enum.GetValues(typeof(ResourceType));
+        [SerializeField] private int[] startingResourceQuantities;        
         
         //Constructor
         public Warehouse()
@@ -16,26 +18,24 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
-            base.Start();
-            
-            capacityForCompletedBuilding = 999;
 
-            var resourceTypes = new[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood, ResourceType.Wheat, ResourceType.Flour, ResourceType.Bread};
+            base.Start();
+            capacityForCompletedBuilding = 999;
             if (BuildingList.GetFirstWareHouse())
             {
                 BuildingList.SetFirstWareHouse(false);
-                Inventory = InitInventory(resourceTypes, startingResourceQuantities);
+                Inventory = InitInventory(_resourceTypes, startingResourceQuantities);
                 State = new CompletedState(BuildingType);
                 StartResourceCreationCoroutine();
             }
             else
             {
-                var resourceQuantities = new[] { 0, 0, 0, 0, 0, 0 };
-                Inventory = InitInventory(resourceTypes, resourceQuantities);
-                InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
+                var resourceQuantities = new int[_resourceTypes.Length];
+                Inventory = InitInventory(_resourceTypes, resourceQuantities);
+                InventoryWhenCompleted = InitInventory(_resourceTypes, resourceQuantities);
             }
 
-            InputTypesWhenCompleted = resourceTypes;
+            InputTypesWhenCompleted = _resourceTypes;
             HasInput = true;
         }
         
