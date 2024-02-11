@@ -7,5 +7,6 @@
         Wood,
         Wheat,
         Flour,
+        Bread,
     }
 }
