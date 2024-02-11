@@ -9,5 +9,8 @@
         WheatFarm,
         Mill,
         Bakery,
+        PigFarm,
+        Butcher,
+        Tannery
     }
 }

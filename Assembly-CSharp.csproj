@@ -55,6 +55,7 @@
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Bakery.cs" />
     <Compile Include="Assets/Scripts/Units/VillagerChild.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/Units/Unit.cs" />
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/SelectionManager.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/Butcher.cs" />
     <Compile Include="Assets/Scripts/Buildings/Building.cs" />
     <Compile Include="Assets/Scripts/JobSystem/VillagerJobQueue.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

@@ -13,6 +13,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject wheatFarmFoundation;
         [SerializeField] private GameObject millFoundation;
         [SerializeField] private GameObject bakeryFoundation;
+        [SerializeField] private GameObject pigFarmFoundation;
+        [SerializeField] private GameObject butcherFoundation;
+        [SerializeField] private GameObject tanneryFoundation;
         
         //completed
         [SerializeField] private GameObject warehouseCompleted;
@@ -22,7 +25,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject wheatFarmCompleted;
         [SerializeField] private GameObject millCompleted;
         [SerializeField] private GameObject bakeryCompleted;
-
+        [SerializeField] private GameObject pigFarmCompleted;
+        [SerializeField] private GameObject butcherCompleted;
+        [SerializeField] private GameObject tanneryCompleted;
         
         public Dictionary<BuildingType, GameObject> CompletedObjects;
         public Dictionary<BuildingType, GameObject> FoundationObjects;
@@ -50,7 +55,10 @@ namespace MyRTSGame.Model
             FoundationObjects.Add(BuildingType.WheatFarm, wheatFarmFoundation);
             FoundationObjects.Add(BuildingType.Mill, millFoundation);
             FoundationObjects.Add(BuildingType.Bakery, bakeryFoundation);
-
+            FoundationObjects.Add(BuildingType.PigFarm, pigFarmFoundation);
+            FoundationObjects.Add(BuildingType.Butcher, butcherFoundation);
+            FoundationObjects.Add(BuildingType.Tannery, tanneryFoundation);
+            
             CompletedObjects.Add(BuildingType.Warehouse, warehouseCompleted);
             CompletedObjects.Add(BuildingType.StoneQuarry, stoneQuarryCompleted);
             CompletedObjects.Add(BuildingType.LumberJack, lumberJackCompleted);
@@ -58,6 +66,9 @@ namespace MyRTSGame.Model
             CompletedObjects.Add(BuildingType.WheatFarm, wheatFarmCompleted);
             CompletedObjects.Add(BuildingType.Mill, millCompleted);
             CompletedObjects.Add(BuildingType.Bakery, bakeryCompleted);
+            CompletedObjects.Add(BuildingType.PigFarm, pigFarmCompleted);
+            CompletedObjects.Add(BuildingType.Butcher, butcherCompleted);
+            CompletedObjects.Add(BuildingType.Tannery, tanneryCompleted);
 
         }
     }

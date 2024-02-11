@@ -12,7 +12,7 @@ namespace MyRTSGame.Model
             base.Start();
 
             ResourceType[] resourceTypes = { ResourceType.Wheat };
-            int[] resourceQuantities = { 0 };
+            var resourceQuantities = new int[resourceTypes.Length];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
         }
