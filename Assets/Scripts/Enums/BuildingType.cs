@@ -8,5 +8,6 @@
         SawMill,
         WheatFarm,
         Mill,
+        Bakery,
     }
 }

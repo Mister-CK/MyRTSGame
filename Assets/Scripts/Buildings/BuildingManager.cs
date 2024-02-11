@@ -12,9 +12,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject sawMillFoundation;
         [SerializeField] private GameObject wheatFarmFoundation;
         [SerializeField] private GameObject millFoundation;
-
-
-
+        [SerializeField] private GameObject bakeryFoundation;
+        
         //completed
         [SerializeField] private GameObject warehouseCompleted;
         [SerializeField] private GameObject stoneQuarryCompleted;
@@ -22,6 +21,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject sawMillCompleted;
         [SerializeField] private GameObject wheatFarmCompleted;
         [SerializeField] private GameObject millCompleted;
+        [SerializeField] private GameObject bakeryCompleted;
 
         
         public Dictionary<BuildingType, GameObject> CompletedObjects;
@@ -49,6 +49,7 @@ namespace MyRTSGame.Model
             FoundationObjects.Add(BuildingType.SawMill, sawMillFoundation);
             FoundationObjects.Add(BuildingType.WheatFarm, wheatFarmFoundation);
             FoundationObjects.Add(BuildingType.Mill, millFoundation);
+            FoundationObjects.Add(BuildingType.Bakery, bakeryFoundation);
 
             CompletedObjects.Add(BuildingType.Warehouse, warehouseCompleted);
             CompletedObjects.Add(BuildingType.StoneQuarry, stoneQuarryCompleted);
@@ -56,6 +57,7 @@ namespace MyRTSGame.Model
             CompletedObjects.Add(BuildingType.SawMill, sawMillCompleted);
             CompletedObjects.Add(BuildingType.WheatFarm, wheatFarmCompleted);
             CompletedObjects.Add(BuildingType.Mill, millCompleted);
+            CompletedObjects.Add(BuildingType.Bakery, bakeryCompleted);
 
         }
     }

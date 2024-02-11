@@ -27,5 +27,4 @@ namespace MyRTSGame.Model
             StartCoroutine(buildingController.CreateOutputFromInput(this, 10, input, output));
         }
     }
-    
 }
