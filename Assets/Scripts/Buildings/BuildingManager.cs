@@ -10,6 +10,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject stoneQuarryFoundation;
         [SerializeField] private GameObject lumberJackFoundation;
         [SerializeField] private GameObject sawMillFoundation;
+        [SerializeField] private GameObject wheatFarmFoundation;
+
 
 
         //completed
@@ -17,9 +19,10 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject stoneQuarryCompleted;
         [SerializeField] private GameObject lumberJackCompleted;
         [SerializeField] private GameObject sawMillCompleted;
+        [SerializeField] private GameObject wheatFarmCompleted;
+
+        
         public Dictionary<BuildingType, GameObject> CompletedObjects;
-
-
         public Dictionary<BuildingType, GameObject> FoundationObjects;
         public static BuildingManager Instance { get; private set; }
 
@@ -42,11 +45,14 @@ namespace MyRTSGame.Model
             FoundationObjects.Add(BuildingType.StoneQuarry, stoneQuarryFoundation);
             FoundationObjects.Add(BuildingType.LumberJack, lumberJackFoundation);
             FoundationObjects.Add(BuildingType.SawMill, sawMillFoundation);
+            FoundationObjects.Add(BuildingType.WheatFarm, wheatFarmFoundation);
 
             CompletedObjects.Add(BuildingType.Warehouse, warehouseCompleted);
             CompletedObjects.Add(BuildingType.StoneQuarry, stoneQuarryCompleted);
             CompletedObjects.Add(BuildingType.LumberJack, lumberJackCompleted);
             CompletedObjects.Add(BuildingType.SawMill, sawMillCompleted);
+            CompletedObjects.Add(BuildingType.WheatFarm, wheatFarmCompleted);
+
         }
     }
 }

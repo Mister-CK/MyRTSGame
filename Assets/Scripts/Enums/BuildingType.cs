@@ -5,6 +5,7 @@
         Warehouse,
         StoneQuarry,
         LumberJack,
-        SawMill
+        SawMill,
+        WheatFarm,
     }
 }

@@ -4,6 +4,7 @@
     {
         Stone,
         Lumber,
-        Wood
+        Wood,
+        Wheat,
     }
 }
