@@ -367,6 +367,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -552,6 +560,8 @@ MonoBehaviour:
   StatsPanel: {fileID: 419677631}
   MenuPanel: {fileID: 189051309}
   SelectedPanel: {fileID: 2057471058}
+  onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
+  onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
 --- !u!1 &285237150
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +756,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 6655447114476617169, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
       propertyPath: avoidancePriority
       value: 41
@@ -1072,6 +1090,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -1221,7 +1247,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build Warehouse
+  m_text: 'Warehouse
 
 '
   m_isRightToLeft: 0
@@ -1399,7 +1425,7 @@ GameObject:
   - component: {fileID: 465642131}
   - component: {fileID: 465642130}
   m_Layer: 5
-  m_Name: newBuilding
+  m_Name: wheatfarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1437,7 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 0}
+  buildingPrefab: {fileID: -3872918777280874328, guid: 78473f61096bb4961b4277f4d48ec6dd, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &465642131
 MonoBehaviour:
@@ -1695,6 +1721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1f7547b5a84710987c5b6c90fcfd54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+  onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
+  onDeleteEvent: {fileID: 11400000, guid: a6600ef06dcaa46f384318c783d56b79, type: 2}
   deleteButton: {fileID: 1141382276}
   textComponent: {fileID: 778949676}
 --- !u!4 &604154920
@@ -2675,6 +2704,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -2760,6 +2797,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -3125,7 +3170,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build StoneQuarry
+  m_text: 'StoneQuarry
 
 '
   m_isRightToLeft: 0
@@ -3520,6 +3565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873bb47f6b6a44198dcfefdaa3d40ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDeleteEvent: {fileID: 11400000, guid: a6600ef06dcaa46f384318c783d56b79, type: 2}
 --- !u!1 &1162550794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2043884088788105929, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
@@ -3567,6 +3613,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -3665,10 +3719,12 @@ MonoBehaviour:
   stoneQuarryFoundation: {fileID: 3887471135508192309, guid: 1ccd3aa4fd1da42aa84a15a1951524b4, type: 3}
   lumberJackFoundation: {fileID: 6023432424120999531, guid: c3faae75918434562a0ead2957f78ad3, type: 3}
   sawMillFoundation: {fileID: 6496392709035800085, guid: 1a558f79a610c4be5a8af722ecb8ec3b, type: 3}
+  wheatFarmFoundation: {fileID: 7183896741376523290, guid: b7e8e247c165b4f2eac5d79428f8b4d2, type: 3}
   warehouseCompleted: {fileID: 4064323586911783679, guid: da93f6269976e449ca6bdb28877a3174, type: 3}
   stoneQuarryCompleted: {fileID: 4842993986464959390, guid: 3f799e547169648aeb84945c2ede0768, type: 3}
   lumberJackCompleted: {fileID: 6571056623056715732, guid: 79c0cc9fb8743420a89fb0d67cea039d, type: 3}
   sawMillCompleted: {fileID: 1995104673592824905, guid: 30a19a04d52c44fcaa617217aba7ff4c, type: 3}
+  wheatFarmCompleted: {fileID: 4064323586911783679, guid: 179d97530fd0d4698a9e6cc06b7e87ff, type: 3}
 --- !u!4 &1207910522
 Transform:
   m_ObjectHideFlags: 0
@@ -4089,6 +4145,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: onNewBuilderJobNeeded
       value: 
       objectReference: {fileID: 11400000, guid: 927d80f7b8794483ba2a686ef6256181, type: 2}
@@ -4096,6 +4160,10 @@ PrefabInstance:
       propertyPath: onCreateJobsForWarehouse
       value: 
       objectReference: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceQuantities.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.data[0]
       value: 150
@@ -4106,6 +4174,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.data[2]
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceQuantities.Array.data[3]
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7802370745600136873, guid: 113351567a5044917b31e9da4573cd47, type: 3}
@@ -4339,6 +4411,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -4624,7 +4704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Build NewBuilding
+  m_text: WheatFarm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4988,6 +5068,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -5110,7 +5198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build LumberJack
+  m_text: 'LumberJack
 
 '
   m_isRightToLeft: 0
@@ -5464,6 +5552,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -5586,7 +5682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build SawMill
+  m_text: 'SawMill
 
 '
   m_isRightToLeft: 0
@@ -5685,6 +5781,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -5770,6 +5874,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -5882,6 +5994,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -6084,6 +6204,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 8183070976581456306, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
       propertyPath: m_Name
       value: Builder
@@ -6174,6 +6302,14 @@ PrefabInstance:
       propertyPath: m_AutoTraverseOffMeshLink
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: selectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: onSelectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 2879261718673188122, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.25
@@ -6252,9 +6388,9 @@ SceneRoots:
   - {fileID: 1034076558}
   - {fileID: 1207910522}
   - {fileID: 1048523067}
-  - {fileID: 4748095385973232673}
   - {fileID: 1025877518263979041}
   - {fileID: 291793909}
+  - {fileID: 4748095385973232673}
   - {fileID: 1446039638}
   - {fileID: 223860832}
   - {fileID: 1202938635}

@@ -6,5 +6,6 @@
         Lumber,
         Wood,
         Wheat,
+        Flour,
     }
 }

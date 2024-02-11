@@ -7,5 +7,6 @@
         LumberJack,
         SawMill,
         WheatFarm,
+        Mill,
     }
 }

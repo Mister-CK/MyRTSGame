@@ -6,7 +6,7 @@ namespace MyRTSGame.Model
     public class Warehouse : Building
     {
         public GameEvent onCreateJobsForWarehouse;
-        [SerializeField] private int[] startingResourceQuantities = { 0, 0, 0, 0 };
+        [SerializeField] private int[] startingResourceQuantities = { 0, 0, 0, 0, 0 };
         
         //Constructor
         public Warehouse()
@@ -20,7 +20,7 @@ namespace MyRTSGame.Model
             
             capacityForCompletedBuilding = 999;
 
-            var resourceTypes = new[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood, ResourceType.Wheat };
+            var resourceTypes = new[] { ResourceType.Stone, ResourceType.Lumber, ResourceType.Wood, ResourceType.Wheat, ResourceType.Flour};
             if (BuildingList.GetFirstWareHouse())
             {
                 BuildingList.SetFirstWareHouse(false);
@@ -30,7 +30,7 @@ namespace MyRTSGame.Model
             }
             else
             {
-                var resourceQuantities = new[] { 0, 0, 0, 0 };
+                var resourceQuantities = new[] { 0, 0, 0, 0, 0 };
                 Inventory = InitInventory(resourceTypes, resourceQuantities);
                 InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
             }

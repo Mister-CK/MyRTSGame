@@ -67,6 +67,7 @@
     <Compile Include="Assets/Scripts/Units/BuilderChild.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/Mill.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
