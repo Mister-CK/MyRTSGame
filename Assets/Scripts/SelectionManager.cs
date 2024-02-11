@@ -14,10 +14,8 @@ namespace MyRTSGame.Model
 
         [SerializeField] private Button deleteButton;
         [SerializeField] private TextMeshProUGUI textComponent;
-
-        public static SelectionManager Instance;
-
-        public ISelectable CurrentSelectedObject { get; private set; }
+        
+        private ISelectable CurrentSelectedObject { get; set; }
         
         private void OnEnable()
         {
@@ -30,14 +28,6 @@ namespace MyRTSGame.Model
             onSelectionEvent.UnregisterListener(SelectObject);
             onDeleteEvent.UnregisterListener(DeleteSelectedObject);
         }
-        
-        private void Awake()
-        {
-            if (Instance == null)
-                Instance = this;
-            else
-                Destroy(gameObject);
-        }
 
         private void Update()
         {
@@ -49,7 +39,6 @@ namespace MyRTSGame.Model
 
             if (CurrentSelectedObject == null)
             {
-                
                 textComponent.text = "";
                 SetDeleteButton(false);
                 return;
@@ -89,7 +78,7 @@ namespace MyRTSGame.Model
             }
         }
 
-        public void SelectObject(IGameEventArgs args)
+        private void SelectObject(IGameEventArgs args)
         {
             if (args is not SelectionEventArgs selectionEventArgs) return;
 
