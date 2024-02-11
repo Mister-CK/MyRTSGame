@@ -50,8 +50,7 @@ namespace MyRTSGame.Model
                            GetTextForInventory(building.GetInventory()) + "\n" +
                            building.GetState() + "\n" +
                            GetTextForInputTypes(building.InputTypes) + "\n" +
-                           "Capacity: " + building.GetCapacity() +
-                           building.InputTypes + "\n" +
+                           "Capacity: " + building.GetCapacity() + "\n" +
                            GetTextForResourcesInJobsForBuilding(building.GetResourcesInJobForBuilding());
                            
                 textComponent.text = text;
