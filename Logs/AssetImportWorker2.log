@@ -7413,3 +7413,1549 @@ AssetImportParameters requested are different than current active one (requested
   custom:scripting/monoscript/fileName/BuildingEventArgs.cs: 4d5a4a6d0e33738e48baef0e3fbcd185 -> b07327a84f463d933d202f2602f7aa8d
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:scripting/monoscript/fileName/MenuController.cs: f98156acb6c9b62b4aff1540a104a198 -> 
+[usbmuxd] Attached: 282 00008030-001E1DCE1E90802E
+[usbmuxd] Detached: 282 00008030-001E1DCE1E90802E
+========================================================================
+Received Import Request.
+  Time since last request: 92841.528415 seconds.
+  path: Assets/Materials/Blue_School.mat
+  artifactKey: Guid(dc183db1be53b4e18818027bafb7cb4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_School.mat using Guid(dc183db1be53b4e18818027bafb7cb4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6010e552186b400e0baeda0950a94cb') in 0.329160 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 18.738923 seconds.
+  path: Assets/Materials/New Material.mat
+  artifactKey: Guid(3f458ea78fac549418613664b7b6670a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Material.mat using Guid(3f458ea78fac549418613664b7b6670a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52b918a89dc2d90585a3c62228ffc3f5') in 0.013585 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 15.310716 seconds.
+  path: Assets/Materials/Orange_Restaurant.mat
+  artifactKey: Guid(3f458ea78fac549418613664b7b6670a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Orange_Restaurant.mat using Guid(3f458ea78fac549418613664b7b6670a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62479d12f602c138819cd043250f239b') in 0.025708 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 29.221353 seconds.
+  path: Assets/Materials/New Material.mat
+  artifactKey: Guid(f7e8f94bcdab1432aac0a96cdcd6faf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Material.mat using Guid(f7e8f94bcdab1432aac0a96cdcd6faf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccc6f9c67cb2c8804af20b14b5f54c68') in 0.018178 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 14.117208 seconds.
+  path: Assets/Materials/Blue_FisherMan.mat
+  artifactKey: Guid(f7e8f94bcdab1432aac0a96cdcd6faf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_FisherMan.mat using Guid(f7e8f94bcdab1432aac0a96cdcd6faf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ba7b3348f1abe18b667268ebe6df79c') in 0.009185 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 8.981596 seconds.
+  path: Assets/Materials/Blue_School.mat
+  artifactKey: Guid(dc183db1be53b4e18818027bafb7cb4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_School.mat using Guid(dc183db1be53b4e18818027bafb7cb4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33e8e3c21071c3e16c1c53d75350cbac') in 0.011671 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 14.633983 seconds.
+  path: Assets/Materials/Purple_Vinyard.mat
+  artifactKey: Guid(62ee810bc8af4418eb44489e2dbb01d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Purple_Vinyard.mat using Guid(62ee810bc8af4418eb44489e2dbb01d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f487b5fcd9c499aad3bdc71f64a8d246') in 0.013098 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 17.577068 seconds.
+  path: Assets/Materials/Purple_Vinyard.mat
+  artifactKey: Guid(62ee810bc8af4418eb44489e2dbb01d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Purple_Vinyard.mat using Guid(62ee810bc8af4418eb44489e2dbb01d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '944436619099087c4eed6b8c3fa68ba0') in 0.009428 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 9.206562 seconds.
+  path: Assets/Materials/Gold_GoldMin.mat
+  artifactKey: Guid(f167d7ff462e5439796d6b892ca207e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Gold_GoldMin.mat using Guid(f167d7ff462e5439796d6b892ca207e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48cb558101d7203863989ea2e0844c22') in 0.007327 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 30.758834 seconds.
+  path: Assets/Materials/New Material.mat
+  artifactKey: Guid(2e118904fe284435088af365fe2b36ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Material.mat using Guid(2e118904fe284435088af365fe2b36ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d35fc6db8248613c2118655738c7075') in 0.008562 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 7.946991 seconds.
+  path: Assets/Materials/Black_Coalmine.mat
+  artifactKey: Guid(2e118904fe284435088af365fe2b36ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Black_Coalmine.mat using Guid(2e118904fe284435088af365fe2b36ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '697c8f6a544927e8c2bb840c1cfd16d4') in 0.007434 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 23.346918 seconds.
+  path: Assets/Materials/Blue_IronMine.mat
+  artifactKey: Guid(8a9c5968d24384e99811281b411ea169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronMine.mat using Guid(8a9c5968d24384e99811281b411ea169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56adf1ea25fb0e143c49618c7e2bbefc') in 0.008323 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 22.096696 seconds.
+  path: Assets/Materials/Black_CoalMine.mat
+  artifactKey: Guid(2e118904fe284435088af365fe2b36ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Black_CoalMine.mat using Guid(2e118904fe284435088af365fe2b36ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '215f85664a101d2dab94dcf25a4b57b8') in 0.011601 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 39.777635 seconds.
+  path: Assets/Materials/Brown_WeaponsMaker.mat
+  artifactKey: Guid(af5845f466c9742d29f943170004f7ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Brown_WeaponsMaker.mat using Guid(af5845f466c9742d29f943170004f7ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca05c8b9add1c42163aab75668ad5737') in 0.007067 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 45.056655 seconds.
+  path: Assets/Materials/Beige_LeatherArmorWorkshop.mat
+  artifactKey: Guid(e848edff4381943d6b43d53e59e8a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Beige_LeatherArmorWorkshop.mat using Guid(e848edff4381943d6b43d53e59e8a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47e22a35542cd5c222655a2ed3159b91') in 0.024940 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 41.978539 seconds.
+  path: Assets/Materials/Beige_LeatherArmorWorkshop.mat
+  artifactKey: Guid(e848edff4381943d6b43d53e59e8a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Beige_LeatherArmorWorkshop.mat using Guid(e848edff4381943d6b43d53e59e8a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc1a81a92c6342d0c40141f4c103cbb5') in 0.011885 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000125 seconds.
+  path: Assets/Materials/Brown_WeaponsMaker.mat
+  artifactKey: Guid(af5845f466c9742d29f943170004f7ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Brown_WeaponsMaker.mat using Guid(af5845f466c9742d29f943170004f7ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7dd3933676198ac592a99126e57f8d85') in 0.006028 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 40.848698 seconds.
+  path: Assets/Materials/Blue_IronSmelter.mat
+  artifactKey: Guid(8ae0dc36aee1b4189b4dd9b1bf620db2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronSmelter.mat using Guid(8ae0dc36aee1b4189b4dd9b1bf620db2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d7da83e201b171ac03aa9d7a261bd7e') in 0.012984 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 24.876035 seconds.
+  path: Assets/Materials/Beige_ArmorWorkshop.mat
+  artifactKey: Guid(e848edff4381943d6b43d53e59e8a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Beige_ArmorWorkshop.mat using Guid(e848edff4381943d6b43d53e59e8a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a6433019ac35f562ba7aed633d5aa08') in 0.008934 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 17.918939 seconds.
+  path: Assets/Materials/New Material.mat
+  artifactKey: Guid(94a5e6a72cbc74404a75de9847142a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Material.mat using Guid(94a5e6a72cbc74404a75de9847142a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42a88ded13ac5685d59fb4262bef0d5b') in 0.007856 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 27.115042 seconds.
+  path: Assets/Materials/White_Stable.mat
+  artifactKey: Guid(94a5e6a72cbc74404a75de9847142a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/White_Stable.mat using Guid(94a5e6a72cbc74404a75de9847142a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31df1e1fb32b824d72c126a8c3672d9b') in 0.015270 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 19.168402 seconds.
+  path: Assets/Materials/Blue_IronSmelter.mat
+  artifactKey: Guid(8ae0dc36aee1b4189b4dd9b1bf620db2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronSmelter.mat using Guid(8ae0dc36aee1b4189b4dd9b1bf620db2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4123fb43977301b8862dc236e3070ac') in 0.008162 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 6.978619 seconds.
+  path: Assets/Materials/Gold_GoldSmelter.mat
+  artifactKey: Guid(ea3854cf39ec04cb292e337044136bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Gold_GoldSmelter.mat using Guid(ea3854cf39ec04cb292e337044136bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12125ed46fa5f892e2cd5f88ad458be1') in 0.014116 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 2.844653 seconds.
+  path: Assets/Materials/Gold_GoldMine.mat
+  artifactKey: Guid(f167d7ff462e5439796d6b892ca207e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Gold_GoldMine.mat using Guid(f167d7ff462e5439796d6b892ca207e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67e9f3903ddc6d57b7299c72b1390fdc') in 0.012404 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 73.057611 seconds.
+  path: Assets/Materials/Blue_IronSmelter 1.mat
+  artifactKey: Guid(21e1cd6b975b34476855210f5f462056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronSmelter 1.mat using Guid(21e1cd6b975b34476855210f5f462056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba7bfa1714250621c0fbcf40e2a1ed28') in 0.016941 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Materials/Gold_GoldSmelter.mat
+  artifactKey: Guid(ea3854cf39ec04cb292e337044136bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Gold_GoldSmelter.mat using Guid(ea3854cf39ec04cb292e337044136bc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6b559596c263ebd8d6d39ca19938672') in 0.008418 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 8.736086 seconds.
+  path: Assets/Materials/Blue_IronWeaponsMaker.mat
+  artifactKey: Guid(21e1cd6b975b34476855210f5f462056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronWeaponsMaker.mat using Guid(21e1cd6b975b34476855210f5f462056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdb7dff89f6a4c5440b6a03d801c34a4') in 0.012584 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 7.925294 seconds.
+  path: Assets/Materials/Blue_IronWeaponsMaker.mat
+  artifactKey: Guid(21e1cd6b975b34476855210f5f462056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronWeaponsMaker.mat using Guid(21e1cd6b975b34476855210f5f462056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d0ba36b26ec3c826fb62261ae190ce1') in 0.010994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 9.976707 seconds.
+  path: Assets/Materials/Blue_IronArmory.mat
+  artifactKey: Guid(3c92bf626a8424bd6a38c9a070cffa3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronArmory.mat using Guid(3c92bf626a8424bd6a38c9a070cffa3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f8ffdbfb4e555355f0d16b88e118361') in 0.017088 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 26.073190 seconds.
+  path: Assets/Materials/Grey_Warehoue.mat
+  artifactKey: Guid(75fbf19429f7e456b9c1dc5440a31eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Grey_Warehoue.mat using Guid(75fbf19429f7e456b9c1dc5440a31eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0776602d068e079cfe081b68f323cf0b') in 0.011626 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 2.767536 seconds.
+  path: Assets/Materials/Grey_Warehoue 1.mat
+  artifactKey: Guid(4f6dae532d8f3441e99c0454524fb342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Grey_Warehoue 1.mat using Guid(4f6dae532d8f3441e99c0454524fb342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8eb4d39c5fca317f7773a3bb8a4df1e') in 0.008218 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 12.112591 seconds.
+  path: Assets/Materials/Grey_Castle.mat
+  artifactKey: Guid(4f6dae532d8f3441e99c0454524fb342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Grey_Castle.mat using Guid(4f6dae532d8f3441e99c0454524fb342) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48a467520977ebee5dd39a08062ddb0d') in 0.007511 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 5.096687 seconds.
+  path: Assets/Materials/Blue_IronArmory.mat
+  artifactKey: Guid(3c92bf626a8424bd6a38c9a070cffa3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue_IronArmory.mat using Guid(3c92bf626a8424bd6a38c9a070cffa3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bba42a1a3476edc42edca151cd7af67b') in 0.020617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 5.575602 seconds.
+  path: Assets/Materials/New Material.mat
+  artifactKey: Guid(1590b283a4d57490d8729d3c79c005a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Material.mat using Guid(1590b283a4d57490d8729d3c79c005a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbca092283f113adf743edd200d0c9f4') in 0.021389 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 20.600486 seconds.
+  path: Assets/Materials/Brown_SiegeWorkshop.mat
+  artifactKey: Guid(1590b283a4d57490d8729d3c79c005a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Brown_SiegeWorkshop.mat using Guid(1590b283a4d57490d8729d3c79c005a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30439b5d43e0a6b6dcb77d0825ab9d16') in 0.009432 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 15.809853 seconds.
+  path: Assets/Materials/Grey_GuardTower.mat
+  artifactKey: Guid(67f9ece8b4b424df6bf335f7fdf9e229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Grey_GuardTower.mat using Guid(67f9ece8b4b424df6bf335f7fdf9e229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8004e88ea1e31271d11ab89050ff881d') in 0.010896 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 43.792410 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SawmillFoundation.prefab
+  artifactKey: Guid(1a558f79a610c4be5a8af722ecb8ec3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SawmillFoundation.prefab using Guid(1a558f79a610c4be5a8af722ecb8ec3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '034b425777e1a568a46b33cfb9abb1e3') in 0.058133 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.384757 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SawmillBuilding.prefab
+  artifactKey: Guid(30a19a04d52c44fcaa617217aba7ff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SawmillBuilding.prefab using Guid(30a19a04d52c44fcaa617217aba7ff4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba16936017de15357f3372ce1966a45e') in 0.020714 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 15.677081 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab
+  artifactKey: Guid(6deb614e6f16945fca1ecff8187ea724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab using Guid(6deb614e6f16945fca1ecff8187ea724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2086ff058c3b1b9879adfa912999d4d') in 0.009428 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 25.313350 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/PigFarmBuilding 1.prefab
+  artifactKey: Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/PigFarmBuilding 1.prefab using Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03df32fbc0979e2d35e0ab1827b2c70e') in 0.009307 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.552987 seconds.
+  path: Assets/Materials/Grey_GuardTower.mat
+  artifactKey: Guid(67f9ece8b4b424df6bf335f7fdf9e229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Grey_GuardTower.mat using Guid(67f9ece8b4b424df6bf335f7fdf9e229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a283df36b4e651c16693b75d28cb88e') in 0.013265 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 13.340326 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/School.prefab
+  artifactKey: Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/School.prefab using Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f7f1fefba2d554099e668d3ee3cb50e') in 0.005906 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.628701 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/School.prefab
+  artifactKey: Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/School.prefab using Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfe09361ba5365fe15af464d132d9eec') in 0.012634 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 16.392712 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab
+  artifactKey: Guid(750c79dd1e5c14935bb49246f7bc403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab using Guid(750c79dd1e5c14935bb49246f7bc403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '533ca0091f4b579185e1ae0821d4ed23') in 0.007704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.084067 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/RestaurantBuilding.prefab
+  artifactKey: Guid(750c79dd1e5c14935bb49246f7bc403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/RestaurantBuilding.prefab using Guid(750c79dd1e5c14935bb49246f7bc403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9f54575ea8415ff56cacbfceacf46e2') in 0.007245 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 6.169443 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding.prefab
+  artifactKey: Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding.prefab using Guid(c9f51900f4fc74d5ea32172dd390d3d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '428f726171ec51a8acaace5d7fdc7eda') in 0.011787 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 23.039856 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/RestaurantBuilding.prefab
+  artifactKey: Guid(750c79dd1e5c14935bb49246f7bc403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/RestaurantBuilding.prefab using Guid(750c79dd1e5c14935bb49246f7bc403e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbc188d44d507ade17da3144deaa4306') in 0.009033 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 16.460466 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab
+  artifactKey: Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab using Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdc3612d1e95fc7c1912903e8711c9ae') in 0.014441 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 10.205152 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab
+  artifactKey: Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab using Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '097d348a26b03e4d0fb7da701de0248e') in 0.007480 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.240380 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/Fisherman.prefab
+  artifactKey: Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/Fisherman.prefab using Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33e1fc2faf2daeb1cdcbd0a24aec59c1') in 0.016275 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.648032 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/FishermanBuilding.prefab
+  artifactKey: Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/FishermanBuilding.prefab using Guid(8c7a11c48d77f4c4aad21840d0c9dd33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bb299e076690e1022672638ee9f9e26') in 0.018871 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 7.627460 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab
+  artifactKey: Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab using Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5539b153cc8db9ff5956d9652d6b37d7') in 0.010026 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 7.804110 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/Vinyardbuilding.prefab
+  artifactKey: Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/Vinyardbuilding.prefab using Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '288fec3917f5449796c50e476d6a38d5') in 0.014902 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 5.738964 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/VinyardBuilding.prefab
+  artifactKey: Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/VinyardBuilding.prefab using Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c33dc07cf1c632d7b2b435e9926f205') in 0.009348 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.870468 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/VinyardBuilding.prefab
+  artifactKey: Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/VinyardBuilding.prefab using Guid(520825db7a790418aa3dcda361d086e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe0c84e294d890ab9f68556a6f14ae02') in 0.010625 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 10.864397 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab
+  artifactKey: Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab using Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '250350762fcdde3486c7e451788d3e19') in 0.007947 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 8.381425 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab
+  artifactKey: Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab using Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66528e401a8e31cdcc38eac609ff5521') in 0.012722 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.570439 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab
+  artifactKey: Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab using Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1ed2477e237aff5273858d3a0491fc6') in 0.008192 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.297532 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab
+  artifactKey: Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab using Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a0e1dc2b3d909e2b99a109f9f5f47a6') in 0.031202 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.665228 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab
+  artifactKey: Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab using Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89726c570811b681d3e102c066175ae7') in 0.016917 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 10.233219 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab
+  artifactKey: Guid(6cea5c527a78f4a00ba79b53a8fb9938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab using Guid(6cea5c527a78f4a00ba79b53a8fb9938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cd45b912e83e01ee1c64e1b199c28d4') in 0.008700 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 7.911438 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CoalMineBuilding.prefab
+  artifactKey: Guid(6cea5c527a78f4a00ba79b53a8fb9938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CoalMineBuilding.prefab using Guid(6cea5c527a78f4a00ba79b53a8fb9938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70c425f40ace74de465532c7351e5181') in 0.008005 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.406900 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CoalMineBuilding.prefab
+  artifactKey: Guid(6cea5c527a78f4a00ba79b53a8fb9938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CoalMineBuilding.prefab using Guid(6cea5c527a78f4a00ba79b53a8fb9938) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4f8f8323c1d8bb4ad97845808f154a7') in 0.010189 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 8.277332 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding 1.prefab
+  artifactKey: Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding 1.prefab using Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c949e5f0233eeb696575b72223eb92c') in 0.007342 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.659732 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab
+  artifactKey: Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab using Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1d8010fba3953e415797732a92d10be') in 0.009867 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 12.841536 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronMineBuilding.prefab
+  artifactKey: Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronMineBuilding.prefab using Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2a31984230b3870350d59f35056318b') in 0.009452 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.969724 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronMineBuilding.prefab
+  artifactKey: Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronMineBuilding.prefab using Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '593200b16b959fa056e178578a0f3afb') in 0.017885 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.717359 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronMineBuilding.prefab
+  artifactKey: Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronMineBuilding.prefab using Guid(3297387c3714a44f2b1c9c29c0662b9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b65e427c895702f6324d6a01fceeb086') in 0.012015 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 12.042148 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SawmillBuilding 1.prefab
+  artifactKey: Guid(1487e049541014f0a862339a716c9693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SawmillBuilding 1.prefab using Guid(1487e049541014f0a862339a716c9693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6abdb5f4859e06f3571f8a64f232023d') in 0.006701 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.013417 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab
+  artifactKey: Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldMinBuilding.prefab using Guid(2c17d56ca7b834966bb9b2da7d0c43f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a979e11bd56ebf5650f793460c1b47a5') in 0.007617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 17.097265 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/WeaponsMakerBuilding.prefab
+  artifactKey: Guid(1487e049541014f0a862339a716c9693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/WeaponsMakerBuilding.prefab using Guid(1487e049541014f0a862339a716c9693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42df68b34594eb2f6d763ba64a5ba348') in 0.022744 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 4.142564 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/WeaponsMakerBuilding.prefab
+  artifactKey: Guid(1487e049541014f0a862339a716c9693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/WeaponsMakerBuilding.prefab using Guid(1487e049541014f0a862339a716c9693) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '206bf582ff100518e46780fa765bfa25') in 0.007714 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 12.285051 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding 1.prefab
+  artifactKey: Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding 1.prefab using Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '667b6b016081292b3c61ddaa907cb236') in 0.008257 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 15.787979 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab
+  artifactKey: Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab using Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd23acb1eaa3ee1c54d5981bf1ab739c7') in 0.008322 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.358103 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab
+  artifactKey: Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab using Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32f32ba05ba82246af766acfd3677045') in 0.008115 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.363125 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab
+  artifactKey: Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab using Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ffd1a94741a0f6ea3703a4aaf02dc05') in 0.013749 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.050579 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab
+  artifactKey: Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab using Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bad882e4dcb4b61781e1c65d0a2f55c') in 0.005914 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.423965 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab
+  artifactKey: Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop.prefab using Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41054f8328df83e7d102e8a0198e4c93') in 0.009368 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 13.779174 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab
+  artifactKey: Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab using Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74fab414ebc77039ff6b94e95f0538a5') in 0.007423 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.892507 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/Stable.prefab
+  artifactKey: Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/Stable.prefab using Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71298a78dece61cd960a6bcca6f70bcf') in 0.015105 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.208160 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StableBuilding.prefab
+  artifactKey: Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StableBuilding.prefab using Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6867d4f0260af3b1ba4214241e33b54') in 0.020298 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.790515 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StableBuilding.prefab
+  artifactKey: Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StableBuilding.prefab using Guid(64e7dc0424b39449aa6c1479895b5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23199b1d76470697786bacbc6c091505') in 0.020723 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 6.721527 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding 1.prefab
+  artifactKey: Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding 1.prefab using Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd7609a4e61dc28694090c1f32d8272f') in 0.007796 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 10.349153 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab
+  artifactKey: Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab using Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '087aacc6986bfa85d2cb0c1bc40653f1') in 0.009550 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.970483 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab
+  artifactKey: Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab using Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cffa9f587b2042a890d6ad8fd7eb339d') in 0.007599 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.350619 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab
+  artifactKey: Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab using Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5271948ad89199779a2640fa26e29802') in 0.012761 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.294429 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab
+  artifactKey: Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab using Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82438023b9dec1b44b7e5a4728e211dc') in 0.011784 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.666580 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab
+  artifactKey: Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GoldSmelterBuilding.prefab using Guid(869605aae40a546a29b944035f766dcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c865f7d49cf452d840ac3dea93d8df06') in 0.010959 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 6.439531 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding 1.prefab
+  artifactKey: Guid(ad28b1cc43c8b471b83a915efb2b8162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SchoolBuilding 1.prefab using Guid(ad28b1cc43c8b471b83a915efb2b8162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ecb07294ff30da103024f8f0cd9ce21') in 0.006518 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.432721 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/Iron.prefab
+  artifactKey: Guid(ad28b1cc43c8b471b83a915efb2b8162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/Iron.prefab using Guid(ad28b1cc43c8b471b83a915efb2b8162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1d598cc5181b2969f813bcc5f120132') in 0.019756 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 5.160179 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SawmillBuilding 1.prefab
+  artifactKey: Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SawmillBuilding 1.prefab using Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a458d7b5390995b4e4bc63a3abcd593') in 0.012690 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 6.198671 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronSmelter.prefab
+  artifactKey: Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronSmelter.prefab using Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '978765ab100429a50732e224cf50f225') in 0.012606 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 2.187088 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronSmelter.prefab
+  artifactKey: Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronSmelter.prefab using Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c560bd10f894faeda35c597ec7d412f1') in 0.009584 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 1.028296 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronSmelter.prefab
+  artifactKey: Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronSmelter.prefab using Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe93ca6173327cc4db95fcb580cf288b') in 0.009312 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 9.893265 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronSmelterBuilding.prefab
+  artifactKey: Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronSmelterBuilding.prefab using Guid(d69deb18019234f829cebf79d30eb8cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c57cf50e85f2938dc4c54ecca18b935') in 0.018453 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 1.040327 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronSmelterBuilding 1.prefab
+  artifactKey: Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronSmelterBuilding 1.prefab using Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37a3f371a16c31ae8edfd180753235bc') in 0.007278 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 13.880110 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronWeaponsMaker.prefab
+  artifactKey: Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronWeaponsMaker.prefab using Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc5f47dd355965bc1febd3206f4780d0') in 0.013927 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 5.347283 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronWeaponsMakerBuilding.prefab
+  artifactKey: Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronWeaponsMakerBuilding.prefab using Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f5208aa2adc3c29691437bcd90bac21') in 0.006737 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 3.254999 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronWeaponsMakerBuilding.prefab
+  artifactKey: Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronWeaponsMakerBuilding.prefab using Guid(30cd85bafac704d409dc390be5629ffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '422137a2c4bbb4a220d79da8d11ebd93') in 0.006951 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 11.135888 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop 1.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/ArmorWorkshop 1.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce01e564c308306db842b50017b3f090') in 0.009747 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 25.404146 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronArmory.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronArmory.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7acdcfe3565c9a81fbd5f6a039814a5') in 0.009754 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 10.104075 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e92f9ac16d87678e50e087bbd9abcad7') in 0.015750 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 11.156179 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/LeatherArmoryBuilding.prefab
+  artifactKey: Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/LeatherArmoryBuilding.prefab using Guid(46171bbac1722445392a46d419a8706b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2700eb0295d281c64c29fb1181e2193') in 0.006687 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.697321 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1880c175a2105582081c90fed05b85b') in 0.016166 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.646108 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53e4b249e177520829d62e6adaff01c8') in 0.015010 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.521040 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9855c1446240e4706faa3bd43bc6ff78') in 0.011915 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.394225 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f645a3b54901090a13a8abbe66c96ab') in 0.014868 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.901226 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab
+  artifactKey: Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/IronArmoryBuilding.prefab using Guid(9d7c1f38347b045fcb9454c3cda3f2a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14f0f28fe5a5c4181c0d1637e05ad6d2') in 0.011704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 10.532884 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/WheatFarmBuilding 1.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b890d5c833b42b43afbadb11290712e') in 0.007812 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.527162 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0285395fd86dba42cfc67958a3b6ba6d') in 0.008551 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.307289 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bdd74f72dd4890928c4fb79201d34db') in 0.010533 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.608873 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be1a309e6aaa856a73cf87633cf462e7') in 0.009331 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.512226 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71f6e77b289abfcb52291f86effd7849') in 0.008814 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.381295 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a419e0b20794411562a20bb0735bb457') in 0.010532 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.373541 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ade928c5369b61875b23046acf630e82') in 0.011399 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.045334 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa30c880c403dc89e6d20bf7390fa882') in 0.009711 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.492238 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e00b7fddf15bafee9f488f6de5688ed') in 0.010329 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.035914 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab
+  artifactKey: Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/CastleBuilding.prefab using Guid(dcb8473de9dab4321bf7312aeb56d370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad35b5453fecbeaa958cb3e3efa08792') in 0.011367 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 13.911767 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab
+  artifactKey: Guid(8aa04ac87c5a842298c228456fbdcc48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab using Guid(8aa04ac87c5a842298c228456fbdcc48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cfa11f012dbc1eb7cb0fff645cfa6e4') in 0.008048 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 7.669671 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SiegeWorkshopBuilding.prefab
+  artifactKey: Guid(8aa04ac87c5a842298c228456fbdcc48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SiegeWorkshopBuilding.prefab using Guid(8aa04ac87c5a842298c228456fbdcc48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ee8719d5594c40341041fcce2adc5a6') in 0.015165 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.121472 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/SiegeWorkshopBuilding.prefab
+  artifactKey: Guid(8aa04ac87c5a842298c228456fbdcc48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/SiegeWorkshopBuilding.prefab using Guid(8aa04ac87c5a842298c228456fbdcc48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b323e443fafb39cc4a9ddda0d6a0507') in 0.007842 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 8.556423 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab
+  artifactKey: Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/StonequarryBuilding 1.prefab using Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f3ebcdee7194f6b229f284fd8bfb4f6') in 0.008122 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 7.561958 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab
+  artifactKey: Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab using Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d935ba58a93e788763dfbc39d675f28') in 0.016388 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.150906 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab
+  artifactKey: Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab using Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aca6b6c6a4b6425f5c3b9edbbfdaa59e') in 0.013338 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.744757 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab
+  artifactKey: Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab using Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '278ce01d82592e27a7fbf7c12922aa7d') in 0.009374 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.736257 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab
+  artifactKey: Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab using Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '695d3f17fabdd52f038a489a746f8f68') in 0.011276 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.495058 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab
+  artifactKey: Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab using Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '822602e2ec1f9308323a8fab36ae70c2') in 0.007761 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 5.567159 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab
+  artifactKey: Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/GuardTowerBuilding.prefab using Guid(747378e6d93f744588cb675a0c75e715) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63e5f9279cd412d0192030b4b23e36bd') in 0.009520 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 23.404833 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/BakeryBuilding.prefab
+  artifactKey: Guid(a78c33e9502e94938823a5aff434f38f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/BakeryBuilding.prefab using Guid(a78c33e9502e94938823a5aff434f38f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '995fdcd9f78f8fd530bef549af5bece5') in 0.016281 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/CastleBuilding.prefab
+  artifactKey: Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/CastleBuilding.prefab using Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '471370996220aa356994c4dc1c656de4') in 0.011527 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000134 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerBuilding.prefab
+  artifactKey: Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerBuilding.prefab using Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bb6361c289b85d62f31eb2d2a3b7603') in 0.016953 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/FishermanBuilding.prefab
+  artifactKey: Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/FishermanBuilding.prefab using Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e918294c9b0ac5786131d5fd863cabb') in 0.009187 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SchoolBuilding.prefab
+  artifactKey: Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SchoolBuilding.prefab using Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '055165ae949a1254d378e03db4374730') in 0.005851 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronArmoryBuilding.prefab
+  artifactKey: Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronArmoryBuilding.prefab using Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6c38354aae932effe0013283f432c87') in 0.007494 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopBuilding.prefab
+  artifactKey: Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopBuilding.prefab using Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55bf639e1062f47598ae5054e1834132') in 0.007370 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GoldMinBuilding.prefab
+  artifactKey: Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GoldMinBuilding.prefab using Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7d3c9a76fa34b4c36dddf2a059852fc') in 0.014641 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronMineBuilding.prefab
+  artifactKey: Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronMineBuilding.prefab using Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5bdc6607bd9fb880310081bbfe4859c') in 0.024522 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GuardTowerBuilding.prefab
+  artifactKey: Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GuardTowerBuilding.prefab using Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98722aaa34b291c80cc29c019a4feaa7') in 0.025913 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/RestaurantBuilding.prefab
+  artifactKey: Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/RestaurantBuilding.prefab using Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c47ec41fa025f9683cf9cd2149f90bf1') in 0.011809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/LumberjackBuilding.prefab
+  artifactKey: Guid(f33a15ae937f247588ef2c562396d8ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/LumberjackBuilding.prefab using Guid(f33a15ae937f247588ef2c562396d8ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b10d2fcb04f0bb00d74650c81706ea1') in 0.009020 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/PigFarmBuilding.prefab
+  artifactKey: Guid(d41cf254a77664e068cdd6a83845d2af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/PigFarmBuilding.prefab using Guid(d41cf254a77664e068cdd6a83845d2af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fbd226704166fd4279d6733a6506c4c') in 0.010347 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/VinyardBuilding.prefab
+  artifactKey: Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/VinyardBuilding.prefab using Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebab6c60d6555b7b887b9b3dd52f1a3b') in 0.009059 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 44.179880 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/CastleFoundation.prefab
+  artifactKey: Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/CastleFoundation.prefab using Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98573020654480c6c2652b6564821878') in 0.023676 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.322539 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/CoalMineFoundation.prefab
+  artifactKey: Guid(efe4c83c7d6e34a1190b6fc80affc523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/CoalMineFoundation.prefab using Guid(efe4c83c7d6e34a1190b6fc80affc523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01a73da9dd80aa6e8daaf6da74f7ab0e') in 0.006943 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.759331 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/FishermanFoundation.prefab
+  artifactKey: Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/FishermanFoundation.prefab using Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe0f81c1d1eb73d756b4ff8fa2536083') in 0.007983 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.029725 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GoldMineFoundation.prefab
+  artifactKey: Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GoldMineFoundation.prefab using Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23d356d37ceadea4d445d8a978afee6b') in 0.015652 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 6.995878 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GoldSmelterFoundation.prefab
+  artifactKey: Guid(52058fc3d60444f5797ec2ee7f62ab19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GoldSmelterFoundation.prefab using Guid(52058fc3d60444f5797ec2ee7f62ab19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ddecea6d1dd8d91fc14705170a04c90') in 0.006181 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 6.650637 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GuardTowerFoundation.prefab
+  artifactKey: Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GuardTowerFoundation.prefab using Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a03e9b41415ed5446d223d621fb3c9ef') in 0.019012 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.997007 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronArmoryFoundation.prefab
+  artifactKey: Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronArmoryFoundation.prefab using Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcf718ae69624e8ef809f27103d306f0') in 0.007311 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.785182 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronMineFoundation.prefab
+  artifactKey: Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronMineFoundation.prefab using Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '044ee11bf109105b1eacfec1070a90fc') in 0.008810 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.220284 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronSmelterFoundation.prefab
+  artifactKey: Guid(b7f9dae5ab81a4c65876fa48aac579e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronSmelterFoundation.prefab using Guid(b7f9dae5ab81a4c65876fa48aac579e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ade5ebd4d4d9e4cb471c8f9d26b0733') in 0.007624 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 5.371828 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerFoundation.prefab
+  artifactKey: Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerFoundation.prefab using Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1236d9fa4ca36151b8d29e3ccb83142f') in 0.020891 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 4.870950 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/LeatherArmoryFoundation.prefab
+  artifactKey: Guid(a478b8f71c6114876b9bc8ab0ef482af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/LeatherArmoryFoundation.prefab using Guid(a478b8f71c6114876b9bc8ab0ef482af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdd1d4e46eed1160d9f0cff7249b0a70') in 0.013423 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 5.256237 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/RestaurantFoundation.prefab
+  artifactKey: Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/RestaurantFoundation.prefab using Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '874833d5ae78e584a02e5f9058cc42c1') in 0.012417 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.866913 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SchoolFoundation.prefab
+  artifactKey: Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SchoolFoundation.prefab using Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '615109fa51732c52b99eac085eefe0f7') in 0.007985 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.727252 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopFoundation.prefab
+  artifactKey: Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopFoundation.prefab using Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8060d4312d0d5e0e478d566e38f8c28b') in 0.007667 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.097852 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/StableFoundation.prefab
+  artifactKey: Guid(292de08fae25b43dcba80b9e5abd602a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/StableFoundation.prefab using Guid(292de08fae25b43dcba80b9e5abd602a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '120a004a05644f74190b78e5edfca0f1') in 0.020772 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 11.360650 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/VinyardFoundation.prefab
+  artifactKey: Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/VinyardFoundation.prefab using Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45198313b05147fb8be1e3648ec45cbc') in 0.006922 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 5.191408 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/WeaponsMakerFoundation.prefab
+  artifactKey: Guid(c4f8d5fdeb9c64a9d8b63b03ea643b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/WeaponsMakerFoundation.prefab using Guid(c4f8d5fdeb9c64a9d8b63b03ea643b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f5ea725624d68dea843c97f1f0e8039') in 0.009988 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 9.351628 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/CastleFoundation.prefab
+  artifactKey: Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/CastleFoundation.prefab using Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d593d01a8fd7d2fd23830b1532bbfcf') in 0.013591 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.816996 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/CastleFoundation.prefab
+  artifactKey: Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/CastleFoundation.prefab using Guid(3168929c5522647d2b7b1eca46ab9be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2496b6fc9be058b4b804256f162bf2c9') in 0.010710 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 5.223164 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/CoalMineFoundation.prefab
+  artifactKey: Guid(efe4c83c7d6e34a1190b6fc80affc523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/CoalMineFoundation.prefab using Guid(efe4c83c7d6e34a1190b6fc80affc523) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be0c40e17c202f3af9fb8071932328b3') in 0.014801 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.997075 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/FishermanFoundation.prefab
+  artifactKey: Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/FishermanFoundation.prefab using Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fa80659689f7d68fa011f832742f1e8') in 0.011066 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.086453 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/FishermanFoundation.prefab
+  artifactKey: Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/FishermanFoundation.prefab using Guid(e894c74c5cf904fa3b2aee5a2b72add8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4fd41949e722154425c85ef139bdb0b') in 0.008954 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.508290 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GoldMineFoundation.prefab
+  artifactKey: Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GoldMineFoundation.prefab using Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27da2cd296c40aacc1af6a14c3c1f771') in 0.011915 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.956358 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GoldMineFoundation.prefab
+  artifactKey: Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GoldMineFoundation.prefab using Guid(4b8bb59f321b64e6e9b0c82fddd4261b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85d1def4f210d452a500690b0996f3f8') in 0.011039 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.468558 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GoldSmelterFoundation.prefab
+  artifactKey: Guid(52058fc3d60444f5797ec2ee7f62ab19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GoldSmelterFoundation.prefab using Guid(52058fc3d60444f5797ec2ee7f62ab19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3bb7f0d4f3fe77a75aa467ddb54394f') in 0.009526 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.474677 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GoldSmelterFoundation.prefab
+  artifactKey: Guid(52058fc3d60444f5797ec2ee7f62ab19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GoldSmelterFoundation.prefab using Guid(52058fc3d60444f5797ec2ee7f62ab19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5b5bad9e387d6d89e39a8e350534193') in 0.011407 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.687450 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GuardTowerFoundation.prefab
+  artifactKey: Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GuardTowerFoundation.prefab using Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d1585e6a426f4524cf13ee8824e824b') in 0.011063 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.881993 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/GuardTowerFoundation.prefab
+  artifactKey: Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/GuardTowerFoundation.prefab using Guid(4d4b64f63796a47619e42183224b7ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cc9f0c9583277e211cb1c14193b0512') in 0.010371 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.279507 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronArmoryFoundation.prefab
+  artifactKey: Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronArmoryFoundation.prefab using Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57a2dfe84ed9f49604706aea755eafeb') in 0.009677 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 1.398942 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronArmoryFoundation.prefab
+  artifactKey: Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronArmoryFoundation.prefab using Guid(1bc627935bc344397b5375bab019b985) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '198720c5d565b4e197423f94202dc4df') in 0.013230 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.300255 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronMineFoundation.prefab
+  artifactKey: Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronMineFoundation.prefab using Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1470daaeeb7ca69d33fe2d0ae80ae677') in 0.010423 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.175898 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronMineFoundation.prefab
+  artifactKey: Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronMineFoundation.prefab using Guid(6018ff0e93ac64228b38f4fc7fb35f5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '021700841c49fcd230d4e014fb3cfc70') in 0.007774 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.997585 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronSmelterFoundation.prefab
+  artifactKey: Guid(b7f9dae5ab81a4c65876fa48aac579e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronSmelterFoundation.prefab using Guid(b7f9dae5ab81a4c65876fa48aac579e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fce7f4d3fc8de9d4b44b4171ece51db') in 0.010111 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 3.452148 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronSmelterFoundation.prefab
+  artifactKey: Guid(b7f9dae5ab81a4c65876fa48aac579e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronSmelterFoundation.prefab using Guid(b7f9dae5ab81a4c65876fa48aac579e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59b8c4552fb267203e956af7c8f77e36') in 0.008431 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 3.441576 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerFoundation.prefab
+  artifactKey: Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerFoundation.prefab using Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4897a744d0ec4462f847dc5434e2cb96') in 0.013079 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 2.469986 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerFoundation.prefab
+  artifactKey: Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/IronWeaponsMakerFoundation.prefab using Guid(acececedfec854df8b21f74cfa09cab9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f0b8e8dffab30471e28b59bc08ebe6e') in 0.010404 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 2.584462 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/LeatherArmoryFoundation.prefab
+  artifactKey: Guid(a478b8f71c6114876b9bc8ab0ef482af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/LeatherArmoryFoundation.prefab using Guid(a478b8f71c6114876b9bc8ab0ef482af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dbf0b7759f586d53e26986c87b82bba') in 0.014409 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.634552 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/LeatherArmoryFoundation.prefab
+  artifactKey: Guid(a478b8f71c6114876b9bc8ab0ef482af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/LeatherArmoryFoundation.prefab using Guid(a478b8f71c6114876b9bc8ab0ef482af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6ec616d60172a63f190a755ffe02e90') in 0.008478 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.381638 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/RestaurantFoundation.prefab
+  artifactKey: Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/RestaurantFoundation.prefab using Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd58128161a13a9d1ed51b15dc674dda6') in 0.009301 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.737328 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/RestaurantFoundation.prefab
+  artifactKey: Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/RestaurantFoundation.prefab using Guid(b09536cbed1df4ac588338805e4c6204) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a9ffd9c21ca7eb6b7bc83445480f3aa') in 0.012458 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.613092 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SchoolFoundation.prefab
+  artifactKey: Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SchoolFoundation.prefab using Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8373dc4ebdc81a9c044015ec5c786a87') in 0.008415 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 5.164433 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SchoolFoundation.prefab
+  artifactKey: Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SchoolFoundation.prefab using Guid(aaad1d9ee0d81450c853f4229c23af89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54f75725aaba5bbd0f3399cdc61ca163') in 0.009174 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.054148 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopFoundation.prefab
+  artifactKey: Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopFoundation.prefab using Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '055affb91d846f606f7c425b0b9a523d') in 0.010366 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.063688 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopFoundation.prefab
+  artifactKey: Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/SiegeWorkshopFoundation.prefab using Guid(7f6991479b7534e268a7a799b047b314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4441092d1f27da361c66be3a295e1341') in 0.010212 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.890571 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/StableFoundation.prefab
+  artifactKey: Guid(292de08fae25b43dcba80b9e5abd602a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/StableFoundation.prefab using Guid(292de08fae25b43dcba80b9e5abd602a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68799c5e282decc72f099ba79c85f662') in 0.009994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.709062 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/StableFoundation.prefab
+  artifactKey: Guid(292de08fae25b43dcba80b9e5abd602a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/StableFoundation.prefab using Guid(292de08fae25b43dcba80b9e5abd602a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98276b8797cd6d0f812deb3deb565e07') in 0.008733 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 3.536251 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/VinyardFoundation.prefab
+  artifactKey: Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/VinyardFoundation.prefab using Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0272c61793c3d1559aff48b3819d57b') in 0.009264 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 2.131199 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/VinyardFoundation.prefab
+  artifactKey: Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/VinyardFoundation.prefab using Guid(6e60fa976756545eea62483a56b594bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a23dec1b77e12dd9b30e13efe65906e') in 0.009855 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.580954 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/WeaponsMakerFoundation.prefab
+  artifactKey: Guid(c4f8d5fdeb9c64a9d8b63b03ea643b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/WeaponsMakerFoundation.prefab using Guid(c4f8d5fdeb9c64a9d8b63b03ea643b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf5903b478223a0b9aa4f6f406527dd7') in 0.020056 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 2.602372 seconds.
+  path: Assets/Prefabs/Buildings/FoundationAssets/WeaponsMakerFoundation.prefab
+  artifactKey: Guid(c4f8d5fdeb9c64a9d8b63b03ea643b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/FoundationAssets/WeaponsMakerFoundation.prefab using Guid(c4f8d5fdeb9c64a9d8b63b03ea643b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8f59c39e8b84139c54c666c2c6e6b70') in 0.019042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 21.099481 seconds.
+  path: Assets/Prefabs/Buildings/BuildingAssets/TanneryBuilding.prefab
+  artifactKey: Guid(1fe8b1015990744a2b43b315e6fb48f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Buildings/BuildingAssets/TanneryBuilding.prefab using Guid(1fe8b1015990744a2b43b315e6fb48f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0df33e306169eb1c8d41698bd798b4f2') in 0.024036 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
