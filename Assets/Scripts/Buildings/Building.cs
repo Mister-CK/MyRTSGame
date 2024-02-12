@@ -59,7 +59,6 @@ namespace MyRTSGame.Model
         public void OnMouseDown()
         {
             onSelectionEvent.Raise(new SelectionEventArgs(this));
-
         }
 
         public virtual void StartResourceCreationCoroutine()
@@ -91,8 +90,8 @@ namespace MyRTSGame.Model
 
         public static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
-            Debug.Log(types.Length);
-            Debug.Log(quantities.Length);
+            // Debug.Log(types.Length);
+            // Debug.Log(quantities.Length);
             if (types.Length != quantities.Length)
                 throw new ArgumentException("Types and quantities arrays must have the same length.");
 
