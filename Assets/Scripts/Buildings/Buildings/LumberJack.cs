@@ -15,7 +15,6 @@ namespace MyRTSGame.Model
 
             var resourceTypes = new[] { ResourceType.Lumber };
             var resourceQuantities = new int[resourceTypes.Length];
-            Inventory = InitInventory(resourceTypes, resourceQuantities);
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
         }
         

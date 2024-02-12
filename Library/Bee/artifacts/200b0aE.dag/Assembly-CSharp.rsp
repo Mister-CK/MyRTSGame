@@ -366,6 +366,7 @@
 "Assets/Scripts/Buildings/BuildingPlacer.cs"
 "Assets/Scripts/Buildings/Buildings/Bakery.cs"
 "Assets/Scripts/Buildings/Buildings/Butcher.cs"
+"Assets/Scripts/Buildings/Buildings/GoldMine.cs"
 "Assets/Scripts/Buildings/Buildings/LumberJack.cs"
 "Assets/Scripts/Buildings/Buildings/Mill.cs"
 "Assets/Scripts/Buildings/Buildings/PigFarm.cs"

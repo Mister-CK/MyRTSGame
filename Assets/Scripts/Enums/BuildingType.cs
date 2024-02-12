@@ -11,6 +11,7 @@
         Bakery,
         PigFarm,
         Butcher,
-        Tannery
+        Tannery,
+        GoldMine
     }
 }
