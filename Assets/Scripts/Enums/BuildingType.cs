@@ -21,6 +21,8 @@
         IronMine,
         GoldSmelter,
         IronSmelter,
+        WeaponsSmith,
+        
         Vineyard,
         FisherMansHut,
         Stable,
