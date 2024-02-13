@@ -8,6 +8,7 @@
         StoneQuarry,
         LumberJack,
         SawMill,
+        WeaponsWorkshop,
         WheatFarm,
         Mill,
         Bakery,
