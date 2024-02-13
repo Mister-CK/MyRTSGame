@@ -9,6 +9,7 @@
         LumberJack,
         SawMill,
         WeaponsWorkshop,
+        ArmorWorkshop,
         WheatFarm,
         Mill,
         Bakery,

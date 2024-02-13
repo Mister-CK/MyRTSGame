@@ -364,6 +364,7 @@
 "Assets/Scripts/Buildings/BuildingList.cs"
 "Assets/Scripts/Buildings/BuildingManager.cs"
 "Assets/Scripts/Buildings/BuildingPlacer.cs"
+"Assets/Scripts/Buildings/Buildings/ArmorWorkshop.cs"
 "Assets/Scripts/Buildings/Buildings/Bakery.cs"
 "Assets/Scripts/Buildings/Buildings/Butcher.cs"
 "Assets/Scripts/Buildings/Buildings/CoalMine.cs"
