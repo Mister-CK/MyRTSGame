@@ -55,6 +55,7 @@
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Bakery.cs" />
     <Compile Include="Assets/Scripts/Units/VillagerChild.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/School.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/Units/Unit.cs" />

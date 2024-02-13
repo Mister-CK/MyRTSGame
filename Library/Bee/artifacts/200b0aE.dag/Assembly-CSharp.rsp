@@ -376,6 +376,7 @@
 "Assets/Scripts/Buildings/Buildings/Mill.cs"
 "Assets/Scripts/Buildings/Buildings/PigFarm.cs"
 "Assets/Scripts/Buildings/Buildings/SawMill.cs"
+"Assets/Scripts/Buildings/Buildings/School.cs"
 "Assets/Scripts/Buildings/Buildings/Stable.cs"
 "Assets/Scripts/Buildings/Buildings/StoneQuarry.cs"
 "Assets/Scripts/Buildings/Buildings/Tannery.cs"

@@ -2,6 +2,7 @@
 {
     public enum BuildingType
     {
+        School,
         Warehouse,
         StoneQuarry,
         LumberJack,
