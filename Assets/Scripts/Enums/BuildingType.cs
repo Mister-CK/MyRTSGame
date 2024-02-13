@@ -27,5 +27,6 @@
         FisherMansHut,
         Stable,
         SiegeWorkshop,
+        GuardTower,
     }
 }
