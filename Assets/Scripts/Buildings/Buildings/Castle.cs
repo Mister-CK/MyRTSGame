@@ -28,7 +28,20 @@ namespace MyRTSGame.Model
             };
             var resourceQuantities = new int[resourceTypes.Length];
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
-            InputTypesWhenCompleted = new[] {ResourceType.Coal, ResourceType.Iron, };
+            InputTypesWhenCompleted = new[]
+            {
+                ResourceType.Sword,
+                ResourceType.Pike,
+                ResourceType.CrossBow,
+                ResourceType.Axe,
+                ResourceType.Bow,
+                ResourceType.Spear,
+                ResourceType.IronArmor,
+                ResourceType.LeatherArmor,
+                ResourceType.Horses,
+                ResourceType.WoodenShield,
+                ResourceType.IronShield
+            };
             HasInput = true;
         }
     }
