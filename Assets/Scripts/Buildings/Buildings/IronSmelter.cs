@@ -12,10 +12,10 @@ namespace MyRTSGame.Model
         {            
             base.Start();
             
-            ResourceType[] resourceTypes = { ResourceType.IronOre, ResourceType.Iron };
+            ResourceType[] resourceTypes = { ResourceType.IronOre, ResourceType.Coal, ResourceType.Iron };
             var resourceQuantities = new int[resourceTypes.Length];
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
-            InputTypesWhenCompleted = new[] { ResourceType.Lumber };
+            InputTypesWhenCompleted = new[] { ResourceType.Lumber, ResourceType.Coal};
             HasInput = true;
         }
         
