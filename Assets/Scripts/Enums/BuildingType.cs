@@ -12,6 +12,7 @@
         PigFarm,
         Butcher,
         Tannery,
-        GoldMine
+        GoldMine,
+        CoalMine,
     }
 }
