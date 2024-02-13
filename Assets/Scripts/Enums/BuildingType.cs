@@ -16,5 +16,6 @@
         CoalMine,
         IronMine,
         Vineyard,
+        FisherMansHut,
     }
 }
