@@ -82,6 +82,7 @@
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/Vinyard.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/SelectionManager.cs" />
     <Compile Include="Assets/Scripts/UI/UIController.cs" />

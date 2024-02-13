@@ -375,6 +375,7 @@
 "Assets/Scripts/Buildings/Buildings/SawMill.cs"
 "Assets/Scripts/Buildings/Buildings/StoneQuarry.cs"
 "Assets/Scripts/Buildings/Buildings/Tannery.cs"
+"Assets/Scripts/Buildings/Buildings/Vinyard.cs"
 "Assets/Scripts/Buildings/Buildings/Warehouse.cs"
 "Assets/Scripts/Buildings/Buildings/Wheatfarm.cs"
 "Assets/Scripts/Buildings/BuildingStates/CompletedState.cs"
