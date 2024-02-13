@@ -22,7 +22,7 @@
         GoldSmelter,
         IronSmelter,
         WeaponsSmith,
-        
+        ArmorSmith,
         Vineyard,
         FisherMansHut,
         Stable,

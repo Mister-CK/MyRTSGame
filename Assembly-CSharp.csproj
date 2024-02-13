@@ -50,6 +50,7 @@
     <Compile Include="Assets/Scripts/UI/UIDeleteButton.cs" />
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
     <Compile Include="Assets/Scripts/Units/Builder.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/ArmorSmith.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs" />
