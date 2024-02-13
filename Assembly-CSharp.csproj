@@ -78,6 +78,7 @@
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />

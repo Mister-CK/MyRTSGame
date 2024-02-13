@@ -14,5 +14,6 @@
         Tannery,
         GoldMine,
         CoalMine,
+        IronMine,
     }
 }
