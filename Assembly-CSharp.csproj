@@ -72,6 +72,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/Mill.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/CompletedState.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/GoldSmelter.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/StoneQuarry.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />

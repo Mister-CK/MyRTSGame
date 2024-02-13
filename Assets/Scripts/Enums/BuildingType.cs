@@ -15,6 +15,7 @@
         GoldMine,
         CoalMine,
         IronMine,
+        GoldSmelter,
         Vineyard,
         FisherMansHut,
         Stable,
