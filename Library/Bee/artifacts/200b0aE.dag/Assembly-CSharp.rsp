@@ -371,6 +371,7 @@
 "Assets/Scripts/Buildings/Buildings/GoldMine.cs"
 "Assets/Scripts/Buildings/Buildings/GoldSmelter.cs"
 "Assets/Scripts/Buildings/Buildings/IronMine.cs"
+"Assets/Scripts/Buildings/Buildings/IronSmelter.cs"
 "Assets/Scripts/Buildings/Buildings/LumberJack.cs"
 "Assets/Scripts/Buildings/Buildings/Mill.cs"
 "Assets/Scripts/Buildings/Buildings/PigFarm.cs"
