@@ -17,5 +17,6 @@
         IronMine,
         Vineyard,
         FisherMansHut,
+        Stable,
     }
 }
