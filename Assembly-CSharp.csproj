@@ -94,6 +94,7 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEvenArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/WeaponsSmith.cs" />

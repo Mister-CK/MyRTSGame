@@ -26,5 +26,6 @@
         Vineyard,
         FisherMansHut,
         Stable,
+        SiegeWorkshop,
     }
 }
