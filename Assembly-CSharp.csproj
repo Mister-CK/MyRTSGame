@@ -98,6 +98,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/IronSmelter.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/GoldMine.cs" />
+    <Compile Include="Assets/Scripts/Buildings/Buildings/Restaurant.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Butcher.cs" />
     <Compile Include="Assets/Scripts/Buildings/Building.cs" />
     <Compile Include="Assets/Scripts/JobSystem/VillagerJobQueue.cs" />

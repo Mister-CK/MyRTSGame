@@ -3,6 +3,7 @@
     public enum BuildingType
     {
         School,
+        Restaurant,
         Warehouse,
         StoneQuarry,
         LumberJack,
