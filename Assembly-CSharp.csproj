@@ -107,6 +107,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/Butcher.cs" />
     <Compile Include="Assets/Scripts/Buildings/Building.cs" />
     <Compile Include="Assets/Scripts/JobSystem/VillagerJobQueue.cs" />
+    <Compile Include="Assets\Scripts\Buildings\Buildings\Castle.cs" />
     <Compile Include="Assets\Scripts\Buildings\Buildings\GuardTower.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />

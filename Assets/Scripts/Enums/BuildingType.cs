@@ -28,5 +28,6 @@
         Stable,
         SiegeWorkshop,
         GuardTower,
+        Castle
     }
 }
