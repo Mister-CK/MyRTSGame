@@ -54,9 +54,9 @@
     <Compile Include="Assets/Scripts/JobSystem/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs" />
+    <Compile Include="Assets/Scripts/UI/UINewVillButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Bakery.cs" />
-    <Compile Include="Assets/Scripts/Units/VillagerChild.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/School.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
@@ -65,11 +65,12 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/Warehouse.cs" />
     <Compile Include="Assets/Scripts/JobSystem/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingPlacer.cs" />
+    <Compile Include="Assets/Scripts/Units/BuilderView.cs" />
     <Compile Include="Assets/Scripts/Units/Villager.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
     <Compile Include="Assets/Scripts/UI/UIButtonHandler.cs" />
+    <Compile Include="Assets/Scripts/UI/SelectionManager.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
-    <Compile Include="Assets/Scripts/Units/BuilderChild.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Mill.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Vinyard.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
-    <Compile Include="Assets/Scripts/SelectionManager.cs" />
+    <Compile Include="Assets/Scripts/Units/UnitController.cs" />
     <Compile Include="Assets/Scripts/UI/UIController.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEvenArgs.cs" />
@@ -101,6 +102,8 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
+    <Compile Include="Assets/Scripts/Units/VillagerView.cs" />
+    <Compile Include="Assets/Scripts/Units/UnitView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/FishermansHut.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/IronSmelter.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />

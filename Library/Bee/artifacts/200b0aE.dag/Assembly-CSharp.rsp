@@ -414,15 +414,18 @@
 "Assets/Scripts/JobSystem/VillagerJob.cs"
 "Assets/Scripts/JobSystem/VillagerJobQueue.cs"
 "Assets/Scripts/Resource.cs"
-"Assets/Scripts/SelectionManager.cs"
+"Assets/Scripts/UI/SelectionManager.cs"
 "Assets/Scripts/UI/UIButtonHandler.cs"
 "Assets/Scripts/UI/UIController.cs"
 "Assets/Scripts/UI/UIDeleteButton.cs"
+"Assets/Scripts/UI/UINewVillButtonHandler.cs"
 "Assets/Scripts/Units/Builder.cs"
-"Assets/Scripts/Units/BuilderChild.cs"
+"Assets/Scripts/Units/BuilderView.cs"
 "Assets/Scripts/Units/Unit.cs"
+"Assets/Scripts/Units/UnitController.cs"
+"Assets/Scripts/Units/UnitView.cs"
 "Assets/Scripts/Units/Villager.cs"
-"Assets/Scripts/Units/VillagerChild.cs"
+"Assets/Scripts/Units/VillagerView.cs"
 -langversion:9.0
 
 /deterministic

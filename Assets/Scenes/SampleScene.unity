@@ -302,7 +302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: SiegeWorkshop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 112078394}
   - component: {fileID: 112078393}
   m_Layer: 5
-  m_Name: new (7)
+  m_Name: ArmorSmith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: -1520293061641354086, guid: 350d7f1ba28734c4081a6d54a3e281d3, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &112078394
 MonoBehaviour:
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: GoldSmelter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: Restaurant
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: WeaponSmith
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: ArmorSmith
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1179,7 +1179,7 @@ GameObject:
   - component: {fileID: 218202260}
   - component: {fileID: 218202259}
   m_Layer: 5
-  m_Name: new (8)
+  m_Name: WeaponsWorkshop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: -4873794173270685453, guid: 407256c9c7b49443aa6de7f85de926b7, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &218202260
 MonoBehaviour:
@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 233368280}
   - component: {fileID: 233368279}
   m_Layer: 5
-  m_Name: new
+  m_Name: School
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1443,7 +1443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 240, y: 330}
+  m_AnchoredPosition: {x: 125, y: 330}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &233368279
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 636898961282055473, guid: fcf69de6b6fa641049b63b62baa4bf70, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &233368280
 MonoBehaviour:
@@ -2346,7 +2346,7 @@ GameObject:
   - component: {fileID: 347798970}
   - component: {fileID: 347798969}
   m_Layer: 5
-  m_Name: new (4)
+  m_Name: FishermansHut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2384,7 +2384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 1623959894014395380, guid: 0b5cb7650785a4bccb504a057197845e, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &347798970
 MonoBehaviour:
@@ -2537,7 +2537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: CoalMine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3006,6 +3006,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394796837}
   m_CullTransparentMesh: 1
+--- !u!1 &401570168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401570169}
+  - component: {fileID: 401570171}
+  - component: {fileID: 401570170}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &401570169
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401570168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 843689143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &401570170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401570168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Vill
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &401570171
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401570168}
+  m_CullTransparentMesh: 1
 --- !u!1 &411717117
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,7 +3154,7 @@ GameObject:
   - component: {fileID: 411717120}
   - component: {fileID: 411717119}
   m_Layer: 5
-  m_Name: new (12)
+  m_Name: GoldMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3058,7 +3192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 6370013049585915297, guid: 23859632ddc274a6da93b3e4898d103c, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &411717120
 MonoBehaviour:
@@ -3286,7 +3420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: IronSmelter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3410,7 +3544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 170}
+  m_AnchoredPosition: {x: 10, y: 250}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &465642130
@@ -3578,7 +3712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: GoldMine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3950,7 +4084,7 @@ GameObject:
   - component: {fileID: 564699053}
   - component: {fileID: 564699052}
   m_Layer: 5
-  m_Name: new (3)
+  m_Name: Stable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3988,7 +4122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 2451293875310770983, guid: 0022e4d84c8284f40a2eae8f1b15abc1, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &564699053
 MonoBehaviour:
@@ -4862,7 +4996,7 @@ GameObject:
   - component: {fileID: 828015423}
   - component: {fileID: 828015422}
   m_Layer: 5
-  m_Name: new (15)
+  m_Name: WeaponSmith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4900,7 +5034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 4132305323593172328, guid: be6acc3fc485647ea8f7e2f19d36e31c, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &828015423
 MonoBehaviour:
@@ -4996,6 +5130,153 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828015420}
   m_CullTransparentMesh: 1
+--- !u!1 &843689142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843689143}
+  - component: {fileID: 843689147}
+  - component: {fileID: 843689146}
+  - component: {fileID: 843689145}
+  - component: {fileID: 843689144}
+  m_Layer: 5
+  m_Name: NewVill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &843689143
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843689142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 401570169}
+  m_Father: {fileID: 847905580}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -214}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &843689144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843689142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a618392a78f431dbe2d4acc506d78d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onNewVillagerEvent: {fileID: 11400000, guid: 231135c33dbe840f88af6a806ea0af3f, type: 2}
+--- !u!114 &843689145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843689142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 843689146}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 843689144}
+        m_TargetAssemblyTypeName: MyRTSGame.Model.UINewVillButtonHandler, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &843689146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843689142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &843689147
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843689142}
+  m_CullTransparentMesh: 1
 --- !u!1 &847905579
 GameObject:
   m_ObjectHideFlags: 0
@@ -5032,6 +5313,7 @@ RectTransform:
   - {fileID: 11918451}
   - {fileID: 1876233369}
   - {fileID: 2057471059}
+  - {fileID: 843689143}
   m_Father: {fileID: 274034830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5224,7 +5506,7 @@ GameObject:
   - component: {fileID: 900507817}
   - component: {fileID: 900507816}
   m_Layer: 5
-  m_Name: new (5)
+  m_Name: ArmorWorkshop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5247,7 +5529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 240, y: 130}
+  m_AnchoredPosition: {x: 125, y: 130}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &900507816
@@ -5262,7 +5544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: -8955277670983543986, guid: e08340a44def84013b2f37995121a993, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &900507817
 MonoBehaviour:
@@ -5415,7 +5697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: Vineyard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5813,7 +6095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 290}
+  m_AnchoredPosition: {x: 125, y: 290}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &972682530
@@ -6174,7 +6456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 210}
+  m_AnchoredPosition: {x: 240, y: 290}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1014846462
@@ -6299,7 +6581,7 @@ GameObject:
   - component: {fileID: 1023865872}
   - component: {fileID: 1023865871}
   m_Layer: 5
-  m_Name: new (9)
+  m_Name: CoalMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6322,7 +6604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 90}
+  m_AnchoredPosition: {x: 240, y: 90}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1023865871
@@ -6337,7 +6619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 95734144688151740, guid: f7076d0fbc59647308d3b67e7991e9d3, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1023865872
 MonoBehaviour:
@@ -6832,7 +7114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: ArmorWorkshop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7237,26 +7519,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2b47e73ee254c2d920ff53944cded7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  schoolFoundation: {fileID: 4064323586911783679, guid: aaad1d9ee0d81450c853f4229c23af89, type: 3}
+  restaurantFoundation: {fileID: 4064323586911783679, guid: b09536cbed1df4ac588338805e4c6204, type: 3}
   warehouseFoundation: {fileID: 7183896741376523290, guid: 586d4b8064feb433cae4936264c97167, type: 3}
   stoneQuarryFoundation: {fileID: 3887471135508192309, guid: 1ccd3aa4fd1da42aa84a15a1951524b4, type: 3}
   lumberJackFoundation: {fileID: 6023432424120999531, guid: c3faae75918434562a0ead2957f78ad3, type: 3}
   sawMillFoundation: {fileID: 6496392709035800085, guid: 1a558f79a610c4be5a8af722ecb8ec3b, type: 3}
+  weaponsWorkshopFoundation: {fileID: 1995104673592824905, guid: c4f8d5fdeb9c64a9d8b63b03ea643b4d, type: 3}
+  armorWorkshopFoundation: {fileID: 4064323586911783679, guid: a478b8f71c6114876b9bc8ab0ef482af, type: 3}
   wheatFarmFoundation: {fileID: 7183896741376523290, guid: b7e8e247c165b4f2eac5d79428f8b4d2, type: 3}
   millFoundation: {fileID: 7183896741376523290, guid: 8c4326408d7334e36948c9334306f815, type: 3}
   bakeryFoundation: {fileID: 7183896741376523290, guid: d01bc60eceb65467ba257430318648c2, type: 3}
   pigFarmFoundation: {fileID: 7183896741376523290, guid: e929a76f1fb264e63bcb50888ec38375, type: 3}
   butcherFoundation: {fileID: 7183896741376523290, guid: 58e6a09ffa86c4cdd8f824f817c29c40, type: 3}
   tanneryFoundation: {fileID: 7183896741376523290, guid: 92ad43824c1d64feca984d6979e22795, type: 3}
+  goldMineFoundation: {fileID: 4842993986464959390, guid: 4b8bb59f321b64e6e9b0c82fddd4261b, type: 3}
+  coalMineFoundation: {fileID: 4842993986464959390, guid: efe4c83c7d6e34a1190b6fc80affc523, type: 3}
+  ironMineFoundation: {fileID: 4842993986464959390, guid: 6018ff0e93ac64228b38f4fc7fb35f5c, type: 3}
+  goldSmelterFoundation: {fileID: 4064323586911783679, guid: 52058fc3d60444f5797ec2ee7f62ab19, type: 3}
+  ironSmelterFoundation: {fileID: 1995104673592824905, guid: b7f9dae5ab81a4c65876fa48aac579e9, type: 3}
+  weaponsSmithFoundation: {fileID: 1995104673592824905, guid: acececedfec854df8b21f74cfa09cab9, type: 3}
+  armorSmithFoundation: {fileID: 4064323586911783679, guid: 1bc627935bc344397b5375bab019b985, type: 3}
+  vineyardFoundation: {fileID: 4842993986464959390, guid: 6e60fa976756545eea62483a56b594bc, type: 3}
+  fisherMansHutFoundation: {fileID: 4842993986464959390, guid: e894c74c5cf904fa3b2aee5a2b72add8, type: 3}
+  stableFoundation: {fileID: 4064323586911783679, guid: 292de08fae25b43dcba80b9e5abd602a, type: 3}
+  siegeWorkshopFoundation: {fileID: 4842993986464959390, guid: 7f6991479b7534e268a7a799b047b314, type: 3}
+  guardTowerFoundation: {fileID: 4842993986464959390, guid: 4d4b64f63796a47619e42183224b7ca6, type: 3}
+  castleFoundation: {fileID: 4064323586911783679, guid: 3168929c5522647d2b7b1eca46ab9be2, type: 3}
+  schoolCompleted: {fileID: 4064323586911783679, guid: c9f51900f4fc74d5ea32172dd390d3d9, type: 3}
+  restaurantCompleted: {fileID: 4064323586911783679, guid: 750c79dd1e5c14935bb49246f7bc403e, type: 3}
   warehouseCompleted: {fileID: 4064323586911783679, guid: da93f6269976e449ca6bdb28877a3174, type: 3}
   stoneQuarryCompleted: {fileID: 4842993986464959390, guid: 3f799e547169648aeb84945c2ede0768, type: 3}
   lumberJackCompleted: {fileID: 6571056623056715732, guid: 79c0cc9fb8743420a89fb0d67cea039d, type: 3}
   sawMillCompleted: {fileID: 1995104673592824905, guid: 30a19a04d52c44fcaa617217aba7ff4c, type: 3}
+  weaponsWorkshopCompleted: {fileID: 1995104673592824905, guid: 1487e049541014f0a862339a716c9693, type: 3}
+  armorWorkshopCompleted: {fileID: 4064323586911783679, guid: 46171bbac1722445392a46d419a8706b, type: 3}
   wheatFarmCompleted: {fileID: 4064323586911783679, guid: 179d97530fd0d4698a9e6cc06b7e87ff, type: 3}
   millCompleted: {fileID: 4064323586911783679, guid: 8f9757e0a923e4b8b89d2213e42a7fdf, type: 3}
   bakeryCompleted: {fileID: 4064323586911783679, guid: 7f67b86d7a7be43e5bd7000b43e50e6b, type: 3}
   pigFarmCompleted: {fileID: 4064323586911783679, guid: 6b3b9b2eac20d4666852546c2c2c884f, type: 3}
   butcherCompleted: {fileID: 4064323586911783679, guid: 196a90168d8594bbe86d024cd74ccaff, type: 3}
   tanneryCompleted: {fileID: 4064323586911783679, guid: 1fe8b1015990744a2b43b315e6fb48f3, type: 3}
+  goldMineCompleted: {fileID: 4842993986464959390, guid: 2c17d56ca7b834966bb9b2da7d0c43f7, type: 3}
+  coalMineCompleted: {fileID: 4842993986464959390, guid: 6cea5c527a78f4a00ba79b53a8fb9938, type: 3}
+  ironMineCompleted: {fileID: 4842993986464959390, guid: 3297387c3714a44f2b1c9c29c0662b9f, type: 3}
+  goldSmelterCompleted: {fileID: 4064323586911783679, guid: 869605aae40a546a29b944035f766dcf, type: 3}
+  ironSmelterCompleted: {fileID: 1995104673592824905, guid: d69deb18019234f829cebf79d30eb8cb, type: 3}
+  weaponsSmithCompleted: {fileID: 1995104673592824905, guid: 30cd85bafac704d409dc390be5629ffa, type: 3}
+  armorSmithCompleted: {fileID: 4064323586911783679, guid: 9d7c1f38347b045fcb9454c3cda3f2a6, type: 3}
+  vineyardCompleted: {fileID: 4842993986464959390, guid: 520825db7a790418aa3dcda361d086e8, type: 3}
+  fisherMansHutCompleted: {fileID: 4842993986464959390, guid: 8c7a11c48d77f4c4aad21840d0c9dd33, type: 3}
+  stableCompleted: {fileID: 4064323586911783679, guid: 64e7dc0424b39449aa6c1479895b5f25, type: 3}
+  siegeWorkshopCompleted: {fileID: 4842993986464959390, guid: 8aa04ac87c5a842298c228456fbdcc48, type: 3}
+  guardTowerCompleted: {fileID: 4842993986464959390, guid: 747378e6d93f744588cb675a0c75e715, type: 3}
+  castleCompleted: {fileID: 4064323586911783679, guid: dcb8473de9dab4321bf7312aeb56d370, type: 3}
 --- !u!4 &1207910522
 Transform:
   m_ObjectHideFlags: 0
@@ -7674,7 +7990,7 @@ GameObject:
   - component: {fileID: 1283232777}
   - component: {fileID: 1283232776}
   m_Layer: 5
-  m_Name: new (11)
+  m_Name: SiegeWorkshop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7697,7 +8013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 125, y: 130}
+  m_AnchoredPosition: {x: 240, y: 130}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1283232776
@@ -7712,7 +8028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 2754002612896962203, guid: 3806d14dd57804758a97b94632eaa3fd, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1283232777
 MonoBehaviour:
@@ -8081,6 +8397,17 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1328492947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+  m_PrefabInstance: {fileID: 4748095385973232673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323edba83ac65410ea68cd38c6d73868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1349801082
 GameObject:
   m_ObjectHideFlags: 0
@@ -8095,7 +8422,7 @@ GameObject:
   - component: {fileID: 1349801085}
   - component: {fileID: 1349801084}
   m_Layer: 5
-  m_Name: new (10)
+  m_Name: IronSmelter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8133,7 +8460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 4355469057617232313, guid: c00fcdc525aa74f6d892ba6a8bbe0949, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1349801085
 MonoBehaviour:
@@ -8286,7 +8613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: Fishermans
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8619,6 +8946,52 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!1 &1492421413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492421415}
+  - component: {fileID: 1492421414}
+  m_Layer: 0
+  m_Name: UnitController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1492421414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492421413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be6bd9790eb46d892a3bd6353354ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onNewVillagerEvent: {fileID: 11400000, guid: 231135c33dbe840f88af6a806ea0af3f, type: 2}
+  villagerPrefab: {fileID: 1328492947}
+--- !u!4 &1492421415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492421413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1530495669
 GameObject:
   m_ObjectHideFlags: 0
@@ -8676,7 +9049,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: School
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8903,7 +9276,7 @@ GameObject:
   - component: {fileID: 1588817045}
   - component: {fileID: 1588817044}
   m_Layer: 5
-  m_Name: new (6)
+  m_Name: IronMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8926,7 +9299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 240, y: 90}
+  m_AnchoredPosition: {x: 10, y: 90}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1588817044
@@ -8941,7 +9314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 4118909104274661759, guid: e03d32be355754aab9f381c8cd54068d, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1588817045
 MonoBehaviour:
@@ -9094,7 +9467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: IronMine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9342,7 +9715,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 125, y: 290}
+  m_AnchoredPosition: {x: 10, y: 170}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1611164405
@@ -9600,7 +9973,7 @@ GameObject:
   - component: {fileID: 1670770599}
   - component: {fileID: 1670770598}
   m_Layer: 5
-  m_Name: new (13)
+  m_Name: GoldSmelter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9638,7 +10011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: -672785199249896158, guid: 683d84dafa1c643c4a2e5068c4d0f1af, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1670770599
 MonoBehaviour:
@@ -9905,7 +10278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 125, y: 330}
+  m_AnchoredPosition: {x: 10, y: 210}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1713402466
@@ -10030,7 +10403,7 @@ GameObject:
   - component: {fileID: 1739331845}
   - component: {fileID: 1739331844}
   m_Layer: 5
-  m_Name: new (14)
+  m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10068,7 +10441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 7707458459796965524, guid: ad7afeb8d44f84c62adacba774d8f78e, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1739331845
 MonoBehaviour:
@@ -10543,7 +10916,7 @@ GameObject:
   - component: {fileID: 1857961392}
   - component: {fileID: 1857961391}
   m_Layer: 5
-  m_Name: new (1)
+  m_Name: Restaurant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10566,7 +10939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 240, y: 290}
+  m_AnchoredPosition: {x: 240, y: 330}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1857961391
@@ -10581,7 +10954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 3930822372519343704, guid: 366814349ccef4e91a3b343a33dc8f9e, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1857961392
 MonoBehaviour:
@@ -10708,31 +11081,31 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 296720976}
-  - {fileID: 972682529}
-  - {fileID: 1885985821}
-  - {fileID: 1014846461}
-  - {fileID: 465642129}
-  - {fileID: 1713402465}
-  - {fileID: 1611164404}
-  - {fileID: 529028321}
-  - {fileID: 1965168676}
-  - {fileID: 1936373008}
   - {fileID: 233368278}
   - {fileID: 1857961390}
+  - {fileID: 1885985821}
+  - {fileID: 972682529}
+  - {fileID: 1014846461}
+  - {fileID: 465642129}
+  - {fileID: 529028321}
   - {fileID: 1977908324}
+  - {fileID: 1713402465}
+  - {fileID: 1965168676}
   - {fileID: 564699051}
+  - {fileID: 1611164404}
+  - {fileID: 1936373008}
   - {fileID: 347798968}
-  - {fileID: 900507815}
-  - {fileID: 1588817043}
-  - {fileID: 112078392}
   - {fileID: 218202258}
-  - {fileID: 1023865870}
-  - {fileID: 1349801083}
+  - {fileID: 900507815}
   - {fileID: 1283232775}
+  - {fileID: 1023865870}
   - {fileID: 411717118}
+  - {fileID: 1588817043}
+  - {fileID: 1349801083}
+  - {fileID: 112078392}
   - {fileID: 1670770597}
-  - {fileID: 1739331843}
   - {fileID: 828015421}
+  - {fileID: 1739331843}
   - {fileID: 334573808}
   m_Father: {fileID: 847905580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10843,7 +11216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 250}
+  m_AnchoredPosition: {x: 10, y: 290}
   m_SizeDelta: {x: 110, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1885985822
@@ -11011,7 +11384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: Stable
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11813,7 +12186,7 @@ GameObject:
   - component: {fileID: 1977908326}
   - component: {fileID: 1977908325}
   m_Layer: 5
-  m_Name: new (2)
+  m_Name: Vineyard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11851,7 +12224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+  buildingPrefab: {fileID: 5752189215745021240, guid: 31e6afb29268e4999ac07f9756f136ec, type: 3}
   buildingPlacer: {fileID: 318475139}
 --- !u!114 &1977908326
 MonoBehaviour:
@@ -12201,7 +12574,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: Castle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12335,7 +12708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New
+  m_text: WeaponsWorkshop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12674,3 +13047,4 @@ SceneRoots:
   - {fileID: 1314023023}
   - {fileID: 1266247124}
   - {fileID: 1219401900}
+  - {fileID: 1492421415}
