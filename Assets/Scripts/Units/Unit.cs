@@ -7,17 +7,12 @@ namespace MyRTSGame.Model
     {
         protected NavMeshAgent Agent;
         protected bool HasDestination;
-        protected BuildingController BuildingController;
         protected Building Destination;
-        [SerializeField] private GameEvent onSelectionEvent;
+        [SerializeField] protected UnitController unitController;
+        
         private void Awake()
         {
             Agent = GetComponentInChildren<NavMeshAgent>();
-        }
-
-        protected virtual void Start()
-        {
-            BuildingController = BuildingController.Instance;
         }
         
         protected void Update()
@@ -28,13 +23,7 @@ namespace MyRTSGame.Model
                 SetDestination();
         }
         
-        public void HandleClick()
-        {
-            onSelectionEvent.Raise(new SelectionEventArgs(this));
-        }
-        
-        private Vector3 _lastPosition;
-        private float _stuckTimer;
+
 
         private void CheckIfDestinationIsReached()
         {
@@ -49,22 +38,6 @@ namespace MyRTSGame.Model
                     }
                 }
             }
-        }
-        
-        private static float GetPathRemainingDistance(NavMeshAgent navMeshAgent)
-        {
-            if (navMeshAgent.pathPending ||
-                navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid ||
-                navMeshAgent.path.corners.Length == 0)
-                return -1f;
-
-            var distance = 0.0f;
-            for (var i = 0; i < navMeshAgent.path.corners.Length - 1; ++i)
-            {
-                distance += Vector3.Distance(navMeshAgent.path.corners[i], navMeshAgent.path.corners[i + 1]);
-            }
-
-            return distance;
         }
 
         protected virtual void ExecuteJob() {}

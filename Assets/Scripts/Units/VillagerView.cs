@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-    public class VillagerView : UnitView
+    public class VillagerView : MonoBehaviour
     {
+        [SerializeField] private UnitController unitController;
         private void OnMouseDown()
         {
-            var villager = GetComponentInParent<Villager>();
-            if (villager != null) villager.HandleClick();
+            unitController.HandleClick(GetComponentInParent<Villager>());
         }
     }
 }

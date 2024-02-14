@@ -88,6 +88,7 @@
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingResourceTypeQuantityEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Vinyard.cs" />
@@ -103,7 +104,6 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
     <Compile Include="Assets/Scripts/Units/VillagerView.cs" />
-    <Compile Include="Assets/Scripts/Units/UnitView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/FishermansHut.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/IronSmelter.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />

@@ -400,6 +400,7 @@
 "Assets/Scripts/Enums/PanelType.cs"
 "Assets/Scripts/Enums/ResourceType.cs"
 "Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs"
+"Assets/Scripts/GameEvents/EventArgs/BuildingResourceTypeQuantityEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/SelectionEvenArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs"
@@ -423,7 +424,6 @@
 "Assets/Scripts/Units/BuilderView.cs"
 "Assets/Scripts/Units/Unit.cs"
 "Assets/Scripts/Units/UnitController.cs"
-"Assets/Scripts/Units/UnitView.cs"
 "Assets/Scripts/Units/Villager.cs"
 "Assets/Scripts/Units/VillagerView.cs"
 -langversion:9.0

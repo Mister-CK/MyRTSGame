@@ -9,6 +9,9 @@ namespace MyRTSGame.Model
     public class BuildingController : MonoBehaviour
     {
 
+        [SerializeField] private GameEvent onResourceRemovedFromBuilding;
+        [SerializeField] private GameEvent onResourceAddedToBuilding;
+        
         public static BuildingController Instance { get; private set; }
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
 
@@ -23,6 +26,36 @@ namespace MyRTSGame.Model
                 Instance = this;
             }
         }
+        
+        private void OnEnable()
+        {
+            onResourceAddedToBuilding.RegisterListener(OnResourceAdded);
+            onResourceRemovedFromBuilding.RegisterListener(OnResourceRemoved);
+
+        }
+
+        private void OnDisable()
+        {
+            onResourceAddedToBuilding.UnregisterListener(OnResourceAdded);
+            onResourceRemovedFromBuilding.UnregisterListener(OnResourceRemoved);
+            
+        }
+        
+        private static void OnResourceAdded(IGameEventArgs args)
+        {
+            if (args is BuildingResourceTypeQuantityEventArgs eventArgs)
+            {
+                AddResource(eventArgs.Building, eventArgs.ResourceType, eventArgs.Quantity);
+            }
+        }
+
+        private static void OnResourceRemoved(IGameEventArgs args)
+        {
+            if (args is BuildingResourceTypeQuantityEventArgs eventArgs)
+            {
+                RemoveResource(eventArgs.Building, eventArgs.ResourceType, eventArgs.Quantity);
+            }
+        }
 
         public void SetState(Building building, IBuildingState newState)
         {
@@ -34,7 +67,7 @@ namespace MyRTSGame.Model
             if (building.State is CompletedState) building.StartResourceCreationCoroutine();
         }
 
-        public void AddResource(Building building, ResourceType resourceType, int quantity)
+        private static void AddResource(Building building, ResourceType resourceType, int quantity)
         {
             foreach (var resource in building.Inventory)
             {
@@ -48,7 +81,7 @@ namespace MyRTSGame.Model
             throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
         }
 
-        public void RemoveResource(Building building, ResourceType resourceType, int quantity)
+        private static void RemoveResource(Building building, ResourceType resourceType, int quantity)
         {
             foreach (var resource in building.Inventory)
                 if (resource.ResourceType == resourceType)
@@ -60,7 +93,7 @@ namespace MyRTSGame.Model
             throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
         }
 
-        public void TransmuteResource(Building building, IEnumerable<Resource> input, IEnumerable<Resource> output)
+        private static void TransmuteResource(Building building, IEnumerable<Resource> input, IEnumerable<Resource> output)
         {
             foreach (var resource in input) RemoveResource(building, resource.ResourceType, resource.Quantity);
 
@@ -101,7 +134,6 @@ namespace MyRTSGame.Model
                     onNewVillagerJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resource.ResourceType));
                     // _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resource.ResourceType });
                 }
-                
             }
         }
     }

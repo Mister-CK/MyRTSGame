@@ -4,10 +4,11 @@ namespace MyRTSGame.Model
 {
     public class BuilderView : MonoBehaviour
     {
+        [SerializeField] private UnitController unitController;
+
         private void OnMouseDown()
         {
-            var builder = GetComponentInParent<Builder>();
-            if (builder != null) builder.HandleClick();
+            unitController.HandleClick(GetComponentInParent<Builder>());
         }
     }
 }

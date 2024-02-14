@@ -6,7 +6,7 @@ namespace MyRTSGame.Model
     {
         private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private VillagerJob _currentVillagerJob;
-        private bool _hasResource; 
+        private bool _hasResource;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         protected override void ExecuteJob()
         {
@@ -21,7 +21,7 @@ namespace MyRTSGame.Model
         private void TakeResource(Building building, ResourceType resourceType)
         {
             _hasResource = true;
-            BuildingController.RemoveResource(building, resourceType, 1);
+            unitController.RemoveResourceFromBuilding(building, resourceType, 1);
         }
 
         private void DeliverResource(Building building, ResourceType resourceType)
@@ -31,7 +31,7 @@ namespace MyRTSGame.Model
                 if (res.ResourceType == resourceType) res.Quantity--;
             }
             _hasResource = false;
-            BuildingController.AddResource(building, resourceType, 1);
+            unitController.AddResourceToBuilding(building, resourceType, 1);
         }
 
         private void PerformNextJob()
