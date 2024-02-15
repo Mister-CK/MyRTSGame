@@ -80,7 +80,7 @@ namespace MyRTSGame.Model
         {
             if (args is not SelectionEventArgs selectionEventArgs) return;
 
-            ISelectable newObject = selectionEventArgs.SelectedObject;
+            var newObject = selectionEventArgs.SelectedObject;
 
             if (CurrentSelectedObject != null)
             {

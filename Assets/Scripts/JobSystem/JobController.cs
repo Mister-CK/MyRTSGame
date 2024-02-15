@@ -11,7 +11,7 @@ namespace MyRTSGame.Model
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
-        
+
         private static BuildingList BuildingList => BuildingList.Instance;
         
         private void OnEnable()

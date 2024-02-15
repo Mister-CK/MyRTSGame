@@ -22,8 +22,6 @@ namespace MyRTSGame.Model
             else
                 SetDestination();
         }
-        
-
 
         private void CheckIfDestinationIsReached()
         {

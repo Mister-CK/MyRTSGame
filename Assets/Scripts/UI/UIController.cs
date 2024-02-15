@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject BuildPanel; 
-    [SerializeField] private GameObject JobsPanel; 
-    [SerializeField] private GameObject StatsPanel;
-    [SerializeField] private GameObject MenuPanel; 
-    [SerializeField] private GameObject SelectedPanel; 
+    [SerializeField] private GameObject buildPanel; 
+    [SerializeField] private GameObject jobsPanel; 
+    [SerializeField] private GameObject statsPanel;
+    [SerializeField] private GameObject menuPanel; 
+    [SerializeField] private GameObject selectedPanel; 
 
     [SerializeField] private GameEvent onDeselectionEvent;
     [SerializeField] private GameEvent onSelectionEvent;
@@ -57,10 +57,10 @@ public class UIController : MonoBehaviour
     private void ActivateSelectedPanel(PanelType? panelType)
     {
         Debug.Log(panelType);
-        BuildPanel.SetActive(panelType  == PanelType.Build);
-        JobsPanel.SetActive(panelType  == PanelType.Jobs);
-        StatsPanel.SetActive(panelType  == PanelType.Stats);
-        MenuPanel.SetActive(panelType  == PanelType.Menu);
-        SelectedPanel.SetActive(panelType  == PanelType.Selected);
+        buildPanel.SetActive(panelType  == PanelType.Build);
+        jobsPanel.SetActive(panelType  == PanelType.Jobs);
+        statsPanel.SetActive(panelType  == PanelType.Stats);
+        menuPanel.SetActive(panelType  == PanelType.Menu);
+        selectedPanel.SetActive(panelType  == PanelType.Selected);
     }
 }
