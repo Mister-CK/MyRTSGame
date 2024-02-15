@@ -19,7 +19,7 @@ namespace MyRTSGame.Model
         {
             if (Instance != null && Instance != this)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
             else
             {
@@ -108,7 +108,6 @@ namespace MyRTSGame.Model
                 var resToCreate = Array.Find(building.Inventory, resource => resource.ResourceType == resourceType);
                 if (resToCreate != null && resToCreate.Quantity < building.Capacity) AddResource(building, resourceType, 1);
                 onNewVillagerJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resourceType));
-                // _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resourceType });
             }
         }
         
@@ -132,7 +131,6 @@ namespace MyRTSGame.Model
                 foreach (var resource in output)
                 {
                     onNewVillagerJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resource.ResourceType));
-                    // _jobController.CreateJob(new VillagerJob { Origin = _building, ResourceType = resource.ResourceType });
                 }
             }
         }
