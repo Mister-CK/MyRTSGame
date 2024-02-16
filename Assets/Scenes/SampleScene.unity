@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &11918451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1677,11 +1677,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bd193d656848bea2ff4cd8e6bd3d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildPanel: {fileID: 1876233368}
-  JobsPanel: {fileID: 11918450}
-  StatsPanel: {fileID: 419677631}
-  MenuPanel: {fileID: 189051309}
-  SelectedPanel: {fileID: 2057471058}
+  buildPanel: {fileID: 1876233368}
+  jobsPanel: {fileID: 11918450}
+  statsPanel: {fileID: 419677631}
+  menuPanel: {fileID: 189051309}
+  selectedPanel: {fileID: 2057471058}
   onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
   onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
 --- !u!1 &285237150
@@ -8420,7 +8420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1420246622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8437,7 +8437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 147}
+  m_AnchoredPosition: {x: 50, y: 150}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1420246623

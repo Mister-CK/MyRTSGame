@@ -70,8 +70,6 @@
     <Compile Include="Assets/Scripts/JobSystem/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
-    <Compile Include="Assets/Scripts/UI/UIButtonHandler.cs" />
-    <Compile Include="Assets/Scripts/UI/SelectionManager.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
@@ -88,12 +86,14 @@
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
+    <Compile Include="Assets/Scripts/UI/SelectionController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingResourceTypeQuantityEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Vinyard.cs" />
+    <Compile Include="Assets/Scripts/UI/UIBuildButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Builder.cs" />
     <Compile Include="Assets/Scripts/UI/UIController.cs" />
@@ -102,6 +102,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />
+    <Compile Include="Assets/Scripts/UI/SelectionView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
