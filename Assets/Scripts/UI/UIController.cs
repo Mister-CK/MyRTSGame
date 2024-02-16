@@ -56,7 +56,6 @@ public class UIController : MonoBehaviour
         
     private void ActivateSelectedPanel(PanelType? panelType)
     {
-        Debug.Log(panelType);
         buildPanel.SetActive(panelType  == PanelType.Build);
         jobsPanel.SetActive(panelType  == PanelType.Jobs);
         statsPanel.SetActive(panelType  == PanelType.Stats);

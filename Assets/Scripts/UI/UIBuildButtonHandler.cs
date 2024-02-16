@@ -2,7 +2,7 @@
 
 namespace MyRTSGame.Model
 {
-    public class UIButtonHandler : MonoBehaviour
+    public class UIBuildButtonHandler : MonoBehaviour
     {
         [SerializeField] private Building buildingPrefab;
         [SerializeField] private BuildingPlacer buildingPlacer;
