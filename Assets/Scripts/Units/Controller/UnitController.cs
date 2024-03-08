@@ -14,15 +14,15 @@ namespace MyRTSGame.Model
         
         private void OnEnable()
         {
-            onNewVillagerEvent.RegisterListener(HandleNewJobNeeded);
+            onNewVillagerEvent.RegisterListener(HandleCreateNewVillager);
         }
 
         private void OnDisable()
         {
-            onNewVillagerEvent.UnregisterListener(HandleNewJobNeeded);
+            onNewVillagerEvent.UnregisterListener(HandleCreateNewVillager);
         }
         
-        private void HandleNewJobNeeded(IGameEventArgs args)
+        private void HandleCreateNewVillager(IGameEventArgs args)
         {
             Instantiate(villagerPrefab, new Vector3(-10,0,-10), Quaternion.identity);
         }
