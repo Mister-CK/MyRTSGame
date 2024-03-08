@@ -27,6 +27,9 @@ namespace MyRTSGame.Model
                 Inventory = InitInventory(_resourceTypes, startingResourceQuantities);
                 State = new CompletedState(BuildingType);
                 StartResourceCreationCoroutine();
+                BCollider.size = new Vector3(3, 3, 3);
+                BCollider.center = new Vector3(1.5f, 1.5f, 1.5f);
+
             }
             else
             {
