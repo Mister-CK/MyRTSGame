@@ -4354,8 +4354,7 @@ MonoBehaviour:
   onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
   onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
   onDeleteEvent: {fileID: 11400000, guid: a6600ef06dcaa46f384318c783d56b79, type: 2}
-  deleteButton: {fileID: 1141382276}
-  textComponent: {fileID: 778949676}
+  selectionView: {fileID: 2057471062}
 --- !u!4 &604154920
 Transform:
   m_ObjectHideFlags: 0
@@ -4922,7 +4921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 50, y: 150}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &828015420
@@ -6990,7 +6989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: 80}
+  m_AnchoredPosition: {x: 110, y: 144}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141382276
@@ -11656,13 +11655,14 @@ GameObject:
   - component: {fileID: 2057471059}
   - component: {fileID: 2057471061}
   - component: {fileID: 2057471060}
+  - component: {fileID: 2057471062}
   m_Layer: 5
   m_Name: SelectedPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2057471059
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11722,6 +11722,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057471058}
   m_CullTransparentMesh: 1
+--- !u!114 &2057471062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057471058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdf4fb0c17a4e4898cf9f4862cbebe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 778949676}
+  deleteButton: {fileID: 1141382276}
 --- !u!1 &2109749277
 GameObject:
   m_ObjectHideFlags: 0
