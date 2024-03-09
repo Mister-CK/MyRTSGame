@@ -11,9 +11,9 @@ namespace MyRTSGame.Model
 
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
+        [SerializeField] private GameEvent onNewVillagerJobNeeded;
         
         public static BuildingController Instance { get; private set; }
-        [SerializeField] private GameEvent onNewVillagerJobNeeded;
 
         private void Awake()
         {

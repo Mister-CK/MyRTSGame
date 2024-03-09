@@ -1,8 +1,5 @@
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 namespace MyRTSGame.Model
 {
@@ -27,17 +24,18 @@ namespace MyRTSGame.Model
             onDeleteEvent.UnregisterListener(DeleteSelectedObject);
         }
         
-        
-        private void Update()
+        private void LateUpdate()
         {
             if (Input.GetMouseButtonDown(1))
             {
                 onDeselectionEvent.Raise(null);
-                CurrentSelectedObject = null;
-                selectionView.ClearView();
+                if (CurrentSelectedObject != null)
+                {
+                    selectionView.ClearView();
+                    CurrentSelectedObject = null;
+                }
             }
-            
-            //Is there a way to update building only when needed, instead of every frame?
+
             selectionView.UpdateView(CurrentSelectedObject);
         }
 
@@ -46,10 +44,15 @@ namespace MyRTSGame.Model
             if (args is not SelectionEventArgs selectionEventArgs) return;
 
             var newObject = selectionEventArgs.SelectedObject;
-            
+
+            if (CurrentSelectedObject != null && CurrentSelectedObject != newObject)
+            {
+                selectionView.ClearView();
+            }
+
             CurrentSelectedObject = newObject;
-            
-            selectionView.UpdateView(CurrentSelectedObject);
+
+            selectionView.SetView(CurrentSelectedObject);
         }
 
         private void DeleteSelectedObject(IGameEventArgs args)
