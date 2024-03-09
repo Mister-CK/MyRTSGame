@@ -36,6 +36,9 @@ namespace MyRTSGame.Model
                 CurrentSelectedObject = null;
                 selectionView.ClearView();
             }
+            
+            //Is there a way to update building only when needed, instead of every frame?
+            selectionView.UpdateView(CurrentSelectedObject);
         }
 
         private void SelectObject(IGameEventArgs args)
