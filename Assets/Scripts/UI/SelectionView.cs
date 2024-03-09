@@ -26,12 +26,28 @@ public class SelectionView : MonoBehaviour
 
     private void SetSelectedBuilding(Building building)
     {
-        
         var text = building.BuildingType + "\n" +
                    GetTextForInventory(building.GetInventory()) + "\n" +
                    GetTextForInputTypes(building.InputTypes) + "\n" +
                    "Capacity: " + building.GetCapacity() + "\n" +
                    GetTextForResourcesInJobsForBuilding(building.GetResourcesInJobForBuilding());
+        
+        switch (building)
+        {
+            case ResourceBuilding _:
+                text += "\nBuilding Class: Resource Building";
+                break;
+            case ProductionBuilding _:
+                text += "\nBuilding Class: Production Building";
+                break;
+            case WorkshopBuilding _:
+                text += "\nBuilding Class: Workshop Building";
+                break;
+            case SpecialBuilding _:
+                text += "\nBuilding Class: Special Building";
+                break;
+        }
+
                            
         textComponent.text = text;
         SetDeleteButton(true);
