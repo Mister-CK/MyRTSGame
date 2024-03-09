@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class GoldMine : Building
+    public class GoldMine : ResourceBuilding
     {
         //Constructor
         public GoldMine()

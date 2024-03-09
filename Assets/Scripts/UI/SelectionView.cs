@@ -26,6 +26,7 @@ public class SelectionView : MonoBehaviour
 
     private void SetSelectedBuilding(Building building)
     {
+        
         var text = building.BuildingType + "\n" +
                    GetTextForInventory(building.GetInventory()) + "\n" +
                    GetTextForInputTypes(building.InputTypes) + "\n" +

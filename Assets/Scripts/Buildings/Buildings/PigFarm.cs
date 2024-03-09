@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class PigFarm : Building
+    public class PigFarm : ProductionBuilding
     {
         //Constructor
         public PigFarm()

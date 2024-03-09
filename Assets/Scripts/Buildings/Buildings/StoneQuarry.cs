@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class StoneQuarry : Building
+    public class StoneQuarry : ResourceBuilding
     {
         //Constructor
         public StoneQuarry()

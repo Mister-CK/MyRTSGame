@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class SawMill : Building
+    public class SawMill : ProductionBuilding
     {
         //Constructor
         public SawMill()

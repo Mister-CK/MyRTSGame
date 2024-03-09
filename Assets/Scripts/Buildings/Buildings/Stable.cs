@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class Stable : Building
+    public class Stable : ProductionBuilding
     {
         //Constructor
         public Stable()

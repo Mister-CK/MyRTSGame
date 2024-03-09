@@ -63,6 +63,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/School.cs" />
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/PigFarm.cs" />
+    <Compile Include="Assets/Scripts/Buildings/ResourceBuilding.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/Units/View/UnitView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/CoalMine.cs" />
+    <Compile Include="Assets/Scripts/Buildings/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/UI/SelectionController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/IronMine.cs" />
@@ -95,12 +97,14 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/Vinyard.cs" />
     <Compile Include="Assets/Scripts/UI/UIBuildButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
+    <Compile Include="Assets/Scripts/Buildings/SpecialBuilding.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Builder.cs" />
     <Compile Include="Assets/Scripts/UI/UIController.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEvenArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SiegeWorkshop.cs" />
+    <Compile Include="Assets/Scripts/Buildings/ProductionBuilding.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/SelectionView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Stable.cs" />

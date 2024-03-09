@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class Lumberjack : Building
+    public class Lumberjack : ResourceBuilding
     {
         //Constructor
         public Lumberjack()

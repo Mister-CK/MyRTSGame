@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class Butcher : Building
+    public class Butcher : ProductionBuilding
     {
         //Constructor
         public Butcher()

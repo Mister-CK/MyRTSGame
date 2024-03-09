@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class WheatFarm: Building
+    public class WheatFarm: ResourceBuilding
     {
         public WheatFarm()
         {

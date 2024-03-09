@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class Vineyard : Building
+    public class Vineyard : ResourceBuilding
     {
         //Constructor
         public Vineyard()

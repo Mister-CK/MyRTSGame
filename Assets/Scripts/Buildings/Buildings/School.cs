@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class School : Building
+    public class School : SpecialBuilding
     {
         //Constructor
         public School()

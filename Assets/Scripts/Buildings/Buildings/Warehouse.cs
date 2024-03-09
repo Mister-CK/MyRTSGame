@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-    public class Warehouse : Building
+    public class Warehouse : SpecialBuilding
     {
         public GameEvent onCreateJobsForWarehouse;
         private readonly ResourceType[] _resourceTypes = (ResourceType[]) Enum.GetValues(typeof(ResourceType));

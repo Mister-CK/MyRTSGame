@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class IronSmelter : Building
+    public class IronSmelter : ProductionBuilding
     {
         //Constructor
         public IronSmelter()

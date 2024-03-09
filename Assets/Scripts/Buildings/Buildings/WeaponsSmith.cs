@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class WeaponsSmith : Building
+    public class WeaponsSmith : WorkshopBuilding
     {
         //Constructor
         public WeaponsSmith()
