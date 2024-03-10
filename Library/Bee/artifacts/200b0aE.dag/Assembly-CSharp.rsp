@@ -421,6 +421,7 @@
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/UI/BuildingUIViews/ProductionBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs"
+"Assets/Scripts/UI/BuildingUIViews/SchoolBuildingUIView.cs"
 "Assets/Scripts/UI/Components/ResourceRowOutput.cs"
 "Assets/Scripts/UI/SelectionController.cs"
 "Assets/Scripts/UI/SelectionView.cs"

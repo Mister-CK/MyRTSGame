@@ -12,6 +12,8 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private Button newVillButton; 
     [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
     [SerializeField] private ProductionBuildingUIView productionBuildingUIView;
+    [SerializeField] private SchoolBuildingUIView schoolBuildingUIView;
+
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
     
@@ -49,6 +51,13 @@ public class SelectionView : MonoBehaviour
             productionBuildingUIView.DeactivateProductionBuildingView();
         }
 
+        // is this check necessary?
+        if (schoolBuildingUIView != null)
+        {
+            schoolBuildingUIView.DeactivateSchoolBuildingView();
+        }
+
+        
         switch (selectable)
         {
             case Building building:
@@ -84,15 +93,17 @@ public class SelectionView : MonoBehaviour
                 //warehouse
                 switch (building) 
                 {
-                    case Warehouse:
-                        // Populate the grid with resources and their counts
-                        foreach (var resource in building.GetInventory())
+                    case Warehouse warehouse:
+                        foreach (var resource in warehouse.GetInventory())
                         {
                             if (_resourceTexts.TryGetValue(resource.ResourceType, out var newTextComponent))
                             {
                                 newTextComponent.text = $"{resource.ResourceType}: {resource.Quantity}";
                             }
                         }
+                        break;
+                    case School school:
+                        schoolBuildingUIView.UpdateResourceQuantities(school);
                         break;
                 }
                 text += "\nBuilding Class: Special Building";
@@ -123,16 +134,16 @@ public class SelectionView : MonoBehaviour
             case SpecialBuilding _:
                 switch (building) 
                 {
-                    case Warehouse:
-                        CreateResourceGridForBuilding(building);
+                    case Warehouse warehouse:
+                        CreateResourceGridForBuilding(warehouse);
                         break;
                     case Restaurant:
                         // CreateResourceGridForBuilding(building);
                         break;
-                    case School:
+                    case School school:
+                        schoolBuildingUIView.ActivateSchoolBuildingView(school);
                         newVillButton.gameObject.SetActive(true);
                         newVillButton.transform.SetParent(transform);
-                        // CreateResourceGridForBuilding(building);
                         break;
                     case Castle:
                         // CreateResourceGridForBuilding(building);
@@ -191,6 +202,12 @@ public class SelectionView : MonoBehaviour
         if (productionBuildingUIView != null)
         {
             productionBuildingUIView.DeactivateProductionBuildingView();
+        }
+        
+        // is this check necessary?
+        if (schoolBuildingUIView != null)
+        {
+            schoolBuildingUIView.DeactivateSchoolBuildingView();
         }
     }
     

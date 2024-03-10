@@ -74,6 +74,7 @@
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
+    <Compile Include="Assets/Scripts/UI/BuildingUIViews/SchoolBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingGroups/SpecialBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Mill.cs" />
