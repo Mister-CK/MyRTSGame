@@ -20,6 +20,7 @@ namespace MyRTSGame.Model
         public ResourceType[] InputTypes { get; set; }
         public Resource[] InventoryWhenCompleted { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
+        public ResourceType[] OutputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
         public Resource[] ResourcesInJobForBuilding { get; set; }

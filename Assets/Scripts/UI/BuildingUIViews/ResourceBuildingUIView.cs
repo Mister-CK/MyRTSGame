@@ -48,7 +48,6 @@ public class ResourceBuildingUIView : MonoBehaviour
             Destroy(child.gameObject);
         }
         _resourceRowOutputs = new List<ResourceRowOutput>();
-        // Deactivate the view
         resourceBuildingView.gameObject.SetActive(false);
     }
 }
