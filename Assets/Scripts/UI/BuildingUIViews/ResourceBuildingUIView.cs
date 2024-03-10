@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using MyRTSGame.Model;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class ResourceBuildingUIView : MonoBehaviour
     [SerializeField] private GameObject columnsPrefab;
     [SerializeField] private GameObject resourceRowOutputPrefab;
     [SerializeField] private GameObject outputLayoutGrid;
+    
+    private List<ResourceRowOutput> _resourceRowOutputs = new List<ResourceRowOutput>();
     public void ActivateResourceBuildingView(ResourceBuilding building)
     {
         resourceBuildingView.gameObject.SetActive(true);
@@ -22,8 +25,18 @@ public class ResourceBuildingUIView : MonoBehaviour
         foreach (var res in building.InventoryWhenCompleted)
         {
             var resourceRow = Instantiate(resourceRowOutputPrefab, outputLayoutGrid.transform);
+            var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
             resourceRow.GetComponent<ResourceRowOutput>().ResourceType.text = res.ResourceType.ToString();
             resourceRow.GetComponent<ResourceRowOutput>().Quantity.text = res.Quantity.ToString();
+            _resourceRowOutputs.Add(resourceRowOutput);
+        }
+    }
+    
+    public void UpdateResourceQuantities(ResourceBuilding building)
+    {
+        for (int i = 0; i < _resourceRowOutputs.Count; i++)
+        {
+            _resourceRowOutputs[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity);
         }
     }
     
@@ -34,7 +47,7 @@ public class ResourceBuildingUIView : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
+        _resourceRowOutputs = new List<ResourceRowOutput>();
         // Deactivate the view
         resourceBuildingView.gameObject.SetActive(false);
     }

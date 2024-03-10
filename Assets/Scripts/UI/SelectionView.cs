@@ -62,8 +62,9 @@ public class SelectionView : MonoBehaviour
         
         switch (building)
         {
-            case ResourceBuilding _:
-                text += "\nBuilding Class: Resource Building";
+            case ResourceBuilding resourceBuilding:
+                resourceBuildingUIView.UpdateResourceQuantities(resourceBuilding);
+
                 break;
             case ProductionBuilding _:
                 text += "\nBuilding Class: Production Building";
