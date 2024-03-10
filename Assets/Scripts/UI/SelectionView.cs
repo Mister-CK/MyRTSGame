@@ -39,7 +39,7 @@ public class SelectionView : MonoBehaviour
         // is this check necessary?
         if (resourceBuildingUIView != null)
         {
-            resourceBuildingUIView.gameObject.SetActive(false);
+            resourceBuildingUIView.DeactivateResourceBuildingView();
         }
 
         switch (selectable)
@@ -172,11 +172,11 @@ public class SelectionView : MonoBehaviour
             _resourceTexts.Clear();
         }
         newVillButton.gameObject.SetActive(false);
-
+        
         // is this check necessary?
         if (resourceBuildingUIView != null)
         {
-            resourceBuildingUIView.gameObject.SetActive(false);
+            resourceBuildingUIView.DeactivateResourceBuildingView();
         }
     }
     
