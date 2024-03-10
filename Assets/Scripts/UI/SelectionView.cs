@@ -3,7 +3,6 @@ using System.Linq;
 using MyRTSGame.Model;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SelectionView : MonoBehaviour
@@ -11,11 +10,7 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private Button deleteButton;
     [SerializeField] private Button newVillButton; 
-    [SerializeField] private Image resourceBuildingView;
-    [SerializeField] private TextMeshProUGUI resourceBuildingName;
-    [SerializeField] private TextMeshProUGUI outputResource1;
-    [SerializeField] private TextMeshProUGUI outputResource1Quantity;
-    
+    [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
     
@@ -41,9 +36,10 @@ public class SelectionView : MonoBehaviour
             newVillButton.gameObject.SetActive(false);
         }
 
-        if (resourceBuildingView != null)
+        // is this check necessary?
+        if (resourceBuildingUIView != null)
         {
-            resourceBuildingView.gameObject.SetActive(false);
+            resourceBuildingUIView.gameObject.SetActive(false);
         }
 
         switch (selectable)
@@ -106,7 +102,7 @@ public class SelectionView : MonoBehaviour
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
-                ActivateResourceBuildingView(resourceBuilding);
+                resourceBuildingUIView.ActivateResourceBuildingView(resourceBuilding);
                 break;
             case ProductionBuilding _:
                 text += "\nBuilding Class: Production Building" + "\n" + GetTextForInputTypes(building.InputTypes);
@@ -177,9 +173,10 @@ public class SelectionView : MonoBehaviour
         }
         newVillButton.gameObject.SetActive(false);
 
-        if (resourceBuildingView != null)
+        // is this check necessary?
+        if (resourceBuildingUIView != null)
         {
-            resourceBuildingView.gameObject.SetActive(false);
+            resourceBuildingUIView.gameObject.SetActive(false);
         }
     }
     
@@ -198,14 +195,7 @@ public class SelectionView : MonoBehaviour
     {
         return string.Join(" ", resInJobs.Select(resource => $"{resource.ResourceType}:{resource.Quantity}"));
     }
-
-    private void ActivateResourceBuildingView(ResourceBuilding building)
-    {
-        resourceBuildingView.gameObject.SetActive(true);
-        resourceBuildingName.text = building.BuildingType.ToString();
-        outputResource1.text = building.InventoryWhenCompleted[0].ResourceType + ": ";
-        outputResource1Quantity.text = building.InventoryWhenCompleted[0].Quantity.ToString();
-    }
+    
     private void CreateResourceGridForBuilding(Building building)
     {
         // Create a new GameObject to serve as the parent for your grid
