@@ -15,6 +15,7 @@ namespace MyRTSGame.Model
             ResourceType[] resourceTypes = { ResourceType.Stone };
             var resourceQuantities = new int[resourceTypes.Length];
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
+            OutputTypesWhenCompleted = new[] { ResourceType.Stone };
         }
 
         public override void StartResourceCreationCoroutine()
