@@ -406,6 +406,7 @@
 "Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/BuildingResourceTypeQuantityEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs"
+"Assets/Scripts/GameEvents/EventArgs/SchoolEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/SelectionEvenArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs"
 "Assets/Scripts/GameEvents/GameEvent.cs"

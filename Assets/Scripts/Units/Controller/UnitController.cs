@@ -24,7 +24,11 @@ namespace MyRTSGame.Model
         
         private void HandleCreateNewVillager(IGameEventArgs args)
         {
-            Instantiate(villagerPrefab, new Vector3(-10,0,-10), Quaternion.identity);
+            if (args is not SchoolEventArgs schoolEventArgs) return;
+
+            var spawnPosition = schoolEventArgs.School.transform.position + new Vector3(2, 0, -2); 
+            Instantiate(villagerPrefab, spawnPosition, Quaternion.identity);
+
         }
         
         public void HandleClick(ISelectable selectable)

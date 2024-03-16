@@ -14,15 +14,20 @@ public class SchoolBuildingUIView : MonoBehaviour
     [SerializeField] private GameObject resourceRowPrefab;
     [SerializeField] private GameObject inputLayoutGrid;
     
+    [SerializeField] private GameEvent onNewVillagerEvent;
+
+    private School _currentSchool;
+    
     private List<ResourceRowOutput> _resourceRowOutputs = new List<ResourceRowOutput>();
-    public void ActivateSchoolBuildingView(School building)
+    public void ActivateSchoolBuildingView(School school)
     {
+        _currentSchool = school;
         schoolBuildingView.gameObject.SetActive(true);
-        schoolBuildingName.text = building.BuildingType.ToString();
+        schoolBuildingName.text = school.BuildingType.ToString();
         Instantiate(inputTitlePrefab, inputLayoutGrid.transform);
         Instantiate(columnsPrefab, inputLayoutGrid.transform);
 
-        foreach (var res in building.InventoryWhenCompleted)
+        foreach (var res in school.InventoryWhenCompleted)
         {
             var resourceRow = Instantiate(resourceRowPrefab, inputLayoutGrid.transform);
             var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
@@ -32,11 +37,11 @@ public class SchoolBuildingUIView : MonoBehaviour
         }
     }
     
-    public void UpdateResourceQuantities(School building)
+    public void UpdateResourceQuantities(School school)
     {
-        for (int i = 0; i < _resourceRowOutputs.Count; i++)
+        for (var i = 0; i < _resourceRowOutputs.Count; i++)
         {
-            _resourceRowOutputs[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity);
+            _resourceRowOutputs[i].UpdateQuantity(school.InventoryWhenCompleted[i].Quantity);
         }
     }
     
@@ -49,5 +54,11 @@ public class SchoolBuildingUIView : MonoBehaviour
         }
         _resourceRowOutputs = new List<ResourceRowOutput>();
         schoolBuildingView.gameObject.SetActive(false);
+    }
+    
+    public void OnNewVillButtonClick()
+    {
+        Debug.Log("New villager button clicked" + _currentSchool.transform.position);
+        onNewVillagerEvent.Raise(new SchoolEventArgs(_currentSchool));
     }
 }
