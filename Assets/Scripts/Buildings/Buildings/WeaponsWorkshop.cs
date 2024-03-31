@@ -18,5 +18,10 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = new[] { ResourceType.Wood };
             HasInput = true;
         }
+        
+        public override void StartResourceCreationCoroutine()
+        {
+            StartCoroutine(CreateResourceFromQueue(15));
+        }
     }
 }
