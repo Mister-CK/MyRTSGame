@@ -8,7 +8,13 @@ namespace MyRTSGame.Model
     public abstract class WorkshopBuilding : Building
     {
         protected List<ProductionJob> ProductionQueue;
-        
+
+        protected override void Start()
+        {
+            base.Start();
+            ProductionQueue = new List<ProductionJob>();
+        }
+
         protected void AddProductionJobToQueue(ProductionJob productionJob)
         {
             ProductionQueue.Add(productionJob);

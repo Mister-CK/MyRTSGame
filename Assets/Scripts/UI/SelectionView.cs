@@ -13,6 +13,7 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
     [SerializeField] private ProductionBuildingUIView productionBuildingUIView;
     [SerializeField] private SchoolBuildingUIView schoolBuildingUIView;
+    [SerializeField] private WorkshopBuildingUIView workshopBuildingUIView;
 
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
@@ -56,6 +57,12 @@ public class SelectionView : MonoBehaviour
         {
             schoolBuildingUIView.DeactivateSchoolBuildingView();
         }
+        
+        // is this check necessary?
+        if (workshopBuildingUIView != null)
+        {
+            workshopBuildingUIView.DeactivateWorkshopBuildingView();
+        }
 
         
         switch (selectable)
@@ -80,13 +87,12 @@ public class SelectionView : MonoBehaviour
         {
             case ResourceBuilding resourceBuilding:
                 resourceBuildingUIView.UpdateResourceQuantities(resourceBuilding);
-
                 break;
             case ProductionBuilding productionBuilding:
                 productionBuildingUIView.UpdateResourceQuantities(productionBuilding);
                 break;
-            case WorkshopBuilding _:
-                text += "\nBuilding Class: Workshop Building";
+            case WorkshopBuilding workshopBuilding:
+                workshopBuildingUIView.UpdateResourceQuantities(workshopBuilding);
                 break;
             case SpecialBuilding _:
                 //TODO: refactor this into seperate methods per building
@@ -117,7 +123,6 @@ public class SelectionView : MonoBehaviour
     private void SetSelectedBuilding(Building building)
     {
         var text = "" + building.BuildingType;
-        
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
@@ -125,12 +130,11 @@ public class SelectionView : MonoBehaviour
                 break;
             case ProductionBuilding productionBuilding:
                 productionBuildingUIView.ActivateProductionBuildingView(productionBuilding);
-     
                 break;
-            case WorkshopBuilding _:
-                text += "\nBuilding Class: Workshop Building";
-                text += "\n" + GetTextForResourcesInJobsForBuilding(building.GetResourcesInJobForBuilding());     
+            case WorkshopBuilding workshopBuilding:
+                workshopBuildingUIView.ActivateWorkshopBuildingView(workshopBuilding);
                 break;
+            
             case SpecialBuilding _:
                 switch (building) 
                 {
@@ -208,6 +212,12 @@ public class SelectionView : MonoBehaviour
         if (schoolBuildingUIView != null)
         {
             schoolBuildingUIView.DeactivateSchoolBuildingView();
+        }
+        
+        // is this check necessary?
+        if (workshopBuildingUIView != null)
+        {
+            workshopBuildingUIView.DeactivateWorkshopBuildingView();
         }
     }
     
