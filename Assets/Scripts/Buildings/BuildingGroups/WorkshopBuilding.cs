@@ -7,31 +7,34 @@ namespace MyRTSGame.Model
 {
     public abstract class WorkshopBuilding : Building
     {
-        protected List<ProductionJob> ProductionQueue;
+        protected ProductionJob[] ProductionJobs; 
 
-        protected override void Start()
+        protected void AddProductionJob(ResourceType resourceType)
         {
-            base.Start();
-            ProductionQueue = new List<ProductionJob>();
-        }
-
-        protected void AddProductionJobToQueue(ProductionJob productionJob)
-        {
-            ProductionQueue.Add(productionJob);
+            ProductionJobs.First(job => job.Output.ResourceType == resourceType).Quantity++;
         }
         
-        private ProductionJob GetFirstProductionJob()
+        protected void RemoveProductionJob(ResourceType resourceType)
         {
+            ProductionJobs.First(job => job.Output.ResourceType == resourceType).Quantity--;
+        }
+         
+        private ProductionJob GetProductionJob()
+        {
+            foreach (var productionJob in ProductionJobs)
+            {
+                if (productionJob.Quantity <= 0) continue;
+                if (!CheckIfRequiredResourceAreAvailable(productionJob.Input)) continue;
+                
+                productionJob.Quantity--;
+                return productionJob;
+            }
 
-            var productionJob = ProductionQueue.FirstOrDefault();
-            if (productionJob == null) return null;
-            if (!CheckIfRequiredResourceAreAvailable(productionJob.Input)) return null;
-            ProductionQueue.RemoveAt(0);
-            
-            return productionJob;
+            return null;
         }
         
-        private bool CheckIfRequiredResourceAreAvailable(Resource[] inputTypes)
+        
+        private bool CheckIfRequiredResourceAreAvailable(IEnumerable<Resource> inputTypes)
         {
             return inputTypes.All(resource => 
                 Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity > resource.Quantity);
@@ -43,7 +46,7 @@ namespace MyRTSGame.Model
             {
                 yield return new WaitForSeconds(timeInSeconds);
                 
-                var productionJob = GetFirstProductionJob();
+                var productionJob = GetProductionJob();
                 if (productionJob == null) continue;
                 
                 foreach (var resource in productionJob.Input)
