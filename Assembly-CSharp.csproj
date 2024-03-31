@@ -104,6 +104,7 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingGroups/ResourceBuilding.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Builder.cs" />
     <Compile Include="Assets/Scripts/UI/UIController.cs" />
+    <Compile Include="Assets/Scripts/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ProductionBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEvenArgs.cs" />

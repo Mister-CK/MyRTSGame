@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -66,17 +67,22 @@ namespace MyRTSGame.Model
         {
             // This method can be overridden in derived classes to start the specific coroutine for each building type.
         }
-
+        
         public void SetState(IBuildingState newState)
         {
-            buildingController.SetState(this, newState);
+            State = newState;
+
+            // if (_building.State is ConstructionState) _building.State = new CompletedState(_building.BuildingType); // skip constructionState
+            State.SetObject(this);
+
+            if (State is CompletedState) StartResourceCreationCoroutine();
             
             if (newState is ConstructionState)
             {
-                onNewBuilderJobNeeded.Raise(new BuildingEventArgs(this));
+                buildingController.CreateNewBuilderJobNeededEvent(this);
             }
         }
-
+        
         public IBuildingState GetState()
         {
             return State;
@@ -91,8 +97,6 @@ namespace MyRTSGame.Model
 
         public static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
-            // Debug.Log(types.Length);
-            // Debug.Log(quantities.Length);
             if (types.Length != quantities.Length)
                 throw new ArgumentException("Types and quantities arrays must have the same length.");
 
@@ -121,6 +125,32 @@ namespace MyRTSGame.Model
         public int GetCapacity()
         {
             return Capacity;
+        }
+        
+        public void RemoveResource(ResourceType resourceType, int quantity)
+        {
+            foreach (var resource in Inventory)
+                if (resource.ResourceType == resourceType)
+                {
+                    resource.Quantity -= quantity;
+                    return;
+                }
+
+            throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
+        }
+        
+        public void AddResource(ResourceType resourceType, int quantity)
+        {
+            foreach (var resource in Inventory)
+            {
+                if (resource.ResourceType != resourceType) continue;
+
+                resource.Quantity += quantity;
+                if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
+                return;
+            }
+
+            throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
         }
     }
 }

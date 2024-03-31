@@ -21,7 +21,7 @@ namespace MyRTSGame.Model
 
         public override void StartResourceCreationCoroutine()
         {
-            StartCoroutine(buildingController.CreateResource(this, 15, ResourceType.Wine));
+            StartCoroutine(CreateResource( 15, ResourceType.Wine));
         }
     }
 }

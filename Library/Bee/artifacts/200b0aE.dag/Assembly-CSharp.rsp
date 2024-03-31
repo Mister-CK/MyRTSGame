@@ -419,6 +419,7 @@
 "Assets/Scripts/JobSystem/JobListToDisplay.cs"
 "Assets/Scripts/JobSystem/VillagerJob.cs"
 "Assets/Scripts/JobSystem/VillagerJobQueue.cs"
+"Assets/Scripts/ProductionJob.cs"
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/UI/BuildingUIViews/ProductionBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs"

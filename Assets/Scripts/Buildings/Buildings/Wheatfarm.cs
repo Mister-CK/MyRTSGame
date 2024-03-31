@@ -19,7 +19,7 @@ namespace MyRTSGame.Model
 
         public override void StartResourceCreationCoroutine()
         {
-            StartCoroutine(buildingController.CreateResource(this, 15, ResourceType.Wheat));
+            StartCoroutine(CreateResource(15, ResourceType.Wheat));
         }
     }
 }
