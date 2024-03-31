@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model;
+using MyRTSGame.Model.Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,8 @@ public class WorkshopBuildingUIView : MonoBehaviour
     
     [SerializeField] private GameObject columnsPrefab;
     [SerializeField] private GameObject resourceRowPrefab;
+    [SerializeField] private GameObject resourceRowProductionPrefab;
+
     
     [SerializeField] private GameObject outputLayoutGrid;
     [SerializeField] private GameObject outputTitlePrefab;
@@ -23,7 +26,7 @@ public class WorkshopBuildingUIView : MonoBehaviour
     [SerializeField] private GameObject jobQueueTitlePrefab;
     
     private List<ResourceRowOutput> _resourceRows = new List<ResourceRowOutput>();
-    private List<ResourceRowOutput> _jobQueueRows = new List<ResourceRowOutput>();
+    private List<ResourceRowProduction> _jobRows = new List<ResourceRowProduction>();
 
     Dictionary<ResourceType, int> resourceQuantities = new Dictionary<ResourceType, int>();
 
@@ -66,20 +69,27 @@ public class WorkshopBuildingUIView : MonoBehaviour
         
         foreach (var outputType in building.OutputTypesWhenCompleted)
         {
-            var resourceRow = Instantiate(resourceRowPrefab, jobQueueLayoutGrid.transform);
-            var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRowJobQueue.ResourceType.text = outputType.ToString();
-            resourceRowJobQueue.Quantity.text = resourceQuantities[outputType].ToString();
-            _jobQueueRows.Add(resourceRowJobQueue);
+            var resourceRow = Instantiate(resourceRowProductionPrefab, jobQueueLayoutGrid.transform);
+            var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowProduction>();
+            resourceRowJobQueue.ResourceType = outputType;
+            resourceRowJobQueue.WorkshopBuilding = building;
+            resourceRowJobQueue.resourceTypeText.text = outputType.ToString();
+            resourceRowJobQueue.quantity.text = resourceQuantities[outputType].ToString();
+            _jobRows.Add(resourceRowJobQueue);
         }
     }
     
     public void UpdateResourceQuantities(WorkshopBuilding building)
     {
         var resourceRowsCount = _resourceRows.Count;
-        for (int i = 0; i < resourceRowsCount; i++)
+        for (var i = 0; i < resourceRowsCount; i++)
         {
             _resourceRows[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity);
+        }
+        var jobRowsCount = _jobRows.Count;
+        for (var i = 0; i < jobRowsCount; i++)
+        {
+            _jobRows[i].UpdateQuantity(building.ProductionJobs[i].Quantity);
         }
     }
     
@@ -99,6 +109,8 @@ public class WorkshopBuildingUIView : MonoBehaviour
             Destroy(child.gameObject);
         }
         _resourceRows = new List<ResourceRowOutput>();
+        _jobRows = new List<ResourceRowProduction>();
+
         workshopBuildingView.gameObject.SetActive(false);
     }
 }

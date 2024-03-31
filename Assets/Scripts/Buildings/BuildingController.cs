@@ -13,7 +13,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onResourceAddedToBuilding;
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
         [SerializeField] private GameEvent onNewBuilderJobNeeded;
-
+        [SerializeField] private GameEvent onAddProductionJobEvent;
+        [SerializeField] private GameEvent onRemoveProductionJobEvent;
+        
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -32,6 +34,8 @@ namespace MyRTSGame.Model
         {
             onResourceAddedToBuilding.RegisterListener(OnResourceAdded);
             onResourceRemovedFromBuilding.RegisterListener(OnResourceRemoved);
+            onAddProductionJobEvent.RegisterListener(onAddProductionJob);
+            onRemoveProductionJobEvent.RegisterListener(onRemoveProductionJob);
 
         }
 
@@ -39,7 +43,8 @@ namespace MyRTSGame.Model
         {
             onResourceAddedToBuilding.UnregisterListener(OnResourceAdded);
             onResourceRemovedFromBuilding.UnregisterListener(OnResourceRemoved);
-            
+            onAddProductionJobEvent.RegisterListener(onAddProductionJob);
+            onRemoveProductionJobEvent.RegisterListener(onRemoveProductionJob);
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -49,7 +54,7 @@ namespace MyRTSGame.Model
                 eventArgs.Building.AddResource(eventArgs.ResourceType, eventArgs.Quantity);
             }
         }
-
+        
         private static void OnResourceRemoved(IGameEventArgs args)
         {
             if (args is BuildingResourceTypeQuantityEventArgs eventArgs)
@@ -66,6 +71,22 @@ namespace MyRTSGame.Model
         public void CreateNewBuilderJobNeededEvent(Building building)
         {
             onNewBuilderJobNeeded.Raise(new BuildingEventArgs(building));
+        }
+        
+        private void onAddProductionJob(IGameEventArgs args)
+        {
+            if (args is WorkshopBuildingBuildingResourceTypeEventArgs eventArgs)
+            {
+                eventArgs.WorkshopBuilding.AddProductionJob(eventArgs.ResourceType);
+            }
+        }
+        
+        private void onRemoveProductionJob(IGameEventArgs args)
+        {
+            if (args is WorkshopBuildingBuildingResourceTypeEventArgs eventArgs)
+            {
+                eventArgs.WorkshopBuilding.RemoveProductionJob(eventArgs.ResourceType);
+            }
         }
     }
 }

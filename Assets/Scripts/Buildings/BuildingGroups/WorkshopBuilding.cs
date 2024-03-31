@@ -7,14 +7,14 @@ namespace MyRTSGame.Model
 {
     public abstract class WorkshopBuilding : Building
     {
-        protected ProductionJob[] ProductionJobs; 
+        public ProductionJob[] ProductionJobs; 
 
-        protected void AddProductionJob(ResourceType resourceType)
+        public void AddProductionJob(ResourceType resourceType)
         {
             ProductionJobs.First(job => job.Output.ResourceType == resourceType).Quantity++;
         }
         
-        protected void RemoveProductionJob(ResourceType resourceType)
+        public void RemoveProductionJob(ResourceType resourceType)
         {
             ProductionJobs.First(job => job.Output.ResourceType == resourceType).Quantity--;
         }
