@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class SiegeWorkshop : WorkshopBuilding
+    public class SiegeWorkshop : SpecialBuilding
     {
         //Constructor
         public SiegeWorkshop()
@@ -17,11 +17,6 @@ namespace MyRTSGame.Model
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
             InputTypesWhenCompleted = new[] {ResourceType.Wood, ResourceType.Iron, };
             HasInput = true;
-        }
-        
-        public override void StartResourceCreationCoroutine()
-        {
-            StartCoroutine(CreateResourceFromQueue(15));
         }
     }
 }
