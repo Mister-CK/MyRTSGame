@@ -41,36 +41,11 @@ public class SelectionView : MonoBehaviour
             newVillButton.gameObject.SetActive(false);
         }
 
-        // is this check necessary?
-        if (resourceBuildingUIView != null)
-        {
-            resourceBuildingUIView.DeactivateResourceBuildingView();
-        }
-        
-        // is this check necessary?
-        if (productionBuildingUIView != null)
-        {
-            productionBuildingUIView.DeactivateProductionBuildingView();
-        }
-
-        // is this check necessary?
-        if (schoolBuildingUIView != null)
-        {
-            schoolBuildingUIView.DeactivateSchoolBuildingView();
-        }
-        
-        // is this check necessary?
-        if (workshopBuildingUIView != null)
-        {
-            workshopBuildingUIView.DeactivateWorkshopBuildingView();
-        }
-        
-        // is this check necessary?
-        if (consumptionBuildingUIView != null)
-        {
-            consumptionBuildingUIView.DeactivateConsumptionBuildingView();
-        }
-
+        resourceBuildingUIView.DeactivateResourceBuildingView();
+        productionBuildingUIView.DeactivateProductionBuildingView();
+        schoolBuildingUIView.DeactivateSchoolBuildingView();
+        workshopBuildingUIView.DeactivateWorkshopBuildingView();
+        consumptionBuildingUIView.DeactivateConsumptionBuildingView();
         
         switch (selectable)
         {
@@ -195,7 +170,6 @@ public class SelectionView : MonoBehaviour
     public void ClearView()
     {
         textComponent.text = "";
-        SetDeleteButton(false);
         _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
 
         if (_currentGrid != null)
@@ -203,37 +177,12 @@ public class SelectionView : MonoBehaviour
             Destroy(_currentGrid);
             _resourceTexts.Clear();
         }
-        newVillButton.gameObject.SetActive(false);
         
-        // is this check necessary?
-        if (resourceBuildingUIView != null)
-        {
-            resourceBuildingUIView.DeactivateResourceBuildingView();
-        }
-        
-        // is this check necessary?
-        if (productionBuildingUIView != null)
-        {
-            productionBuildingUIView.DeactivateProductionBuildingView();
-        }
-        
-        // is this check necessary?
-        if (schoolBuildingUIView != null)
-        {
-            schoolBuildingUIView.DeactivateSchoolBuildingView();
-        }
-        
-        // is this check necessary?
-        if (workshopBuildingUIView != null)
-        {
-            workshopBuildingUIView.DeactivateWorkshopBuildingView();
-        }
-        
-        // is this check necessary?
-        if (consumptionBuildingUIView != null)
-        {
-            consumptionBuildingUIView.DeactivateConsumptionBuildingView();
-        }
+        resourceBuildingUIView.DeactivateResourceBuildingView();
+        productionBuildingUIView.DeactivateProductionBuildingView();
+        schoolBuildingUIView.DeactivateSchoolBuildingView();
+        workshopBuildingUIView.DeactivateWorkshopBuildingView();
+        consumptionBuildingUIView.DeactivateConsumptionBuildingView();
     }
     
     private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes)
