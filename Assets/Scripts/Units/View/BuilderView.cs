@@ -1,4 +1,6 @@
-namespace MyRTSGame.Model
+using MyRTSGame.Model;
+
+namespace Units.View
 {
     public class BuilderView : UnitView
     {

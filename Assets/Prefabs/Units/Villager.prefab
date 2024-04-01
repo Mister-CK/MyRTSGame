@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323edba83ac65410ea68cd38c6d73868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitController: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+  unitController: {fileID: 0}
   villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
 --- !u!1 &2043884088788105929
 GameObject:
