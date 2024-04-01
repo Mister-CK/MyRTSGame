@@ -4,6 +4,11 @@ namespace MyRTSGame.Model
 {
     public class UnitView : MonoBehaviour
     {
-        [SerializeField] protected UnitController unitController;
+        public UnitController unitController;
+        
+        private void Start()
+        {
+            unitController = UnitController.Instance;
+        }
     }
 }

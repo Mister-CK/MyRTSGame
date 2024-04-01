@@ -11,6 +11,19 @@ namespace MyRTSGame.Model
         
         [SerializeField] private Villager villagerPrefab;
         
+        public static UnitController Instance { get; private set; }
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
         
         private void OnEnable()
         {

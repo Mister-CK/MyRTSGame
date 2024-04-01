@@ -7,12 +7,14 @@ namespace MyRTSGame.Model
     {
         protected NavMeshAgent Agent;
         protected bool HasDestination;
-        protected Building Destination;
-        [SerializeField] protected UnitController unitController;
+        protected Building Destination; 
+        public UnitController unitController;
         
-        private void Awake()
+        private void Start()
         {
             Agent = GetComponentInChildren<NavMeshAgent>();
+            
+            unitController = UnitController.Instance;
         }
         
         protected void Update()
