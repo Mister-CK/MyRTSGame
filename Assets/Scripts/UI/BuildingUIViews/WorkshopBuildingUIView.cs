@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using MyRTSGame.Model;
 using MyRTSGame.Model.Components;
 using TMPro;
@@ -84,12 +83,14 @@ public class WorkshopBuildingUIView : MonoBehaviour
         var resourceRowsCount = _resourceRows.Count;
         for (var i = 0; i < resourceRowsCount; i++)
         {
-            _resourceRows[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity);
+            _resourceRows[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity); // this is matched on index, which is not very safe since it relies on the order of the array.
         }
+        
         var jobRowsCount = _jobRows.Count;
         for (var i = 0; i < jobRowsCount; i++)
         {
-            _jobRows[i].UpdateQuantity(building.ProductionJobs[i].Quantity);
+            var resType = _jobRows[i].ResourceType;
+            _jobRows[i].UpdateQuantity(building.ProductionJobs.Find(el => el.Output.ResourceType == resType).Quantity);
         }
     }
     

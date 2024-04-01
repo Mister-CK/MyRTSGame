@@ -7,7 +7,7 @@ namespace MyRTSGame.Model
 {
     public abstract class WorkshopBuilding : Building
     {
-        public ProductionJob[] ProductionJobs; 
+        public List<ProductionJob> ProductionJobs; 
 
         public void AddProductionJob(ResourceType resourceType)
         {

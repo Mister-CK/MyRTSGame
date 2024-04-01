@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace MyRTSGame.Model
 {
     public class WeaponsSmith : WorkshopBuilding
@@ -48,7 +50,7 @@ namespace MyRTSGame.Model
             InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
             InputTypesWhenCompleted = new[] {ResourceType.Coal, ResourceType.Iron, };
             OutputTypesWhenCompleted = new[] {ResourceType.Sword, ResourceType.Pike, ResourceType.CrossBow };
-            ProductionJobs = new[] {SwordJob, PikeJob, CrossbowJob};
+            ProductionJobs = new List<ProductionJob>() {SwordJob, PikeJob, CrossbowJob};
             HasInput = true;
         }
         
