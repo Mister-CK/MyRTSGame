@@ -65,6 +65,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs" />
+    <Compile Include="Assets/Scripts/Buildings/BuildingGroups/ConsumptionBuilding.cs" />
     <Compile Include="Assets/Scripts/Units/View/UnitView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Warehouse.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets/Scripts/JobSystem/JobController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/GoldMine.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Restaurant.cs" />
+    <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConsumptionBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Butcher.cs" />
     <Compile Include="Assets/Scripts/Buildings/Building.cs" />
     <Compile Include="Assets/Scripts/JobSystem/VillagerJobQueue.cs" />

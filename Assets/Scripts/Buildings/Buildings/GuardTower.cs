@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class GuardTower : SpecialBuilding
+    public class GuardTower : ConsumptionBuilding
     {
         //Constructor
         public GuardTower()

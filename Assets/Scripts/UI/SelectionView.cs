@@ -14,7 +14,8 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private ProductionBuildingUIView productionBuildingUIView;
     [SerializeField] private SchoolBuildingUIView schoolBuildingUIView;
     [SerializeField] private WorkshopBuildingUIView workshopBuildingUIView;
-
+    [SerializeField] private ConsumptionBuildingUIView consumptionBuildingUIView;
+    
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
     
@@ -63,6 +64,12 @@ public class SelectionView : MonoBehaviour
         {
             workshopBuildingUIView.DeactivateWorkshopBuildingView();
         }
+        
+        // is this check necessary?
+        if (consumptionBuildingUIView != null)
+        {
+            consumptionBuildingUIView.DeactivateConsumptionBuildingView();
+        }
 
         
         switch (selectable)
@@ -94,9 +101,11 @@ public class SelectionView : MonoBehaviour
             case WorkshopBuilding workshopBuilding:
                 workshopBuildingUIView.UpdateResourceQuantities(workshopBuilding);
                 break;
+            case ConsumptionBuilding consumptionBuilding:
+                consumptionBuildingUIView.UpdateResourceQuantities(consumptionBuilding);
+                break;
             case SpecialBuilding _:
                 //TODO: refactor this into seperate methods per building
-                //warehouse
                 switch (building) 
                 {
                     case Warehouse warehouse:
@@ -134,15 +143,15 @@ public class SelectionView : MonoBehaviour
             case WorkshopBuilding workshopBuilding:
                 workshopBuildingUIView.ActivateWorkshopBuildingView(workshopBuilding);
                 break;
-            
+            case ConsumptionBuilding consumptionBuilding:
+                consumptionBuildingUIView.ActivateConsumptionBuildingView(consumptionBuilding);
+                break;
+
             case SpecialBuilding _:
                 switch (building) 
                 {
                     case Warehouse warehouse:
                         CreateResourceGridForBuilding(warehouse);
-                        break;
-                    case Restaurant:
-                        // CreateResourceGridForBuilding(building);
                         break;
                     case School school:
                         schoolBuildingUIView.ActivateSchoolBuildingView(school);
@@ -152,7 +161,7 @@ public class SelectionView : MonoBehaviour
                     case Castle:
                         // CreateResourceGridForBuilding(building);
                         break;
-                    case GuardTower:
+                    case SiegeWorkshop siegeWorkshop:
                         // CreateResourceGridForBuilding(building);
                         break;
                 }
@@ -218,6 +227,12 @@ public class SelectionView : MonoBehaviour
         if (workshopBuildingUIView != null)
         {
             workshopBuildingUIView.DeactivateWorkshopBuildingView();
+        }
+        
+        // is this check necessary?
+        if (consumptionBuildingUIView != null)
+        {
+            consumptionBuildingUIView.DeactivateConsumptionBuildingView();
         }
     }
     

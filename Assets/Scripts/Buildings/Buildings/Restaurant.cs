@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class Restaurant : SpecialBuilding
+    public class Restaurant : ConsumptionBuilding
     {
         //Constructor
         public Restaurant()
