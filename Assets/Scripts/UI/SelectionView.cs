@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class SelectionView : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textComponent;
     [SerializeField] private Button deleteButton;
     [SerializeField] private Button newVillButton; 
     [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
@@ -33,19 +32,7 @@ public class SelectionView : MonoBehaviour
     }
     public void SetView(ISelectable selectable)
     {
-        // Destroy the existing grid if it exists
-        if (_currentGrid != null)
-        {
-            Destroy(_currentGrid);
-            _resourceTexts.Clear();
-            newVillButton.gameObject.SetActive(false);
-        }
-
-        resourceBuildingUIView.DeactivateResourceBuildingView();
-        productionBuildingUIView.DeactivateProductionBuildingView();
-        schoolBuildingUIView.DeactivateSchoolBuildingView();
-        workshopBuildingUIView.DeactivateWorkshopBuildingView();
-        consumptionBuildingUIView.DeactivateConsumptionBuildingView();
+        ClearView();
         
         switch (selectable)
         {
@@ -60,11 +47,6 @@ public class SelectionView : MonoBehaviour
 
     private void UpdateSelectedBuilding(Building building)
     {
-        var text = building.BuildingType + 
-                   // GetTextForInventory(building.GetInventory()) + "\n" +
-                   "\n" + GetTextForInputTypes(building.InputTypes) +
-                   "\n" + GetTextForResourcesInJobsForBuilding(building.GetResourcesInJobForBuilding());
-        
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
@@ -96,17 +78,14 @@ public class SelectionView : MonoBehaviour
                         schoolBuildingUIView.UpdateResourceQuantities(school);
                         break;
                 }
-                text += "\nBuilding Class: Special Building";
                 break;
         }
                            
-        textComponent.text = text;
         SetDeleteButton(true);
     }
     
     private void SetSelectedBuilding(Building building)
     {
-        var text = "" + building.BuildingType;
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
@@ -143,22 +122,12 @@ public class SelectionView : MonoBehaviour
                 break;
         }
 
-        textComponent.text = text;
         SetDeleteButton(true);
     }
     
     //TODO: refactor this method to work for all units.
     private void SetSelectedVillager(Villager villager)
     {
-        var text = "Villager" + "\n";
-        var job = villager.GetCurrentJob();
-        var destinationString = villager.GetHasDestination() ? "hasDestination" : "noDestination" + "\n";
-        if (job != null)
-            text += job.Origin.BuildingType + "\n" +
-                    job.ResourceType + "\n" +
-                    job.Destination.BuildingType + "\n" +
-                    destinationString;
-        textComponent.text = text;
         SetDeleteButton(true);
     }
 
@@ -169,8 +138,8 @@ public class SelectionView : MonoBehaviour
     
     public void ClearView()
     {
-        textComponent.text = "";
         _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
+        newVillButton.gameObject.SetActive(false);
 
         if (_currentGrid != null)
         {

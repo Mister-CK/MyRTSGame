@@ -2068,6 +2068,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitController
+      value: 
+      objectReference: {fileID: 1492421414}
+    - target: {fileID: 2901971016246114559, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitController
+      value: 
+      objectReference: {fileID: 1492421414}
     - target: {fileID: 5733082183098548242, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -3234,7 +3242,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Builder (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4178,7 +4187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -270}
+  m_AnchoredPosition: {x: 180, y: -300}
   m_SizeDelta: {x: 360, y: 420}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &375581186
@@ -8049,7 +8058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -240}
+  m_AnchoredPosition: {x: 180, y: -270}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843689145
@@ -17865,7 +17874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdf4fb0c17a4e4898cf9f4862cbebe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textComponent: {fileID: 778949676}
   deleteButton: {fileID: 1141382276}
   newVillButton: {fileID: 843689145}
   resourceBuildingUIView: {fileID: 828978109}
@@ -18424,35 +18432,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5160452388165097967, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5160452388165097967, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5160452388165097967, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
-      propertyPath: selectionEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
       propertyPath: unitController
       value: 
       objectReference: {fileID: 1492421414}
-    - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
-      propertyPath: onSelectionEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
     - target: {fileID: 8183070976581456306, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
       propertyPath: m_Name
       value: Builder
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
