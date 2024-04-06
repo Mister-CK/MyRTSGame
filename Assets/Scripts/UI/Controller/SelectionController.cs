@@ -7,7 +7,9 @@ namespace MyRTSGame.Model
     {
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onDeselectionEvent;
-        [SerializeField] private GameEvent onDeleteEvent;
+        [SerializeField] private GameEvent onDeleteBuildingEvent;
+        [SerializeField] private GameEvent onDeleteUnitEvent;
+        
         [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
          
         [SerializeField] private SelectionView selectionView;
@@ -66,10 +68,18 @@ namespace MyRTSGame.Model
 
         public void CreateDeleteEvent()
         {
-            onDeleteEvent.Raise(new SelectionEventArgs(CurrentSelectedObject));
             if (CurrentSelectedObject is Building selectedBuilding)
             {
+                onDeleteBuildingEvent.Raise(new BuildingEventArgs(selectedBuilding));
                 Destroy(selectedBuilding.gameObject);
+                SelectObject(null);
+            }
+            
+            //TODO: implement for Units
+            if (CurrentSelectedObject is Unit selectedUnit)
+            {
+                onDeleteUnitEvent.Raise(new UnitEventArgs(selectedUnit));
+                Destroy(selectedUnit.gameObject);
                 SelectObject(null);
             }
         }

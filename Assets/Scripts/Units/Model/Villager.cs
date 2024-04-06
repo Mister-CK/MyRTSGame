@@ -8,6 +8,7 @@ namespace MyRTSGame.Model
         private VillagerJob _currentVillagerJob;
         private bool _hasResource;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
+        
         protected override void ExecuteJob()
         {
             if (_hasResource)

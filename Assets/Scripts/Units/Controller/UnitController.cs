@@ -9,6 +9,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
+        [SerializeField] private GameEvent onDeleteBuildingEvent;
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
@@ -30,11 +31,14 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
+            onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
         }
 
         private void OnDisable()
         {
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
+            onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
+
         }
         
         private void HandleCreateNewUnit(IGameEventArgs args)
@@ -72,6 +76,10 @@ namespace MyRTSGame.Model
                 quantity));
         }
                 
-
+        private void HandleDeleteBuildingEvent(IGameEventArgs args)
+        {
+            if (args is not BuildingEventArgs buildingEventArgs) return;
+            
+        }
     }
 }

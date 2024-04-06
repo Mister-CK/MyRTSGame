@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -6,7 +7,7 @@ namespace MyRTSGame.Model
     [CreateAssetMenu(fileName = "VillagerJobQueue", menuName = "ScriptableObjects/VillagerJobQueue", order = 1)]
     public class VillagerJobQueue :  ScriptableObject
     {
-        private readonly List<VillagerJob> _jobs = new();
+        private List<VillagerJob> _jobs = new();
 
         public void AddJob(VillagerJob villagerJob)
         {
@@ -25,6 +26,11 @@ namespace MyRTSGame.Model
         public IEnumerable<VillagerJob> GetJobs()
         {
             return _jobs;
+        }
+        
+        public void RemoveJobsForBuilding(Building building)
+        {
+            _jobs = _jobs.Where(job => job.Origin != building && job.Destination != building).ToList();
         }
     }
 }

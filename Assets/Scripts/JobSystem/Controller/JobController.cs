@@ -8,6 +8,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
         [SerializeField] private GameEvent onNewBuilderJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
+        [SerializeField] private GameEvent onDeleteEvent;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -19,13 +20,15 @@ namespace MyRTSGame.Model
             onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
             onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
+            onDeleteEvent.RegisterListener(HandleDeleteBuildingEvent);
         }
 
         private void OnDisable()
         {
             onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
-            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
-            onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
+            onNewVillagerJobNeeded.UnregisterListener(HandleNewVillagerJobNeeded);
+            onCreateJobsForWarehouse.UnregisterListener(CreateJobsForBuilding);
+            onDeleteEvent.UnregisterListener(HandleDeleteBuildingEvent);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -116,6 +119,15 @@ namespace MyRTSGame.Model
             var villagerJob = new VillagerJob { Origin = buildingResourceTypeEventArgs.Building, ResourceType = buildingResourceTypeEventArgs.ResourceType };
             villagerJob.Destination = FindDestinationForJob(villagerJob);
             villagerJobQueue.AddJob(villagerJob);
+        }
+        
+        private void HandleDeleteBuildingEvent(IGameEventArgs args)
+        {
+            if (args is not BuildingEventArgs buildingEventArgs) return;
+            
+            var building = buildingEventArgs.Building;
+            builderJobQueue.RemoveJobsForBuilding(building);
+            villagerJobQueue.RemoveJobsForBuilding(building);
         }
     }
 }
