@@ -6,7 +6,6 @@ namespace MyRTSGame.Model
     public class UnitController : MonoBehaviour
     {
         [SerializeField] private GameEvent onNewUnitEvent;
-        [SerializeField] private GameEvent onNewVillagerEvent;
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
@@ -30,13 +29,11 @@ namespace MyRTSGame.Model
         
         private void OnEnable()
         {
-            onNewVillagerEvent.RegisterListener(HandleCreateNewVillager);
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
         }
 
         private void OnDisable()
         {
-            onNewVillagerEvent.UnregisterListener(HandleCreateNewVillager);
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
         }
         
@@ -56,14 +53,6 @@ namespace MyRTSGame.Model
                 default:
                     throw new ArgumentOutOfRangeException(trainingBuildingUnitTypeEventArgs.UnitType.ToString());
             }
-        }
-        
-        private void HandleCreateNewVillager(IGameEventArgs args)
-        {
-            if (args is not TrainingBuildingEventArgs trainingBuildingEventArgs) return;
-
-            var spawnPosition = trainingBuildingEventArgs.TrainingBuilding.transform.position + new Vector3(2, 0, -2); 
-            Instantiate(villagerPrefab, spawnPosition, Quaternion.identity);
         }
         
         public void HandleClick(ISelectable selectable)

@@ -21,8 +21,6 @@ public class TrainingBuildingUIView : MonoBehaviour
     [SerializeField] private GameObject jobQueueLayoutGrid;
     [SerializeField] private GameObject jobQueueTitlePrefab;
     
-    [SerializeField] private GameEvent onNewVillagerEvent;
-    
     private TrainingBuilding _currentTrainingBuilding;
     
     private List<ResourceRowOutput> _resourceRows = new List<ResourceRowOutput>();
@@ -97,10 +95,5 @@ public class TrainingBuildingUIView : MonoBehaviour
         _resourceRows = new List<ResourceRowOutput>();
         _jobRows = new List<ResourceRowTraining>();
         trainingBuildingView.gameObject.SetActive(false);
-    }
-    
-    public void OnNewVillButtonClick()
-    {
-        onNewVillagerEvent.Raise(new TrainingBuildingEventArgs(_currentTrainingBuilding));
     }
 }

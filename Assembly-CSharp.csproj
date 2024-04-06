@@ -58,7 +58,6 @@
     <Compile Include="Assets/Scripts/JobSystem/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/ConstructionState.cs" />
-    <Compile Include="Assets/Scripts/UI/UINewVillButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Bakery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/School.cs" />

@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class SelectionView : MonoBehaviour
 {
     [SerializeField] private Button deleteButton;
-    [SerializeField] private Button newVillButton; 
     [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
     [SerializeField] private ProductionBuildingUIView productionBuildingUIView;
     [SerializeField] private TrainingBuildingUIView trainingBuildingUIView;
@@ -102,8 +101,6 @@ public class SelectionView : MonoBehaviour
                 break;
             case TrainingBuilding trainingBuilding:
                 trainingBuildingUIView.ActivateTrainingBuildingView(trainingBuilding);
-                newVillButton.gameObject.SetActive(true);
-                newVillButton.transform.SetParent(transform);
                 break;
             case SpecialBuilding _:
                 switch (building) 
@@ -135,7 +132,6 @@ public class SelectionView : MonoBehaviour
     public void ClearView()
     {
         _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
-        newVillButton.gameObject.SetActive(false);
 
         if (_currentGrid != null)
         {
