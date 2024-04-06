@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/Buildings/Buildings/ArmorWorkshop.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Villager.cs" />
+    <Compile Include="Assets/Scripts/Buildings/BuildingGroups/TrainingBuilding.cs" />
     <Compile Include="Assets/Scripts/Units/View/BuilderView.cs" />
     <Compile Include="Assets/Scripts/Units/Controller/UnitController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Wheatfarm.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
-    <Compile Include="Assets/Scripts/UI/BuildingUIViews/SchoolBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingGroups/SpecialBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/Mill.cs" />
@@ -94,6 +94,7 @@
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
+    <Compile Include="Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/UI/SelectionController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/JobSystem/JobListToDisplay.cs" />

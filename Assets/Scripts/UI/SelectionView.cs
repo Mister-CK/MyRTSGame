@@ -11,7 +11,7 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private Button newVillButton; 
     [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
     [SerializeField] private ProductionBuildingUIView productionBuildingUIView;
-    [SerializeField] private SchoolBuildingUIView schoolBuildingUIView;
+    [SerializeField] private TrainingBuildingUIView trainingBuildingUIView;
     [SerializeField] private WorkshopBuildingUIView workshopBuildingUIView;
     [SerializeField] private ConsumptionBuildingUIView consumptionBuildingUIView;
     
@@ -61,6 +61,9 @@ public class SelectionView : MonoBehaviour
             case ConsumptionBuilding consumptionBuilding:
                 consumptionBuildingUIView.UpdateResourceQuantities(consumptionBuilding);
                 break;
+            case TrainingBuilding trainingBuilding:
+                trainingBuildingUIView.UpdateResourceQuantities(trainingBuilding);
+                break;
             case SpecialBuilding _:
                 //TODO: refactor this into seperate methods per building
                 switch (building) 
@@ -73,9 +76,6 @@ public class SelectionView : MonoBehaviour
                                 newTextComponent.text = $"{resource.ResourceType}: {resource.Quantity}";
                             }
                         }
-                        break;
-                    case School school:
-                        schoolBuildingUIView.UpdateResourceQuantities(school);
                         break;
                 }
                 break;
@@ -100,22 +100,18 @@ public class SelectionView : MonoBehaviour
             case ConsumptionBuilding consumptionBuilding:
                 consumptionBuildingUIView.ActivateConsumptionBuildingView(consumptionBuilding);
                 break;
-
+            case TrainingBuilding trainingBuilding:
+                trainingBuildingUIView.ActivateTrainingBuildingView(trainingBuilding);
+                newVillButton.gameObject.SetActive(true);
+                newVillButton.transform.SetParent(transform);
+                break;
             case SpecialBuilding _:
                 switch (building) 
                 {
                     case Warehouse warehouse:
                         CreateResourceGridForBuilding(warehouse);
                         break;
-                    case School school:
-                        schoolBuildingUIView.ActivateSchoolBuildingView(school);
-                        newVillButton.gameObject.SetActive(true);
-                        newVillButton.transform.SetParent(transform);
-                        break;
                     case Castle:
-                        // CreateResourceGridForBuilding(building);
-                        break;
-                    case SiegeWorkshop siegeWorkshop:
                         // CreateResourceGridForBuilding(building);
                         break;
                 }
@@ -149,7 +145,7 @@ public class SelectionView : MonoBehaviour
         
         resourceBuildingUIView.DeactivateResourceBuildingView();
         productionBuildingUIView.DeactivateProductionBuildingView();
-        schoolBuildingUIView.DeactivateSchoolBuildingView();
+        trainingBuildingUIView.DeactivateTrainingBuildingView();
         workshopBuildingUIView.DeactivateWorkshopBuildingView();
         consumptionBuildingUIView.DeactivateConsumptionBuildingView();
     }

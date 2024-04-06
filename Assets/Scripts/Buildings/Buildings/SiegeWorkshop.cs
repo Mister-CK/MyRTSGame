@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class SiegeWorkshop : SpecialBuilding
+    public class SiegeWorkshop : TrainingBuilding
     {
         //Constructor
         public SiegeWorkshop()

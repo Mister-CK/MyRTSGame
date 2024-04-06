@@ -1,12 +1,12 @@
 using System;
 using MyRTSGame.Model;
 
-public class SchoolEventArgs : EventArgs, IGameEventArgs
+public class TrainingBuildingEventArgs : EventArgs, IGameEventArgs
 {
-    public School School { get; }
+    public TrainingBuilding TrainingBuilding { get; }
 
-    public SchoolEventArgs(School school)
+    public TrainingBuildingEventArgs(TrainingBuilding trainingBuilding)
     {
-        School = school;
+        TrainingBuilding = trainingBuilding;
     }
 }

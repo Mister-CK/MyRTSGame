@@ -37,9 +37,9 @@ namespace MyRTSGame.Model
         
         private void HandleCreateNewVillager(IGameEventArgs args)
         {
-            if (args is not SchoolEventArgs schoolEventArgs) return;
+            if (args is not TrainingBuildingEventArgs trainingBuildingEventArgs) return;
 
-            var spawnPosition = schoolEventArgs.School.transform.position + new Vector3(2, 0, -2); 
+            var spawnPosition = trainingBuildingEventArgs.TrainingBuilding.transform.position + new Vector3(2, 0, -2); 
             Instantiate(villagerPrefab, spawnPosition, Quaternion.identity);
 
         }
