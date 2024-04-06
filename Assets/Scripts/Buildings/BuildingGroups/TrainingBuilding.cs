@@ -53,7 +53,7 @@ namespace MyRTSGame.Model
                     RemoveResource(resource.ResourceType, resource.Quantity);
                 }
                 
-                //Create new Unit of type trainingJob.Unit
+                buildingController.CreateNewUnitEvent(this, trainingJob.UnitType);
             }
         }
     }

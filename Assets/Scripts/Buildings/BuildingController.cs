@@ -17,6 +17,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onRemoveProductionJobEvent;
         [SerializeField] private GameEvent onAddTrainingJobEvent;
         [SerializeField] private GameEvent onRemoveTrainingJobEvent;
+        [SerializeField] private GameEvent onNewUnitEvent;
 
         public static BuildingController Instance { get; private set; }
 
@@ -46,12 +47,10 @@ namespace MyRTSGame.Model
         {
             onResourceAddedToBuilding.UnregisterListener(OnResourceAdded);
             onResourceRemovedFromBuilding.UnregisterListener(OnResourceRemoved);
-            onAddProductionJobEvent.RegisterListener(OnAddProductionJob);
-            onRemoveProductionJobEvent.RegisterListener(OnRemoveProductionJob);
-            
-            onAddTrainingJobEvent.RegisterListener(OnAddTrainingJob);
-            onRemoveProductionJobEvent.RegisterListener(OnRemoveProductionJob);
-            
+            onAddProductionJobEvent.UnregisterListener(OnAddProductionJob);
+            onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
+            onAddTrainingJobEvent.UnregisterListener(OnAddTrainingJob);
+            onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -78,6 +77,11 @@ namespace MyRTSGame.Model
         public void CreateNewBuilderJobNeededEvent(Building building)
         {
             onNewBuilderJobNeeded.Raise(new BuildingEventArgs(building));
+        }
+        
+        public void CreateNewUnitEvent(TrainingBuilding trainingBuilding, UnitType unitType)
+        {
+            onNewUnitEvent.Raise(new TrainingBuildingUnitTypeEventArgs(trainingBuilding, unitType));
         }
         
         private void OnAddProductionJob(IGameEventArgs args)

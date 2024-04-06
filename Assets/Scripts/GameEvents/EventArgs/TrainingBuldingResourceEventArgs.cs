@@ -6,9 +6,9 @@ public class TrainingBuildingBuildingResourceTypeEventArgs : EventArgs, IGameEve
     public TrainingBuilding TrainingBuilding { get; }
     public UnitType UnitType { get; }
 
-    public TrainingBuildingBuildingResourceTypeEventArgs(TrainingBuilding building, UnitType unitType)
+    public TrainingBuildingBuildingResourceTypeEventArgs(TrainingBuilding trainingBuilding, UnitType unitType)
     {
-        TrainingBuilding = building;
+        TrainingBuilding = trainingBuilding;
         UnitType = unitType;
     }
 }

@@ -41,5 +41,10 @@ namespace MyRTSGame.Model
             TrainingJobs = new List<TrainingJob>() {VillagerJob, BuilderJob};
             HasInput = true;
         }
+        
+        public override void StartResourceCreationCoroutine()
+        {
+            StartCoroutine(TrainUnitFromQueue(5));
+        }
     }
 }
