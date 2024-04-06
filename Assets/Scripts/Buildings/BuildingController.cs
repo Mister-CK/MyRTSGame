@@ -18,7 +18,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onAddTrainingJobEvent;
         [SerializeField] private GameEvent onRemoveTrainingJobEvent;
         [SerializeField] private GameEvent onNewUnitEvent;
-
+        [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -82,6 +82,11 @@ namespace MyRTSGame.Model
         public void CreateNewUnitEvent(TrainingBuilding trainingBuilding, UnitType unitType)
         {
             onNewUnitEvent.Raise(new TrainingBuildingUnitTypeEventArgs(trainingBuilding, unitType));
+        }
+        
+        public void CreateUpdateViewForBuildingEvent(Building building)
+        {
+            onUpdateUIViewForBuildingEvent.Raise(new BuildingEventArgs(building));
         }
         
         private void OnAddProductionJob(IGameEventArgs args)

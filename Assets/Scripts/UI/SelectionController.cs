@@ -8,7 +8,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onDeselectionEvent;
         [SerializeField] private GameEvent onDeleteEvent;
-        
+        [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
+         
         [SerializeField] private SelectionView selectionView;
         private ISelectable CurrentSelectedObject { get; set; }
         
@@ -16,12 +17,22 @@ namespace MyRTSGame.Model
         {
             onSelectionEvent.RegisterListener(SelectObject);
             onDeleteEvent.RegisterListener(DeleteSelectedObject);
+            onUpdateUIViewForBuildingEvent.RegisterListener(SetUIView);
         }
 
         private void OnDisable()
         {
             onSelectionEvent.UnregisterListener(SelectObject);
             onDeleteEvent.UnregisterListener(DeleteSelectedObject);
+            onUpdateUIViewForBuildingEvent.UnregisterListener(SetUIView);
+        }
+
+        private void SetUIView(IGameEventArgs args)
+        {
+            if (CurrentSelectedObject is Building selectedBuilding)
+            {
+                selectionView.SetView(selectedBuilding);
+            }
         }
         
         private void LateUpdate()

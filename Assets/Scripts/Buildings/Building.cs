@@ -71,7 +71,7 @@ namespace MyRTSGame.Model
         public void SetState(IBuildingState newState)
         {
             State = newState;
-
+            buildingController.CreateUpdateViewForBuildingEvent(this);
             // if (_building.State is ConstructionState) _building.State = new CompletedState(_building.BuildingType); // skip constructionState
             State.SetObject(this);
 
