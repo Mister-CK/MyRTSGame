@@ -73,6 +73,7 @@
     <Compile Include="Assets/Scripts/JobSystem/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingGroups/ProductionBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingPlacer.cs" />
+    <Compile Include="Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />

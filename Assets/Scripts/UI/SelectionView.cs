@@ -13,7 +13,8 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private TrainingBuildingUIView trainingBuildingUIView;
     [SerializeField] private WorkshopBuildingUIView workshopBuildingUIView;
     [SerializeField] private ConsumptionBuildingUIView consumptionBuildingUIView;
-    
+    [SerializeField] private FoundationStateBuildingUIView foundationStateBuildingUIView;
+
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
     
@@ -46,6 +47,11 @@ public class SelectionView : MonoBehaviour
 
     private void UpdateSelectedBuilding(Building building)
     {
+        if (building.State is FoundationState)
+        {
+            foundationStateBuildingUIView.UpdateResourceQuantities(building);
+            return;
+        }
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
@@ -63,19 +69,13 @@ public class SelectionView : MonoBehaviour
             case TrainingBuilding trainingBuilding:
                 trainingBuildingUIView.UpdateResourceQuantities(trainingBuilding);
                 break;
-            case SpecialBuilding _:
-                //TODO: refactor this into seperate methods per building
-                switch (building) 
+            case Warehouse warehouse:
+                foreach (var resource in warehouse.GetInventory())
                 {
-                    case Warehouse warehouse:
-                        foreach (var resource in warehouse.GetInventory())
-                        {
-                            if (_resourceTexts.TryGetValue(resource.ResourceType, out var newTextComponent))
-                            {
-                                newTextComponent.text = $"{resource.ResourceType}: {resource.Quantity}";
-                            }
-                        }
-                        break;
+                    if (_resourceTexts.TryGetValue(resource.ResourceType, out var newTextComponent))
+                    {
+                        newTextComponent.text = $"{resource.ResourceType}: {resource.Quantity}";
+                    }
                 }
                 break;
         }
@@ -85,6 +85,11 @@ public class SelectionView : MonoBehaviour
     
     private void SetSelectedBuilding(Building building)
     {
+        if (building.State is FoundationState)
+        {
+            foundationStateBuildingUIView.ActivateFoundationStateBuildingView(building);
+            return;
+        }
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
@@ -102,16 +107,8 @@ public class SelectionView : MonoBehaviour
             case TrainingBuilding trainingBuilding:
                 trainingBuildingUIView.ActivateTrainingBuildingView(trainingBuilding);
                 break;
-            case SpecialBuilding _:
-                switch (building) 
-                {
-                    case Warehouse warehouse:
-                        CreateResourceGridForBuilding(warehouse);
-                        break;
-                    case Castle:
-                        // CreateResourceGridForBuilding(building);
-                        break;
-                }
+            case Warehouse warehouse:
+                CreateResourceGridForBuilding(warehouse);
                 break;
         }
 
@@ -144,6 +141,8 @@ public class SelectionView : MonoBehaviour
         trainingBuildingUIView.DeactivateTrainingBuildingView();
         workshopBuildingUIView.DeactivateWorkshopBuildingView();
         consumptionBuildingUIView.DeactivateConsumptionBuildingView();
+        foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
+
     }
     
     private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes)

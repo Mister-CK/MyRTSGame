@@ -429,6 +429,7 @@
 "Assets/Scripts/JobSystem/VillagerJobQueue.cs"
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/UI/BuildingUIViews/ConsumptionBuildingUIView.cs"
+"Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/ProductionBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs"

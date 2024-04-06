@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class ConsumptionBuildingUIView : MonoBehaviour
 {
-    [SerializeField] private Image resourceBuildingView;
-    [SerializeField] private TextMeshProUGUI resourceBuildingName;
+    [SerializeField] private Image consumptionBuildingView;
+    [SerializeField] private TextMeshProUGUI consumptionBuildingName;
     [SerializeField] private GameObject inputTitlePrefab;
     [SerializeField] private GameObject columnsPrefab;
     [SerializeField] private GameObject resourceRowOutputPrefab;
@@ -18,8 +18,8 @@ public class ConsumptionBuildingUIView : MonoBehaviour
     private List<ResourceRowOutput> _resourceRowOutputs = new List<ResourceRowOutput>();
     public void ActivateConsumptionBuildingView(ConsumptionBuilding building)
     {
-        resourceBuildingView.gameObject.SetActive(true);
-        resourceBuildingName.text = building.BuildingType.ToString();
+        consumptionBuildingView.gameObject.SetActive(true);
+        consumptionBuildingName.text = building.BuildingType.ToString();
         Instantiate(inputTitlePrefab, inputLayoutGrid.transform);
         Instantiate(columnsPrefab, inputLayoutGrid.transform);
 
@@ -49,6 +49,6 @@ public class ConsumptionBuildingUIView : MonoBehaviour
             Destroy(child.gameObject);
         }
         _resourceRowOutputs = new List<ResourceRowOutput>();
-        resourceBuildingView.gameObject.SetActive(false);
+        consumptionBuildingView.gameObject.SetActive(false);
     }
 }
