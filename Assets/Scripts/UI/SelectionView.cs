@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class SelectionView : MonoBehaviour
 {
-    [SerializeField] private Button deleteButton;
     [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
     [SerializeField] private ProductionBuildingUIView productionBuildingUIView;
     [SerializeField] private TrainingBuildingUIView trainingBuildingUIView;
@@ -15,7 +14,8 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private ConsumptionBuildingUIView consumptionBuildingUIView;
     [SerializeField] private FoundationStateBuildingUIView foundationStateBuildingUIView;
     [SerializeField] private ConstructionStateBuildingUIView constructionStateBuildingUIView;
-
+    
+    [SerializeField] public SelectionController selectionController;
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
     
@@ -27,7 +27,7 @@ public class SelectionView : MonoBehaviour
                 UpdateSelectedBuilding(building);
                 break;
             case Villager villager:
-                SetSelectedVillager(villager);
+                // SetSelectedVillager(villager);
                 break;
         }
     }
@@ -41,7 +41,7 @@ public class SelectionView : MonoBehaviour
                 SetSelectedBuilding(building);
                 break;
             case Villager villager:
-                SetSelectedVillager(villager);
+                // SetSelectedVillager(villager);
                 break;
         }
     }
@@ -58,6 +58,7 @@ public class SelectionView : MonoBehaviour
             // Nothing to update for construction state
             return;
         }
+
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
@@ -83,10 +84,9 @@ public class SelectionView : MonoBehaviour
                         newTextComponent.text = $"{resource.ResourceType}: {resource.Quantity}";
                     }
                 }
+
                 break;
         }
-                           
-        SetDeleteButton(true);
     }
     
     private void SetSelectedBuilding(Building building)
@@ -123,18 +123,6 @@ public class SelectionView : MonoBehaviour
                 break;
         }
 
-        SetDeleteButton(true);
-    }
-    
-    //TODO: refactor this method to work for all units.
-    private void SetSelectedVillager(Villager villager)
-    {
-        SetDeleteButton(true);
-    }
-
-    private void SetDeleteButton(bool show)
-    {
-        deleteButton.gameObject.SetActive(show);
     }
     
     public void ClearView()
@@ -155,7 +143,11 @@ public class SelectionView : MonoBehaviour
         foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
         constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
     }
-    
+
+    public void HandleDeleteButtonClick()
+    {
+        selectionController.CreateDeleteEvent();
+    }
     private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes)
     {
         return inputTypes.Aggregate("input types: ", (current, resourceType) => current + resourceType + ", ")
