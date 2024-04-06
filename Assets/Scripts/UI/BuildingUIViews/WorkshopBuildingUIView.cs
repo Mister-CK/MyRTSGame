@@ -13,7 +13,6 @@ public class WorkshopBuildingUIView : MonoBehaviour
     [SerializeField] private GameObject columnsPrefab;
     [SerializeField] private GameObject resourceRowPrefab;
     [SerializeField] private GameObject resourceRowProductionPrefab;
-
     
     [SerializeField] private GameObject outputLayoutGrid;
     [SerializeField] private GameObject outputTitlePrefab;

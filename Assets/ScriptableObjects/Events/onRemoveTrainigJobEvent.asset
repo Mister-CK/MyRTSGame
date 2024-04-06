@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef9c2a3d77e44cf6aa2fc8d3e44afac9, type: 3}
-  m_Name: onRemoveProductionJobEvent 1
+  m_Name: onRemoveTrainigJobEvent
   m_EditorClassIdentifier: 

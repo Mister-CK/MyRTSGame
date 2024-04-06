@@ -15,7 +15,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewBuilderJobNeeded;
         [SerializeField] private GameEvent onAddProductionJobEvent;
         [SerializeField] private GameEvent onRemoveProductionJobEvent;
-        
+        [SerializeField] private GameEvent onAddTrainingJobEvent;
+        [SerializeField] private GameEvent onRemoveTrainingJobEvent;
+
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -34,17 +36,22 @@ namespace MyRTSGame.Model
         {
             onResourceAddedToBuilding.RegisterListener(OnResourceAdded);
             onResourceRemovedFromBuilding.RegisterListener(OnResourceRemoved);
-            onAddProductionJobEvent.RegisterListener(onAddProductionJob);
-            onRemoveProductionJobEvent.RegisterListener(onRemoveProductionJob);
-
+            onAddProductionJobEvent.RegisterListener(OnAddProductionJob);
+            onRemoveProductionJobEvent.RegisterListener(OnRemoveProductionJob);
+            onAddTrainingJobEvent.RegisterListener(OnAddTrainingJob);
+            onRemoveTrainingJobEvent.RegisterListener(OnRemoveTrainingJob);
         }
 
         private void OnDisable()
         {
             onResourceAddedToBuilding.UnregisterListener(OnResourceAdded);
             onResourceRemovedFromBuilding.UnregisterListener(OnResourceRemoved);
-            onAddProductionJobEvent.RegisterListener(onAddProductionJob);
-            onRemoveProductionJobEvent.RegisterListener(onRemoveProductionJob);
+            onAddProductionJobEvent.RegisterListener(OnAddProductionJob);
+            onRemoveProductionJobEvent.RegisterListener(OnRemoveProductionJob);
+            
+            onAddTrainingJobEvent.RegisterListener(OnAddTrainingJob);
+            onRemoveProductionJobEvent.RegisterListener(OnRemoveProductionJob);
+            
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -73,7 +80,7 @@ namespace MyRTSGame.Model
             onNewBuilderJobNeeded.Raise(new BuildingEventArgs(building));
         }
         
-        private void onAddProductionJob(IGameEventArgs args)
+        private void OnAddProductionJob(IGameEventArgs args)
         {
             if (args is WorkshopBuildingBuildingResourceTypeEventArgs eventArgs)
             {
@@ -81,11 +88,27 @@ namespace MyRTSGame.Model
             }
         }
         
-        private void onRemoveProductionJob(IGameEventArgs args)
+        private void OnRemoveProductionJob(IGameEventArgs args)
         {
             if (args is WorkshopBuildingBuildingResourceTypeEventArgs eventArgs)
             {
                 eventArgs.WorkshopBuilding.RemoveProductionJob(eventArgs.ResourceType);
+            }
+        }
+        
+        private void OnAddTrainingJob(IGameEventArgs args)
+        {
+            if (args is TrainingBuildingBuildingResourceTypeEventArgs eventArgs)
+            {
+                eventArgs.TrainingBuilding.AddTrainingJob(eventArgs.UnitType);
+            }
+        }
+        
+        private void OnRemoveTrainingJob(IGameEventArgs args)
+        {
+            if (args is TrainingBuildingBuildingResourceTypeEventArgs eventArgs)
+            {
+                eventArgs.TrainingBuilding.RemoveTrainingJob(eventArgs.UnitType);
             }
         }
     }

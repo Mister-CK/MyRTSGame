@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MyRTSGame.Model;
+using MyRTSGame.Model.Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,16 +10,27 @@ public class TrainingBuildingUIView : MonoBehaviour
 {
     [SerializeField] private Image trainingBuildingView;
     [SerializeField] private TextMeshProUGUI trainingBuildingName;
-    [SerializeField] private GameObject inputTitlePrefab;
+    
     [SerializeField] private GameObject columnsPrefab;
     [SerializeField] private GameObject resourceRowPrefab;
+    [SerializeField] private GameObject resourceRowTrainingPrefab;
+
+    [SerializeField] private GameObject inputTitlePrefab;
     [SerializeField] private GameObject inputLayoutGrid;
     
+    [SerializeField] private GameObject jobQueueLayoutGrid;
+    [SerializeField] private GameObject jobQueueTitlePrefab;
+    
     [SerializeField] private GameEvent onNewVillagerEvent;
-
+    
     private TrainingBuilding _currentTrainingBuilding;
     
-    private List<ResourceRowOutput> _resourceRowOutputs = new List<ResourceRowOutput>();
+    private List<ResourceRowOutput> _resourceRows = new List<ResourceRowOutput>();
+    private List<ResourceRowTraining> _jobRows = new List<ResourceRowTraining>();
+    
+    Dictionary<ResourceType, int> resourceQuantities = new Dictionary<ResourceType, int>();
+
+    
     public void ActivateTrainingBuildingView(TrainingBuilding trainingBuilding)
     {
         _currentTrainingBuilding = trainingBuilding;
@@ -26,22 +38,48 @@ public class TrainingBuildingUIView : MonoBehaviour
         trainingBuildingName.text = trainingBuilding.BuildingType.ToString();
         Instantiate(inputTitlePrefab, inputLayoutGrid.transform);
         Instantiate(columnsPrefab, inputLayoutGrid.transform);
-
+        
+        Instantiate(jobQueueTitlePrefab, jobQueueLayoutGrid.transform);
+        Instantiate(columnsPrefab, jobQueueLayoutGrid.transform);
+        
         foreach (var res in trainingBuilding.InventoryWhenCompleted)
         {
+            resourceQuantities[res.ResourceType] = res.Quantity;
+        }
+        
+        foreach (var inputType in trainingBuilding.InputTypesWhenCompleted)
+        {
             var resourceRow = Instantiate(resourceRowPrefab, inputLayoutGrid.transform);
-            var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRow.GetComponent<ResourceRowOutput>().ResourceType.text = res.ResourceType.ToString();
-            resourceRow.GetComponent<ResourceRowOutput>().Quantity.text = res.Quantity.ToString();
-            _resourceRowOutputs.Add(resourceRowOutput);
+            var resourceRowInput = resourceRow.GetComponent<ResourceRowOutput>();
+            resourceRowInput.ResourceType.text = inputType.ToString();
+            resourceRowInput.Quantity.text = resourceQuantities[inputType].ToString();
+            _resourceRows.Add(resourceRowInput);
+        }
+
+        foreach (var trainingJob in trainingBuilding.TrainingJobs)
+        {
+            var resourceRow = Instantiate(resourceRowTrainingPrefab, jobQueueLayoutGrid.transform);
+            var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowTraining>();
+            resourceRowJobQueue.UnitType = trainingJob.UnitType;
+            resourceRowJobQueue.TrainingBuilding = trainingBuilding;
+            resourceRowJobQueue.unitTypeText.text = trainingJob.UnitType.ToString();
+            resourceRowJobQueue.quantity.text = trainingJob.Quantity.ToString();
+            _jobRows.Add(resourceRowJobQueue);
         }
     }
     
     public void UpdateResourceQuantities(TrainingBuilding trainingBuilding)
     {
-        for (var i = 0; i < _resourceRowOutputs.Count; i++)
+        for (var i = 0; i < _resourceRows.Count; i++)
         {
-            _resourceRowOutputs[i].UpdateQuantity(trainingBuilding.InventoryWhenCompleted[i].Quantity);
+            _resourceRows[i].UpdateQuantity(trainingBuilding.InventoryWhenCompleted[i].Quantity);
+        }
+        
+        var jobRowsCount = _jobRows.Count;
+        for (var i = 0; i < jobRowsCount; i++)
+        {
+            var unitType = _jobRows[i].UnitType;
+            _jobRows[i].UpdateQuantity(trainingBuilding.TrainingJobs.Find(el => el.UnitType == unitType).Quantity);
         }
     }
     
@@ -52,13 +90,17 @@ public class TrainingBuildingUIView : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        _resourceRowOutputs = new List<ResourceRowOutput>();
+        foreach (Transform child in jobQueueLayoutGrid.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        _resourceRows = new List<ResourceRowOutput>();
+        _jobRows = new List<ResourceRowTraining>();
         trainingBuildingView.gameObject.SetActive(false);
     }
     
     public void OnNewVillButtonClick()
     {
-        Debug.Log("New villager button clicked" + _currentTrainingBuilding.transform.position);
         onNewVillagerEvent.Raise(new TrainingBuildingEventArgs(_currentTrainingBuilding));
     }
 }

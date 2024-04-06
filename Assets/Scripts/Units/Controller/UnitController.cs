@@ -41,7 +41,6 @@ namespace MyRTSGame.Model
 
             var spawnPosition = trainingBuildingEventArgs.TrainingBuilding.transform.position + new Vector3(2, 0, -2); 
             Instantiate(villagerPrefab, spawnPosition, Quaternion.identity);
-
         }
         
         public void HandleClick(ISelectable selectable)
