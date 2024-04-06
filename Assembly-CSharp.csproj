@@ -75,7 +75,6 @@
     <Compile Include="Assets/Scripts/Buildings/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingController.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs" />
-    <Compile Include="Assets/Scripts/Buildings/TrainingJob.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/JobSystem/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SawMill.cs" />
@@ -95,6 +94,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowProduction.cs" />
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs" />
@@ -110,12 +110,12 @@
     <Compile Include="Assets/Scripts/UI/UIBuildButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingGroups/ResourceBuilding.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/TrainingJob.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Builder.cs" />
     <Compile Include="Assets/Scripts/UI/UIController.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingUnitTypeEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ProductionBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/PlacingState.cs" />
-    <Compile Include="Assets/Scripts/ProductionJobs/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuldingResourceEventArgs.cs" />

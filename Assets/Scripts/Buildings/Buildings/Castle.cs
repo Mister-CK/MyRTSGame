@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+
 namespace MyRTSGame.Model
 {
-    public class Castle : SpecialBuilding
+    public class Castle : TrainingBuilding
     {
         //Constructor
         public Castle()
@@ -42,6 +44,8 @@ namespace MyRTSGame.Model
                 ResourceType.WoodenShield,
                 ResourceType.IronShield
             };
+            trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder};
+            TrainingJobs = GetTrainingJobsForUnitTypes(trainableUnits);
             HasInput = true;
         }
     }

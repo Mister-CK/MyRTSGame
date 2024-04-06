@@ -56,5 +56,45 @@ namespace MyRTSGame.Model
                 buildingController.CreateNewUnitEvent(this, trainingJob.UnitType);
             }
         }
+        
+        public List<TrainingJob> GetTrainingJobsForUnitTypes(IEnumerable<UnitType> unitTypes)
+        {
+            List<TrainingJob> trainingJobs = new List<TrainingJob>();
+            foreach(var unitType in unitTypes)
+            {
+                switch(unitType)
+                {
+                    case UnitType.Villager:
+                        trainingJobs.Add(_villagerJob);
+                        break;
+                    case UnitType.Builder:
+                        trainingJobs.Add(_builderJob);
+                        break;
+                    default:
+                        throw new System.ArgumentOutOfRangeException(unitType.ToString());
+                }
+            }
+            return trainingJobs;
+        }
+        
+        private TrainingJob _villagerJob = new TrainingJob
+        {
+            Input = new Resource[]
+            {
+                new Resource { ResourceType = ResourceType.Gold, Quantity = 2 }
+            },
+            UnitType = UnitType.Villager,
+            Quantity = 0
+        };
+        
+        private TrainingJob _builderJob = new TrainingJob
+        {
+            Input = new Resource[]
+            {
+                new Resource { ResourceType = ResourceType.Gold, Quantity = 2 }
+            },
+            UnitType = UnitType.Builder,
+            Quantity = 0
+        };
     }
 }
