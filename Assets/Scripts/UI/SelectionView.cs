@@ -14,6 +14,7 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private WorkshopBuildingUIView workshopBuildingUIView;
     [SerializeField] private ConsumptionBuildingUIView consumptionBuildingUIView;
     [SerializeField] private FoundationStateBuildingUIView foundationStateBuildingUIView;
+    [SerializeField] private ConstructionStateBuildingUIView constructionStateBuildingUIView;
 
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
@@ -52,6 +53,11 @@ public class SelectionView : MonoBehaviour
             foundationStateBuildingUIView.UpdateResourceQuantities(building);
             return;
         }
+        if (building.State is ConstructionState)
+        {
+            // Nothing to update for construction state
+            return;
+        }
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
@@ -88,6 +94,11 @@ public class SelectionView : MonoBehaviour
         if (building.State is FoundationState)
         {
             foundationStateBuildingUIView.ActivateFoundationStateBuildingView(building);
+            return;
+        }
+        if (building.State is ConstructionState)
+        {
+            constructionStateBuildingUIView.ActivateConstructionStateBuildingView(building);
             return;
         }
         switch (building)
@@ -142,7 +153,7 @@ public class SelectionView : MonoBehaviour
         workshopBuildingUIView.DeactivateWorkshopBuildingView();
         consumptionBuildingUIView.DeactivateConsumptionBuildingView();
         foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
-
+        constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
     }
     
     private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes)

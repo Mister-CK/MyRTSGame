@@ -91,6 +91,7 @@
     <Compile Include="Assets/Scripts/Buildings/Buildings/GoldSmelter.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Buildings/StoneQuarry.cs" />
+    <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConstructionStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/BuildingList.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowProduction.cs" />
