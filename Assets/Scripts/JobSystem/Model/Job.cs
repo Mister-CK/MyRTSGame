@@ -2,16 +2,17 @@ namespace MyRTSGame.Model
 {
     public class Job
     {
-        private bool InProgress;  
+        private bool _inProgress;
         
         public bool IsInProgress()
         {
-            return InProgress;
+            return _inProgress;
         }
         
         public void SetInProgress(bool inProgress)
         {
-            InProgress = inProgress;
+            _inProgress = inProgress;
         }
+        
     }
 }
