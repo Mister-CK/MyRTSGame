@@ -136,7 +136,6 @@ namespace MyRTSGame.Model
 
             foreach (var villagerJob in jobListEventArgs.VillagerJobs)
             {
-                Debug.Log("Deleting Villager Job " +  villagerJob.Origin.BuildingType +" -> "+ villagerJob.Destination.BuildingType);
                 villagerJobQueue.RemoveJob(villagerJob);
                 villagerJob.DeleteVillagerJobs(jobListEventArgs.DestinationType);
             }
