@@ -10,6 +10,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobCreated;
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
+        [SerializeField] private GameEvent onRequestVillagerJob;
+        [SerializeField] private GameEvent onAssignVillagerJob;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -22,6 +24,7 @@ namespace MyRTSGame.Model
             onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.RegisterListener(HandleDeleteVillagerJobsEvent);
+            onRequestVillagerJob.RegisterListener(HandleRequestVillagerJob);
         }
 
         private void OnDisable()
@@ -30,7 +33,7 @@ namespace MyRTSGame.Model
             onNewVillagerJobNeeded.UnregisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.UnregisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.UnregisterListener(HandleDeleteVillagerJobsEvent);
-
+            onRequestVillagerJob.UnregisterListener(HandleRequestVillagerJob);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -135,6 +138,16 @@ namespace MyRTSGame.Model
                 villagerJobQueue.RemoveJob(villagerJob);
                 villagerJob.DeleteVillagerJobs(jobListEventArgs.DestinationType);
             }
+        }
+
+        private void HandleRequestVillagerJob(IGameEventArgs args)
+        {
+            if (args is not VillagerEventArgs villagerEventArgs) return;
+
+            var villagerJob = villagerJobQueue.GetNextJob();
+            if (villagerJob == null) return;
+            villagerJob.SetInProgress(true);
+            onAssignVillagerJob.Raise(new VillagerWithJobEventArgs(villagerEventArgs.Villager, villagerJob));
         }
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/TrainingBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/FoundationState.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/BuilderJobQueue.cs" />

@@ -10,7 +10,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
         [SerializeField] private GameEvent onDeleteBuildingEvent; // not used
-        
+        [SerializeField] private GameEvent onRequestVillagerJob;
+        [SerializeField] private GameEvent onVillagerJobAssigned;
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
         [SerializeField] private UnitList unitList; // not used
@@ -31,13 +32,15 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
+            onVillagerJobAssigned.RegisterListener(HandleVillagerJobAssigned);
         }
 
         private void OnDisable()
         {
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
-
+            onVillagerJobAssigned.UnregisterListener(HandleVillagerJobAssigned);
         }
+        
         
         private void HandleCreateNewUnit(IGameEventArgs args)
         {
@@ -56,6 +59,13 @@ namespace MyRTSGame.Model
                     throw new ArgumentOutOfRangeException(trainingBuildingUnitTypeEventArgs.UnitType.ToString());
             }
         }
+
+        private void HandleVillagerJobAssigned(IGameEventArgs args)
+        {
+            if (args is not VillagerWithJobEventArgs villagerWithJobEventArgs) return;
+            
+            villagerWithJobEventArgs.Villager.AcceptNewVillagerJob(villagerWithJobEventArgs.VillagerJob);
+        }
         
         public void HandleClick(ISelectable selectable)
         {
@@ -72,6 +82,11 @@ namespace MyRTSGame.Model
         {
             onResourceAddedToBuilding.Raise(new BuildingResourceTypeQuantityEventArgs(building, resourceType,
                 quantity));
+        }
+
+        public void CreateVillagerJobRequest(Villager villager)
+        {
+            onRequestVillagerJob.Raise(new VillagerEventArgs(villager));
         }
     }
 }

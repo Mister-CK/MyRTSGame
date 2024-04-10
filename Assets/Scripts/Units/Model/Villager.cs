@@ -46,11 +46,25 @@ namespace MyRTSGame.Model
             HasDestination = true;
         }
 
+        private void RequestNewJob()
+        {
+            unitController.CreateVillagerJobRequest(this);
+        }
+        
+        public void AcceptNewVillagerJob(VillagerJob villagerJob)
+        {
+            _currentVillagerJob = villagerJob;
+            Destination = _currentVillagerJob.Origin;
+            _resource.ResourceType = _currentVillagerJob.ResourceType;
+            Agent.SetDestination(Destination.transform.position);
+            HasDestination = true;
+        }
+        
         protected override void SetDestination()
         {
             if (!_hasResource)
             {
-                PerformNextJob();
+                RequestNewJob();
                 return;
             }
             Destination = _currentVillagerJob.Destination;
