@@ -9,6 +9,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewBuilderJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobCreated;
+        [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -20,6 +21,7 @@ namespace MyRTSGame.Model
             onNewBuilderJobNeeded.RegisterListener(HandleNewBuilderJobNeeded);
             onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
+            onDeleteVillagerJobsEvent.RegisterListener(HandleDeleteVillagerJobsEvent);
         }
 
         private void OnDisable()
@@ -27,6 +29,8 @@ namespace MyRTSGame.Model
             onNewBuilderJobNeeded.UnregisterListener(HandleNewBuilderJobNeeded);
             onNewVillagerJobNeeded.UnregisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.UnregisterListener(CreateJobsForBuilding);
+            onDeleteVillagerJobsEvent.UnregisterListener(HandleDeleteVillagerJobsEvent);
+
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -120,6 +124,17 @@ namespace MyRTSGame.Model
             villagerJob.SetInProgress(false);
             villagerJobQueue.AddJob(villagerJob);
             onNewVillagerJobCreated.Raise(new VillagerJobEventArgs(villagerJob));
+        }
+
+        private void HandleDeleteVillagerJobsEvent(IGameEventArgs args)
+        {   
+            if (args is not VillagerJobListEventArgs jobListEventArgs) return;
+
+            foreach (var villagerJob in jobListEventArgs.VillagerJobs)
+            {
+                villagerJobQueue.RemoveJob(villagerJob);
+                villagerJob.DeleteVillagerJobs(jobListEventArgs.DestinationType);
+            }
         }
     }
 }

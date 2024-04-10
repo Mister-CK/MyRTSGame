@@ -13,6 +13,16 @@ namespace MyRTSGame.Model
         {
             _jobs.Add(villagerJob);
         }
+        
+        public void RemoveJob(VillagerJob villagerJob)
+        {
+            if (villagerJob.IsInProgress())
+            {
+                _jobsInProgress = _jobsInProgress.Where(job => job != villagerJob).ToList();
+                return;
+            }
+            _jobs = _jobs.Where(job => job != villagerJob).ToList();
+        }
 
         public VillagerJob GetNextJob()
         {
