@@ -103,6 +103,7 @@ namespace MyRTSGame.Model
 
                     job.Destination = destination;
                     job.SetInProgress(false);
+                    onNewVillagerJobCreated.Raise(new VillagerJobEventArgs(job));
                     villagerJobQueue.AddJob(job);
                     resourceCount--;
                 }
@@ -135,6 +136,7 @@ namespace MyRTSGame.Model
 
             foreach (var villagerJob in jobListEventArgs.VillagerJobs)
             {
+                Debug.Log("Deleting Villager Job " +  villagerJob.Origin.BuildingType +" -> "+ villagerJob.Destination.BuildingType);
                 villagerJobQueue.RemoveJob(villagerJob);
                 villagerJob.DeleteVillagerJobs(jobListEventArgs.DestinationType);
             }
