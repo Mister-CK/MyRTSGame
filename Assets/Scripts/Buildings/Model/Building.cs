@@ -8,7 +8,6 @@ namespace MyRTSGame.Model
 {
     public abstract class Building : MonoBehaviour, ISelectable
     {
-        [SerializeField] private GameEvent onNewBuilderJobNeeded;
         [SerializeField] private GameEvent onSelectionEvent;
 
         public bool HasInput;
@@ -166,6 +165,7 @@ namespace MyRTSGame.Model
         {
             VillagerJobsToThisBuilding.Add(job);
         }
+
         public void AddVillagerJobFromThisBuilding(VillagerJob job )
         {
             VillagerJobsFromThisBuilding.Add(job);
