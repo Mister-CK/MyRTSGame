@@ -419,6 +419,7 @@
 "Assets/Scripts/GameEvents/EventArgs/VillagerJobEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/VillagerWithJobEventArgs.cs"
+"Assets/Scripts/GameEvents/EventArgs/VillagerWithJobEventArgsAndDestinationType.cs"
 "Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs"
 "Assets/Scripts/GameEvents/GameEvent.cs"
 "Assets/Scripts/Interface/IBuildingState.cs"

@@ -12,6 +12,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onRequestVillagerJob;
         [SerializeField] private GameEvent onAssignVillagerJob;
+        [SerializeField] private GameEvent onVillagerJobDeleted;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -137,7 +138,9 @@ namespace MyRTSGame.Model
             foreach (var villagerJob in jobListEventArgs.VillagerJobs)
             {
                 villagerJobQueue.RemoveJob(villagerJob);
-                villagerJob.DeleteVillagerJobs(jobListEventArgs.DestinationType);
+                if (!villagerJob.IsInProgress()) continue;
+                onVillagerJobDeleted.Raise(new VillagerWithJobEventArgsAndDestinationtype(villagerJob.Villager,
+                    villagerJob, jobListEventArgs.DestinationType));
             }
         }
 
@@ -148,6 +151,7 @@ namespace MyRTSGame.Model
             var villagerJob = villagerJobQueue.GetNextJob();
             if (villagerJob == null) return;
             villagerJob.SetInProgress(true);
+            villagerJob.Villager = villagerEventArgs.Villager;
             onAssignVillagerJob.Raise(new VillagerWithJobEventArgs(villagerEventArgs.Villager, villagerJob));
         }
     }

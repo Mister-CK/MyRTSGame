@@ -4,7 +4,7 @@ namespace MyRTSGame.Model
 {
     public class Villager : Unit
     {
-        private readonly Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
+        private Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private VillagerJob _currentVillagerJob;
         private bool _hasResource;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -58,6 +58,22 @@ namespace MyRTSGame.Model
             _resource.ResourceType = _currentVillagerJob.ResourceType;
             Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
+        }
+
+        public void UnAssignVillagerJob(DestinationType destinationType)
+        {
+            
+            if (destinationType == DestinationType.Origin && _hasResource)
+            {
+                return;
+            }
+
+            HasDestination = false;
+            _currentVillagerJob = null;
+            _hasResource = false;
+            Destination = null;
+
+            SetDestination();
         }
         
         protected override void SetDestination()

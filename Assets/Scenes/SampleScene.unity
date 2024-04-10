@@ -12827,6 +12827,9 @@ MonoBehaviour:
   onRemoveTrainingJobEvent: {fileID: 11400000, guid: d0dd539a6a09e4a2986e8a2dafd3e1e2, type: 2}
   onNewUnitEvent: {fileID: 11400000, guid: b5e1f16d044834fd7acad4c6d88a1b13, type: 2}
   onUpdateUIViewForBuildingEvent: {fileID: 11400000, guid: 7c2328ddcf1704d1f8b050b675f9df0b, type: 2}
+  onDeleteBuildingEvent: {fileID: 11400000, guid: 7555918c225f7461db7cc26fcd0da987, type: 2}
+  onNewVillagerJobCreated: {fileID: 11400000, guid: e6f315feca07944c8988c7b7cbe9213e, type: 2}
+  onDeleteVillagerJobsEvent: {fileID: 11400000, guid: 45b136c7956094796a594737ff7e2de3, type: 2}
 --- !u!4 &1219401900
 Transform:
   m_ObjectHideFlags: 0
@@ -13007,7 +13010,11 @@ MonoBehaviour:
   onCreateJobsForWarehouse: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
   onNewBuilderJobNeeded: {fileID: 11400000, guid: 927d80f7b8794483ba2a686ef6256181, type: 2}
   onNewVillagerJobNeeded: {fileID: 11400000, guid: bfb7baeb663ba447486a67e52bb1b19d, type: 2}
-  onDeleteBuildingEvent: {fileID: 11400000, guid: 7555918c225f7461db7cc26fcd0da987, type: 2}
+  onNewVillagerJobCreated: {fileID: 11400000, guid: e6f315feca07944c8988c7b7cbe9213e, type: 2}
+  onDeleteVillagerJobsEvent: {fileID: 11400000, guid: 45b136c7956094796a594737ff7e2de3, type: 2}
+  onRequestVillagerJob: {fileID: 11400000, guid: ee209707f34704b9882d9682c7eb852a, type: 2}
+  onAssignVillagerJob: {fileID: 11400000, guid: 0da7b13aaa6274061b05badf01ecbea8, type: 2}
+  onVillagerJobDeleted: {fileID: 11400000, guid: 3b8718019ea3d4a898a28de087be0d28, type: 2}
   builderJobQueue: {fileID: 11400000, guid: 8a95e7069ad5545aeb5d4883b074f7e3, type: 2}
   villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
 --- !u!4 &1266247124
@@ -20874,9 +20881,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b5e1f16d044834fd7acad4c6d88a1b13, type: 2}
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onRequestVillagerJob
+      value: 
+      objectReference: {fileID: 11400000, guid: ee209707f34704b9882d9682c7eb852a, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onVillagerJobDeleted
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b8718019ea3d4a898a28de087be0d28, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: onDeleteBuildingEvent
       value: 
       objectReference: {fileID: 11400000, guid: 7555918c225f7461db7cc26fcd0da987, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onVillagerJobAssigned
+      value: 
+      objectReference: {fileID: 11400000, guid: 0da7b13aaa6274061b05badf01ecbea8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

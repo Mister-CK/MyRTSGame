@@ -12,6 +12,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteBuildingEvent; // not used
         [SerializeField] private GameEvent onRequestVillagerJob;
         [SerializeField] private GameEvent onVillagerJobAssigned;
+        [SerializeField] private GameEvent onVillagerJobDeleted; 
+        
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
         [SerializeField] private UnitList unitList; // not used
@@ -33,12 +35,15 @@ namespace MyRTSGame.Model
         {
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
             onVillagerJobAssigned.RegisterListener(HandleVillagerJobAssigned);
+            onVillagerJobDeleted.RegisterListener(HandleVillagerJobDeleted);
         }
 
         private void OnDisable()
         {
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
             onVillagerJobAssigned.UnregisterListener(HandleVillagerJobAssigned);
+            onVillagerJobDeleted.UnregisterListener(HandleVillagerJobDeleted);
+
         }
         
         
@@ -65,6 +70,13 @@ namespace MyRTSGame.Model
             if (args is not VillagerWithJobEventArgs villagerWithJobEventArgs) return;
             
             villagerWithJobEventArgs.Villager.AcceptNewVillagerJob(villagerWithJobEventArgs.VillagerJob);
+        }
+        
+        private void HandleVillagerJobDeleted(IGameEventArgs args)
+        {
+            if (args is not VillagerWithJobEventArgsAndDestinationtype villagerWithJobEventArgsAndDestinationtype) return;
+            
+            villagerWithJobEventArgsAndDestinationtype.Villager.UnAssignVillagerJob(villagerWithJobEventArgsAndDestinationtype.DestinationType);
         }
         
         public void HandleClick(ISelectable selectable)
