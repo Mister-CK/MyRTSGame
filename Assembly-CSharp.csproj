@@ -84,6 +84,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ResourceBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
+    <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingEventArgs.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Controller/JobController.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Warehouse.cs" />
     <Compile Include="Assets/Scripts/Units/Model/UnitList.cs" />

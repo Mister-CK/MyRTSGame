@@ -157,6 +157,8 @@ namespace MyRTSGame.Model
 
         public void DeleteBuilding()
         {
+            BuildingList.RemoveBuilding(this);
+            buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding);
             Destroy(this);
         }
 

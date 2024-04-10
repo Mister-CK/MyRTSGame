@@ -43,5 +43,9 @@ namespace MyRTSGame.Model
         {
             _buildings.Add(newBuilding);
         }
+        public void RemoveBuilding(Building newBuilding)
+        {
+            _buildings.Remove(newBuilding);
+        }
     }
 }

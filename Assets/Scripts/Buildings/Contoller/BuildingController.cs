@@ -21,7 +21,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
         [SerializeField] private GameEvent onDeleteBuildingEvent; 
         [SerializeField] private GameEvent onNewVillagerJobCreated;
-
+        [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -143,6 +143,12 @@ namespace MyRTSGame.Model
             
             eventArgs.VillagerJob.Origin.AddVillagerJobFromThisBuilding(eventArgs.VillagerJob);
             eventArgs.VillagerJob.Destination.AddVillagerJobToThisBuilding(eventArgs.VillagerJob);
+        }
+
+        public void CreateDeleteJobsForBuildingEvent(List<VillagerJob> villagerJobsFromThisBuilding, List<VillagerJob> villagerJobsToThisBuilding)
+        {
+            onDeleteVillagerJobsEvent.Raise(new VillagerJobListEventArgs(villagerJobsFromThisBuilding, DestinationType.Origin));
+            onDeleteVillagerJobsEvent.Raise(new VillagerJobListEventArgs(villagerJobsToThisBuilding, DestinationType.Destination));
         }
     }
 }
