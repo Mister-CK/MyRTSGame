@@ -5,8 +5,9 @@ public class VillagerJobEventArgs : EventArgs, IGameEventArgs
 {
     public VillagerJob VillagerJob { get; }
 
-    public VillagerJobEventArgs(VillagerJob villager)
+
+    public VillagerJobEventArgs(VillagerJob villagerJob)
     {
-        VillagerJob = villager;
+        VillagerJob = villagerJob;
     }
 }
