@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,7 +28,8 @@ namespace MyRTSGame.Model
         public Resource[] ResourcesInJobForBuilding { get; set; }
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
-        
+        public List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
+        public List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -151,6 +153,20 @@ namespace MyRTSGame.Model
             }
 
             throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
+        }
+
+        public void DeleteBuilding()
+        {
+            Destroy(this);
+        }
+
+        public void AddVillagerJobToThisBuilding(VillagerJob job )
+        {
+            VillagerJobsToThisBuilding.Add(job);
+        }
+        public void AddVillagerJobFromThisBuilding(VillagerJob job )
+        {
+            VillagerJobsFromThisBuilding.Add(job);
         }
     }
 }

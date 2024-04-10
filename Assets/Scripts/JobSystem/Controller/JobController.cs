@@ -8,7 +8,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
         [SerializeField] private GameEvent onNewBuilderJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
-        [SerializeField] private GameEvent onDeleteEvent;
+        [SerializeField] private GameEvent onNewVillagerJobCreated;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -17,18 +17,16 @@ namespace MyRTSGame.Model
         
         private void OnEnable()
         {
-            onNewBuilderJobNeeded.RegisterListener(HandleNewJobNeeded);
+            onNewBuilderJobNeeded.RegisterListener(HandleNewBuilderJobNeeded);
             onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
-            onDeleteEvent.RegisterListener(HandleDeleteBuildingEvent);
         }
 
         private void OnDisable()
         {
-            onNewBuilderJobNeeded.UnregisterListener(HandleNewJobNeeded);
+            onNewBuilderJobNeeded.UnregisterListener(HandleNewBuilderJobNeeded);
             onNewVillagerJobNeeded.UnregisterListener(HandleNewVillagerJobNeeded);
             onCreateJobsForWarehouse.UnregisterListener(CreateJobsForBuilding);
-            onDeleteEvent.UnregisterListener(HandleDeleteBuildingEvent);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -88,22 +86,23 @@ namespace MyRTSGame.Model
                 var resourceCount = resource.Quantity;
                 while (resourceCount > 0)
                 {
-                    var job = new VillagerJob { Origin = building, ResourceType = resource.ResourceType };
+                    var job = new VillagerJob { Origin = building, ResourceType = resource.ResourceType};
                     var destination = FindDestinationForJob(job);
-
+                    
                     if (destination == null || destination == building)
                     {
                         break;
                     }
 
                     job.Destination = destination;
+                    job.SetInProgress(false);
                     villagerJobQueue.AddJob(job);
                     resourceCount--;
                 }
             }
         }
         
-        private void HandleNewJobNeeded(IGameEventArgs args)
+        private void HandleNewBuilderJobNeeded(IGameEventArgs args)
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
             
@@ -116,18 +115,11 @@ namespace MyRTSGame.Model
         {
             if (args is not BuildingResourceTypeEventArgs buildingResourceTypeEventArgs) return;
             
-            var villagerJob = new VillagerJob { Origin = buildingResourceTypeEventArgs.Building, ResourceType = buildingResourceTypeEventArgs.ResourceType };
+            var villagerJob = new VillagerJob { Origin = buildingResourceTypeEventArgs.Building, ResourceType = buildingResourceTypeEventArgs.ResourceType};
             villagerJob.Destination = FindDestinationForJob(villagerJob);
+            villagerJob.SetInProgress(false);
             villagerJobQueue.AddJob(villagerJob);
-        }
-        
-        private void HandleDeleteBuildingEvent(IGameEventArgs args)
-        {
-            if (args is not BuildingEventArgs buildingEventArgs) return;
-            
-            var building = buildingEventArgs.Building;
-            builderJobQueue.RemoveJobsForBuilding(building);
-            villagerJobQueue.RemoveJobsForBuilding(building);
+            onNewVillagerJobCreated.Raise(new VillagerJobEventArgs(villagerJob));
         }
     }
 }

@@ -19,6 +19,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onRemoveTrainingJobEvent;
         [SerializeField] private GameEvent onNewUnitEvent;
         [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
+        [SerializeField] private GameEvent onDeleteBuildingEvent; 
+        [SerializeField] private GameEvent onNewVillagerJobCreated;
+
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -41,6 +44,8 @@ namespace MyRTSGame.Model
             onRemoveProductionJobEvent.RegisterListener(OnRemoveProductionJob);
             onAddTrainingJobEvent.RegisterListener(OnAddTrainingJob);
             onRemoveTrainingJobEvent.RegisterListener(OnRemoveTrainingJob);
+            onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
+            onNewVillagerJobCreated.RegisterListener(HandleNewVillagerJobCreated);
         }
 
         private void OnDisable()
@@ -51,6 +56,9 @@ namespace MyRTSGame.Model
             onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
             onAddTrainingJobEvent.UnregisterListener(OnAddTrainingJob);
             onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
+            onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
+            onNewVillagerJobCreated.UnregisterListener(HandleNewVillagerJobCreated);
+
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -119,6 +127,22 @@ namespace MyRTSGame.Model
             {
                 eventArgs.TrainingBuilding.RemoveTrainingJob(eventArgs.UnitType);
             }
+        }
+
+        private void HandleDeleteBuildingEvent(IGameEventArgs args)
+        {
+            if (args is BuildingEventArgs eventArgs)
+            {
+                eventArgs.Building.DeleteBuilding();
+            }
+        }
+
+        private void HandleNewVillagerJobCreated(IGameEventArgs args)
+        {
+            if (args is not VillagerJobEventArgs eventArgs) return;
+            
+            eventArgs.VillagerJob.Origin.AddVillagerJobFromThisBuilding(eventArgs.VillagerJob);
+            eventArgs.VillagerJob.Destination.AddVillagerJobToThisBuilding(eventArgs.VillagerJob);
         }
     }
 }

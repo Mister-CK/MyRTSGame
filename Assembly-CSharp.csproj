@@ -92,6 +92,7 @@
     <Compile Include="Assets/Scripts/Camera.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConstructionStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowProduction.cs" />
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/ConstructionState.cs" />
@@ -99,9 +100,11 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Butcher.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Controller/JobController.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Warehouse.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/UnitList.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/FishermansHut.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronSmelter.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingResourceTypeQuantityEventArgs.cs" />
@@ -131,8 +134,8 @@
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/WorkshopBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Mill.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Tannery.cs" />
-    <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorWorkshop.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConsumptionBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Bakery.cs" />

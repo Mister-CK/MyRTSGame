@@ -8,7 +8,7 @@ namespace MyRTSGame.Model
     public class VillagerJobQueue :  ScriptableObject
     {
         private List<VillagerJob> _jobs = new();
-
+        private IEnumerable<VillagerJob> _jobsInProgress = new List<VillagerJob>();
         public void AddJob(VillagerJob villagerJob)
         {
             _jobs.Add(villagerJob);
@@ -20,17 +20,13 @@ namespace MyRTSGame.Model
 
             var job = _jobs[0];
             _jobs.RemoveAt(0);
+            _jobsInProgress = _jobsInProgress.Append(job);
             return job;
         }
 
         public IEnumerable<VillagerJob> GetJobs()
         {
             return _jobs;
-        }
-        
-        public void RemoveJobsForBuilding(Building building)
-        {
-            _jobs = _jobs.Where(job => job.Origin != building && job.Destination != building).ToList();
         }
     }
 }
