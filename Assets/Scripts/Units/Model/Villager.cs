@@ -39,6 +39,7 @@ namespace MyRTSGame.Model
         {
             _currentVillagerJob = villagerJobQueue.GetNextJob();
             if (_currentVillagerJob == null) return;
+            _currentVillagerJob.SetInProgress(true);
             Destination = _currentVillagerJob.Origin;
             _resource.ResourceType = _currentVillagerJob.ResourceType;
             Agent.SetDestination(Destination.transform.position);
@@ -55,16 +56,6 @@ namespace MyRTSGame.Model
             Destination = _currentVillagerJob.Destination;
             Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
-        }
-
-        public VillagerJob GetCurrentJob()
-        {
-            return _currentVillagerJob;
-        }
-        
-        public bool GetHasDestination()
-        {
-            return HasDestination;
         }
     }
 }
