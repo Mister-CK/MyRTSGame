@@ -1,6 +1,6 @@
 namespace MyRTSGame.Model
 {
-    public class BuilderJob
+    public class BuilderJob: Job
     {
         public Building Destination { get; set; }
     }

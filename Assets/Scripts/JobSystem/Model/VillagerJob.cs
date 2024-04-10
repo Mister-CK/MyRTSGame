@@ -1,6 +1,6 @@
 ﻿namespace MyRTSGame.Model
 {
-    public class VillagerJob
+    public class VillagerJob: Job
     {
         public Building Origin { get; set; }
         public Building Destination { get; set; }
