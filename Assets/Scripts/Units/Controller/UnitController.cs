@@ -9,11 +9,11 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
-        [SerializeField] private GameEvent onDeleteBuildingEvent;
+        [SerializeField] private GameEvent onDeleteBuildingEvent; // not used
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
-
+        [SerializeField] private UnitList unitList; // not used
         public static UnitController Instance { get; private set; }
 
         private void Awake()
@@ -31,13 +31,11 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
-            onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
         }
 
         private void OnDisable()
         {
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
-            onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
 
         }
         
@@ -74,12 +72,6 @@ namespace MyRTSGame.Model
         {
             onResourceAddedToBuilding.Raise(new BuildingResourceTypeQuantityEventArgs(building, resourceType,
                 quantity));
-        }
-                
-        private void HandleDeleteBuildingEvent(IGameEventArgs args)
-        {
-            if (args is not BuildingEventArgs buildingEventArgs) return;
-            
         }
     }
 }
