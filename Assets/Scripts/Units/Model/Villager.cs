@@ -7,7 +7,6 @@ namespace MyRTSGame.Model
         private Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private VillagerJob _currentVillagerJob;
         private bool _hasResource;
-        [SerializeField] private VillagerJobQueue villagerJobQueue;
         
         protected override void ExecuteJob()
         {
