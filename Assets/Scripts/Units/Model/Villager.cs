@@ -31,17 +31,6 @@ namespace MyRTSGame.Model
             unitController.AddResourceToBuilding(building, resourceType, 1);
         }
 
-        private void PerformNextJob()
-        {
-            _currentVillagerJob = villagerJobQueue.GetNextJob();
-            if (_currentVillagerJob == null) return;
-            _currentVillagerJob.SetInProgress(true);
-            Destination = _currentVillagerJob.Origin;
-            _resource.ResourceType = _currentVillagerJob.ResourceType;
-            Agent.SetDestination(Destination.transform.position);
-            HasDestination = true;
-        }
-
         private void RequestNewJob()
         {
             unitController.CreateVillagerJobRequest(this);
