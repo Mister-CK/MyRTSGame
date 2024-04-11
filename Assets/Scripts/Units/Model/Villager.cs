@@ -27,10 +27,6 @@ namespace MyRTSGame.Model
 
         private void DeliverResource(Building building, ResourceType resourceType)
         {
-            foreach(var res in building.ResourcesInJobForBuilding)
-            {
-                if (res.ResourceType == resourceType) res.Quantity--;
-            }
             _hasResource = false;
             unitController.AddResourceToBuilding(building, resourceType, 1);
         }

@@ -142,16 +142,22 @@ namespace MyRTSGame.Model
         
         public void AddResource(ResourceType resourceType, int quantity)
         {
+            foreach (var resource in ResourcesInJobForBuilding)
+            {
+                if (resource.ResourceType != resourceType) continue;
+
+                resource.Quantity -= quantity;
+                break;
+            }
+
             foreach (var resource in Inventory)
             {
                 if (resource.ResourceType != resourceType) continue;
 
                 resource.Quantity += quantity;
                 if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
-                return;
+                break;
             }
-
-            throw new Exception($"trying to add resource that is not in the inputType ${resourceType}");
         }
 
         public void DeleteBuilding()
