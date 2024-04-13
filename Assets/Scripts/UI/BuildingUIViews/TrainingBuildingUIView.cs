@@ -49,8 +49,8 @@ public class TrainingBuildingUIView : MonoBehaviour
         {
             var resourceRow = Instantiate(resourceRowPrefab, inputLayoutGrid.transform);
             var resourceRowInput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRowInput.ResourceType.text = inputType.ToString();
-            resourceRowInput.Quantity.text = resourceQuantities[inputType].ToString();
+            resourceRowInput.resourceTypeText.text = inputType.ToString();
+            resourceRowInput.quantity.text = resourceQuantities[inputType].ToString();
             _resourceRows.Add(resourceRowInput);
         }
 
@@ -70,7 +70,7 @@ public class TrainingBuildingUIView : MonoBehaviour
     {
         for (var i = 0; i < _resourceRows.Count; i++)
         {
-            _resourceRows[i].UpdateQuantity(trainingBuilding.InventoryWhenCompleted[i].Quantity);
+            _resourceRows[i].UpdateQuantity(trainingBuilding.Inventory[i].Quantity);
         }
         
         var jobRowsCount = _jobRows.Count;

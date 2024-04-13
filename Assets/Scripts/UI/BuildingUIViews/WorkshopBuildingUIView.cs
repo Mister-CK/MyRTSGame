@@ -11,7 +11,8 @@ public class WorkshopBuildingUIView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI workshopBuildingName;
     
     [SerializeField] private GameObject columnsPrefab;
-    [SerializeField] private GameObject resourceRowPrefab;
+    [SerializeField] private GameObject resourceRowInputPrefab;
+    [SerializeField] private GameObject resourceRowOutputPrefab;
     [SerializeField] private GameObject resourceRowProductionPrefab;
     
     [SerializeField] private GameObject outputLayoutGrid;
@@ -23,7 +24,8 @@ public class WorkshopBuildingUIView : MonoBehaviour
     [SerializeField] private GameObject jobQueueLayoutGrid;
     [SerializeField] private GameObject jobQueueTitlePrefab;
     
-    private List<ResourceRowOutput> _resourceRows = new List<ResourceRowOutput>();
+    private List<ResourceRowInput> _resourceRowsInput = new List<ResourceRowInput>();
+    private List<ResourceRowOutput> _resourceRowsOutput = new List<ResourceRowOutput>();
     private List<ResourceRowProduction> _jobRows = new List<ResourceRowProduction>();
 
     Dictionary<ResourceType, int> resourceQuantities = new Dictionary<ResourceType, int>();
@@ -49,20 +51,22 @@ public class WorkshopBuildingUIView : MonoBehaviour
         
         foreach (var inputType in building.InputTypesWhenCompleted)
         {
-            var resourceRow = Instantiate(resourceRowPrefab, inputLayoutGrid.transform);
-            var resourceRowInput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRowInput.ResourceType.text = inputType.ToString();
-            resourceRowInput.Quantity.text = resourceQuantities[inputType].ToString();
-            _resourceRows.Add(resourceRowInput);
+            var resourceRow = Instantiate(resourceRowInputPrefab, inputLayoutGrid.transform);
+            var resourceRowInput = resourceRow.GetComponent<ResourceRowInput>();
+            resourceRowInput.ResourceType = inputType;
+            resourceRowInput.resourceTypeText.text = inputType.ToString();
+            resourceRowInput.quantity.text = resourceQuantities[inputType].ToString();
+            _resourceRowsInput.Add(resourceRowInput);
         }
         
         foreach (var outputType in building.OutputTypesWhenCompleted)
         {
-            var resourceRow = Instantiate(resourceRowPrefab, outputLayoutGrid.transform);
+            var resourceRow = Instantiate(resourceRowOutputPrefab, outputLayoutGrid.transform);
             var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRowOutput.ResourceType.text = outputType.ToString();
-            resourceRowOutput.Quantity.text = resourceQuantities[outputType].ToString();
-            _resourceRows.Add(resourceRowOutput);
+            resourceRowOutput.ResourceType = outputType;
+            resourceRowOutput.resourceTypeText.text = outputType.ToString();
+            resourceRowOutput.quantity.text = resourceQuantities[outputType].ToString();
+            _resourceRowsOutput.Add(resourceRowOutput);
         }
         
         foreach (var outputType in building.OutputTypesWhenCompleted)
@@ -79,17 +83,59 @@ public class WorkshopBuildingUIView : MonoBehaviour
     
     public void UpdateResourceQuantities(WorkshopBuilding building)
     {
-        var resourceRowsCount = _resourceRows.Count;
-        for (var i = 0; i < resourceRowsCount; i++)
+        var resourceRowsOutputCount = _resourceRowsOutput.Count;
+        for (var i = 0; i < resourceRowsOutputCount; i++)
         {
-            _resourceRows[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity); // this is matched on index, which is not very safe since it relies on the order of the array.
+            var resType = _resourceRowsOutput[i].ResourceType;
+            foreach (var res in building.Inventory)
+            {
+                if (res.ResourceType == resType)
+                {
+                    _resourceRowsOutput[i].UpdateQuantity(res.Quantity);
+                    break;
+                }
+            }
+            
+            foreach (var res in building.OutgoingResources)
+            {
+                if (res.ResourceType == resType)
+                {
+                    _resourceRowsOutput[i].UpdateInOutGoingJobs(res.Quantity);
+                    break;
+                }
+            }
         }
+        
+        var resourceRowsInputCount = _resourceRowsInput.Count;
+        for (var i = 0; i < resourceRowsInputCount; i++)
+        {
+            var resType = _resourceRowsInput[i].ResourceType;
+            foreach (var res in building.Inventory)
+            {
+                if (res.ResourceType == resType)
+                {
+                    _resourceRowsInput[i].UpdateQuantity(res.Quantity);
+                    break;
+                }
+            }
+            
+            foreach (var res in building.IncomingResources)
+            {
+                if (res.ResourceType == resType)
+                {
+                    _resourceRowsInput[i].UpdateInIncomingJobs(res.Quantity);
+                    break;
+                }
+            }
+        }
+        
         
         var jobRowsCount = _jobRows.Count;
         for (var i = 0; i < jobRowsCount; i++)
         {
             var resType = _jobRows[i].ResourceType;
             _jobRows[i].UpdateQuantity(building.ProductionJobs.Find(el => el.Output.ResourceType == resType).Quantity);
+
         }
     }
     
@@ -108,7 +154,7 @@ public class WorkshopBuildingUIView : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        _resourceRows = new List<ResourceRowOutput>();
+        _resourceRowsOutput = new List<ResourceRowOutput>();
         _jobRows = new List<ResourceRowProduction>();
 
         workshopBuildingView.gameObject.SetActive(false);

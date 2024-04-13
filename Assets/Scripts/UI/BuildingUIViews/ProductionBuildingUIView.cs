@@ -41,8 +41,8 @@ public class ProductionBuildingUIView : MonoBehaviour
         {
             var resourceRow = Instantiate(resourceRowPrefab, inputLayoutGrid.transform);
             var resourceRowInput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRowInput.ResourceType.text = inputType.ToString();
-            resourceRowInput.Quantity.text = resourceQuantities[inputType].ToString();
+            resourceRowInput.resourceTypeText.text = inputType.ToString();
+            resourceRowInput.quantity.text = resourceQuantities[inputType].ToString();
             _resourceRows.Add(resourceRowInput);
         }
         
@@ -50,8 +50,8 @@ public class ProductionBuildingUIView : MonoBehaviour
         {
             var resourceRow = Instantiate(resourceRowPrefab, outputLayoutGrid.transform);
             var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRowOutput.ResourceType.text = outputType.ToString();
-            resourceRowOutput.Quantity.text = resourceQuantities[outputType].ToString();
+            resourceRowOutput.resourceTypeText.text = outputType.ToString();
+            resourceRowOutput.quantity.text = resourceQuantities[outputType].ToString();
             _resourceRows.Add(resourceRowOutput);
         }
     }
@@ -60,7 +60,7 @@ public class ProductionBuildingUIView : MonoBehaviour
     {
         for (int i = 0; i < _resourceRows.Count; i++)
         {
-            _resourceRows[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity);
+            _resourceRows[i].UpdateQuantity(building.Inventory[i].Quantity);
         }
     }
     

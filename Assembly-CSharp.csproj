@@ -102,6 +102,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Building.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Butcher.cs" />
+    <Compile Include="Assets/Scripts/UI/Components/ResourceRowInput.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />

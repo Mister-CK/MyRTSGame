@@ -15,6 +15,7 @@ namespace MyRTSGame.Model
         public int Capacity = 999;
         public int capacityForCompletedBuilding { get; set; }
         public Resource[] Inventory { get; set; }
+        
         public IBuildingState State;
         public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
@@ -25,10 +26,15 @@ namespace MyRTSGame.Model
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
         public Resource[] ResourcesInJobForBuilding { get; set; }
+
+        public Resource[] IncomingResources { get; set; }
+        public Resource[] OutgoingResources { get; set; }
+        
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
-        public List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
-        public List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
+        private List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
+        private List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
+        
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -40,7 +46,9 @@ namespace MyRTSGame.Model
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes, resourceQuantities);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
-            
+            IncomingResources = InitInventory(resourceTypes, resourceQuantities);
+            OutgoingResources = InitInventory(resourceTypes, resourceQuantities);
+
             buildingController = BuildingController.Instance;
         }
 
@@ -149,6 +157,14 @@ namespace MyRTSGame.Model
                 resource.Quantity -= quantity;
                 break;
             }
+            
+            foreach (var resource in IncomingResources)
+            {
+                if (resource.ResourceType != resourceType) continue;
+
+                resource.Quantity -= quantity;
+                break;
+            }
 
             foreach (var resource in Inventory)
             {
@@ -166,14 +182,30 @@ namespace MyRTSGame.Model
             buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding);
             Destroy(this);
         }
-
+        
         public void AddVillagerJobToThisBuilding(VillagerJob job )
         {
+            foreach (var res in IncomingResources)
+            {
+                if (res.ResourceType == job.ResourceType)
+                {
+                    res.Quantity++;
+                    break;
+                }
+            }
             VillagerJobsToThisBuilding.Add(job);
         }
 
         public void AddVillagerJobFromThisBuilding(VillagerJob job )
         {
+            foreach (var res in OutgoingResources)
+            {
+                if (res.ResourceType == job.ResourceType)
+                {
+                    res.Quantity++;
+                    break;
+                }
+            }
             VillagerJobsFromThisBuilding.Add(job);
         }
     }

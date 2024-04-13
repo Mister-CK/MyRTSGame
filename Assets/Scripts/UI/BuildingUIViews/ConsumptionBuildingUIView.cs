@@ -27,8 +27,8 @@ public class ConsumptionBuildingUIView : MonoBehaviour
         {
             var resourceRow = Instantiate(resourceRowOutputPrefab, inputLayoutGrid.transform);
             var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRow.GetComponent<ResourceRowOutput>().ResourceType.text = res.ResourceType.ToString();
-            resourceRow.GetComponent<ResourceRowOutput>().Quantity.text = res.Quantity.ToString();
+            resourceRow.GetComponent<ResourceRowOutput>().resourceTypeText.text = res.ResourceType.ToString();
+            resourceRow.GetComponent<ResourceRowOutput>().quantity.text = res.Quantity.ToString();
             _resourceRowOutputs.Add(resourceRowOutput);
         }
     }
@@ -37,7 +37,7 @@ public class ConsumptionBuildingUIView : MonoBehaviour
     {
         for (int i = 0; i < _resourceRowOutputs.Count; i++)
         {
-            _resourceRowOutputs[i].UpdateQuantity(building.InventoryWhenCompleted[i].Quantity);
+            _resourceRowOutputs[i].UpdateQuantity(building.Inventory[i].Quantity);
         }
     }
     

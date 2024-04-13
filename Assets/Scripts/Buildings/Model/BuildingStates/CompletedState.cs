@@ -25,7 +25,17 @@ namespace MyRTSGame.Model
             building.Inventory = (Resource[])building.InventoryWhenCompleted.Clone();
             var inputQuantities = new int[building.InputTypes.Length];
             Array.Fill(inputQuantities, 0);
+            
+            var outputWhenCompletedQuantities = new int[building.OutputTypesWhenCompleted.Length];
+            Array.Fill(outputWhenCompletedQuantities, 0);
+
+            var inputTypesWhenCompletedQuantities = new int[building.InputTypesWhenCompleted.Length];
+            Array.Fill(inputTypesWhenCompletedQuantities, 0);
+            
             building.ResourcesInJobForBuilding = Building.InitInventory(building.InputTypes, inputQuantities);
+            building.IncomingResources = Building.InitInventory(building.InputTypesWhenCompleted, inputTypesWhenCompletedQuantities);
+            building.OutgoingResources = Building.InitInventory(building.OutputTypesWhenCompleted, outputWhenCompletedQuantities);
+
         }
     }
 }

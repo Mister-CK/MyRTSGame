@@ -442,6 +442,7 @@
 "Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/WorkshopBuildingUIView.cs"
+"Assets/Scripts/UI/Components/ResourceRowInput.cs"
 "Assets/Scripts/UI/Components/ResourceRowOutput.cs"
 "Assets/Scripts/UI/Components/ResourceRowProduction.cs"
 "Assets/Scripts/UI/Components/ResourceRowTraining.cs"
