@@ -107,7 +107,7 @@ public class SelectionView : MonoBehaviour
                 resourceBuildingUIView.ActivateBuildingView(resourceBuilding);
                 break;
             case ProductionBuilding productionBuilding:
-                productionBuildingUIView.ActivateProductionBuildingView(productionBuilding);
+                productionBuildingUIView.ActivateBuildingView(productionBuilding);
                 break;
             case WorkshopBuilding workshopBuilding:
                 workshopBuildingUIView.ActivateBuildingView(workshopBuilding);
@@ -136,7 +136,7 @@ public class SelectionView : MonoBehaviour
         }
         
         resourceBuildingUIView.DeactivateBuildingView();
-        productionBuildingUIView.DeactivateProductionBuildingView();
+        productionBuildingUIView.DeactivateBuildingView();
         trainingBuildingUIView.DeactivateBuildingView();
         workshopBuildingUIView.DeactivateBuildingView();
         consumptionBuildingUIView.DeactivateConsumptionBuildingView();
