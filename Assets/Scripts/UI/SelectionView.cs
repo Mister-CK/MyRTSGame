@@ -113,7 +113,7 @@ public class SelectionView : MonoBehaviour
                 workshopBuildingUIView.ActivateBuildingView(workshopBuilding);
                 break;
             case ConsumptionBuilding consumptionBuilding:
-                consumptionBuildingUIView.ActivateConsumptionBuildingView(consumptionBuilding);
+                consumptionBuildingUIView.ActivateBuildingView(consumptionBuilding);
                 break;
             case TrainingBuilding trainingBuilding:
                 trainingBuildingUIView.ActivateBuildingView(trainingBuilding);
@@ -139,7 +139,7 @@ public class SelectionView : MonoBehaviour
         productionBuildingUIView.DeactivateBuildingView();
         trainingBuildingUIView.DeactivateBuildingView();
         workshopBuildingUIView.DeactivateBuildingView();
-        consumptionBuildingUIView.DeactivateConsumptionBuildingView();
+        consumptionBuildingUIView.DeactivateBuildingView();
         foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
         constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
     }
