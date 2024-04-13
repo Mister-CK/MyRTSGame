@@ -435,6 +435,7 @@
 "Assets/Scripts/JobSystem/Model/VillagerJobQueue.cs"
 "Assets/Scripts/JobSystem/View/JobListToDisplay.cs"
 "Assets/Scripts/Resource.cs"
+"Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/ConstructionStateBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/ConsumptionBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs"

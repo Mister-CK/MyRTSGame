@@ -110,13 +110,13 @@ public class SelectionView : MonoBehaviour
                 productionBuildingUIView.ActivateProductionBuildingView(productionBuilding);
                 break;
             case WorkshopBuilding workshopBuilding:
-                workshopBuildingUIView.ActivateWorkshopBuildingView(workshopBuilding);
+                workshopBuildingUIView.ActivateBuildingView(workshopBuilding);
                 break;
             case ConsumptionBuilding consumptionBuilding:
                 consumptionBuildingUIView.ActivateConsumptionBuildingView(consumptionBuilding);
                 break;
             case TrainingBuilding trainingBuilding:
-                trainingBuildingUIView.ActivateTrainingBuildingView(trainingBuilding);
+                trainingBuildingUIView.ActivateBuildingView(trainingBuilding);
                 break;
             case Warehouse warehouse:
                 CreateResourceGridForBuilding(warehouse);
@@ -137,8 +137,8 @@ public class SelectionView : MonoBehaviour
         
         resourceBuildingUIView.DeactivateResourceBuildingView();
         productionBuildingUIView.DeactivateProductionBuildingView();
-        trainingBuildingUIView.DeactivateTrainingBuildingView();
-        workshopBuildingUIView.DeactivateWorkshopBuildingView();
+        trainingBuildingUIView.DeactivateBuildingView();
+        workshopBuildingUIView.DeactivateBuildingView();
         consumptionBuildingUIView.DeactivateConsumptionBuildingView();
         foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
         constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
