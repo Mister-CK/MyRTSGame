@@ -104,7 +104,7 @@ public class SelectionView : MonoBehaviour
         switch (building)
         {
             case ResourceBuilding resourceBuilding:
-                resourceBuildingUIView.ActivateResourceBuildingView(resourceBuilding);
+                resourceBuildingUIView.ActivateBuildingView(resourceBuilding);
                 break;
             case ProductionBuilding productionBuilding:
                 productionBuildingUIView.ActivateProductionBuildingView(productionBuilding);
@@ -135,7 +135,7 @@ public class SelectionView : MonoBehaviour
             _resourceTexts.Clear();
         }
         
-        resourceBuildingUIView.DeactivateResourceBuildingView();
+        resourceBuildingUIView.DeactivateBuildingView();
         productionBuildingUIView.DeactivateProductionBuildingView();
         trainingBuildingUIView.DeactivateBuildingView();
         workshopBuildingUIView.DeactivateBuildingView();
