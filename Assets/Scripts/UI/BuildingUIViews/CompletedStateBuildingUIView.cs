@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class CompletedStateBuildingUIView : MonoBehaviour
+public class CompletedStateBuildingUIView : MonoBehaviour
 {
     [SerializeField] protected Image buildingView;
     [SerializeField] protected TextMeshProUGUI buildingName;
@@ -20,12 +20,17 @@ public abstract class CompletedStateBuildingUIView : MonoBehaviour
     [SerializeField] protected GameObject outputTitlePrefab;
     [SerializeField] protected GameObject resourceRowOutputPrefab;
     
+    [SerializeField] private GameObject TrainingJobLayoutGrid;
+    [SerializeField] private GameObject TrainingJobTitlePrefab;
+    [SerializeField] private GameObject resourceRowTrainingPrefab;
+    
     protected Dictionary<ResourceType, int> ResourceQuantities = new Dictionary<ResourceType, int>();
     
-    protected List<ResourceRowInput> ResourceRowsInput = new List<ResourceRowInput>();
-    protected List<ResourceRowOutput> ResourceRowsOutput = new List<ResourceRowOutput>();
+    private List<ResourceRowInput> ResourceRowsInput = new List<ResourceRowInput>();
+    private List<ResourceRowOutput> ResourceRowsOutput = new List<ResourceRowOutput>();
     protected List<ResourceRowProduction> ResourceRowProduction = new List<ResourceRowProduction>();
-    
+    private List<ResourceRowTraining> ResourceRowsTraining = new List<ResourceRowTraining>();
+
     public virtual void ActivateBuildingView(Building building)
     {
         buildingView.gameObject.SetActive(true);
@@ -65,6 +70,22 @@ public abstract class CompletedStateBuildingUIView : MonoBehaviour
                 ResourceRowsOutput.Add(resourceRowOutput);
             }
         }
+        
+        if (building is TrainingBuilding trainingBuilding)
+        {
+            Instantiate(TrainingJobTitlePrefab, TrainingJobLayoutGrid.transform);
+            Instantiate(columnsPrefab, TrainingJobLayoutGrid.transform);
+            foreach (var trainingJob in trainingBuilding.TrainingJobs)
+            {
+                var resourceRow = Instantiate(resourceRowTrainingPrefab, TrainingJobLayoutGrid.transform);
+                var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowTraining>();
+                resourceRowJobQueue.UnitType = trainingJob.UnitType;
+                resourceRowJobQueue.TrainingBuilding = trainingBuilding;
+                resourceRowJobQueue.unitTypeText.text = trainingJob.UnitType.ToString();
+                resourceRowJobQueue.quantity.text = trainingJob.Quantity.ToString();
+                ResourceRowsTraining.Add(resourceRowJobQueue);
+            }
+        }
     }
 
 
@@ -88,8 +109,17 @@ public abstract class CompletedStateBuildingUIView : MonoBehaviour
             }
         }
         
+        if (TrainingJobLayoutGrid)
+        {
+            foreach (Transform child in TrainingJobLayoutGrid.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        
         ResourceRowsInput = new List<ResourceRowInput>();
         ResourceRowsOutput = new List<ResourceRowOutput>();
+        ResourceRowsTraining = new List<ResourceRowTraining>();
     }
 
     public virtual void UpdateResourceQuantities(Building building)
@@ -123,6 +153,14 @@ public abstract class CompletedStateBuildingUIView : MonoBehaviour
                     inputRow.UpdateInIncomingJobs(res.Quantity);
                     break;
                 }
+            }
+        }
+        
+        if (building is TrainingBuilding trainingBuilding)
+        {
+            foreach (var jobRow in ResourceRowsTraining)
+            {
+                jobRow.UpdateQuantity(trainingBuilding.TrainingJobs.Find(el => el.UnitType == jobRow.UnitType).Quantity);
             }
         }
     }
