@@ -29,7 +29,7 @@ namespace MyRTSGame.Model
                 ResourceType.IronShield
             };
             var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
+            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[]
             {
                 ResourceType.Sword,

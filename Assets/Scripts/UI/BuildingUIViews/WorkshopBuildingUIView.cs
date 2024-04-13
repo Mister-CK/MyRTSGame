@@ -46,7 +46,7 @@ public class WorkshopBuildingUIView : MonoBehaviour
         
         foreach (var res in building.InventoryWhenCompleted)
         {
-            resourceQuantities[res.ResourceType] = res.Quantity;
+            resourceQuantities[res.Key] = res.Value;
         }
         
         foreach (var inputType in building.InputTypesWhenCompleted)
@@ -89,14 +89,14 @@ public class WorkshopBuildingUIView : MonoBehaviour
             var resType = _resourceRowsOutput[i].ResourceType;
             foreach (var res in building.Inventory)
             {
-                if (res.ResourceType == resType)
+                if (res.Key == resType)
                 {
-                    _resourceRowsOutput[i].UpdateQuantity(res.Quantity);
+                    _resourceRowsOutput[i].UpdateQuantity(res.Value);
                     break;
                 }
             }
             
-            foreach (var res in building.OutgoingResources)
+            foreach (var res in building.GetOutgoingResources())
             {
                 if (res.ResourceType == resType)
                 {
@@ -106,20 +106,19 @@ public class WorkshopBuildingUIView : MonoBehaviour
             }
         }
         
-        var resourceRowsInputCount = _resourceRowsInput.Count;
-        for (var i = 0; i < resourceRowsInputCount; i++)
+        for (var i = 0; i < _resourceRowsInput.Count; i++)
         {
             var resType = _resourceRowsInput[i].ResourceType;
             foreach (var res in building.Inventory)
             {
-                if (res.ResourceType == resType)
+                if (res.Key == resType)
                 {
-                    _resourceRowsInput[i].UpdateQuantity(res.Quantity);
+                    _resourceRowsInput[i].UpdateQuantity(res.Value);
                     break;
                 }
             }
             
-            foreach (var res in building.IncomingResources)
+            foreach (var res in building.GetIncomingResources())
             {
                 if (res.ResourceType == resType)
                 {
@@ -128,7 +127,6 @@ public class WorkshopBuildingUIView : MonoBehaviour
                 }
             }
         }
-        
         
         var jobRowsCount = _jobRows.Count;
         for (var i = 0; i < jobRowsCount; i++)

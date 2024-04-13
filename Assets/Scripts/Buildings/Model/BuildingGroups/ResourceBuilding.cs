@@ -11,8 +11,7 @@ namespace MyRTSGame.Model
             while (true)
             {
                 yield return new WaitForSeconds(timeInSeconds);
-                var resToCreate = Array.Find(Inventory, resource => resource.ResourceType == resourceType);
-                if (resToCreate != null && resToCreate.Quantity < Capacity)
+                if (Inventory[resourceType] < Capacity)
                 {
                     AddResource(resourceType, 1);
                     buildingController.CreateVillagerJobNeededEvent(this, resourceType);

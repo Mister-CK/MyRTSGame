@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using MyRTSGame.Model;
 using MyRTSGame.Model.Components;
 using TMPro;
@@ -12,7 +13,7 @@ public class TrainingBuildingUIView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI trainingBuildingName;
     
     [SerializeField] private GameObject columnsPrefab;
-    [SerializeField] private GameObject resourceRowPrefab;
+    [SerializeField] private GameObject resourceRowInputPrefab;
     [SerializeField] private GameObject resourceRowTrainingPrefab;
 
     [SerializeField] private GameObject inputTitlePrefab;
@@ -23,7 +24,7 @@ public class TrainingBuildingUIView : MonoBehaviour
     
     private TrainingBuilding _currentTrainingBuilding;
     
-    private List<ResourceRowOutput> _resourceRows = new List<ResourceRowOutput>();
+    private List<ResourceRowInput> _resourceRowsInput = new List<ResourceRowInput>();
     private List<ResourceRowTraining> _jobRows = new List<ResourceRowTraining>();
     
     Dictionary<ResourceType, int> resourceQuantities = new Dictionary<ResourceType, int>();
@@ -42,16 +43,17 @@ public class TrainingBuildingUIView : MonoBehaviour
         
         foreach (var res in trainingBuilding.InventoryWhenCompleted)
         {
-            resourceQuantities[res.ResourceType] = res.Quantity;
+            resourceQuantities[res.Key] = res.Value;
         }
         
         foreach (var inputType in trainingBuilding.InputTypesWhenCompleted)
         {
-            var resourceRow = Instantiate(resourceRowPrefab, inputLayoutGrid.transform);
-            var resourceRowInput = resourceRow.GetComponent<ResourceRowOutput>();
+            var resourceRow = Instantiate(resourceRowInputPrefab, inputLayoutGrid.transform);
+            var resourceRowInput = resourceRow.GetComponent<ResourceRowInput>();
+            resourceRowInput.ResourceType = inputType;
             resourceRowInput.resourceTypeText.text = inputType.ToString();
             resourceRowInput.quantity.text = resourceQuantities[inputType].ToString();
-            _resourceRows.Add(resourceRowInput);
+            _resourceRowsInput.Add(resourceRowInput);
         }
 
         foreach (var trainingJob in trainingBuilding.TrainingJobs)
@@ -68,10 +70,28 @@ public class TrainingBuildingUIView : MonoBehaviour
     
     public void UpdateResourceQuantities(TrainingBuilding trainingBuilding)
     {
-        for (var i = 0; i < _resourceRows.Count; i++)
+        for (var i = 0; i < _resourceRowsInput.Count; i++)
         {
-            _resourceRows[i].UpdateQuantity(trainingBuilding.Inventory[i].Quantity);
+            var resType = _resourceRowsInput[i].ResourceType;
+            foreach (var res in trainingBuilding.Inventory)
+            {
+                if (res.Key == resType)
+                {
+                    _resourceRowsInput[i].UpdateQuantity(res.Value);
+                    break;
+                }
+            }
+            
+            foreach (var res in trainingBuilding.GetIncomingResources())
+            {
+                if (res.ResourceType == resType)
+                {
+                    _resourceRowsInput[i].UpdateInIncomingJobs(res.Quantity);
+                    break;
+                }
+            }
         }
+        
         
         var jobRowsCount = _jobRows.Count;
         for (var i = 0; i < jobRowsCount; i++)
@@ -92,7 +112,7 @@ public class TrainingBuildingUIView : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        _resourceRows = new List<ResourceRowOutput>();
+        _resourceRowsInput = new List<ResourceRowInput>();
         _jobRows = new List<ResourceRowTraining>();
         trainingBuildingView.gameObject.SetActive(false);
     }

@@ -14,7 +14,7 @@ namespace MyRTSGame.Model
             
             ResourceType[] resourceTypes = { ResourceType.IronOre, ResourceType.Coal, ResourceType.Iron };
             var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes, resourceQuantities);
+            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[] { ResourceType.IronOre, ResourceType.Coal};
             OutputTypesWhenCompleted = new[] { ResourceType.Iron};
             HasInput = true;

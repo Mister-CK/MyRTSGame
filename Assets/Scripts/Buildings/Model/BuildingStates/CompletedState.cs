@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MyRTSGame.Model
 {
@@ -22,19 +23,25 @@ namespace MyRTSGame.Model
             building.BCollider.center = completedObject.transform.localScale / 2;
 
             building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
-            building.Inventory = (Resource[])building.InventoryWhenCompleted.Clone();
+            building.Inventory = building.InventoryWhenCompleted;
             var inputQuantities = new int[building.InputTypes.Length];
             Array.Fill(inputQuantities, 0);
-            
-            var outputWhenCompletedQuantities = new int[building.OutputTypesWhenCompleted.Length];
-            Array.Fill(outputWhenCompletedQuantities, 0);
 
-            var inputTypesWhenCompletedQuantities = new int[building.InputTypesWhenCompleted.Length];
+
+            var outputWhenCompletedQuantities = building.OutputTypesWhenCompleted != null
+                ? new int[building.OutputTypesWhenCompleted.Length]
+                : new int[0]; 
+            Array.Fill(outputWhenCompletedQuantities, 0);
+            
+            var inputTypesWhenCompletedQuantities = building.InputTypesWhenCompleted != null
+                ? new int[building.InputTypesWhenCompleted.Length]
+                : new int[0]; 
             Array.Fill(inputTypesWhenCompletedQuantities, 0);
             
             building.ResourcesInJobForBuilding = Building.InitInventory(building.InputTypes, inputQuantities);
-            building.IncomingResources = Building.InitInventory(building.InputTypesWhenCompleted, inputTypesWhenCompletedQuantities);
-            building.OutgoingResources = Building.InitInventory(building.OutputTypesWhenCompleted, outputWhenCompletedQuantities);
+            building.SetIncomingResources(Building.InitInventory(building.InputTypes, inputTypesWhenCompletedQuantities));
+            building.SetOutgoingResources(Building.InitInventory(building.OutputTypesWhenCompleted,
+                outputWhenCompletedQuantities));
 
         }
     }

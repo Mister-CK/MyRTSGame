@@ -3515,7 +3515,8 @@ MonoBehaviour:
   workshopBuildingView: {fileID: 261581220}
   workshopBuildingName: {fileID: 1816519025}
   columnsPrefab: {fileID: 2819131119705230285, guid: 98c639de350cb403faf14b42d4b2d07e, type: 3}
-  resourceRowPrefab: {fileID: 6483289830034000424, guid: cdece34f4e52d4446a96bd22e91cd8ab, type: 3}
+  resourceRowInputPrefab: {fileID: 6483289830034000424, guid: ee71917aea10b4dc5ba749a5256e3a03, type: 3}
+  resourceRowOutputPrefab: {fileID: 6483289830034000424, guid: cdece34f4e52d4446a96bd22e91cd8ab, type: 3}
   resourceRowProductionPrefab: {fileID: 6483289830034000424, guid: a5ab49cf350924b38b90c625536b3095, type: 3}
   outputLayoutGrid: {fileID: 117746256}
   outputTitlePrefab: {fileID: 8863278155091339003, guid: 0ad6cb3e9a9f840ddb41a8ce0dc000ae, type: 3}
@@ -6762,7 +6763,7 @@ MonoBehaviour:
   consumptionBuildingName: {fileID: 9599497}
   inputTitlePrefab: {fileID: 7088837718260890455, guid: 91dea68316a00465cbfda5f37864365d, type: 3}
   columnsPrefab: {fileID: 2819131119705230285, guid: 98c639de350cb403faf14b42d4b2d07e, type: 3}
-  resourceRowOutputPrefab: {fileID: 6483289830034000424, guid: cdece34f4e52d4446a96bd22e91cd8ab, type: 3}
+  resourceRowInputPrefab: {fileID: 6483289830034000424, guid: ee71917aea10b4dc5ba749a5256e3a03, type: 3}
   inputLayoutGrid: {fileID: 1735010800}
 --- !u!1 &542722393
 GameObject:
@@ -7975,7 +7976,7 @@ MonoBehaviour:
   foundationStateBuildingName: {fileID: 272337012}
   inputTitlePrefab: {fileID: 7088837718260890455, guid: 91dea68316a00465cbfda5f37864365d, type: 3}
   columnsPrefab: {fileID: 2819131119705230285, guid: 98c639de350cb403faf14b42d4b2d07e, type: 3}
-  resourceRowOutputPrefab: {fileID: 6483289830034000424, guid: cdece34f4e52d4446a96bd22e91cd8ab, type: 3}
+  resourceRowInputPrefab: {fileID: 6483289830034000424, guid: ee71917aea10b4dc5ba749a5256e3a03, type: 3}
   inputLayoutGrid: {fileID: 575104576}
 --- !u!1 &705507993
 GameObject:
@@ -13484,6 +13485,34 @@ PrefabInstance:
       propertyPath: onCreateJobsForWarehouse
       value: 
       objectReference: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceKeys.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceValues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceKeys.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceKeys.Array.data[2]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceValues.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceValues.Array.data[1]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceValues.Array.data[2]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceQuantities.Array.size
       value: 28

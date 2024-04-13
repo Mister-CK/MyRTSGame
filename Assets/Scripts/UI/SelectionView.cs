@@ -79,9 +79,9 @@ public class SelectionView : MonoBehaviour
             case Warehouse warehouse:
                 foreach (var resource in warehouse.GetInventory())
                 {
-                    if (_resourceTexts.TryGetValue(resource.ResourceType, out var newTextComponent))
+                    if (_resourceTexts.TryGetValue(resource.Key, out var newTextComponent))
                     {
-                        newTextComponent.text = $"{resource.ResourceType}: {resource.Quantity}";
+                        newTextComponent.text = $"{resource.Key}: {resource.Value}";
                     }
                 }
 
@@ -202,7 +202,7 @@ public class SelectionView : MonoBehaviour
             // Create a new TextMeshProUGUI object to display the resource type and quantity
             GameObject textObject = new GameObject("ResourceText");
             TextMeshProUGUI textComponentCell = textObject.AddComponent<TextMeshProUGUI>();
-            textComponentCell.text = $"{resource.ResourceType}: {resource.Quantity}";
+            textComponentCell.text = $"{resource.Key}: {resource.Value}";
             textComponentCell.color = Color.black; // Set the color of the text
             textComponentCell.fontSize = 10; // Set the font size to make the text smaller
             textComponentCell.alignment = TextAlignmentOptions.Center; // Center the text
@@ -217,7 +217,7 @@ public class SelectionView : MonoBehaviour
             textRectTransform.sizeDelta = Vector2.zero; // Let the text fill the cell
             
             // Add the TextMeshProUGUI object to the resourceTexts dictionary
-            _resourceTexts[resource.ResourceType] = textComponentCell;
+            _resourceTexts[resource.Key] = textComponentCell;
         }
         
     }

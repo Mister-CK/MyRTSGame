@@ -23,9 +23,9 @@ namespace MyRTSGame.Model
             building.BCollider.center = foundation.transform.localScale / 2;
             building.InputTypes = new[] { ResourceType.Wood, ResourceType.Stone };
             int[] inputQuantities = { 0, 0 };
-            building.Inventory = Building.InitInventory(building.InputTypes, inputQuantities);
+            building.Inventory = Building.InitInventory(building.InputTypes);
             building.ResourcesInJobForBuilding = Building.InitInventory(building.InputTypes, inputQuantities);
-            building.IncomingResources = Building.InitInventory(building.InputTypes, inputQuantities);
+            building.SetIncomingResources(Building.InitInventory(building.InputTypes, inputQuantities));
 
             _buildingList.AddBuilding(building);
         }
@@ -37,9 +37,8 @@ namespace MyRTSGame.Model
             
             foreach (var requiredResource in requiredResources)
             {
-                var inventoryResource = Array.Find(inventory,
-                    resource => resource.ResourceType == requiredResource);
-                if (inventoryResource == null || inventoryResource.Quantity < building.resourceCountNeededForConstruction) return;
+                var inventoryResource = inventory[requiredResource];
+                if (inventoryResource < building.resourceCountNeededForConstruction) return;
             }
 
             // If we reach this point, all required resources are present in the required quantities.

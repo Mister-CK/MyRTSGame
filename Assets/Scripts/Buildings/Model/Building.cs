@@ -14,21 +14,21 @@ namespace MyRTSGame.Model
         private GameObject _buildingObject;
         public int Capacity = 999;
         public int capacityForCompletedBuilding { get; set; }
-        public Resource[] Inventory { get; set; }
-        
+        public Dictionary<ResourceType, int> Inventory { get; set; }        
+        public Dictionary<ResourceType, int> InventoryWhenCompleted { get; set; }        
+
         public IBuildingState State;
         public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
         public ResourceType[] InputTypes { get; set; }
-        public Resource[] InventoryWhenCompleted { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public ResourceType[] OutputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
         public Resource[] ResourcesInJobForBuilding { get; set; }
 
-        public Resource[] IncomingResources { get; set; }
-        public Resource[] OutgoingResources { get; set; }
+        private Resource[] IncomingResources { get; set; }
+        private Resource[] OutgoingResources { get; set; }
         
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
@@ -44,7 +44,7 @@ namespace MyRTSGame.Model
             var resourceTypes = new ResourceType[0];
             var resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];
-            Inventory = InitInventory(resourceTypes, resourceQuantities);
+            Inventory = InitInventory(resourceTypes);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
             IncomingResources = InitInventory(resourceTypes, resourceQuantities);
             OutgoingResources = InitInventory(resourceTypes, resourceQuantities);
@@ -106,6 +106,11 @@ namespace MyRTSGame.Model
 
         public static Resource[] InitInventory(ResourceType[] types, int[] quantities)
         {
+            if (types == null || quantities == null)
+            {
+                return new Resource[0];
+            }
+                
             if (types.Length != quantities.Length)
                 throw new ArgumentException("Types and quantities arrays must have the same length.");
 
@@ -120,15 +125,22 @@ namespace MyRTSGame.Model
 
             return resources;
         }
+        
+        public static Dictionary<ResourceType, int> InitInventory(ResourceType[] resTypes)
+        {
+            var inventory = new Dictionary<ResourceType, int>();
 
-        public Resource[] GetInventory()
+            foreach (var resType in resTypes)
+            {
+                inventory[resType] = 0;
+            }
+
+            return inventory;
+        }
+
+        public Dictionary<ResourceType, int> GetInventory()
         {
             return Inventory;
-        }
-        
-        public Resource[] GetResourcesInJobForBuilding()
-        {
-            return ResourcesInJobForBuilding;
         }
 
         public int GetCapacity()
@@ -138,14 +150,7 @@ namespace MyRTSGame.Model
         
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
-            foreach (var resource in Inventory)
-                if (resource.ResourceType == resourceType)
-                {
-                    resource.Quantity -= quantity;
-                    return;
-                }
-
-            throw new Exception("trying to remove resource, but no resource in output has quantity > 0");
+            Inventory[resourceType] -= quantity;
         }
         
         public void AddResource(ResourceType resourceType, int quantity)
@@ -166,14 +171,9 @@ namespace MyRTSGame.Model
                 break;
             }
 
-            foreach (var resource in Inventory)
-            {
-                if (resource.ResourceType != resourceType) continue;
+            Inventory[resourceType] += quantity;
+            if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
 
-                resource.Quantity += quantity;
-                if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
-                break;
-            }
         }
 
         public void DeleteBuilding()
@@ -208,5 +208,26 @@ namespace MyRTSGame.Model
             }
             VillagerJobsFromThisBuilding.Add(job);
         }
+        
+        public Resource[] GetOutgoingResources()
+        {
+            return OutgoingResources;
+        }
+        
+        public Resource[] GetIncomingResources()
+        {
+            return IncomingResources;
+        }
+        
+        public void SetOutgoingResources(Resource[] outgoingResources)
+        {
+            OutgoingResources = outgoingResources;
+        }
+        
+        public void SetIncomingResources(Resource[] incomingResources)
+        {
+            IncomingResources = incomingResources;
+        }
+
     }
 }

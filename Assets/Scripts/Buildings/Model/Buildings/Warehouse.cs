@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -8,8 +9,11 @@ namespace MyRTSGame.Model
     {
         public GameEvent onCreateJobsForWarehouse;
         private readonly ResourceType[] _resourceTypes = (ResourceType[]) Enum.GetValues(typeof(ResourceType));
-        [SerializeField] private int[] startingResourceQuantities;        
-        
+        [SerializeField] private List<ResourceType> startingResourceKeys;
+        [SerializeField] private List<int> startingResourceValues;
+        private Dictionary<ResourceType, int> startingResources;
+        [SerializeField] private int[] startingResourceQuantities;
+
         //Constructor
         public Warehouse()
         {
@@ -18,13 +22,23 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
+            Dictionary<ResourceType, int> startingResources = new Dictionary<ResourceType, int>();
 
+            for (int i = 0; i < startingResourceKeys.Count; i++)
+            {
+                startingResources.Add(startingResourceKeys[i], startingResourceValues[i]);
+            }
+            
             base.Start();
             capacityForCompletedBuilding = 999;
             if (BuildingList.GetFirstWareHouse())
             {
                 BuildingList.SetFirstWareHouse(false);
-                Inventory = InitInventory(_resourceTypes, startingResourceQuantities);
+                Inventory = InitInventory(_resourceTypes);
+                foreach (var keyValuePair in startingResources)
+                {
+                    Inventory[keyValuePair.Key] = keyValuePair.Value;
+                }
                 State = new CompletedState(BuildingType);
                 StartResourceCreationCoroutine();
                 BCollider.size = new Vector3(3, 3, 3);
@@ -34,7 +48,7 @@ namespace MyRTSGame.Model
             else
             {
                 var resourceQuantities = new int[_resourceTypes.Length];
-                InventoryWhenCompleted = InitInventory(_resourceTypes, resourceQuantities);
+                InventoryWhenCompleted = InitInventory(_resourceTypes);
             }
 
             InputTypesWhenCompleted = _resourceTypes;

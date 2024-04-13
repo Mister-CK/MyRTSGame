@@ -37,7 +37,7 @@ namespace MyRTSGame.Model
         private bool CheckIfRequiredResourceAreAvailable(IEnumerable<Resource> inputTypes)
         {
             return inputTypes.All(resource => 
-                Inventory.FirstOrDefault(res => res.ResourceType == resource.ResourceType)?.Quantity > resource.Quantity);
+                Inventory.FirstOrDefault(res => res.Key == resource.ResourceType).Value > resource.Quantity);
         }
         
         protected IEnumerator CreateResourceFromQueue(int timeInSeconds)
