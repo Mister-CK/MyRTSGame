@@ -77,7 +77,6 @@
     <Compile Include="Assets/Scripts/JobSystem/Model/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingList.cs" />
-    <Compile Include="Assets/Scripts/UI/BuildingUIViews/ResourceBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerEventArgs.cs" />
@@ -104,7 +103,6 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Butcher.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowInput.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
-    <Compile Include="Assets/Scripts/UI/BuildingUIViews/TrainingBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Controller/JobController.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs" />
@@ -126,7 +124,6 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Vinyard.cs" />
     <Compile Include="Assets/Scripts/Buildings/Contoller/BuildingController.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingUnitTypeEventArgs.cs" />
-    <Compile Include="Assets/Scripts/UI/BuildingUIViews/ProductionBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/StoneQuarry.cs" />
@@ -137,12 +134,10 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/SpecialBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ConsumptionBuilding.cs" />
-    <Compile Include="Assets/Scripts/UI/BuildingUIViews/WorkshopBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Mill.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorWorkshop.cs" />
     <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
-    <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConsumptionBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Bakery.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs" />

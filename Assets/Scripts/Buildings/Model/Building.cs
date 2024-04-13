@@ -17,6 +17,11 @@ namespace MyRTSGame.Model
         public Dictionary<ResourceType, int> Inventory { get; set; }        
         public Dictionary<ResourceType, int> InventoryWhenCompleted { get; set; }        
 
+        public Resource[] ResourcesInJobForBuilding { get; set; }
+
+        private Resource[] IncomingResources { get; set; }
+        private Resource[] OutgoingResources { get; set; }
+
         public IBuildingState State;
         public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
@@ -25,10 +30,6 @@ namespace MyRTSGame.Model
         public ResourceType[] OutputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
-        public Resource[] ResourcesInJobForBuilding { get; set; }
-
-        private Resource[] IncomingResources { get; set; }
-        private Resource[] OutgoingResources { get; set; }
         
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;

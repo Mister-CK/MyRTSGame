@@ -7,14 +7,10 @@ using UnityEngine.UI;
 
 public class SelectionView : MonoBehaviour
 {
-    [SerializeField] private ResourceBuildingUIView resourceBuildingUIView;
-    [SerializeField] private ProductionBuildingUIView productionBuildingUIView;
-    [SerializeField] private TrainingBuildingUIView trainingBuildingUIView;
-    [SerializeField] private WorkshopBuildingUIView workshopBuildingUIView;
-    [SerializeField] private ConsumptionBuildingUIView consumptionBuildingUIView;
     [SerializeField] private FoundationStateBuildingUIView foundationStateBuildingUIView;
     [SerializeField] private ConstructionStateBuildingUIView constructionStateBuildingUIView;
-    
+    [SerializeField] private CompletedStateBuildingUIView completedStateBuildingUIView;
+
     [SerializeField] public SelectionController selectionController;
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
@@ -58,34 +54,23 @@ public class SelectionView : MonoBehaviour
             // Nothing to update for construction state
             return;
         }
-
-        switch (building)
+        
+        if (building is Warehouse warehouse)
         {
-            case ResourceBuilding resourceBuilding:
-                resourceBuildingUIView.UpdateResourceQuantities(resourceBuilding);
-                break;
-            case ProductionBuilding productionBuilding:
-                productionBuildingUIView.UpdateResourceQuantities(productionBuilding);
-                break;
-            case WorkshopBuilding workshopBuilding:
-                workshopBuildingUIView.UpdateResourceQuantities(workshopBuilding);
-                break;
-            case ConsumptionBuilding consumptionBuilding:
-                consumptionBuildingUIView.UpdateResourceQuantities(consumptionBuilding);
-                break;
-            case TrainingBuilding trainingBuilding:
-                trainingBuildingUIView.UpdateResourceQuantities(trainingBuilding);
-                break;
-            case Warehouse warehouse:
-                foreach (var resource in warehouse.GetInventory())
+            foreach (var resource in warehouse.GetInventory())
+            {
+                if (_resourceTexts.TryGetValue(resource.Key, out var newTextComponent))
                 {
-                    if (_resourceTexts.TryGetValue(resource.Key, out var newTextComponent))
-                    {
-                        newTextComponent.text = $"{resource.Key}: {resource.Value}";
-                    }
+                    newTextComponent.text = $"{resource.Key}: {resource.Value}";
                 }
-
-                break;
+            }
+            return;
+        }
+        
+        if (building.State is CompletedState)
+        {
+            completedStateBuildingUIView.UpdateResourceQuantities(building);
+            return;
         }
     }
     
@@ -101,28 +86,18 @@ public class SelectionView : MonoBehaviour
             constructionStateBuildingUIView.ActivateConstructionStateBuildingView(building);
             return;
         }
-        switch (building)
+        
+        if (building is Warehouse warehouse)
         {
-            case ResourceBuilding resourceBuilding:
-                resourceBuildingUIView.ActivateBuildingView(resourceBuilding);
-                break;
-            case ProductionBuilding productionBuilding:
-                productionBuildingUIView.ActivateBuildingView(productionBuilding);
-                break;
-            case WorkshopBuilding workshopBuilding:
-                workshopBuildingUIView.ActivateBuildingView(workshopBuilding);
-                break;
-            case ConsumptionBuilding consumptionBuilding:
-                consumptionBuildingUIView.ActivateBuildingView(consumptionBuilding);
-                break;
-            case TrainingBuilding trainingBuilding:
-                trainingBuildingUIView.ActivateBuildingView(trainingBuilding);
-                break;
-            case Warehouse warehouse:
-                CreateResourceGridForBuilding(warehouse);
-                break;
+            CreateResourceGridForBuilding(warehouse);
+            return;
         }
-
+        
+        if (building.State is CompletedState)
+        {
+            completedStateBuildingUIView.ActivateBuildingView(building);
+            return;
+        }
     }
     
     public void ClearView()
@@ -134,12 +109,8 @@ public class SelectionView : MonoBehaviour
             Destroy(_currentGrid);
             _resourceTexts.Clear();
         }
-        
-        resourceBuildingUIView.DeactivateBuildingView();
-        productionBuildingUIView.DeactivateBuildingView();
-        trainingBuildingUIView.DeactivateBuildingView();
-        workshopBuildingUIView.DeactivateBuildingView();
-        consumptionBuildingUIView.DeactivateBuildingView();
+
+        completedStateBuildingUIView.DeactivateBuildingView();
         foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
         constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
     }
