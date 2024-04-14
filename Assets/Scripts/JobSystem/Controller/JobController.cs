@@ -54,17 +54,11 @@ namespace MyRTSGame.Model
 
                 var inputTypes = building.InputTypes;
                 var inventory = building.GetInventory();
-                var resourcesInJobForBuilding = building.ResourcesInJobForBuilding;
 
                 if (Array.IndexOf(inputTypes, resourceType) == -1) continue;
-                var resourceInJobForBuilding = Array.Find(resourcesInJobForBuilding, res => res.ResourceType == resourceType);
-                if (inventory[resourceType].Current + resourceInJobForBuilding.Quantity >= building.GetCapacity()) continue;
+                if (inventory[resourceType].Current + inventory[resourceType].Incoming >= building.GetCapacity()) continue;
                 destination = building;
                 
-                foreach(var res in destination.ResourcesInJobForBuilding)
-                {
-                    if (res.ResourceType == resourceType) res.Quantity++;
-                }
                 break;
             }
 

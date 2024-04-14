@@ -33,7 +33,6 @@ namespace MyRTSGame.Model
                 : new int[0]; 
             Array.Fill(outputWhenCompletedQuantities, 0);
             
-            building.ResourcesInJobForBuilding = Building.InitInventory(building.InputTypes, inputQuantities);
             building.SetOutgoingResources(Building.InitInventory(building.OutputTypesWhenCompleted,
                 outputWhenCompletedQuantities));
 

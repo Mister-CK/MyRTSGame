@@ -16,9 +16,7 @@ namespace MyRTSGame.Model
         public int capacityForCompletedBuilding { get; set; }
         public Dictionary<ResourceType, InventoryData> Inventory { get; set; }        
         public Dictionary<ResourceType, InventoryData> InventoryWhenCompleted { get; set; }        
-
-        public Resource[] ResourcesInJobForBuilding { get; set; }
-
+        
         private Resource[] OutgoingResources { get; set; }
 
         public IBuildingState State;
@@ -45,7 +43,6 @@ namespace MyRTSGame.Model
             var resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes);
-            ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
             OutgoingResources = InitInventory(resourceTypes, resourceQuantities);
 
             buildingController = BuildingController.Instance;
@@ -154,14 +151,6 @@ namespace MyRTSGame.Model
         
         public void AddResource(ResourceType resourceType, int quantity)
         {
-            foreach (var resource in ResourcesInJobForBuilding)
-            {
-                if (resource.ResourceType != resourceType) continue;
-
-                resource.Quantity -= quantity;
-                break;
-            }
-            
             Inventory[resourceType].Incoming -= quantity;
             Inventory[resourceType].Current += quantity;
             if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
