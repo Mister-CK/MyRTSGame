@@ -158,33 +158,17 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         foreach (var outputRow in _resourceRowsOutput)
         {
             var resType = outputRow.ResourceType;
-            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value.Current;
-            outputRow.UpdateQuantity(resValue);
-            
-            foreach (var res in building.GetOutgoingResources())
-            {
-                if (res.ResourceType == resType)
-                {
-                    outputRow.UpdateInOutGoingJobs(res.Quantity);
-                    break;
-                }
-            }
+            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            outputRow.UpdateQuantity(resValue.Current);
+            outputRow.UpdateInOutGoingJobs(resValue.Outgoing); 
         }
         
         foreach (var inputRow in _resourceRowsInput)
         {
             var resType = inputRow.ResourceType;
-            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value.Current;
-            inputRow.UpdateQuantity(resValue);
-            
-            foreach (var res in building.GetIncomingResources())
-            {
-                if (res.ResourceType == resType)
-                {
-                    inputRow.UpdateInIncomingJobs(res.Quantity);
-                    break;
-                }
-            }
+            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            inputRow.UpdateQuantity(resValue.Current);
+            inputRow.UpdateInIncomingJobs(resValue.Incoming);
         }
         
         if (building is TrainingBuilding trainingBuilding)

@@ -33,13 +33,7 @@ namespace MyRTSGame.Model
                 : new int[0]; 
             Array.Fill(outputWhenCompletedQuantities, 0);
             
-            var inputTypesWhenCompletedQuantities = building.InputTypesWhenCompleted != null
-                ? new int[building.InputTypesWhenCompleted.Length]
-                : new int[0]; 
-            Array.Fill(inputTypesWhenCompletedQuantities, 0);
-            
             building.ResourcesInJobForBuilding = Building.InitInventory(building.InputTypes, inputQuantities);
-            building.SetIncomingResources(Building.InitInventory(building.InputTypes, inputTypesWhenCompletedQuantities));
             building.SetOutgoingResources(Building.InitInventory(building.OutputTypesWhenCompleted,
                 outputWhenCompletedQuantities));
 

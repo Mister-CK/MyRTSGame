@@ -19,7 +19,6 @@ namespace MyRTSGame.Model
 
         public Resource[] ResourcesInJobForBuilding { get; set; }
 
-        private Resource[] IncomingResources { get; set; }
         private Resource[] OutgoingResources { get; set; }
 
         public IBuildingState State;
@@ -47,7 +46,6 @@ namespace MyRTSGame.Model
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes);
             ResourcesInJobForBuilding = InitInventory(resourceTypes, resourceQuantities);
-            IncomingResources = InitInventory(resourceTypes, resourceQuantities);
             OutgoingResources = InitInventory(resourceTypes, resourceQuantities);
 
             buildingController = BuildingController.Instance;
@@ -164,15 +162,7 @@ namespace MyRTSGame.Model
                 break;
             }
             
-            foreach (var resource in IncomingResources)
-            {
-                if (resource.ResourceType != resourceType) continue;
-
-                resource.Quantity -= quantity;
-                break;
-            }
-            
-            // Inventory[resourceType].Incoming += quantity;
+            Inventory[resourceType].Incoming -= quantity;
             Inventory[resourceType].Current += quantity;
             if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
 
@@ -187,14 +177,7 @@ namespace MyRTSGame.Model
         
         public void AddVillagerJobToThisBuilding(VillagerJob job )
         {
-            foreach (var res in IncomingResources)
-            {
-                if (res.ResourceType == job.ResourceType)
-                {
-                    res.Quantity++;
-                    break;
-                }
-            }
+            Inventory[job.ResourceType].Incoming++;
             VillagerJobsToThisBuilding.Add(job);
         }
 
@@ -216,20 +199,9 @@ namespace MyRTSGame.Model
             return OutgoingResources;
         }
         
-        public Resource[] GetIncomingResources()
-        {
-            return IncomingResources;
-        }
-        
         public void SetOutgoingResources(Resource[] outgoingResources)
         {
             OutgoingResources = outgoingResources;
         }
-        
-        public void SetIncomingResources(Resource[] incomingResources)
-        {
-            IncomingResources = incomingResources;
-        }
-
     }
 }

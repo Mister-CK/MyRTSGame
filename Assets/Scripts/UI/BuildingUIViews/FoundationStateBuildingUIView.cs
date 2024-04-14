@@ -45,26 +45,12 @@ public class FoundationStateBuildingUIView : MonoBehaviour
     
     public void UpdateResourceQuantities(Building building)
     {
-        for (var i = 0; i < _resourceRowsInput.Count; i++)
+        foreach (var row in _resourceRowsInput)
         {
-            var resType = _resourceRowsInput[i].ResourceType;
-            foreach (var res in building.Inventory)
-            {
-                if (res.Key == resType)
-                {
-                    _resourceRowsInput[i].UpdateQuantity(res.Value.Current);
-                    break;
-                }
-            }
-            
-            foreach (var res in building.GetIncomingResources())
-            {
-                if (res.ResourceType == resType)
-                {
-                    _resourceRowsInput[i].UpdateInIncomingJobs(res.Quantity);
-                    break;
-                }
-            }
+            var resType = row.ResourceType;
+            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            row.UpdateQuantity(resValue.Current);
+            row.UpdateInIncomingJobs(resValue.Incoming);
         }
     }
     
