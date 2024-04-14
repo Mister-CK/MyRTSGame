@@ -12,9 +12,6 @@ namespace MyRTSGame.Model
         {
             base.Start();
 
-            ResourceType[] resourceTypes = { ResourceType.Wheat, ResourceType.Flour };
-            var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[] { ResourceType.Wheat };
             OutputTypesWhenCompleted = new[] { ResourceType.Flour};
             HasInput = true;

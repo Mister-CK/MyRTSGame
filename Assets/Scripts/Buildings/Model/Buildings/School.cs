@@ -14,9 +14,6 @@ namespace MyRTSGame.Model
         {            
             base.Start();
             
-            ResourceType[] resourceTypes = { ResourceType.Gold};
-            var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[] { ResourceType.Gold };
             trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder};
             TrainingJobs = GetTrainingJobsForUnitTypes(trainableUnits);

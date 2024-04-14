@@ -14,9 +14,6 @@ namespace MyRTSGame.Model
         {            
             base.Start();
             
-            ResourceType[] resourceTypes = {ResourceType.Wood, ResourceType.Iron};
-            var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[] {ResourceType.Wood, ResourceType.Iron, };
             //TODO: should have siege weapons as trainingJobs, instead of villagers and builders
             trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder};

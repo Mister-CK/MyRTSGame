@@ -45,10 +45,6 @@ namespace MyRTSGame.Model
                 BCollider.center = new Vector3(1.5f, 1.5f, 1.5f);
 
             }
-            else
-            {
-                InventoryWhenCompleted = InitInventory(_resourceTypes);
-            }
 
             InputTypesWhenCompleted = _resourceTypes;
             HasInput = true;

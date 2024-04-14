@@ -11,11 +11,7 @@ namespace MyRTSGame.Model
         protected override void Start()
         {
             base.Start();
-            
 
-            var resourceTypes = new[] { ResourceType.Lumber };
-            var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes);
             OutputTypesWhenCompleted = new[] { ResourceType.Lumber };
         }
         

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyRTSGame.Model
 {
@@ -23,7 +24,7 @@ namespace MyRTSGame.Model
             building.BCollider.center = completedObject.transform.localScale / 2;
 
             building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
-            building.Inventory = building.InventoryWhenCompleted;
+            building.Inventory = Building.InitInventory(building.InputTypesWhenCompleted.Concat(building.OutputTypesWhenCompleted).ToArray());;
         }
     }
 }

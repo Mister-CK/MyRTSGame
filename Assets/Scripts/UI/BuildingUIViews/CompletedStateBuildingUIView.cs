@@ -41,12 +41,12 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         buildingView.gameObject.SetActive(true);
         buildingName.text = building.BuildingType.ToString();
         
-        foreach (var res in building.InventoryWhenCompleted)
+        foreach (var res in building.Inventory)
         {
             _resourceQuantities[res.Key] = res.Value.Current;
         }
         
-        if (building.InputTypesWhenCompleted != null)
+        if (building.InputTypesWhenCompleted.Length > 0)
         {
             Instantiate(inputTitlePrefab, inputLayoutGrid.transform);
             Instantiate(columnsPrefab, inputLayoutGrid.transform);
@@ -61,7 +61,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
             }
         }
         
-        if (building.OutputTypesWhenCompleted != null)
+        if (building.OutputTypesWhenCompleted.Length > 0)
         {
             Instantiate(outputTitlePrefab, outputLayoutGrid.transform);
             Instantiate(columnsPrefab, outputLayoutGrid.transform);
@@ -82,7 +82,6 @@ public class CompletedStateBuildingUIView : MonoBehaviour
             Instantiate(columnsPrefab, trainingJobLayoutGrid.transform);
             foreach (var trainingJob in trainingBuilding.TrainingJobs)
             {
-                Debug.Log(trainingJob.UnitType);
                 var resourceRow = Instantiate(resourceRowTrainingPrefab, trainingJobLayoutGrid.transform);
                 var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowTraining>();
                 resourceRowJobQueue.UnitType = trainingJob.UnitType;

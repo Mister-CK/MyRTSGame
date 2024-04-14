@@ -14,22 +14,6 @@ namespace MyRTSGame.Model
         {            
             base.Start();
             
-            ResourceType[] resourceTypes =
-            {
-                ResourceType.Sword, 
-                ResourceType.Pike, 
-                ResourceType.CrossBow, 
-                ResourceType.Axe, 
-                ResourceType.Bow, 
-                ResourceType.Spear, 
-                ResourceType.IronArmor, 
-                ResourceType.LeatherArmor, 
-                ResourceType.Horses, 
-                ResourceType.WoodenShield, 
-                ResourceType.IronShield
-            };
-            var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[]
             {
                 ResourceType.Sword,

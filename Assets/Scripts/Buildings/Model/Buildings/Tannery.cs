@@ -12,9 +12,6 @@ namespace MyRTSGame.Model
         {            
             base.Start();
             
-            ResourceType[] resourceTypes = { ResourceType.Hides, ResourceType.Leather };
-            var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[] { ResourceType.Hides};
             OutputTypesWhenCompleted = new[] { ResourceType.Leather};
 

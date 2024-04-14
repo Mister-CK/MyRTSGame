@@ -34,9 +34,6 @@ namespace MyRTSGame.Model
         {            
             base.Start();
             
-            ResourceType[] resourceTypes = {ResourceType.Wood, ResourceType.Leather, ResourceType.WoodenShield, ResourceType.LeatherArmor };
-            var resourceQuantities = new int[resourceTypes.Length];
-            InventoryWhenCompleted = InitInventory(resourceTypes);
             InputTypesWhenCompleted = new[] { ResourceType.Wood, ResourceType.Leather };
             OutputTypesWhenCompleted = new[] { ResourceType.WoodenShield, ResourceType.LeatherArmor };
             ProductionJobs = new List<ProductionJob>() {WoodenShieldJob, LeatherArmorJob};

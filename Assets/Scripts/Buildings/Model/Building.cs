@@ -15,8 +15,6 @@ namespace MyRTSGame.Model
         public int Capacity = 999;
         public int capacityForCompletedBuilding { get; set; }
         public Dictionary<ResourceType, InventoryData> Inventory { get; set; }        
-        public Dictionary<ResourceType, InventoryData> InventoryWhenCompleted { get; set; }        
-        
         public IBuildingState State;
         public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
@@ -37,9 +35,11 @@ namespace MyRTSGame.Model
             BCollider.size = new Vector3(3, 3, 3);
             
             // I don't think this should be necessary
-            var resourceTypes = new ResourceType[0];
             InputTypes = new ResourceType[0];
-            Inventory = InitInventory(resourceTypes);
+            OutputTypesWhenCompleted = new ResourceType[0];
+            InputTypesWhenCompleted = new ResourceType[0];
+
+            Inventory = InitInventory(InputTypes);
             
             buildingController = BuildingController.Instance;
         }
@@ -72,16 +72,12 @@ namespace MyRTSGame.Model
         public void SetState(IBuildingState newState)
         {
             State = newState;
-            buildingController.CreateUpdateViewForBuildingEvent(this);
-            // if (_building.State is ConstructionState) _building.State = new CompletedState(_building.BuildingType); // skip constructionState
             State.SetObject(this);
+            buildingController.CreateUpdateViewForBuildingEvent(this);
 
             if (State is CompletedState) StartResourceCreationCoroutine();
             
-            if (newState is ConstructionState)
-            {
-                buildingController.CreateNewBuilderJobNeededEvent(this);
-            }
+            if (State is ConstructionState) buildingController.CreateNewBuilderJobNeededEvent(this);
         }
         
         public IBuildingState GetState()
