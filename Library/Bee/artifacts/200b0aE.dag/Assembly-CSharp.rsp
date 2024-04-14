@@ -448,6 +448,7 @@
 "Assets/Scripts/UI/Controller/UIController.cs"
 "Assets/Scripts/UI/SelectionView.cs"
 "Assets/Scripts/UI/UIBuildButtonHandler.cs"
+"Assets/Scripts/UI/UnitUIViews/UnitUIView.cs"
 "Assets/Scripts/Units/Controller/UnitController.cs"
 "Assets/Scripts/Units/Model/Builder.cs"
 "Assets/Scripts/Units/Model/Unit.cs"

@@ -7,8 +7,19 @@ namespace MyRTSGame.Model
     {
         protected NavMeshAgent Agent;
         protected bool HasDestination;
-        protected Building Destination; 
+        protected Building Destination;
+        protected UnitType UnitType;
         public UnitController unitController;
+        
+        public UnitType GetUnitType()
+        {
+            return UnitType;
+        }
+        
+        public void SetUnitType(UnitType unitType)
+        {
+            UnitType = unitType;
+        }
         
         private void Start()
         {

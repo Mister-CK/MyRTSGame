@@ -8,6 +8,11 @@ namespace MyRTSGame.Model
         [SerializeField] private BuilderJobQueue builderJobQueue;
         private BuilderJob _currentJob;
         
+        public Builder()
+        {
+            UnitType = UnitType.Builder;
+        }
+        
         protected override void ExecuteJob()
         {
             Destination.SetState(new CompletedState(Destination.BuildingType));

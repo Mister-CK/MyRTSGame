@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model;
+using MyRTSGame.Model.UnitViews;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private FoundationStateBuildingUIView foundationStateBuildingUIView;
     [SerializeField] private ConstructionStateBuildingUIView constructionStateBuildingUIView;
     [SerializeField] private CompletedStateBuildingUIView completedStateBuildingUIView;
-
+    [SerializeField] private UnitUIView unitUIView;
     [SerializeField] public SelectionController selectionController;
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
@@ -22,8 +23,8 @@ public class SelectionView : MonoBehaviour
             case Building building:
                 UpdateSelectedBuilding(building);
                 break;
-            case Villager villager:
-                // SetSelectedVillager(villager);
+            case Unit unit:
+                UpdateSelectedUnit(unit);
                 break;
         }
     }
@@ -36,12 +37,22 @@ public class SelectionView : MonoBehaviour
             case Building building:
                 SetSelectedBuilding(building);
                 break;
-            case Villager villager:
-                // SetSelectedVillager(villager);
+            case Unit unit:
+                SetSelectedUnit(unit);
                 break;
         }
     }
 
+    private void UpdateSelectedUnit(Unit unit)
+    {
+        unitUIView.UpdateView();
+    }
+    
+    private void SetSelectedUnit(Unit unit)
+    {
+        unitUIView.ActivateView(unit);
+
+    }
     private void UpdateSelectedBuilding(Building building)
     {
         if (building.State is FoundationState)
@@ -109,7 +120,8 @@ public class SelectionView : MonoBehaviour
             Destroy(_currentGrid);
             _resourceTexts.Clear();
         }
-
+        
+        unitUIView.DeactivateView();
         completedStateBuildingUIView.DeactivateBuildingView();
         foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
         constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
@@ -118,21 +130,6 @@ public class SelectionView : MonoBehaviour
     public void HandleDeleteButtonClick()
     {
         selectionController.CreateDeleteEvent();
-    }
-    private static string GetTextForInputTypes(IEnumerable<ResourceType> inputTypes)
-    {
-        return inputTypes.Aggregate("input types: ", (current, resourceType) => current + resourceType + ", ")
-            .TrimEnd(',', ' ');
-    }
-
-    private static string GetTextForInventory(IEnumerable<Resource> inventory)
-    {
-        return string.Join(" ", inventory.Select(resource => $"{resource.ResourceType}:{resource.Quantity}"));
-    }
-        
-    private static string GetTextForResourcesInJobsForBuilding(IEnumerable<Resource> resInJobs)
-    {
-        return string.Join(" ", resInJobs.Select(resource => $"{resource.ResourceType}:{resource.Quantity}"));
     }
     
     private void CreateResourceGridForBuilding(Building building)

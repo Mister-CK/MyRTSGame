@@ -120,6 +120,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/UIBuildButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/CoalMine.cs" />
+    <Compile Include="Assets/Scripts/UI/UnitUIViews/UnitUIView.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Builder.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Vinyard.cs" />

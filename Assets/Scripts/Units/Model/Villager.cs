@@ -7,6 +7,11 @@ namespace MyRTSGame.Model
         private Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private VillagerJob _currentVillagerJob;
         private bool _hasResource;
+
+        public Villager()
+        {
+            UnitType = UnitType.Villager;
+        }
         
         protected override void ExecuteJob()
         {
