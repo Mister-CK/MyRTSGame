@@ -47,7 +47,6 @@ namespace MyRTSGame.Model
             }
             else
             {
-                var resourceQuantities = new int[_resourceTypes.Length];
                 InventoryWhenCompleted = InitInventory(_resourceTypes);
             }
 

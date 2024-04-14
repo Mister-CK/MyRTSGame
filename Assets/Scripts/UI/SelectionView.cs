@@ -61,7 +61,7 @@ public class SelectionView : MonoBehaviour
             {
                 if (_resourceTexts.TryGetValue(resource.Key, out var newTextComponent))
                 {
-                    newTextComponent.text = $"{resource.Key}: {resource.Value}";
+                    newTextComponent.text = $"{resource.Key}: {resource.Value.Current}";
                 }
             }
             return;
@@ -173,7 +173,7 @@ public class SelectionView : MonoBehaviour
             // Create a new TextMeshProUGUI object to display the resource type and quantity
             GameObject textObject = new GameObject("ResourceText");
             TextMeshProUGUI textComponentCell = textObject.AddComponent<TextMeshProUGUI>();
-            textComponentCell.text = $"{resource.Key}: {resource.Value}";
+            textComponentCell.text = $"{resource.Key}: {resource.Value.Current}";
             textComponentCell.color = Color.black; // Set the color of the text
             textComponentCell.fontSize = 10; // Set the font size to make the text smaller
             textComponentCell.alignment = TextAlignmentOptions.Center; // Center the text

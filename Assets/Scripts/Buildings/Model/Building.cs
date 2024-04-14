@@ -96,28 +96,6 @@ namespace MyRTSGame.Model
                 Quaternion.identity, transform);
         }
 
-        public static Resource[] InitInventory(ResourceType[] types, int[] quantities)
-        {
-            if (types == null || quantities == null)
-            {
-                return new Resource[0];
-            }
-                
-            if (types.Length != quantities.Length)
-                throw new ArgumentException("Types and quantities arrays must have the same length.");
-
-            var resources = new Resource[types.Length];
-
-            for (var i = 0; i < types.Length; i++)
-                resources[i] = new Resource
-                {
-                    ResourceType = types[i],
-                    Quantity = quantities[i]
-                };
-
-            return resources;
-        }
-        
         public static Dictionary<ResourceType, InventoryData> InitInventory(IEnumerable<ResourceType> resTypes)
         {
             var inventory = new Dictionary<ResourceType, InventoryData>();
