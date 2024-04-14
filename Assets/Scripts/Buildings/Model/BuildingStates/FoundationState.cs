@@ -22,7 +22,6 @@ namespace MyRTSGame.Model
             building.BCollider.size = foundation.transform.localScale;
             building.BCollider.center = foundation.transform.localScale / 2;
             building.InputTypes = new[] { ResourceType.Wood, ResourceType.Stone };
-            int[] inputQuantities = { 0, 0 };
             building.Inventory = Building.InitInventory(building.InputTypes);
 
             _buildingList.AddBuilding(building);

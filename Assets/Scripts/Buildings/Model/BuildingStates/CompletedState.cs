@@ -24,18 +24,6 @@ namespace MyRTSGame.Model
 
             building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
             building.Inventory = building.InventoryWhenCompleted;
-            var inputQuantities = new int[building.InputTypes.Length];
-            Array.Fill(inputQuantities, 0);
-
-
-            var outputWhenCompletedQuantities = building.OutputTypesWhenCompleted != null
-                ? new int[building.OutputTypesWhenCompleted.Length]
-                : new int[0]; 
-            Array.Fill(outputWhenCompletedQuantities, 0);
-            
-            building.SetOutgoingResources(Building.InitInventory(building.OutputTypesWhenCompleted,
-                outputWhenCompletedQuantities));
-
         }
     }
 }

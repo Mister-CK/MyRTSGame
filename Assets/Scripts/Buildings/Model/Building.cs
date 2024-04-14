@@ -17,8 +17,6 @@ namespace MyRTSGame.Model
         public Dictionary<ResourceType, InventoryData> Inventory { get; set; }        
         public Dictionary<ResourceType, InventoryData> InventoryWhenCompleted { get; set; }        
         
-        private Resource[] OutgoingResources { get; set; }
-
         public IBuildingState State;
         public Material Material { get; set; }
         public BuildingType BuildingType { get; set; }
@@ -40,11 +38,9 @@ namespace MyRTSGame.Model
             
             // I don't think this should be necessary
             var resourceTypes = new ResourceType[0];
-            var resourceQuantities = new int[0];
             InputTypes = new ResourceType[0];
             Inventory = InitInventory(resourceTypes);
-            OutgoingResources = InitInventory(resourceTypes, resourceQuantities);
-
+            
             buildingController = BuildingController.Instance;
         }
 
@@ -172,25 +168,9 @@ namespace MyRTSGame.Model
 
         public void AddVillagerJobFromThisBuilding(VillagerJob job )
         {
-            foreach (var res in OutgoingResources)
-            {
-                if (res.ResourceType == job.ResourceType)
-                {
-                    res.Quantity++;
-                    break;
-                }
-            }
+            
+            Inventory[job.ResourceType].Outgoing++;
             VillagerJobsFromThisBuilding.Add(job);
-        }
-        
-        public Resource[] GetOutgoingResources()
-        {
-            return OutgoingResources;
-        }
-        
-        public void SetOutgoingResources(Resource[] outgoingResources)
-        {
-            OutgoingResources = outgoingResources;
         }
     }
 }
