@@ -22,11 +22,11 @@ namespace MyRTSGame.Model
 
                 // Check if all required resources are present with quantity > 0
                 var hasRequiredResources = input.All(resource => 
-                    Inventory.FirstOrDefault(res => res.Key == resource.ResourceType).Value > 0);
+                    Inventory.FirstOrDefault(res => res.Key == resource.ResourceType).Value.Current > 0);
 
                 // Check if all output resources have quantity < capacity
                 var isFull = output.All(resource => 
-                    Inventory.FirstOrDefault(res => res.Key == resource.ResourceType).Value >= Capacity);
+                    Inventory.FirstOrDefault(res => res.Key == resource.ResourceType).Value.Current >= Capacity);
 
                 if (!hasRequiredResources || isFull) continue;
                 

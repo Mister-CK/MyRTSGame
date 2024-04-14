@@ -22,11 +22,11 @@ namespace MyRTSGame.Model
 
         protected override void Start()
         {
-            Dictionary<ResourceType, int> startingResources = new Dictionary<ResourceType, int>();
+            Dictionary<ResourceType, InventoryData> startingResources = new Dictionary<ResourceType, InventoryData>();
 
             for (int i = 0; i < startingResourceKeys.Count; i++)
             {
-                startingResources.Add(startingResourceKeys[i], startingResourceValues[i]);
+                startingResources.Add(startingResourceKeys[i], new InventoryData(){Current = startingResourceValues[i], Incoming = 0, Outgoing = 0});
             }
             
             base.Start();

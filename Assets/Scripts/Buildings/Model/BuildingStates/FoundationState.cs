@@ -37,7 +37,7 @@ namespace MyRTSGame.Model
             
             foreach (var requiredResource in requiredResources)
             {
-                var inventoryResource = inventory[requiredResource];
+                var inventoryResource = inventory[requiredResource].Current;
                 if (inventoryResource < building.resourceCountNeededForConstruction) return;
             }
 

@@ -28,7 +28,7 @@ public class FoundationStateBuildingUIView : MonoBehaviour
 
         foreach (var res in building.Inventory)
         {
-            resourceQuantities[res.Key] = res.Value;
+            resourceQuantities[res.Key] = res.Value.Current;
         }
         
         foreach (var inputType in building.InputTypes)
@@ -52,7 +52,7 @@ public class FoundationStateBuildingUIView : MonoBehaviour
             {
                 if (res.Key == resType)
                 {
-                    _resourceRowsInput[i].UpdateQuantity(res.Value);
+                    _resourceRowsInput[i].UpdateQuantity(res.Value.Current);
                     break;
                 }
             }

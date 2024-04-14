@@ -58,7 +58,7 @@ namespace MyRTSGame.Model
 
                 if (Array.IndexOf(inputTypes, resourceType) == -1) continue;
                 var resourceInJobForBuilding = Array.Find(resourcesInJobForBuilding, res => res.ResourceType == resourceType);
-                if (inventory[resourceType] + resourceInJobForBuilding.Quantity >= building.GetCapacity()) continue;
+                if (inventory[resourceType].Current + resourceInJobForBuilding.Quantity >= building.GetCapacity()) continue;
                 destination = building;
                 
                 foreach(var res in destination.ResourcesInJobForBuilding)
@@ -85,12 +85,12 @@ namespace MyRTSGame.Model
             var building = buildingEventArgs.Building;
             foreach (var resource in building.GetInventory())
             {
-                if (resource.Value <= 0)
+                if (resource.Value.Current <= 0)
                 {
                     continue;
                 }
 
-                var resourceCount = resource.Value;
+                var resourceCount = resource.Value.Current;
                 while (resourceCount > 0)
                 {
                     var job = new VillagerJob { Origin = building, ResourceType = resource.Key};

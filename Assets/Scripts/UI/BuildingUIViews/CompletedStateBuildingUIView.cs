@@ -43,7 +43,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         
         foreach (var res in building.InventoryWhenCompleted)
         {
-            _resourceQuantities[res.Key] = res.Value;
+            _resourceQuantities[res.Key] = res.Value.Current;
         }
         
         if (building.InputTypesWhenCompleted != null)
@@ -158,7 +158,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         foreach (var outputRow in _resourceRowsOutput)
         {
             var resType = outputRow.ResourceType;
-            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value.Current;
             outputRow.UpdateQuantity(resValue);
             
             foreach (var res in building.GetOutgoingResources())
@@ -174,7 +174,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         foreach (var inputRow in _resourceRowsInput)
         {
             var resType = inputRow.ResourceType;
-            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value.Current;
             inputRow.UpdateQuantity(resValue);
             
             foreach (var res in building.GetIncomingResources())

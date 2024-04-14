@@ -14,8 +14,8 @@ namespace MyRTSGame.Model
         private GameObject _buildingObject;
         public int Capacity = 999;
         public int capacityForCompletedBuilding { get; set; }
-        public Dictionary<ResourceType, int> Inventory { get; set; }        
-        public Dictionary<ResourceType, int> InventoryWhenCompleted { get; set; }        
+        public Dictionary<ResourceType, InventoryData> Inventory { get; set; }        
+        public Dictionary<ResourceType, InventoryData> InventoryWhenCompleted { get; set; }        
 
         public Resource[] ResourcesInJobForBuilding { get; set; }
 
@@ -127,19 +127,19 @@ namespace MyRTSGame.Model
             return resources;
         }
         
-        public static Dictionary<ResourceType, int> InitInventory(ResourceType[] resTypes)
+        public static Dictionary<ResourceType, InventoryData> InitInventory(IEnumerable<ResourceType> resTypes)
         {
-            var inventory = new Dictionary<ResourceType, int>();
+            var inventory = new Dictionary<ResourceType, InventoryData>();
 
             foreach (var resType in resTypes)
             {
-                inventory[resType] = 0;
+                inventory[resType] = new InventoryData() { Incoming = 0, Current = 0, Outgoing = 0 };
             }
 
             return inventory;
         }
 
-        public Dictionary<ResourceType, int> GetInventory()
+        public Dictionary<ResourceType, InventoryData> GetInventory()
         {
             return Inventory;
         }
@@ -151,7 +151,7 @@ namespace MyRTSGame.Model
         
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
-            Inventory[resourceType] -= quantity;
+            Inventory[resourceType].Current -= quantity;
         }
         
         public void AddResource(ResourceType resourceType, int quantity)
@@ -171,8 +171,9 @@ namespace MyRTSGame.Model
                 resource.Quantity -= quantity;
                 break;
             }
-
-            Inventory[resourceType] += quantity;
+            
+            // Inventory[resourceType].Incoming += quantity;
+            Inventory[resourceType].Current += quantity;
             if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
 
         }
