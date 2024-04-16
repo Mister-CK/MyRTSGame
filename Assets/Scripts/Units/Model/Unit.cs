@@ -10,6 +10,17 @@ namespace MyRTSGame.Model
         protected Building Destination;
         protected UnitType UnitType;
         public UnitController unitController;
+        private float _stamina;
+        
+        public void SetStamina(float stamina)
+        {
+            _stamina = stamina;
+        }
+        
+        public float GetStamina()
+        {
+            return _stamina;
+        }
         
         public UnitType GetUnitType()
         {
@@ -23,13 +34,14 @@ namespace MyRTSGame.Model
         
         private void Start()
         {
+            _stamina = 100;
             Agent = GetComponentInChildren<NavMeshAgent>();
-            
             unitController = UnitController.Instance;
         }
         
         protected void Update()
         {
+            _stamina -= Time.deltaTime;
             if (HasDestination)
                 CheckIfDestinationIsReached();
             else

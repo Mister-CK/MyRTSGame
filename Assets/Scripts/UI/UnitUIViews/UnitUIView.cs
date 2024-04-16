@@ -10,12 +10,14 @@ namespace MyRTSGame.Model.UnitViews
         [SerializeField] private TextMeshProUGUI unitName;
         [SerializeField] private GameObject staminaBarPrefab; 
         [SerializeField] private GameObject statusBars;
+        private Slider _slider;
         public void ActivateView(Unit unit)
         {
             unitUIView.gameObject.SetActive(true);
             unitName.text = unit.GetUnitType().ToString();
-            Instantiate(staminaBarPrefab, statusBars.transform);
-
+            var bar = Instantiate(staminaBarPrefab, statusBars.transform);
+            _slider = bar.GetComponent<Slider>();
+            _slider.value = unit.GetStamina();
         }
 
         public void DeactivateView()
@@ -33,6 +35,7 @@ namespace MyRTSGame.Model.UnitViews
 
         public void UpdateView(Unit unit)
         {
+            _slider.value = unit.GetStamina();
         }
     }
 }
