@@ -45,7 +45,7 @@ public class SelectionView : MonoBehaviour
 
     private void UpdateSelectedUnit(Unit unit)
     {
-        unitUIView.UpdateView();
+        unitUIView.UpdateView(unit);
     }
     
     private void SetSelectedUnit(Unit unit)
