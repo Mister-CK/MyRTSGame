@@ -8,12 +8,23 @@ namespace MyRTSGame.Model
     public class BuilderJobQueue : ScriptableObject
     {
         private List<BuilderJob> _builderJobs =  new ();
+        private IEnumerable<BuilderJob> _jobsInProgress = new List<BuilderJob>();
 
         public void AddJob(BuilderJob job)
         {
             _builderJobs.Add(job);
         }
 
+        public void RemoveJob(BuilderJob builderJob)
+        {
+            if (builderJob.IsInProgress())
+            {
+                _jobsInProgress = _jobsInProgress.Where(job => job != builderJob).ToList();
+                return;
+            }
+            _builderJobs = _builderJobs.Where(job => job != builderJob).ToList();
+        }
+        
         public BuilderJob GetNextJob()
         {
             if (_builderJobs.Count <= 0) return null;

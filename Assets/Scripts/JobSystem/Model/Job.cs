@@ -15,6 +15,5 @@ namespace MyRTSGame.Model
         {
             _inProgress = inProgress;
         }
-        
     }
 }

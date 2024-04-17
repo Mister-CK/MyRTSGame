@@ -50,9 +50,11 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Units/View/BuilderView.cs" />
     <Compile Include="Assets/Scripts/Units/Controller/UnitController.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Unit.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerWithJobEventArgsAndDestinationType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/VillagerJobQueue.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/UIController.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowTraining.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/TrainingJob.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Building.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Butcher.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowInput.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />

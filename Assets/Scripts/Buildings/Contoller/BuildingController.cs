@@ -22,6 +22,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteBuildingEvent; 
         [SerializeField] private GameEvent onNewVillagerJobCreated;
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
+        [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
+        [SerializeField] private GameEvent onNewBuilderJobCreated;
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -46,6 +48,7 @@ namespace MyRTSGame.Model
             onRemoveTrainingJobEvent.RegisterListener(OnRemoveTrainingJob);
             onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
             onNewVillagerJobCreated.RegisterListener(HandleNewVillagerJobCreated);
+            onNewBuilderJobCreated.RegisterListener(HandleNewBuilderJobCreated);
         }
 
         private void OnDisable()
@@ -58,7 +61,7 @@ namespace MyRTSGame.Model
             onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
             onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
             onNewVillagerJobCreated.UnregisterListener(HandleNewVillagerJobCreated);
-
+            onNewBuilderJobCreated.UnregisterListener(HandleNewBuilderJobCreated);
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -144,11 +147,19 @@ namespace MyRTSGame.Model
             eventArgs.VillagerJob.Origin.AddVillagerJobFromThisBuilding(eventArgs.VillagerJob);
             eventArgs.VillagerJob.Destination.AddVillagerJobToThisBuilding(eventArgs.VillagerJob);
         }
+        
+        private void HandleNewBuilderJobCreated(IGameEventArgs args)
+        {
+            if (args is not BuilderJobEventArgs eventArgs) return;
+            
+            eventArgs.BuilderJob.Destination.AddBuilderJobFromThisBuilding(eventArgs.BuilderJob);
+        }
 
-        public void CreateDeleteJobsForBuildingEvent(List<VillagerJob> villagerJobsFromThisBuilding, List<VillagerJob> villagerJobsToThisBuilding)
+        public void CreateDeleteJobsForBuildingEvent(List<VillagerJob> villagerJobsFromThisBuilding, List<VillagerJob> villagerJobsToThisBuilding, List <BuilderJob> builderJobsForThisBuilding)
         {
             onDeleteVillagerJobsEvent.Raise(new VillagerJobListEventArgs(villagerJobsFromThisBuilding, DestinationType.Origin));
             onDeleteVillagerJobsEvent.Raise(new VillagerJobListEventArgs(villagerJobsToThisBuilding, DestinationType.Destination));
+            onDeleteBuilderJobsEvent.Raise(new BuilderJobListEventArgs(builderJobsForThisBuilding));
         }
     }
 }

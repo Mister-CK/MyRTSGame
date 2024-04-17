@@ -6856,7 +6856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitUIView: {fileID: 831199727}
   unitName: {fileID: 478625517}
-  staminaBarPrefab: {fileID: 1860513760597591222, guid: 2eb015d4224e946d89b02df97ed3d5d7, type: 3}
+  staminaBarPrefab: {fileID: 7640077128010801710, guid: 875fb93ffac6c46d5a3037089d5950fb, type: 3}
   statusBars: {fileID: 1110005427}
 --- !u!114 &831199726
 MonoBehaviour:

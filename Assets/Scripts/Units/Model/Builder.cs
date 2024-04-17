@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MyRTSGame.Model
 {
     public class Builder : Unit
     {
         [SerializeField] private BuilderJobQueue builderJobQueue;
-        private BuilderJob _currentJob;
+        private BuilderJob _currentBuilderJob;
         
         public Builder()
         {
@@ -20,19 +19,30 @@ namespace MyRTSGame.Model
             HasDestination = false;
         }
         
-        protected override void SetDestination()
+        private void RequestNewJob()
         {
-            PerformNextJob();
-        }
-
-        private void PerformNextJob()
-        {
-            _currentJob = builderJobQueue.GetNextJob();
-            if (_currentJob == null) return;
-            Destination = _currentJob.Destination;
-            Agent.SetDestination(Destination.transform.position);
-            HasDestination = true;
+            unitController.CreateBuilderJobRequest(this);
         }
         
+        public void AcceptNewBuilderJob(BuilderJob builderJob)
+        {
+            _currentBuilderJob = builderJob;
+            Destination = _currentBuilderJob.Destination;
+            HasDestination = true;
+            Agent.SetDestination(Destination.transform.position);
+        }
+
+        public void UnAssignBuilderJob()
+        {
+            _currentBuilderJob = null;
+            Destination = null;
+            HasDestination = false;
+            SetDestination();
+        }
+        
+        protected override void SetDestination()
+        {
+            RequestNewJob();
+        }
     }
 }

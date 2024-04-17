@@ -28,7 +28,7 @@ namespace MyRTSGame.Model
         public BuildingController buildingController;
         private List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
         private List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
-        
+        private List<BuilderJob> builderJobsForThisBuilding = new List<BuilderJob>();
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -130,7 +130,7 @@ namespace MyRTSGame.Model
         public void DeleteBuilding()
         {
             BuildingList.RemoveBuilding(this);
-            buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding);
+            buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding, builderJobsForThisBuilding);
             Destroy(this);
         }
         
@@ -145,6 +145,11 @@ namespace MyRTSGame.Model
             
             Inventory[job.ResourceType].Outgoing++;
             VillagerJobsFromThisBuilding.Add(job);
+        }
+        
+        public void AddBuilderJobFromThisBuilding(BuilderJob job )
+        {
+            builderJobsForThisBuilding.Add(job);
         }
     }
 }

@@ -42,6 +42,18 @@ namespace MyRTSGame.Model
         protected void Update()
         {
             _stamina -= Time.deltaTime;
+            // if (_stamina < 0)
+            // {
+            //     //delete unit event
+            //     Destroy(this);
+            //     return;
+            // }
+            //
+            // if (_stamina < 50)
+            // {
+            //     //get consumption job
+            // }
+            
             if (HasDestination)
                 CheckIfDestinationIsReached();
             else
