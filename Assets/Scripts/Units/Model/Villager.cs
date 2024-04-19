@@ -1,29 +1,29 @@
-using UnityEngine;
-
 namespace MyRTSGame.Model
 {
     public class Villager : Unit
     {
         private Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
-        private VillagerJob _currentVillagerJob;
         private bool _hasResource;
 
         public Villager()
         {
             UnitType = UnitType.Villager;
         }
-        
+
         protected override void ExecuteJob()
         {
+            if (currentJob is not VillagerJob villagerJob) return;
+            
             if (!_hasResource)
             {
-                TakeResource(Destination, _resource.ResourceType);
-                Destination = _currentVillagerJob.Destination;
+                TakeResource(villagerJob.Origin, villagerJob.ResourceType);
+                Destination = villagerJob.Destination;
                 Agent.SetDestination(Destination.transform.position);
                 return;
             }
-            DeliverResource(Destination, _resource.ResourceType);
+            DeliverResource(villagerJob.Destination, villagerJob.ResourceType);
             HasDestination = false;
+            
         }
 
         private void TakeResource(Building building, ResourceType resourceType)
@@ -42,30 +42,29 @@ namespace MyRTSGame.Model
         {
             unitController.CreateVillagerJobRequest(this);
         }
-        
+
         public void AcceptNewVillagerJob(VillagerJob villagerJob)
         {
-            _currentVillagerJob = villagerJob;
-            Destination = _currentVillagerJob.Origin;
-            _resource.ResourceType = _currentVillagerJob.ResourceType;
+            currentJob = villagerJob;
+            Destination = villagerJob.Origin;
+            _resource.ResourceType = villagerJob.ResourceType;
             Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
         }
 
         public void UnAssignVillagerJob(DestinationType destinationType)
         {
-            
             if (destinationType == DestinationType.Origin && _hasResource)
             {
                 return;
             }
 
             HasDestination = false;
-            _currentVillagerJob = null;
+            currentJob = null;
             _hasResource = false;
             Destination = null;
         }
-        
+
         protected override void SetDestination()
         {
             RequestNewJob();

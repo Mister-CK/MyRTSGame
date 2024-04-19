@@ -11,7 +11,7 @@ namespace MyRTSGame.Model
         protected UnitType UnitType;
         public UnitController unitController;
         private float _stamina;
-        
+        protected Job currentJob;
         public void SetStamina(float stamina)
         {
             _stamina = stamina;

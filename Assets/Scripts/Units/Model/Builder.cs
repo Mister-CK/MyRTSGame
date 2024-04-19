@@ -24,19 +24,20 @@ namespace MyRTSGame.Model
             unitController.CreateBuilderJobRequest(this);
         }
         
-        public void AcceptNewBuilderJob(BuilderJob builderJob)
+        public void AcceptNewBuilderJob(Job job)
         {
-            _currentBuilderJob = builderJob;
-            Destination = _currentBuilderJob.Destination;
-            HasDestination = true;
+            currentJob = job;
+            Destination = currentJob.Destination;
             Agent.SetDestination(Destination.transform.position);
+            HasDestination = true;
         }
 
         public void UnAssignBuilderJob()
         {
-            _currentBuilderJob = null;
+            currentJob = null;
             Destination = null;
             HasDestination = false;
+
             SetDestination();
         }
         
