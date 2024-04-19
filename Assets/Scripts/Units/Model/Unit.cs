@@ -12,6 +12,7 @@ namespace MyRTSGame.Model
         protected UnitType UnitType;
         protected Job CurrentJob;
         private float _stamina;
+
         public void SetStamina(float stamina)
         {
             _stamina = stamina;
@@ -48,11 +49,6 @@ namespace MyRTSGame.Model
             //     Destroy(this);
             //     return;
             // }
-            //
-            // if (_stamina < 50)
-            // {
-            //     //get consumption job
-            // }
             
             if (HasDestination)
                 CheckIfDestinationIsReached();
@@ -75,14 +71,38 @@ namespace MyRTSGame.Model
             }
         }
 
-        protected virtual void ExecuteJob() {}
+        protected virtual void ExecuteJob()
+        {
+            if (CurrentJob is ConsumptionJob consumptionJob)
+            {
+                unitController.RemoveResourceFromBuilding(consumptionJob.Destination, consumptionJob.ResourceType, 1);
+                HasDestination = false;
+                CurrentJob = null;
+                Destination = null;
+                _stamina = 100;
+                return;
+            }
+        }
         protected void SetDestination()
         {
+            if (_stamina < 30)
+            {
+                unitController.CreateConsumptionJobRequest(this);
+                return;
+            }
             RequestNewJob();
         }        
         private void RequestNewJob()
         {
             unitController.CreateUnitJobRequest(this);
+        }
+
+        public void AcceptNewConsumptionJob(ConsumptionJob consumptionJob)
+        {
+            CurrentJob = consumptionJob;
+            Destination = consumptionJob.Destination;
+            Agent.SetDestination(Destination.transform.position);
+            HasDestination = true;
         }
     }
 }

@@ -24,6 +24,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
         [SerializeField] private GameEvent onNewBuilderJobCreated;
+        [SerializeField] private GameEvent onNewConsumptionJobNeeded;
+        [SerializeField] private GameEvent onNewConsumptionJobCreated;
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -49,6 +51,7 @@ namespace MyRTSGame.Model
             onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
             onNewVillagerJobCreated.RegisterListener(HandleNewVillagerJobCreated);
             onNewBuilderJobCreated.RegisterListener(HandleNewBuilderJobCreated);
+            onNewConsumptionJobCreated.RegisterListener(HandleNewConsumptionJobCreated);
         }
 
         private void OnDisable()
@@ -62,6 +65,7 @@ namespace MyRTSGame.Model
             onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
             onNewVillagerJobCreated.UnregisterListener(HandleNewVillagerJobCreated);
             onNewBuilderJobCreated.UnregisterListener(HandleNewBuilderJobCreated);
+            onNewConsumptionJobCreated.UnregisterListener(HandleNewConsumptionJobCreated);
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -88,6 +92,11 @@ namespace MyRTSGame.Model
         public void CreateNewBuilderJobNeededEvent(Building building)
         {
             onNewBuilderJobNeeded.Raise(new BuildingEventArgs(building));
+        }
+        
+        public void CreateConsumptionJobNeededEvent(Building building, ResourceType resourceType)
+        {
+            onNewConsumptionJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resourceType));
         }
         
         public void CreateNewUnitEvent(TrainingBuilding trainingBuilding, UnitType unitType)
@@ -154,6 +163,15 @@ namespace MyRTSGame.Model
             
             eventArgs.BuilderJob.Destination.AddBuilderJobFromThisBuilding(eventArgs.BuilderJob);
         }
+        
+        private void HandleNewConsumptionJobCreated(IGameEventArgs args)
+        {
+            if (args is not ConsumptionJobEventArgs eventArgs) return;
+            
+            eventArgs.ConsumptionJob.Destination.AddConsumptionJobForThisBuilding(eventArgs.ConsumptionJob);
+        }
+        
+
 
         public void CreateDeleteJobsForBuildingEvent(List<VillagerJob> villagerJobsFromThisBuilding, List<VillagerJob> villagerJobsToThisBuilding, List <BuilderJob> builderJobsForThisBuilding)
         {

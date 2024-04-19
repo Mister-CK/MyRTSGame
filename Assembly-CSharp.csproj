@@ -87,14 +87,17 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ResourceBuilding.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/ConsumptionJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/ConsumptionJob.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Wheatfarm.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/ProductionJob.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/InventoryData.cs" />
     <Compile Include="Assets/Scripts/Camera.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConstructionStateBuildingUIView.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Controller/JobController.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/ConsumptionJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Warehouse.cs" />
     <Compile Include="Assets/Scripts/Units/Model/UnitList.cs" />

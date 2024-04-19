@@ -29,6 +29,8 @@ namespace MyRTSGame.Model
         private List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
         private List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
         private List<BuilderJob> builderJobsForThisBuilding = new List<BuilderJob>();
+        private List<ConsumptionJob> consumptionJobsForThisbuilding = new List<ConsumptionJob>();
+
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -119,12 +121,11 @@ namespace MyRTSGame.Model
             Inventory[resourceType].Current -= quantity;
         }
         
-        public void AddResource(ResourceType resourceType, int quantity)
+        public virtual void AddResource(ResourceType resourceType, int quantity)
         {
             Inventory[resourceType].Incoming -= quantity;
             Inventory[resourceType].Current += quantity;
             if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
-
         }
 
         public void DeleteBuilding()
@@ -150,6 +151,11 @@ namespace MyRTSGame.Model
         public void AddBuilderJobFromThisBuilding(BuilderJob job )
         {
             builderJobsForThisBuilding.Add(job);
+        }
+        
+        public void AddConsumptionJobForThisBuilding(ConsumptionJob job)
+        {
+            consumptionJobsForThisbuilding.Add(job);
         }
     }
 }

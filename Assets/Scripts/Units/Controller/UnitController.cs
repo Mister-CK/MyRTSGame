@@ -14,10 +14,12 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onBuilderJobAssigned;
         [SerializeField] private GameEvent onBuilderJobDeleted;
+        [SerializeField] private GameEvent onRequestConsumptionJob;
+        [SerializeField] private GameEvent onConsumptionJobAssigned;
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
-        [SerializeField] private UnitList unitList; // not used
+        
         public static UnitController Instance { get; private set; }
 
         private void Awake()
@@ -39,6 +41,7 @@ namespace MyRTSGame.Model
             onVillagerJobDeleted.RegisterListener(HandleVillagerJobDeleted);
             onBuilderJobAssigned.RegisterListener(HandleBuilderJobAssigned);
             onBuilderJobDeleted.RegisterListener(HandleBuilderJobDeleted);
+            onConsumptionJobAssigned.RegisterListener(HandleConsumptionJobAssigned);
         }
 
         private void OnDisable()
@@ -47,6 +50,7 @@ namespace MyRTSGame.Model
             onVillagerJobAssigned.UnregisterListener(HandleVillagerJobAssigned);
             onVillagerJobDeleted.UnregisterListener(HandleVillagerJobDeleted);
             onBuilderJobDeleted.UnregisterListener(HandleBuilderJobDeleted);
+            onConsumptionJobAssigned.UnregisterListener(HandleConsumptionJobAssigned);
         }
         
         
@@ -80,6 +84,13 @@ namespace MyRTSGame.Model
             if (args is not BuilderWithJobEventArgs builderWithJobEventArgs) return;
             
             builderWithJobEventArgs.Builder.AcceptNewBuilderJob(builderWithJobEventArgs.BuilderJob);
+        }
+        
+        private void HandleConsumptionJobAssigned(IGameEventArgs args)
+        {
+            if (args is not UnitWithJobEventArgs unitWithJobEventArgs) return;
+            
+            unitWithJobEventArgs.Unit.AcceptNewConsumptionJob(unitWithJobEventArgs.ConsumptionJob);
         }
         
         private void HandleVillagerJobDeleted(IGameEventArgs args)
@@ -116,6 +127,11 @@ namespace MyRTSGame.Model
         public void CreateUnitJobRequest(Unit unit)
         {
             onRequestUnitJob.Raise(new UnitEventArgs(unit));
+        }
+
+        public void CreateConsumptionJobRequest(Unit unit)
+        {
+            onRequestConsumptionJob.Raise(new UnitEventArgs(unit));
         }
     }
 }

@@ -12,6 +12,7 @@ namespace MyRTSGame.Model
 
         protected override void ExecuteJob()
         {
+            base.ExecuteJob();
             if (CurrentJob is not VillagerJob villagerJob) return;
             
             if (!_hasResource)

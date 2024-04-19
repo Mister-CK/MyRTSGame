@@ -17,8 +17,14 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onBuilderJobDeleted;
         [SerializeField] private GameEvent onNewBuilderJobCreated;
         [SerializeField] private GameEvent onRequestUnitJob;
+        [SerializeField] private GameEvent onRequestConsumptionJob;
+        [SerializeField] private GameEvent onNewConsumptionJobNeeded;
+        [SerializeField] private GameEvent onAssignConsumptionJob;
+        [SerializeField] private GameEvent onNewConsumptionJobCreated;
+        
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
+        [SerializeField] private ConsumptionJobQueue consumptionJobQueue;
 
         private static BuildingList BuildingList => BuildingList.Instance;
         
@@ -26,20 +32,24 @@ namespace MyRTSGame.Model
         {
             onNewBuilderJobNeeded.RegisterListener(HandleNewBuilderJobNeeded);
             onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
+            onNewConsumptionJobNeeded.RegisterListener(HandleNewConsumptionJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.RegisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.RegisterListener(HandleDeleteBuilderJobsEvent);
             onRequestUnitJob.RegisterListener(HandleUnitJobRequest);
+            onRequestConsumptionJob.RegisterListener(HandleConsumptionJobRequest);
         }
 
         private void OnDisable()
         {
             onNewBuilderJobNeeded.UnregisterListener(HandleNewBuilderJobNeeded);
             onNewVillagerJobNeeded.UnregisterListener(HandleNewVillagerJobNeeded);
+            onNewConsumptionJobNeeded.UnregisterListener(HandleNewConsumptionJobNeeded);
             onCreateJobsForWarehouse.UnregisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.UnregisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.UnregisterListener(HandleDeleteBuilderJobsEvent);
             onRequestUnitJob.UnregisterListener(HandleUnitJobRequest);
+            onRequestConsumptionJob.UnregisterListener(HandleConsumptionJobRequest);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -113,8 +123,7 @@ namespace MyRTSGame.Model
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
             
-            var building = buildingEventArgs.Building;
-            var builderJob = new BuilderJob() { Destination = building };
+            var builderJob = new BuilderJob() { Destination = buildingEventArgs.Building };
             builderJobQueue.AddJob(builderJob);
             onNewBuilderJobCreated.Raise(new BuilderJobEventArgs(builderJob));
         }
@@ -128,6 +137,15 @@ namespace MyRTSGame.Model
             villagerJob.SetInProgress(false);
             villagerJobQueue.AddJob(villagerJob);
             onNewVillagerJobCreated.Raise(new VillagerJobEventArgs(villagerJob));
+        }
+        
+        private void HandleNewConsumptionJobNeeded(IGameEventArgs args)
+        {
+            if (args is not BuildingResourceTypeEventArgs buildingResourceTypeEventArgs) return;
+            
+            var consumptionJob = new ConsumptionJob() { Destination = buildingResourceTypeEventArgs.Building, ResourceType = buildingResourceTypeEventArgs.ResourceType};
+            consumptionJobQueue.AddJob(consumptionJob);
+            onNewConsumptionJobCreated.Raise(new ConsumptionJobEventArgs(consumptionJob));
         }
 
         private void HandleDeleteVillagerJobsEvent(IGameEventArgs args)
@@ -173,6 +191,16 @@ namespace MyRTSGame.Model
                 onAssignVillagerJob.Raise(new VillagerWithJobEventArgs(villager, villagerJob));
                 return;
             }
+        }
+        
+        private void HandleConsumptionJobRequest(IGameEventArgs args)
+        {
+            if (args is not UnitEventArgs unitEventArgs) return;
+            
+            var consumptionJob = consumptionJobQueue.GetNextJob();
+            if (consumptionJob == null) return;
+            consumptionJob.Unit = unitEventArgs.Unit;
+            onAssignConsumptionJob.Raise(new UnitWithJobEventArgs(unitEventArgs.Unit, consumptionJob));
         }
     }
 }

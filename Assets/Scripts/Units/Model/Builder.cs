@@ -14,8 +14,10 @@ namespace MyRTSGame.Model
         
         protected override void ExecuteJob()
         {
+            base.ExecuteJob();
+            if (CurrentJob is not BuilderJob) return;
+
             Destination.SetState(new CompletedState(Destination.BuildingType));
-            
             HasDestination = false;
         }
         
