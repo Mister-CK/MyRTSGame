@@ -15,11 +15,14 @@ namespace MyRTSGame.Model
         
         protected override void ExecuteJob()
         {
-            if (_hasResource)
-                DeliverResource(Destination, _resource.ResourceType);
-            else
+            if (!_hasResource)
+            {
                 TakeResource(Destination, _resource.ResourceType);
-
+                Destination = _currentVillagerJob.Destination;
+                Agent.SetDestination(Destination.transform.position);
+                return;
+            }
+            DeliverResource(Destination, _resource.ResourceType);
             HasDestination = false;
         }
 
@@ -61,20 +64,11 @@ namespace MyRTSGame.Model
             _currentVillagerJob = null;
             _hasResource = false;
             Destination = null;
-
-            SetDestination();
         }
         
         protected override void SetDestination()
         {
-            if (!_hasResource)
-            {
-                RequestNewJob();
-                return;
-            }
-            Destination = _currentVillagerJob.Destination;
-            Agent.SetDestination(Destination.transform.position);
-            HasDestination = true;
+            RequestNewJob();
         }
     }
 }
