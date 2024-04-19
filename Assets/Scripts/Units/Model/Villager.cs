@@ -12,7 +12,7 @@ namespace MyRTSGame.Model
 
         protected override void ExecuteJob()
         {
-            if (currentJob is not VillagerJob villagerJob) return;
+            if (CurrentJob is not VillagerJob villagerJob) return;
             
             if (!_hasResource)
             {
@@ -45,7 +45,7 @@ namespace MyRTSGame.Model
 
         public void AcceptNewVillagerJob(VillagerJob villagerJob)
         {
-            currentJob = villagerJob;
+            CurrentJob = villagerJob;
             Destination = villagerJob.Origin;
             _resource.ResourceType = villagerJob.ResourceType;
             Agent.SetDestination(Destination.transform.position);
@@ -60,7 +60,7 @@ namespace MyRTSGame.Model
             }
 
             HasDestination = false;
-            currentJob = null;
+            CurrentJob = null;
             _hasResource = false;
             Destination = null;
         }

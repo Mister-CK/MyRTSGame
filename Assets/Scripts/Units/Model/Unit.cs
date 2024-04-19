@@ -5,21 +5,21 @@ namespace MyRTSGame.Model
 {
     public abstract class Unit: MonoBehaviour, ISelectable
     {
+        public UnitController unitController;
         protected NavMeshAgent Agent;
         protected bool HasDestination;
         protected Building Destination;
         protected UnitType UnitType;
-        public UnitController unitController;
-        private float _stamina;
-        protected Job currentJob;
+        protected Job CurrentJob;
+        protected float Stamina;
         public void SetStamina(float stamina)
         {
-            _stamina = stamina;
+            Stamina = stamina;
         }
         
         public float GetStamina()
         {
-            return _stamina;
+            return Stamina;
         }
         
         public UnitType GetUnitType()
@@ -34,14 +34,14 @@ namespace MyRTSGame.Model
         
         private void Start()
         {
-            _stamina = 100;
+            Stamina = 100;
             Agent = GetComponentInChildren<NavMeshAgent>();
             unitController = UnitController.Instance;
         }
         
         protected void Update()
         {
-            _stamina -= Time.deltaTime;
+            Stamina -= Time.deltaTime;
             // if (_stamina < 0)
             // {
             //     //delete unit event

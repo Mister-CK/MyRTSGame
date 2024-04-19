@@ -26,15 +26,15 @@ namespace MyRTSGame.Model
         
         public void AcceptNewBuilderJob(Job job)
         {
-            currentJob = job;
-            Destination = currentJob.Destination;
+            CurrentJob = job;
+            Destination = CurrentJob.Destination;
             Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
         }
 
         public void UnAssignBuilderJob()
         {
-            currentJob = null;
+            CurrentJob = null;
             Destination = null;
             HasDestination = false;
 
