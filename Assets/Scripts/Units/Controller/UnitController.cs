@@ -9,14 +9,11 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
-        [SerializeField] private GameEvent onDeleteBuildingEvent; // not used
-        [SerializeField] private GameEvent onRequestVillagerJob;
         [SerializeField] private GameEvent onVillagerJobAssigned;
         [SerializeField] private GameEvent onVillagerJobDeleted; 
-        
+        [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onBuilderJobAssigned;
         [SerializeField] private GameEvent onBuilderJobDeleted;
-        [SerializeField] private GameEvent onRequestBuilderJob;
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
@@ -116,14 +113,9 @@ namespace MyRTSGame.Model
                 quantity));
         }
 
-        public void CreateVillagerJobRequest(Villager villager)
+        public void CreateUnitJobRequest(Unit unit)
         {
-            onRequestVillagerJob.Raise(new VillagerEventArgs(villager));
-        }
-        
-        public void CreateBuilderJobRequest(Builder builder)
-        {
-            onRequestBuilderJob.Raise(new BuilderEventArgs(builder));
+            onRequestUnitJob.Raise(new UnitEventArgs(unit));
         }
     }
 }

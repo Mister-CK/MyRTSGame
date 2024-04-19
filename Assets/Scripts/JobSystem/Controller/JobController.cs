@@ -10,15 +10,13 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobCreated;
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
-        [SerializeField] private GameEvent onRequestVillagerJob;
         [SerializeField] private GameEvent onAssignVillagerJob;
         [SerializeField] private GameEvent onVillagerJobDeleted;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
         [SerializeField] private GameEvent onBuilderJobAssigned;
         [SerializeField] private GameEvent onBuilderJobDeleted;
-        [SerializeField] private GameEvent onRequestBuilderJob;
         [SerializeField] private GameEvent onNewBuilderJobCreated;
-
+        [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
 
@@ -31,8 +29,7 @@ namespace MyRTSGame.Model
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.RegisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.RegisterListener(HandleDeleteBuilderJobsEvent);
-            onRequestVillagerJob.RegisterListener(HandleRequestVillagerJob);
-            onRequestBuilderJob.RegisterListener(HandleRequestBuilderJob);
+            onRequestUnitJob.RegisterListener(HandleUnitJobRequest);
         }
 
         private void OnDisable()
@@ -42,9 +39,7 @@ namespace MyRTSGame.Model
             onCreateJobsForWarehouse.UnregisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.UnregisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.UnregisterListener(HandleDeleteBuilderJobsEvent);
-            onRequestVillagerJob.UnregisterListener(HandleRequestVillagerJob);
-            onRequestBuilderJob.UnregisterListener(HandleRequestBuilderJob);
-
+            onRequestUnitJob.UnregisterListener(HandleUnitJobRequest);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -158,27 +153,26 @@ namespace MyRTSGame.Model
                 onBuilderJobDeleted.Raise(new BuilderWithJobEventArgs(builderJob.Builder, builderJob));
             }
         }
-        
 
-        private void HandleRequestVillagerJob(IGameEventArgs args)
+        private void HandleUnitJobRequest(IGameEventArgs args)
         {
-            if (args is not VillagerEventArgs villagerEventArgs) return;
-
-            var villagerJob = villagerJobQueue.GetNextJob();
-            if (villagerJob == null) return;
-            villagerJob.SetInProgress(true);
-            villagerJob.Villager = villagerEventArgs.Villager;
-            onAssignVillagerJob.Raise(new VillagerWithJobEventArgs(villagerEventArgs.Villager, villagerJob));
-        }
-        
-        private void HandleRequestBuilderJob(IGameEventArgs args)
-        {
-            if (args is not BuilderEventArgs builderEventArgs) return;
-
-            var builderJob = builderJobQueue.GetNextJob();
-            if (builderJob == null) return;
-            builderJob.Builder = builderEventArgs.Builder;
-            onBuilderJobAssigned.Raise(new BuilderWithJobEventArgs(builderEventArgs.Builder, builderJob));
+            if (args is not UnitEventArgs unitEventArgs) return;
+            if (unitEventArgs.Unit is Builder builder)
+            {
+                var builderJob = builderJobQueue.GetNextJob();
+                if (builderJob == null) return;
+                builderJob.Builder = builder;
+                onBuilderJobAssigned.Raise(new BuilderWithJobEventArgs(builder, builderJob));
+                return;
+            }
+            if (unitEventArgs.Unit is Villager villager)
+            {
+                var villagerJob = villagerJobQueue.GetNextJob();
+                if (villagerJob == null) return;
+                villagerJob.Villager = villager;
+                onAssignVillagerJob.Raise(new VillagerWithJobEventArgs(villager, villagerJob));
+                return;
+            }
         }
     }
 }

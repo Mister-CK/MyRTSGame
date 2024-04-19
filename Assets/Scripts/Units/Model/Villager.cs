@@ -40,7 +40,7 @@ namespace MyRTSGame.Model
 
         private void RequestNewJob()
         {
-            unitController.CreateVillagerJobRequest(this);
+            unitController.CreateUnitJobRequest(this);
         }
 
         public void AcceptNewVillagerJob(VillagerJob villagerJob)

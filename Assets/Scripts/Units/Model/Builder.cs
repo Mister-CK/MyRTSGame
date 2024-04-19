@@ -21,7 +21,7 @@ namespace MyRTSGame.Model
         
         private void RequestNewJob()
         {
-            unitController.CreateBuilderJobRequest(this);
+            unitController.CreateUnitJobRequest(this);
         }
         
         public void AcceptNewBuilderJob(Job job)
