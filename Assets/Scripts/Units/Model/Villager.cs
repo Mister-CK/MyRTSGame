@@ -38,11 +38,6 @@ namespace MyRTSGame.Model
             unitController.AddResourceToBuilding(building, resourceType, 1);
         }
 
-        private void RequestNewJob()
-        {
-            unitController.CreateUnitJobRequest(this);
-        }
-
         public void AcceptNewVillagerJob(VillagerJob villagerJob)
         {
             CurrentJob = villagerJob;
@@ -63,11 +58,6 @@ namespace MyRTSGame.Model
             CurrentJob = null;
             _hasResource = false;
             Destination = null;
-        }
-
-        protected override void SetDestination()
-        {
-            RequestNewJob();
         }
     }
 }

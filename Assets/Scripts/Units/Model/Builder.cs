@@ -19,11 +19,6 @@ namespace MyRTSGame.Model
             HasDestination = false;
         }
         
-        private void RequestNewJob()
-        {
-            unitController.CreateUnitJobRequest(this);
-        }
-        
         public void AcceptNewBuilderJob(Job job)
         {
             CurrentJob = job;
@@ -39,11 +34,6 @@ namespace MyRTSGame.Model
             HasDestination = false;
 
             SetDestination();
-        }
-        
-        protected override void SetDestination()
-        {
-            RequestNewJob();
         }
     }
 }

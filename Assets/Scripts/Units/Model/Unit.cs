@@ -11,15 +11,15 @@ namespace MyRTSGame.Model
         protected Building Destination;
         protected UnitType UnitType;
         protected Job CurrentJob;
-        protected float Stamina;
+        private float _stamina;
         public void SetStamina(float stamina)
         {
-            Stamina = stamina;
+            _stamina = stamina;
         }
         
         public float GetStamina()
         {
-            return Stamina;
+            return _stamina;
         }
         
         public UnitType GetUnitType()
@@ -34,14 +34,14 @@ namespace MyRTSGame.Model
         
         private void Start()
         {
-            Stamina = 100;
+            _stamina = 100;
             Agent = GetComponentInChildren<NavMeshAgent>();
             unitController = UnitController.Instance;
         }
         
         protected void Update()
         {
-            Stamina -= Time.deltaTime;
+            _stamina -= Time.deltaTime;
             // if (_stamina < 0)
             // {
             //     //delete unit event
@@ -76,7 +76,13 @@ namespace MyRTSGame.Model
         }
 
         protected virtual void ExecuteJob() {}
-        protected virtual void SetDestination() {}
-            
+        protected void SetDestination()
+        {
+            RequestNewJob();
+        }        
+        private void RequestNewJob()
+        {
+            unitController.CreateUnitJobRequest(this);
+        }
     }
 }
