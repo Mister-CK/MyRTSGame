@@ -26,6 +26,7 @@ namespace MyRTSGame.Model
             CurrentJob = null;
             Destination = null;
             HasDestination = false;
+            Agent.SetDestination(Agent.transform.position);
 
             SetDestination();
         }

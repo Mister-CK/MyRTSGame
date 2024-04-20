@@ -46,6 +46,8 @@ namespace MyRTSGame.Model
             }
 
             HasDestination = false;
+            
+            Agent.SetDestination(Agent.transform.position);
             CurrentJob = null;
             _hasResource = false;
             Destination = null;

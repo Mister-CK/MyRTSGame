@@ -6,22 +6,16 @@ namespace MyRTSGame.Model
     public class JobController :  MonoBehaviour
     {
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
-        
-        
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
-        
         [SerializeField] private GameEvent onVillagerJobDeleted;
         [SerializeField] private GameEvent onBuilderJobDeleted;
-        
         [SerializeField] private GameEvent onRequestConsumptionJob;
-        
         [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onJobRequestDenied;
-        
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         [SerializeField] private ConsumptionJobQueue consumptionJobQueue;
@@ -164,6 +158,7 @@ namespace MyRTSGame.Model
             foreach (var villagerJob in jobListEventArgs.VillagerJobs)
             {
                 villagerJobQueue.RemoveJob(villagerJob);
+                Debug.Log("Delete Villager Job in progress");
                 if (!villagerJob.IsInProgress()) continue;
                 onVillagerJobDeleted.Raise(new VillagerWithJobEventArgsAndDestinationtype(villagerJob.Villager,
                     villagerJob, jobListEventArgs.DestinationType));
@@ -193,6 +188,7 @@ namespace MyRTSGame.Model
                     return;
                 }
                 builderJob.Builder = builder;
+                builderJob.SetInProgress(true);
                 onAssignJob.Raise(new UnitWithJobEventArgs(builder, builderJob));
                 return;
             }
@@ -205,6 +201,7 @@ namespace MyRTSGame.Model
                     return;
                 }
                 villagerJob.Villager = villager;
+                villagerJob.SetInProgress(true);
                 onAssignJob.Raise(new UnitWithJobEventArgs(villager, villagerJob));
                 return;
             }
@@ -221,6 +218,7 @@ namespace MyRTSGame.Model
                 return;
             }
             consumptionJob.Unit = unitEventArgs.Unit;
+            consumptionJob.SetInProgress(true);
             onAssignJob.Raise(new UnitWithJobEventArgs(unitEventArgs.Unit, consumptionJob));
         }
     }
