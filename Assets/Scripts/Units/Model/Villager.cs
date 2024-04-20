@@ -2,7 +2,6 @@ namespace MyRTSGame.Model
 {
     public class Villager : Unit
     {
-        private Resource _resource = new() { ResourceType = ResourceType.Stone, Quantity = 1 };
         private bool _hasResource;
 
         public Villager()
@@ -43,7 +42,6 @@ namespace MyRTSGame.Model
         {
             CurrentJob = villagerJob;
             Destination = villagerJob.Origin;
-            _resource.ResourceType = villagerJob.ResourceType;
             Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
         }
