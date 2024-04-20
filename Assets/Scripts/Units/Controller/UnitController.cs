@@ -9,8 +9,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
-        [SerializeField] private GameEvent onVillagerJobDeleted; 
-        [SerializeField] private GameEvent onBuilderJobDeleted;
+        [SerializeField] private GameEvent onUnitJobDeleted;
         [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onJobRequestDenied;
@@ -35,8 +34,7 @@ namespace MyRTSGame.Model
         {
             onAssignJob.RegisterListener(HandleJobAssigned);
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
-            onVillagerJobDeleted.RegisterListener(HandleVillagerJobDeleted);
-            onBuilderJobDeleted.RegisterListener(HandleBuilderJobDeleted);
+            onUnitJobDeleted.RegisterListener(HandleUnitJobDeleted);
             onJobRequestDenied.RegisterListener(HandleJobRequestDenied);
         }
 
@@ -44,8 +42,7 @@ namespace MyRTSGame.Model
         {
             onAssignJob.UnregisterListener(HandleJobAssigned);
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
-            onVillagerJobDeleted.UnregisterListener(HandleVillagerJobDeleted);
-            onBuilderJobDeleted.UnregisterListener(HandleBuilderJobDeleted);
+            onUnitJobDeleted.UnregisterListener(HandleUnitJobDeleted);
             onJobRequestDenied.UnregisterListener(HandleJobRequestDenied);
         }
         
@@ -74,18 +71,17 @@ namespace MyRTSGame.Model
             unitWithJobEventArgs.Unit.AcceptNewJob(unitWithJobEventArgs.Job);
         }
         
-        private void HandleVillagerJobDeleted(IGameEventArgs args)
+        private void HandleUnitJobDeleted(IGameEventArgs args)
         {
-            if (args is not VillagerWithJobEventArgsAndDestinationtype villagerWithJobEventArgsAndDestinationtype) return;
-            
-            villagerWithJobEventArgsAndDestinationtype.Villager.UnAssignVillagerJob(villagerWithJobEventArgsAndDestinationtype.DestinationType);
-        }
-        
-        private void HandleBuilderJobDeleted(IGameEventArgs args)
-        {
-            if (args is not BuilderWithJobEventArgs builderWithJobEventArgs) return;
-            
-            builderWithJobEventArgs.Builder.UnAssignBuilderJob();
+            if (args is not UnitWithJobEventArgsAndDestinationType unitWithJobEventArgsAndDestinationType) return;
+            if (unitWithJobEventArgsAndDestinationType.Unit is Builder builder)
+            {
+                builder.UnAssignBuilderJob();
+            }
+            if (unitWithJobEventArgsAndDestinationType.Unit is Villager villager)
+            {
+                villager.UnAssignVillagerJob(unitWithJobEventArgsAndDestinationType.DestinationType.GetValueOrDefault());
+            }
         }
         
         public void HandleClick(ISelectable selectable)

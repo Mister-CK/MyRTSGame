@@ -8,8 +8,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
-        [SerializeField] private GameEvent onVillagerJobDeleted;
-        [SerializeField] private GameEvent onBuilderJobDeleted;
+        [SerializeField] private GameEvent onUnitJobDeleted;
         [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onAssignJob;
@@ -157,7 +156,7 @@ namespace MyRTSGame.Model
                 villagerJobQueue.RemoveJob(villagerJob);
                 Debug.Log("Delete Villager Job in progress");
                 if (!villagerJob.IsInProgress()) continue;
-                onVillagerJobDeleted.Raise(new VillagerWithJobEventArgsAndDestinationtype(villagerJob.Villager,
+                onUnitJobDeleted.Raise(new UnitWithJobEventArgsAndDestinationType(villagerJob.Unit, 
                     villagerJob, jobListEventArgs.DestinationType));
             }
         }
@@ -169,51 +168,28 @@ namespace MyRTSGame.Model
             foreach (var builderJob in jobListEventArgs.BuilderJobs)
             {
                 builderJobQueue.RemoveJob(builderJob);
-                onBuilderJobDeleted.Raise(new BuilderWithJobEventArgs(builderJob.Builder, builderJob));
+                onUnitJobDeleted.Raise(new UnitWithJobEventArgsAndDestinationType(builderJob.Unit, builderJob, null));
             }
         }
 
         private void HandleUnitJobRequest(IGameEventArgs args)
         {
             if (args is not UnitWithJobTypeEventArgs unitWithJobTypeEventArgs) return;
-            switch (unitWithJobTypeEventArgs.JobType)
+            Job newJob = unitWithJobTypeEventArgs.JobType switch
             {
-                case JobType.BuilderJob:
-                    var builderJob = builderJobQueue.GetNextJob();
-                    if (builderJob == null)           
-                    {
-                        onJobRequestDenied.Raise(new UnitEventArgs(unitWithJobTypeEventArgs.Unit));
-                        return;
-                    }
-                    builderJob.Builder = unitWithJobTypeEventArgs.Unit as Builder;
-                    builderJob.SetInProgress(true);
-                    onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, builderJob));
-                    return;
-                case JobType.VillagerJob:
-                    var villagerJob = villagerJobQueue.GetNextJob();
-                    if (villagerJob == null)          
-                    {
-                        onJobRequestDenied.Raise(new UnitEventArgs(unitWithJobTypeEventArgs.Unit));
-                        return;
-                    }
-                    villagerJob.Villager = unitWithJobTypeEventArgs.Unit as Villager;
-                    villagerJob.SetInProgress(true);
-                    onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, villagerJob));
-                    return;
-                case JobType.ConsumptionJob:
-                    var consumptionJob = consumptionJobQueue.GetNextJob();
-                    if (consumptionJob == null)
-                    {
-                        onJobRequestDenied.Raise(new UnitEventArgs(unitWithJobTypeEventArgs.Unit));
-                        return;
-                    }
-                    consumptionJob.Unit = unitWithJobTypeEventArgs.Unit;
-                    consumptionJob.SetInProgress(true);
-                    onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, consumptionJob));
-                    return;
-                default:
-                    throw new ArgumentException("JobType not recognized in HandleUnitJobRequest");
+                JobType.BuilderJob => builderJobQueue.GetNextJob(),
+                JobType.VillagerJob => villagerJobQueue.GetNextJob(),
+                JobType.ConsumptionJob => consumptionJobQueue.GetNextJob(),
+                _ => throw new ArgumentException("JobType not recognized in HandleUnitJobRequest")
+            };
+            if (newJob == null)           
+            {
+                onJobRequestDenied.Raise(new UnitEventArgs(unitWithJobTypeEventArgs.Unit));
+                return;
             }
+            newJob.Unit = unitWithJobTypeEventArgs.Unit;
+            newJob.SetInProgress(true);
+            onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, newJob));
         }
         
     }

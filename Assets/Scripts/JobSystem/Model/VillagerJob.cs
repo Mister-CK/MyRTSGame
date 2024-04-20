@@ -6,6 +6,5 @@ namespace MyRTSGame.Model
     {
         public Building Origin { get; set; }
         public ResourceType ResourceType { get; set; }
-        public Villager Villager;
     }
 }

@@ -50,11 +50,9 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Units/View/BuilderView.cs" />
     <Compile Include="Assets/Scripts/Units/Controller/UnitController.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Unit.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerWithJobEventArgsAndDestinationType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/VillagerJobQueue.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/UIController.cs" />
     <Compile Include="Assets/Scripts/UI/Components/UIDeleteButton.cs" />
@@ -145,6 +143,7 @@
     <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Bakery.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

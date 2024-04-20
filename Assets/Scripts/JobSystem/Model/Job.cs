@@ -6,7 +6,7 @@ namespace MyRTSGame.Model
     {
         private bool _inProgress;
         public Building Destination { get; set; }
-
+        public Unit Unit;
 
         public bool IsInProgress()
         {
