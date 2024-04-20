@@ -20,8 +20,9 @@ namespace MyRTSGame.Model
             building.Capacity = building.capacityForCompletedBuilding;
             var completedObject = _buildingManager.CompletedObjects[_buildingType];
             building.SetObject(completedObject);
-            building.BCollider.size = completedObject.transform.localScale;
-            building.BCollider.center = completedObject.transform.localScale / 2;
+            var localScale = completedObject.transform.localScale;
+            building.BCollider.size = localScale;
+            building.BCollider.center = localScale / 2;
 
             building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
             building.Inventory = Building.InitInventory(building.InputTypesWhenCompleted.Concat(building.OutputTypesWhenCompleted).ToArray());;

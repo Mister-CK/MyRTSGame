@@ -19,8 +19,9 @@ namespace MyRTSGame.Model
             building.Capacity = building.resourceCountNeededForConstruction;
             var foundation = _buildingManager.FoundationObjects[_buildingType];
             building.SetObject(foundation);
-            building.BCollider.size = foundation.transform.localScale;
-            building.BCollider.center = foundation.transform.localScale / 2;
+            var localScale = foundation.transform.localScale;
+            building.BCollider.size = localScale;
+            building.BCollider.center = localScale / 2;
             building.InputTypes = new[] { ResourceType.Wood, ResourceType.Stone };
             building.Inventory = Building.InitInventory(building.InputTypes);
 

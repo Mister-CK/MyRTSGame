@@ -28,13 +28,15 @@ namespace MyRTSGame.Model
 
         public void CheckOverlap(Building building)
         {
+            var transform = building.transform;
             var boxSize = building.BCollider.size + new Vector3(2,2,2); // Guarantee a gap of 2 between buildings
-            var boxCenter = building.transform.position + building.BCollider.center;
-            var colliders = Physics.OverlapBox(boxCenter, boxSize / 2, building.transform.rotation);
+            var boxCenter = transform.position + building.BCollider.center;
+            var results = new Collider[16]; // Pre-allocated array assuming we won't ever have more than 16 colliders
+            var numColliders = Physics.OverlapBoxNonAlloc(boxCenter, boxSize / 2, results, transform.rotation);
 
             if (building.Material != null)
                 building.Material.color =
-                    colliders.Length > 2
+                    numColliders > 2
                         ? Color.red
                         : Color.green; // 2 because the building itself and the ground are also included
             else
