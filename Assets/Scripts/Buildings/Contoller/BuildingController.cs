@@ -11,8 +11,7 @@ namespace MyRTSGame.Model
 
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
-        [SerializeField] private GameEvent onNewVillagerJobNeeded;
-        [SerializeField] private GameEvent onNewBuilderJobNeeded;
+        [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onAddProductionJobEvent;
         [SerializeField] private GameEvent onRemoveProductionJobEvent;
         [SerializeField] private GameEvent onAddTrainingJobEvent;
@@ -24,7 +23,6 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
         [SerializeField] private GameEvent onNewBuilderJobCreated;
-        [SerializeField] private GameEvent onNewConsumptionJobNeeded;
         [SerializeField] private GameEvent onNewConsumptionJobCreated;
         public static BuildingController Instance { get; private set; }
 
@@ -84,19 +82,9 @@ namespace MyRTSGame.Model
             }
         }
         
-        public void CreateVillagerJobNeededEvent(Building building, ResourceType resourceType)
+        public void CreateJobNeededEvent(JobType jobType, Building destination, Building origin, ResourceType? resourceType)
         {
-            onNewVillagerJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resourceType));
-        }
-        
-        public void CreateNewBuilderJobNeededEvent(Building building)
-        {
-            onNewBuilderJobNeeded.Raise(new BuildingEventArgs(building));
-        }
-        
-        public void CreateConsumptionJobNeededEvent(Building building, ResourceType resourceType)
-        {
-            onNewConsumptionJobNeeded.Raise(new BuildingResourceTypeEventArgs(building, resourceType));
+            onNewJobNeeded.Raise(new CreateNewJobEventArgs(jobType, destination, origin, resourceType));
         }
         
         public void CreateNewUnitEvent(TrainingBuilding trainingBuilding, UnitType unitType)
@@ -170,8 +158,6 @@ namespace MyRTSGame.Model
             
             eventArgs.ConsumptionJob.Destination.AddConsumptionJobForThisBuilding(eventArgs.ConsumptionJob);
         }
-        
-
 
         public void CreateDeleteJobsForBuildingEvent(List<VillagerJob> villagerJobsFromThisBuilding, List<VillagerJob> villagerJobsToThisBuilding, List <BuilderJob> builderJobsForThisBuilding)
         {

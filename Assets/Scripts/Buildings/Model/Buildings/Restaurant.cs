@@ -23,7 +23,7 @@ namespace MyRTSGame.Model
             {
                 return;
             }
-            buildingController.CreateConsumptionJobNeededEvent(this, resourceType);
+            buildingController.CreateJobNeededEvent(JobType.ConsumptionJob, this, null, resourceType);
         }
     }
 }

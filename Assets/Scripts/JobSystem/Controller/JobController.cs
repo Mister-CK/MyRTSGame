@@ -6,19 +6,22 @@ namespace MyRTSGame.Model
     public class JobController :  MonoBehaviour
     {
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
-        [SerializeField] private GameEvent onNewBuilderJobNeeded;
-        [SerializeField] private GameEvent onNewVillagerJobNeeded;
+        
         [SerializeField] private GameEvent onNewVillagerJobCreated;
-        [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
-        [SerializeField] private GameEvent onAssignJob;
-        [SerializeField] private GameEvent onVillagerJobDeleted;
-        [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
-        [SerializeField] private GameEvent onBuilderJobDeleted;
         [SerializeField] private GameEvent onNewBuilderJobCreated;
-        [SerializeField] private GameEvent onRequestUnitJob;
-        [SerializeField] private GameEvent onRequestConsumptionJob;
-        [SerializeField] private GameEvent onNewConsumptionJobNeeded;
         [SerializeField] private GameEvent onNewConsumptionJobCreated;
+
+        [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
+        [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
+        
+        [SerializeField] private GameEvent onVillagerJobDeleted;
+        [SerializeField] private GameEvent onBuilderJobDeleted;
+        
+        [SerializeField] private GameEvent onRequestConsumptionJob;
+        
+        [SerializeField] private GameEvent onNewJobNeeded;
+        [SerializeField] private GameEvent onAssignJob;
+        [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onJobRequestDenied;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
@@ -29,9 +32,7 @@ namespace MyRTSGame.Model
         
         private void OnEnable()
         {
-            onNewBuilderJobNeeded.RegisterListener(HandleNewBuilderJobNeeded);
-            onNewVillagerJobNeeded.RegisterListener(HandleNewVillagerJobNeeded);
-            onNewConsumptionJobNeeded.RegisterListener(HandleNewConsumptionJobNeeded);
+            onNewJobNeeded.RegisterListener(HandleNewJobNeeded);
             onCreateJobsForWarehouse.RegisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.RegisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.RegisterListener(HandleDeleteBuilderJobsEvent);
@@ -41,9 +42,7 @@ namespace MyRTSGame.Model
 
         private void OnDisable()
         {
-            onNewBuilderJobNeeded.UnregisterListener(HandleNewBuilderJobNeeded);
-            onNewVillagerJobNeeded.UnregisterListener(HandleNewVillagerJobNeeded);
-            onNewConsumptionJobNeeded.UnregisterListener(HandleNewConsumptionJobNeeded);
+            onNewJobNeeded.UnregisterListener(HandleNewJobNeeded);
             onCreateJobsForWarehouse.UnregisterListener(CreateJobsForBuilding);
             onDeleteVillagerJobsEvent.UnregisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.UnregisterListener(HandleDeleteBuilderJobsEvent);
@@ -118,31 +117,44 @@ namespace MyRTSGame.Model
             }
         }
         
-        private void HandleNewBuilderJobNeeded(IGameEventArgs args)
+        private void HandleNewJobNeeded(IGameEventArgs args)
         {
-            if (args is not BuildingEventArgs buildingEventArgs) return;
-            
-            var builderJob = new BuilderJob() { Destination = buildingEventArgs.Building };
+            if (args is not CreateNewJobEventArgs createNewJobEventArgs) return;
+            switch (createNewJobEventArgs.JobType) {
+                case JobType.BuilderJob:
+                    CreateBuilderJob(createNewJobEventArgs);
+                    return;
+                case JobType.VillagerJob:
+                    CreateVillagerJob(createNewJobEventArgs);
+                    return;
+                case JobType.ConsumptionJob:
+                    CreateConsumptionJob(createNewJobEventArgs);
+                    return;
+                default:
+                    throw new ArgumentException("invalid JobType provided to HandleNewBuilderJobNeeded");
+            }
+
+        }
+        
+        private void CreateBuilderJob(CreateNewJobEventArgs createNewJobEventArgs)
+        {
+            var builderJob = new BuilderJob() { Destination = createNewJobEventArgs.Destination };
             builderJobQueue.AddJob(builderJob);
             onNewBuilderJobCreated.Raise(new BuilderJobEventArgs(builderJob));
         }
         
-        private void HandleNewVillagerJobNeeded(IGameEventArgs args)
+        private void CreateVillagerJob(CreateNewJobEventArgs createNewJobEventArgs)
         {
-            if (args is not BuildingResourceTypeEventArgs buildingResourceTypeEventArgs) return;
-            
-            var villagerJob = new VillagerJob { Origin = buildingResourceTypeEventArgs.Building, ResourceType = buildingResourceTypeEventArgs.ResourceType};
+            var villagerJob = new VillagerJob { Origin = createNewJobEventArgs.Origin, ResourceType = createNewJobEventArgs.ResourceType.GetValueOrDefault()};
             villagerJob.Destination = FindDestinationForJob(villagerJob);
             villagerJob.SetInProgress(false);
             villagerJobQueue.AddJob(villagerJob);
             onNewVillagerJobCreated.Raise(new VillagerJobEventArgs(villagerJob));
         }
         
-        private void HandleNewConsumptionJobNeeded(IGameEventArgs args)
+        private void CreateConsumptionJob(CreateNewJobEventArgs createNewJobEventArgs)
         {
-            if (args is not BuildingResourceTypeEventArgs buildingResourceTypeEventArgs) return;
-            
-            var consumptionJob = new ConsumptionJob() { Destination = buildingResourceTypeEventArgs.Building, ResourceType = buildingResourceTypeEventArgs.ResourceType};
+            var consumptionJob = new ConsumptionJob() { Destination = createNewJobEventArgs.Destination, ResourceType = createNewJobEventArgs.ResourceType.GetValueOrDefault()};
             consumptionJobQueue.AddJob(consumptionJob);
             onNewConsumptionJobCreated.Raise(new ConsumptionJobEventArgs(consumptionJob));
         }

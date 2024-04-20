@@ -79,7 +79,7 @@ namespace MyRTSGame.Model
 
             if (State is CompletedState) StartResourceCreationCoroutine();
             
-            if (State is ConstructionState) buildingController.CreateNewBuilderJobNeededEvent(this);
+            if (State is ConstructionState) buildingController.CreateJobNeededEvent(JobType.BuilderJob, this, null, null);
         }
         
         public IBuildingState GetState()

@@ -9,11 +9,11 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
-        [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onVillagerJobDeleted; 
-        [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onBuilderJobDeleted;
+        [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onRequestConsumptionJob;
+        [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
