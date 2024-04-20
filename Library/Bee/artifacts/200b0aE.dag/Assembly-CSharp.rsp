@@ -420,6 +420,7 @@
 "Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs"
+"Assets/Scripts/GameEvents/EventArgs/UnitWithJobTypeEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/VillagerWithJobEventArgsAndDestinationType.cs"
 "Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs"

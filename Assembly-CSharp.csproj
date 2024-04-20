@@ -95,6 +95,7 @@
     <Compile Include="Assets/Scripts/JobSystem/Model/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/InventoryData.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobTypeEventArgs.cs" />
     <Compile Include="Assets/Scripts/Camera.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConstructionStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs" />

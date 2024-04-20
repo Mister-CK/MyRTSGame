@@ -10,7 +10,6 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
         [SerializeField] private GameEvent onVillagerJobDeleted;
         [SerializeField] private GameEvent onBuilderJobDeleted;
-        [SerializeField] private GameEvent onRequestConsumptionJob;
         [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onAssignJob;
@@ -29,7 +28,6 @@ namespace MyRTSGame.Model
             onDeleteVillagerJobsEvent.RegisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.RegisterListener(HandleDeleteBuilderJobsEvent);
             onRequestUnitJob.RegisterListener(HandleUnitJobRequest);
-            onRequestConsumptionJob.RegisterListener(HandleConsumptionJobRequest);
         }
 
         private void OnDisable()
@@ -39,7 +37,6 @@ namespace MyRTSGame.Model
             onDeleteVillagerJobsEvent.UnregisterListener(HandleDeleteVillagerJobsEvent);
             onDeleteBuilderJobsEvent.UnregisterListener(HandleDeleteBuilderJobsEvent);
             onRequestUnitJob.UnregisterListener(HandleUnitJobRequest);
-            onRequestConsumptionJob.UnregisterListener(HandleConsumptionJobRequest);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -178,48 +175,46 @@ namespace MyRTSGame.Model
 
         private void HandleUnitJobRequest(IGameEventArgs args)
         {
-            if (args is not UnitEventArgs unitEventArgs) return;
-            if (unitEventArgs.Unit is Builder builder)
+            if (args is not UnitWithJobTypeEventArgs unitWithJobTypeEventArgs) return;
+            switch (unitWithJobTypeEventArgs.JobType)
             {
-                var builderJob = builderJobQueue.GetNextJob();
-                if (builderJob == null)           
-                {
-                    onJobRequestDenied.Raise(new UnitEventArgs(unitEventArgs.Unit));
+                case JobType.BuilderJob:
+                    var builderJob = builderJobQueue.GetNextJob();
+                    if (builderJob == null)           
+                    {
+                        onJobRequestDenied.Raise(new UnitEventArgs(unitWithJobTypeEventArgs.Unit));
+                        return;
+                    }
+                    builderJob.Builder = unitWithJobTypeEventArgs.Unit as Builder;
+                    builderJob.SetInProgress(true);
+                    onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, builderJob));
                     return;
-                }
-                builderJob.Builder = builder;
-                builderJob.SetInProgress(true);
-                onAssignJob.Raise(new UnitWithJobEventArgs(builder, builderJob));
-                return;
-            }
-            if (unitEventArgs.Unit is Villager villager)
-            {
-                var villagerJob = villagerJobQueue.GetNextJob();
-                if (villagerJob == null)          
-                {
-                    onJobRequestDenied.Raise(new UnitEventArgs(unitEventArgs.Unit));
+                case JobType.VillagerJob:
+                    var villagerJob = villagerJobQueue.GetNextJob();
+                    if (villagerJob == null)          
+                    {
+                        onJobRequestDenied.Raise(new UnitEventArgs(unitWithJobTypeEventArgs.Unit));
+                        return;
+                    }
+                    villagerJob.Villager = unitWithJobTypeEventArgs.Unit as Villager;
+                    villagerJob.SetInProgress(true);
+                    onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, villagerJob));
                     return;
-                }
-                villagerJob.Villager = villager;
-                villagerJob.SetInProgress(true);
-                onAssignJob.Raise(new UnitWithJobEventArgs(villager, villagerJob));
-                return;
+                case JobType.ConsumptionJob:
+                    var consumptionJob = consumptionJobQueue.GetNextJob();
+                    if (consumptionJob == null)
+                    {
+                        onJobRequestDenied.Raise(new UnitEventArgs(unitWithJobTypeEventArgs.Unit));
+                        return;
+                    }
+                    consumptionJob.Unit = unitWithJobTypeEventArgs.Unit;
+                    consumptionJob.SetInProgress(true);
+                    onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, consumptionJob));
+                    return;
+                default:
+                    throw new ArgumentException("JobType not recognized in HandleUnitJobRequest");
             }
         }
         
-        private void HandleConsumptionJobRequest(IGameEventArgs args)
-        {
-            if (args is not UnitEventArgs unitEventArgs) return;
-            
-            var consumptionJob = consumptionJobQueue.GetNextJob();
-            if (consumptionJob == null)
-            {
-                onJobRequestDenied.Raise(new UnitEventArgs(unitEventArgs.Unit));
-                return;
-            }
-            consumptionJob.Unit = unitEventArgs.Unit;
-            consumptionJob.SetInProgress(true);
-            onAssignJob.Raise(new UnitWithJobEventArgs(unitEventArgs.Unit, consumptionJob));
-        }
     }
 }

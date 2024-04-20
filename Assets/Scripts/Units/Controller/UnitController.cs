@@ -12,7 +12,6 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onVillagerJobDeleted; 
         [SerializeField] private GameEvent onBuilderJobDeleted;
         [SerializeField] private GameEvent onRequestUnitJob;
-        [SerializeField] private GameEvent onRequestConsumptionJob;
         [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private Villager villagerPrefab;
@@ -106,16 +105,10 @@ namespace MyRTSGame.Model
                 quantity));
         }
 
-        public void CreateUnitJobRequest(Unit unit)
+        public void CreateUnitJobRequest(Unit unit, JobType jobType)
         {
             unit.SetPendingJobRequest(true);
-            onRequestUnitJob.Raise(new UnitEventArgs(unit));
-        }
-
-        public void CreateConsumptionJobRequest(Unit unit)
-        {
-            unit.SetPendingJobRequest(true);
-            onRequestConsumptionJob.Raise(new UnitEventArgs(unit));
+            onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, jobType));
         }
         
         private void HandleJobRequestDenied(IGameEventArgs args)

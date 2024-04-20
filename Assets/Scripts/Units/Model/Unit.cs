@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -99,7 +100,7 @@ namespace MyRTSGame.Model
             if (_hasPendingJobRequest) return;
             if (_stamina < 30 && !_hasRequestedConsumptionJob)
             {
-                unitController.CreateConsumptionJobRequest(this);
+                unitController.CreateUnitJobRequest(this, JobType.ConsumptionJob);
                 _hasRequestedConsumptionJob = true;
                 return;
             }
@@ -108,7 +109,14 @@ namespace MyRTSGame.Model
         }        
         private void RequestNewJob()
         {
-            unitController.CreateUnitJobRequest(this);
+            var jobType = this switch
+            {
+                Builder => JobType.BuilderJob,
+                Villager => JobType.VillagerJob,
+                _ => throw new ArgumentException("unit type not recognized in RequestNewJob")
+            };
+
+            unitController.CreateUnitJobRequest(this, jobType);
         }
 
         public void AcceptNewJob(Job job)
