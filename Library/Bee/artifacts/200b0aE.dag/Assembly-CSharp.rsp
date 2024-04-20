@@ -405,6 +405,7 @@
 "Assets/Scripts/Camera.cs"
 "Assets/Scripts/Enums/BuildingType.cs"
 "Assets/Scripts/Enums/DestinationType.cs"
+"Assets/Scripts/Enums/JobType.cs"
 "Assets/Scripts/Enums/PanelType.cs"
 "Assets/Scripts/Enums/ResourceType.cs"
 "Assets/Scripts/Enums/UnitType.cs"

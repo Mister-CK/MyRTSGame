@@ -9,13 +9,11 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromBuilding;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
-        [SerializeField] private GameEvent onVillagerJobAssigned;
+        [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onVillagerJobDeleted; 
         [SerializeField] private GameEvent onRequestUnitJob;
-        [SerializeField] private GameEvent onBuilderJobAssigned;
         [SerializeField] private GameEvent onBuilderJobDeleted;
         [SerializeField] private GameEvent onRequestConsumptionJob;
-        [SerializeField] private GameEvent onConsumptionJobAssigned;
         [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
@@ -36,23 +34,19 @@ namespace MyRTSGame.Model
         
         private void OnEnable()
         {
+            onAssignJob.RegisterListener(HandleJobAssigned);
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
-            onVillagerJobAssigned.RegisterListener(HandleVillagerJobAssigned);
             onVillagerJobDeleted.RegisterListener(HandleVillagerJobDeleted);
-            onBuilderJobAssigned.RegisterListener(HandleBuilderJobAssigned);
             onBuilderJobDeleted.RegisterListener(HandleBuilderJobDeleted);
-            onConsumptionJobAssigned.RegisterListener(HandleConsumptionJobAssigned);
             onJobRequestDenied.RegisterListener(HandleJobRequestDenied);
         }
 
         private void OnDisable()
         {
+            onAssignJob.UnregisterListener(HandleJobAssigned);
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
-            onVillagerJobAssigned.UnregisterListener(HandleVillagerJobAssigned);
             onVillagerJobDeleted.UnregisterListener(HandleVillagerJobDeleted);
-            onBuilderJobAssigned.UnregisterListener(HandleBuilderJobAssigned);
             onBuilderJobDeleted.UnregisterListener(HandleBuilderJobDeleted);
-            onConsumptionJobAssigned.UnregisterListener(HandleConsumptionJobAssigned);
             onJobRequestDenied.UnregisterListener(HandleJobRequestDenied);
         }
         
@@ -74,26 +68,11 @@ namespace MyRTSGame.Model
                     throw new ArgumentOutOfRangeException(trainingBuildingUnitTypeEventArgs.UnitType.ToString());
             }
         }
-
-        private void HandleVillagerJobAssigned(IGameEventArgs args)
-        {
-            if (args is not VillagerWithJobEventArgs villagerWithJobEventArgs) return;
-            
-            villagerWithJobEventArgs.Villager.AcceptNewJob(villagerWithJobEventArgs.VillagerJob);
-        }
         
-        private void HandleBuilderJobAssigned(IGameEventArgs args)
-        {
-            if (args is not BuilderWithJobEventArgs builderWithJobEventArgs) return;
-            
-            builderWithJobEventArgs.Builder.AcceptNewJob(builderWithJobEventArgs.BuilderJob);
-        }
-        
-        private void HandleConsumptionJobAssigned(IGameEventArgs args)
+        private void HandleJobAssigned(IGameEventArgs args)
         {
             if (args is not UnitWithJobEventArgs unitWithJobEventArgs) return;
-            
-            unitWithJobEventArgs.Unit.AcceptNewJob(unitWithJobEventArgs.ConsumptionJob);
+            unitWithJobEventArgs.Unit.AcceptNewJob(unitWithJobEventArgs.Job);
         }
         
         private void HandleVillagerJobDeleted(IGameEventArgs args)

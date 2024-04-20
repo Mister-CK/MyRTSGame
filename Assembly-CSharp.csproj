@@ -148,6 +148,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorWorkshop.cs" />
     <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
+    <Compile Include="Assets/Scripts/Enums/JobType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Bakery.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs" />

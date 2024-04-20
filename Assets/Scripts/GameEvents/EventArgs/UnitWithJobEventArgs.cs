@@ -4,12 +4,12 @@ using MyRTSGame.Model;
 public class UnitWithJobEventArgs : EventArgs, IGameEventArgs
 {
     public Unit Unit { get; }
-    public ConsumptionJob ConsumptionJob { get; }
+    public Job Job { get; }
 
 
-    public UnitWithJobEventArgs(Unit unit, ConsumptionJob consumptionJob)
+    public UnitWithJobEventArgs(Unit unit, Job job)
     {
         Unit = unit;
-        ConsumptionJob = consumptionJob;
+        Job = job;
     }
 }

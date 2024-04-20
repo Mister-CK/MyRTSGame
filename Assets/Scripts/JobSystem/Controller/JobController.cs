@@ -10,16 +10,14 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewVillagerJobNeeded;
         [SerializeField] private GameEvent onNewVillagerJobCreated;
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
-        [SerializeField] private GameEvent onAssignVillagerJob;
+        [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onVillagerJobDeleted;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
-        [SerializeField] private GameEvent onBuilderJobAssigned;
         [SerializeField] private GameEvent onBuilderJobDeleted;
         [SerializeField] private GameEvent onNewBuilderJobCreated;
         [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onRequestConsumptionJob;
         [SerializeField] private GameEvent onNewConsumptionJobNeeded;
-        [SerializeField] private GameEvent onAssignConsumptionJob;
         [SerializeField] private GameEvent onNewConsumptionJobCreated;
         [SerializeField] private GameEvent onJobRequestDenied;
         
@@ -185,7 +183,7 @@ namespace MyRTSGame.Model
                     return;
                 }
                 builderJob.Builder = builder;
-                onBuilderJobAssigned.Raise(new BuilderWithJobEventArgs(builder, builderJob));
+                onAssignJob.Raise(new UnitWithJobEventArgs(builder, builderJob));
                 return;
             }
             if (unitEventArgs.Unit is Villager villager)
@@ -197,7 +195,7 @@ namespace MyRTSGame.Model
                     return;
                 }
                 villagerJob.Villager = villager;
-                onAssignVillagerJob.Raise(new VillagerWithJobEventArgs(villager, villagerJob));
+                onAssignJob.Raise(new UnitWithJobEventArgs(villager, villagerJob));
                 return;
             }
         }
@@ -213,7 +211,7 @@ namespace MyRTSGame.Model
                 return;
             }
             consumptionJob.Unit = unitEventArgs.Unit;
-            onAssignConsumptionJob.Raise(new UnitWithJobEventArgs(unitEventArgs.Unit, consumptionJob));
+            onAssignJob.Raise(new UnitWithJobEventArgs(unitEventArgs.Unit, consumptionJob));
         }
     }
 }
