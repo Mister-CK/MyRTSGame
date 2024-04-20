@@ -19,11 +19,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewUnitEvent;
         [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
         [SerializeField] private GameEvent onDeleteBuildingEvent; 
-        [SerializeField] private GameEvent onNewVillagerJobCreated;
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
-        [SerializeField] private GameEvent onNewBuilderJobCreated;
-        [SerializeField] private GameEvent onNewConsumptionJobCreated;
+        [SerializeField] private GameEvent onNewJobCreated;
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -47,9 +45,7 @@ namespace MyRTSGame.Model
             onAddTrainingJobEvent.RegisterListener(OnAddTrainingJob);
             onRemoveTrainingJobEvent.RegisterListener(OnRemoveTrainingJob);
             onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
-            onNewVillagerJobCreated.RegisterListener(HandleNewVillagerJobCreated);
-            onNewBuilderJobCreated.RegisterListener(HandleNewBuilderJobCreated);
-            onNewConsumptionJobCreated.RegisterListener(HandleNewConsumptionJobCreated);
+            onNewJobCreated.RegisterListener(HandleNewJobCreated);
         }
 
         private void OnDisable()
@@ -61,9 +57,7 @@ namespace MyRTSGame.Model
             onAddTrainingJobEvent.UnregisterListener(OnAddTrainingJob);
             onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
             onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
-            onNewVillagerJobCreated.UnregisterListener(HandleNewVillagerJobCreated);
-            onNewBuilderJobCreated.UnregisterListener(HandleNewBuilderJobCreated);
-            onNewConsumptionJobCreated.UnregisterListener(HandleNewConsumptionJobCreated);
+            onNewJobCreated.RegisterListener(HandleNewJobCreated);
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -97,7 +91,7 @@ namespace MyRTSGame.Model
             onUpdateUIViewForBuildingEvent.Raise(new BuildingEventArgs(building));
         }
         
-        private void OnAddProductionJob(IGameEventArgs args)
+        private static void OnAddProductionJob(IGameEventArgs args)
         {
             if (args is WorkshopBuildingBuildingResourceTypeEventArgs eventArgs)
             {
@@ -105,7 +99,7 @@ namespace MyRTSGame.Model
             }
         }
         
-        private void OnRemoveProductionJob(IGameEventArgs args)
+        private static void OnRemoveProductionJob(IGameEventArgs args)
         {
             if (args is WorkshopBuildingBuildingResourceTypeEventArgs eventArgs)
             {
@@ -113,7 +107,7 @@ namespace MyRTSGame.Model
             }
         }
         
-        private void OnAddTrainingJob(IGameEventArgs args)
+        private static void OnAddTrainingJob(IGameEventArgs args)
         {
             if (args is TrainingBuildingBuildingResourceTypeEventArgs eventArgs)
             {
@@ -121,7 +115,7 @@ namespace MyRTSGame.Model
             }
         }
         
-        private void OnRemoveTrainingJob(IGameEventArgs args)
+        private static void OnRemoveTrainingJob(IGameEventArgs args)
         {
             if (args is TrainingBuildingBuildingResourceTypeEventArgs eventArgs)
             {
@@ -129,7 +123,7 @@ namespace MyRTSGame.Model
             }
         }
 
-        private void HandleDeleteBuildingEvent(IGameEventArgs args)
+        private static void HandleDeleteBuildingEvent(IGameEventArgs args)
         {
             if (args is BuildingEventArgs eventArgs)
             {
@@ -137,26 +131,22 @@ namespace MyRTSGame.Model
             }
         }
 
-        private void HandleNewVillagerJobCreated(IGameEventArgs args)
+        private static void HandleNewJobCreated(IGameEventArgs args)
         {
-            if (args is not VillagerJobEventArgs eventArgs) return;
-            
-            eventArgs.VillagerJob.Origin.AddVillagerJobFromThisBuilding(eventArgs.VillagerJob);
-            eventArgs.VillagerJob.Destination.AddVillagerJobToThisBuilding(eventArgs.VillagerJob);
-        }
-        
-        private void HandleNewBuilderJobCreated(IGameEventArgs args)
-        {
-            if (args is not BuilderJobEventArgs eventArgs) return;
-            
-            eventArgs.BuilderJob.Destination.AddBuilderJobFromThisBuilding(eventArgs.BuilderJob);
-        }
-        
-        private void HandleNewConsumptionJobCreated(IGameEventArgs args)
-        {
-            if (args is not ConsumptionJobEventArgs eventArgs) return;
-            
-            eventArgs.ConsumptionJob.Destination.AddConsumptionJobForThisBuilding(eventArgs.ConsumptionJob);
+            if (args is not JobEventArgs eventArgs) return;
+            switch (eventArgs.Job)
+            {
+                case VillagerJob villagerJob:
+                    villagerJob.Origin.AddVillagerJobFromThisBuilding(villagerJob);
+                    villagerJob.Destination.AddVillagerJobToThisBuilding(villagerJob);
+                    return;
+                case BuilderJob builderJob:
+                    builderJob.Destination.AddBuilderJobFromThisBuilding(builderJob);
+                    return;
+                case ConsumptionJob consumptionJob:
+                    consumptionJob.Destination.AddConsumptionJobForThisBuilding(consumptionJob);
+                    return;
+            }
         }
 
         public void CreateDeleteJobsForBuildingEvent(List<VillagerJob> villagerJobsFromThisBuilding, List<VillagerJob> villagerJobsToThisBuilding, List <BuilderJob> builderJobsForThisBuilding)

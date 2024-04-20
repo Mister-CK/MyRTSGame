@@ -7,10 +7,7 @@ namespace MyRTSGame.Model
     {
         [SerializeField] private GameEvent onCreateJobsForWarehouse;
         
-        [SerializeField] private GameEvent onNewVillagerJobCreated;
-        [SerializeField] private GameEvent onNewBuilderJobCreated;
-        [SerializeField] private GameEvent onNewConsumptionJobCreated;
-
+        
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
         
@@ -19,6 +16,7 @@ namespace MyRTSGame.Model
         
         [SerializeField] private GameEvent onRequestConsumptionJob;
         
+        [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onRequestUnitJob;
@@ -110,7 +108,7 @@ namespace MyRTSGame.Model
 
                     job.Destination = destination;
                     job.SetInProgress(false);
-                    onNewVillagerJobCreated.Raise(new VillagerJobEventArgs(job));
+                    onNewJobCreated.Raise(new JobEventArgs(job));
                     villagerJobQueue.AddJob(job);
                     resourceCount--;
                 }
@@ -140,7 +138,7 @@ namespace MyRTSGame.Model
         {
             var builderJob = new BuilderJob() { Destination = createNewJobEventArgs.Destination };
             builderJobQueue.AddJob(builderJob);
-            onNewBuilderJobCreated.Raise(new BuilderJobEventArgs(builderJob));
+            onNewJobCreated.Raise(new JobEventArgs(builderJob));
         }
         
         private void CreateVillagerJob(CreateNewJobEventArgs createNewJobEventArgs)
@@ -149,14 +147,14 @@ namespace MyRTSGame.Model
             villagerJob.Destination = FindDestinationForJob(villagerJob);
             villagerJob.SetInProgress(false);
             villagerJobQueue.AddJob(villagerJob);
-            onNewVillagerJobCreated.Raise(new VillagerJobEventArgs(villagerJob));
+            onNewJobCreated.Raise(new JobEventArgs(villagerJob));
         }
         
         private void CreateConsumptionJob(CreateNewJobEventArgs createNewJobEventArgs)
         {
             var consumptionJob = new ConsumptionJob() { Destination = createNewJobEventArgs.Destination, ResourceType = createNewJobEventArgs.ResourceType.GetValueOrDefault()};
             consumptionJobQueue.AddJob(consumptionJob);
-            onNewConsumptionJobCreated.Raise(new ConsumptionJobEventArgs(consumptionJob));
+            onNewJobCreated.Raise(new JobEventArgs(consumptionJob));
         }
 
         private void HandleDeleteVillagerJobsEvent(IGameEventArgs args)
