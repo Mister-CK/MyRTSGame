@@ -20,15 +20,6 @@ namespace MyRTSGame.Model
             Destination.SetState(new CompletedState(Destination.BuildingType));
             HasDestination = false;
         }
-        
-        public void AcceptNewBuilderJob(Job job)
-        {
-            SetPendingJobRequest(false);
-            CurrentJob = job;
-            Destination = CurrentJob.Destination;
-            Agent.SetDestination(Destination.transform.position);
-            HasDestination = true;
-        }
 
         public void UnAssignBuilderJob()
         {

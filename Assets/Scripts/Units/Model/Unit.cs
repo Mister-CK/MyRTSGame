@@ -111,11 +111,12 @@ namespace MyRTSGame.Model
             unitController.CreateUnitJobRequest(this);
         }
 
-        public void AcceptNewConsumptionJob(ConsumptionJob consumptionJob)
+        public void AcceptNewJob(Job job)
         {
             SetPendingJobRequest(false);
-            CurrentJob = consumptionJob;
-            Destination = consumptionJob.Destination;
+            CurrentJob = job;
+            Destination = job.Destination;
+            if (job is VillagerJob villagerJob) Destination = villagerJob.Origin; //todo refactor villagerJob to use Destination instead of Origin for first building.
             Agent.SetDestination(Destination.transform.position);
             HasDestination = true;
         }

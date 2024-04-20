@@ -38,15 +38,6 @@ namespace MyRTSGame.Model
             unitController.AddResourceToBuilding(building, resourceType, 1);
         }
 
-        public void AcceptNewVillagerJob(VillagerJob villagerJob)
-        {
-            SetPendingJobRequest(false);
-            CurrentJob = villagerJob;
-            Destination = villagerJob.Origin;
-            Agent.SetDestination(Destination.transform.position);
-            HasDestination = true;
-        }
-
         public void UnAssignVillagerJob(DestinationType destinationType)
         {
             if (destinationType == DestinationType.Origin && _hasResource)

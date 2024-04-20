@@ -79,21 +79,21 @@ namespace MyRTSGame.Model
         {
             if (args is not VillagerWithJobEventArgs villagerWithJobEventArgs) return;
             
-            villagerWithJobEventArgs.Villager.AcceptNewVillagerJob(villagerWithJobEventArgs.VillagerJob);
+            villagerWithJobEventArgs.Villager.AcceptNewJob(villagerWithJobEventArgs.VillagerJob);
         }
         
         private void HandleBuilderJobAssigned(IGameEventArgs args)
         {
             if (args is not BuilderWithJobEventArgs builderWithJobEventArgs) return;
             
-            builderWithJobEventArgs.Builder.AcceptNewBuilderJob(builderWithJobEventArgs.BuilderJob);
+            builderWithJobEventArgs.Builder.AcceptNewJob(builderWithJobEventArgs.BuilderJob);
         }
         
         private void HandleConsumptionJobAssigned(IGameEventArgs args)
         {
             if (args is not UnitWithJobEventArgs unitWithJobEventArgs) return;
             
-            unitWithJobEventArgs.Unit.AcceptNewConsumptionJob(unitWithJobEventArgs.ConsumptionJob);
+            unitWithJobEventArgs.Unit.AcceptNewJob(unitWithJobEventArgs.ConsumptionJob);
         }
         
         private void HandleVillagerJobDeleted(IGameEventArgs args)
