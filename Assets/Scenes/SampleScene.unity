@@ -10361,6 +10361,10 @@ MonoBehaviour:
   onDeleteBuildingEvent: {fileID: 11400000, guid: 7555918c225f7461db7cc26fcd0da987, type: 2}
   onNewVillagerJobCreated: {fileID: 11400000, guid: e6f315feca07944c8988c7b7cbe9213e, type: 2}
   onDeleteVillagerJobsEvent: {fileID: 11400000, guid: 45b136c7956094796a594737ff7e2de3, type: 2}
+  onDeleteBuilderJobsEvent: {fileID: 11400000, guid: 53996197db9154684a34ee1e5d4bcb1b, type: 2}
+  onNewBuilderJobCreated: {fileID: 11400000, guid: 5cfcf31dcb0a6498e98f45e1d1ec2f48, type: 2}
+  onNewConsumptionJobNeeded: {fileID: 11400000, guid: 9a20490ee7b004c5385b95ac6aeceb51, type: 2}
+  onNewConsumptionJobCreated: {fileID: 11400000, guid: 5498ab6609c764fbabda40b5df956c54, type: 2}
 --- !u!4 &1219401900
 Transform:
   m_ObjectHideFlags: 0
@@ -10543,11 +10547,21 @@ MonoBehaviour:
   onNewVillagerJobNeeded: {fileID: 11400000, guid: bfb7baeb663ba447486a67e52bb1b19d, type: 2}
   onNewVillagerJobCreated: {fileID: 11400000, guid: e6f315feca07944c8988c7b7cbe9213e, type: 2}
   onDeleteVillagerJobsEvent: {fileID: 11400000, guid: 45b136c7956094796a594737ff7e2de3, type: 2}
-  onRequestVillagerJob: {fileID: 11400000, guid: ee209707f34704b9882d9682c7eb852a, type: 2}
   onAssignVillagerJob: {fileID: 11400000, guid: 0da7b13aaa6274061b05badf01ecbea8, type: 2}
   onVillagerJobDeleted: {fileID: 11400000, guid: 3b8718019ea3d4a898a28de087be0d28, type: 2}
+  onDeleteBuilderJobsEvent: {fileID: 11400000, guid: 53996197db9154684a34ee1e5d4bcb1b, type: 2}
+  onBuilderJobAssigned: {fileID: 11400000, guid: d12a91f57bd554b47b16da6331ad7920, type: 2}
+  onBuilderJobDeleted: {fileID: 11400000, guid: 82c2fba2f7b7a467d82d088007e8453c, type: 2}
+  onNewBuilderJobCreated: {fileID: 11400000, guid: 5cfcf31dcb0a6498e98f45e1d1ec2f48, type: 2}
+  onRequestUnitJob: {fileID: 11400000, guid: 1affaad6fc1ad4900b7655551677d076, type: 2}
+  onRequestConsumptionJob: {fileID: 11400000, guid: 6227ae2c6691347e6bbe86b1f044c424, type: 2}
+  onNewConsumptionJobNeeded: {fileID: 11400000, guid: 9a20490ee7b004c5385b95ac6aeceb51, type: 2}
+  onAssignConsumptionJob: {fileID: 11400000, guid: 5c4f81a1e33ee484bb50e65ced623424, type: 2}
+  onNewConsumptionJobCreated: {fileID: 11400000, guid: 5498ab6609c764fbabda40b5df956c54, type: 2}
+  onJobRequestDenied: {fileID: 11400000, guid: 472176f32dd6a4ab19a4b8b9473d58fe, type: 2}
   builderJobQueue: {fileID: 11400000, guid: 8a95e7069ad5545aeb5d4883b074f7e3, type: 2}
   villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
+  consumptionJobQueue: {fileID: 11400000, guid: e876de4be1a014d40b08826f4a8c6f7f, type: 2}
 --- !u!4 &1266247124
 Transform:
   m_ObjectHideFlags: 0
@@ -11150,11 +11164,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceKeys.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceValues.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceKeys.Array.data[1]
@@ -11163,6 +11177,18 @@ PrefabInstance:
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceKeys.Array.data[2]
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceKeys.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceKeys.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceKeys.Array.data[5]
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceValues.Array.data[0]
@@ -11174,6 +11200,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
       propertyPath: startingResourceValues.Array.data[2]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceValues.Array.data[3]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceValues.Array.data[4]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+      propertyPath: startingResourceValues.Array.data[5]
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
@@ -16456,6 +16494,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b5e1f16d044834fd7acad4c6d88a1b13, type: 2}
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onRequestUnitJob
+      value: 
+      objectReference: {fileID: 11400000, guid: 1affaad6fc1ad4900b7655551677d076, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onJobRequestDenied
+      value: 
+      objectReference: {fileID: 11400000, guid: 472176f32dd6a4ab19a4b8b9473d58fe, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onBuilderJobDeleted
+      value: 
+      objectReference: {fileID: 11400000, guid: 82c2fba2f7b7a467d82d088007e8453c, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onRequestBuilderJob
+      value: 
+      objectReference: {fileID: 11400000, guid: 41fd94e3133634b2a9d67f9f056ab234, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onBuilderJobAssigned
+      value: 
+      objectReference: {fileID: 11400000, guid: d12a91f57bd554b47b16da6331ad7920, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: onRequestVillagerJob
       value: 
       objectReference: {fileID: 11400000, guid: ee209707f34704b9882d9682c7eb852a, type: 2}
@@ -16471,6 +16529,14 @@ PrefabInstance:
       propertyPath: onVillagerJobAssigned
       value: 
       objectReference: {fileID: 11400000, guid: 0da7b13aaa6274061b05badf01ecbea8, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onRequestConsumptionJob
+      value: 
+      objectReference: {fileID: 11400000, guid: 6227ae2c6691347e6bbe86b1f044c424, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onConsumptionJobAssigned
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c4f81a1e33ee484bb50e65ced623424, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

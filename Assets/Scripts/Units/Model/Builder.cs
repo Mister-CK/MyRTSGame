@@ -23,6 +23,7 @@ namespace MyRTSGame.Model
         
         public void AcceptNewBuilderJob(Job job)
         {
+            SetPendingJobRequest(false);
             CurrentJob = job;
             Destination = CurrentJob.Destination;
             Agent.SetDestination(Destination.transform.position);

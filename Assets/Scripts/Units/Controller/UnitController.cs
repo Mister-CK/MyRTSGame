@@ -16,7 +16,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onBuilderJobDeleted;
         [SerializeField] private GameEvent onRequestConsumptionJob;
         [SerializeField] private GameEvent onConsumptionJobAssigned;
-        
+        [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
         
@@ -42,6 +42,7 @@ namespace MyRTSGame.Model
             onBuilderJobAssigned.RegisterListener(HandleBuilderJobAssigned);
             onBuilderJobDeleted.RegisterListener(HandleBuilderJobDeleted);
             onConsumptionJobAssigned.RegisterListener(HandleConsumptionJobAssigned);
+            onJobRequestDenied.RegisterListener(HandleJobRequestDenied);
         }
 
         private void OnDisable()
@@ -49,8 +50,10 @@ namespace MyRTSGame.Model
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
             onVillagerJobAssigned.UnregisterListener(HandleVillagerJobAssigned);
             onVillagerJobDeleted.UnregisterListener(HandleVillagerJobDeleted);
+            onBuilderJobAssigned.UnregisterListener(HandleBuilderJobAssigned);
             onBuilderJobDeleted.UnregisterListener(HandleBuilderJobDeleted);
             onConsumptionJobAssigned.UnregisterListener(HandleConsumptionJobAssigned);
+            onJobRequestDenied.UnregisterListener(HandleJobRequestDenied);
         }
         
         
@@ -126,12 +129,20 @@ namespace MyRTSGame.Model
 
         public void CreateUnitJobRequest(Unit unit)
         {
+            unit.SetPendingJobRequest(true);
             onRequestUnitJob.Raise(new UnitEventArgs(unit));
         }
 
         public void CreateConsumptionJobRequest(Unit unit)
         {
+            unit.SetPendingJobRequest(true);
             onRequestConsumptionJob.Raise(new UnitEventArgs(unit));
+        }
+        
+        private void HandleJobRequestDenied(IGameEventArgs args)
+        {
+            if (args is not UnitEventArgs unitEventArgs) return;
+            unitEventArgs.Unit.SetPendingJobRequest(false);
         }
     }
 }

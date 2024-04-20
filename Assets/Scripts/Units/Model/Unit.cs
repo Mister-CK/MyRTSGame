@@ -12,7 +12,9 @@ namespace MyRTSGame.Model
         protected UnitType UnitType;
         protected Job CurrentJob;
         private float _stamina;
-
+        private bool _hasPendingJobRequest;
+        private bool _hasRequestedConsumptionJob;
+        
         public void SetStamina(float stamina)
         {
             _stamina = stamina;
@@ -31,6 +33,15 @@ namespace MyRTSGame.Model
         public void SetUnitType(UnitType unitType)
         {
             UnitType = unitType;
+        }
+        public bool GetPendingJobRequest()
+        {
+            return _hasPendingJobRequest;
+        }
+        
+        public void SetPendingJobRequest(bool hasPendingJobRequest)
+        {
+            _hasPendingJobRequest = hasPendingJobRequest;
         }
         
         private void Start()
@@ -85,12 +96,15 @@ namespace MyRTSGame.Model
         }
         protected void SetDestination()
         {
-            if (_stamina < 30)
+            if (_hasPendingJobRequest) return;
+            if (_stamina < 30 && !_hasRequestedConsumptionJob)
             {
                 unitController.CreateConsumptionJobRequest(this);
+                _hasRequestedConsumptionJob = true;
                 return;
             }
             RequestNewJob();
+            _hasRequestedConsumptionJob = false;
         }        
         private void RequestNewJob()
         {
@@ -99,6 +113,7 @@ namespace MyRTSGame.Model
 
         public void AcceptNewConsumptionJob(ConsumptionJob consumptionJob)
         {
+            SetPendingJobRequest(false);
             CurrentJob = consumptionJob;
             Destination = consumptionJob.Destination;
             Agent.SetDestination(Destination.transform.position);

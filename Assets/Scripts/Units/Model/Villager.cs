@@ -40,6 +40,7 @@ namespace MyRTSGame.Model
 
         public void AcceptNewVillagerJob(VillagerJob villagerJob)
         {
+            SetPendingJobRequest(false);
             CurrentJob = villagerJob;
             Destination = villagerJob.Origin;
             Agent.SetDestination(Destination.transform.position);
