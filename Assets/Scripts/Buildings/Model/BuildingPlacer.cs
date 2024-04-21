@@ -39,7 +39,7 @@ namespace MyRTSGame.Model
                 {
                     _isPlacing = false;
                     _building.SetState(new FoundationState(_building.BuildingType));
-                    navMeshSurface.BuildNavMesh();
+                    navMeshSurface.BuildNavMesh(); // TODO: this causes the game too freeze for a moment, should be replaced with a more efficient solution
                 }
 
             // If the right mouse button is clicked, cancel the placement
