@@ -15,6 +15,7 @@ namespace MyRTSGame.Model
         private float _stamina;
         private bool _hasPendingJobRequest;
         private bool _hasRequestedConsumptionJob;
+        protected bool IsLookingForBuilding = false;
         
         public void SetStamina(float stamina)
         {
@@ -45,7 +46,7 @@ namespace MyRTSGame.Model
             _hasPendingJobRequest = hasPendingJobRequest;
         }
         
-        private void Start()
+        protected virtual void Start()
         {
             _stamina = 100;
             Agent = GetComponentInChildren<NavMeshAgent>();
@@ -104,9 +105,18 @@ namespace MyRTSGame.Model
                 _hasRequestedConsumptionJob = true;
                 return;
             }
+
+            if (IsLookingForBuilding)
+            {
+                //todo implement looking for building
+                // unitController.CreateNewLookForBuildingJob(this);
+                return;
+            }
+
             RequestNewJob();
             _hasRequestedConsumptionJob = false;
-        }        
+        }   
+        
         private void RequestNewJob()
         {
             var jobType = this switch

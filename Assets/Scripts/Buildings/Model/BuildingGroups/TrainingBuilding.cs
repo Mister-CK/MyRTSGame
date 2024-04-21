@@ -70,6 +70,9 @@ namespace MyRTSGame.Model
                     case UnitType.Builder:
                         trainingJobs.Add(_builderJob);
                         break;
+                    case UnitType.LumberJack:
+                        trainingJobs.Add(_lumberjackJob);
+                        break;
                     default:
                         throw new System.ArgumentOutOfRangeException(unitType.ToString());
                 }
@@ -94,6 +97,16 @@ namespace MyRTSGame.Model
                 new Resource { ResourceType = ResourceType.Gold, Quantity = 2 }
             },
             UnitType = UnitType.Builder,
+            Quantity = 0
+        };
+        
+        private TrainingJob _lumberjackJob = new TrainingJob
+        {
+            Input = new Resource[]
+            {
+                new Resource { ResourceType = ResourceType.Gold, Quantity = 2 }
+            },
+            UnitType = UnitType.LumberJack,
             Quantity = 0
         };
     }

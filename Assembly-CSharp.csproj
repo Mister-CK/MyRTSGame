@@ -45,11 +45,11 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.17f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/Units/Model/Villager.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorSmith.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Units/View/BuilderView.cs" />
     <Compile Include="Assets/Scripts/Units/Controller/UnitController.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Units/Villager.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Unit.cs" />
@@ -75,12 +75,14 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/BuilderJob.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Units/Builder.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingList.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Controller/ResourceController.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/FoundationState.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Units/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/BuilderJobQueue.cs" />
@@ -127,7 +129,6 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/CreateNewJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/UnitUIViews/UnitUIView.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Builder.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Vinyard.cs" />
     <Compile Include="Assets/Scripts/Buildings/Contoller/BuildingController.cs" />

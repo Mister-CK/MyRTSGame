@@ -15,7 +15,7 @@ namespace MyRTSGame.Model
             base.Start();
             
             InputTypesWhenCompleted = new[] { ResourceType.Gold };
-            trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder};
+            trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder, UnitType.LumberJack};
             TrainingJobs = GetTrainingJobsForUnitTypes(trainableUnits);
             HasInput = true;
         }
