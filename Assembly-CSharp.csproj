@@ -58,6 +58,7 @@
     <Compile Include="Assets/Scripts/UI/Components/UIDeleteButton.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Tree.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
@@ -76,7 +77,9 @@
     <Compile Include="Assets/Scripts/JobSystem/Model/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingList.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Controller/ResourceController.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Wheatfarm.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceList.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/InventoryData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobTypeEventArgs.cs" />
     <Compile Include="Assets/Scripts/Camera.cs" />
