@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace MyRTSGame.Model.ResourceSystem.Model
 {
-    [CreateAssetMenu(fileName = "ResourceList", menuName = "ScriptableObjects/ResourceList", order = 1)]
-    public class ResourceList: ScriptableObject
+    public class ResourceList: MonoBehaviour
     {
         Dictionary<ResourceType, List<NaturalResource>> Resources = new Dictionary<ResourceType, List<NaturalResource>>();
         
