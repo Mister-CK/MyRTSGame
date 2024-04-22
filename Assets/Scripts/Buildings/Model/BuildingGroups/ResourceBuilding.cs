@@ -14,7 +14,7 @@ namespace MyRTSGame.Model
                 if (Inventory[resourceType].Current < Capacity)
                 {
                     AddResource(resourceType, 1);
-                    buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, resourceType);
+                    buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, resourceType, null);
                 }
             }
         }

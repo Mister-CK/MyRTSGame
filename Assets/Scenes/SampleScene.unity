@@ -16543,6 +16543,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b5e1f16d044834fd7acad4c6d88a1b13, type: 2}
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: lumberJackPrefab
+      value: 
+      objectReference: {fileID: -183385901213133478, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: onRequestUnitJob
       value: 
       objectReference: {fileID: 11400000, guid: 1affaad6fc1ad4900b7655551677d076, type: 2}

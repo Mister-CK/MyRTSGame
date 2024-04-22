@@ -55,7 +55,7 @@ namespace MyRTSGame.Model
                 }
                 AddResource(productionJob.Output.ResourceType, productionJob.Output.Quantity);
                 
-                buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType);
+                buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType, null);
             }
         }
     }

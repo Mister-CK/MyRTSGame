@@ -58,6 +58,7 @@
     <Compile Include="Assets/Scripts/UI/Components/UIDeleteButton.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/LookingForBuildingJobQueue.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Tree.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Assets/Scripts/UI/SelectionView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/Enums/UnitType.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/LookingForBuildingJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/SpecialBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ConsumptionBuilding.cs" />

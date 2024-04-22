@@ -433,6 +433,8 @@
 "Assets/Scripts/JobSystem/Model/ConsumptionJob.cs"
 "Assets/Scripts/JobSystem/Model/ConsumptionJobQueue.cs"
 "Assets/Scripts/JobSystem/Model/Job.cs"
+"Assets/Scripts/JobSystem/Model/LookingForBuildingJob.cs"
+"Assets/Scripts/JobSystem/Model/LookingForBuildingJobQueue.cs"
 "Assets/Scripts/JobSystem/Model/ProductionJob.cs"
 "Assets/Scripts/JobSystem/Model/TrainingJob.cs"
 "Assets/Scripts/JobSystem/Model/VillagerJob.cs"

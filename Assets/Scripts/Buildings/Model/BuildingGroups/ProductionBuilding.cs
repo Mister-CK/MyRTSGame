@@ -33,7 +33,7 @@ namespace MyRTSGame.Model
                 TransmuteResource(input, output);
                 foreach (var resource in output)
                 {
-                    buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, resource.ResourceType);
+                    buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, resource.ResourceType, null);
                 }
             }
         }

@@ -17,7 +17,8 @@ namespace MyRTSGame.Model
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         [SerializeField] private ConsumptionJobQueue consumptionJobQueue;
-
+        [SerializeField] private LookingForBuildingJobQueue lookingForBuildingJobQueue;
+        
         private static BuildingList BuildingList => BuildingList.Instance;
         
         private void OnEnable()
@@ -118,10 +119,20 @@ namespace MyRTSGame.Model
                 case JobType.ConsumptionJob:
                     CreateConsumptionJob(createNewJobEventArgs);
                     return;
+                case JobType.LookForBuildingJob:
+                    CreateLookingForBuildingJob(createNewJobEventArgs);
+                    return;
                 default:
                     throw new ArgumentException("invalid JobType provided to HandleNewBuilderJobNeeded");
             }
 
+        }
+
+        private void CreateLookingForBuildingJob(CreateNewJobEventArgs createNewJobEventArgs)
+        {
+            var lookingForBuildingJob = new LookingForBuildingJob() { Destination = createNewJobEventArgs.Destination, UnitType = createNewJobEventArgs.UnitType.GetValueOrDefault()};
+            lookingForBuildingJobQueue.AddJob(lookingForBuildingJob);
+            onNewJobCreated.Raise(new JobEventArgs(lookingForBuildingJob));
         }
         
         private void CreateBuilderJob(CreateNewJobEventArgs createNewJobEventArgs)
@@ -180,6 +191,7 @@ namespace MyRTSGame.Model
                 JobType.BuilderJob => builderJobQueue.GetNextJob(),
                 JobType.VillagerJob => villagerJobQueue.GetNextJob(),
                 JobType.ConsumptionJob => consumptionJobQueue.GetNextJob(),
+                JobType.LookForBuildingJob => lookingForBuildingJobQueue.GetNextJobForUnitType(unitWithJobTypeEventArgs.Unit.GetUnitType()),
                 _ => throw new ArgumentException("JobType not recognized in HandleUnitJobRequest")
             };
             if (newJob == null)           

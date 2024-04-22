@@ -108,8 +108,7 @@ namespace MyRTSGame.Model
 
             if (IsLookingForBuilding)
             {
-                //todo implement looking for building
-                // unitController.CreateNewLookForBuildingJob(this);
+                unitController.CreateNewLookForBuildingJob(this);
                 return;
             }
 

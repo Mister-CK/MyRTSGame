@@ -76,9 +76,9 @@ namespace MyRTSGame.Model
             }
         }
         
-        public void CreateJobNeededEvent(JobType jobType, Building destination, Building origin, ResourceType? resourceType)
+        public void CreateJobNeededEvent(JobType jobType, Building destination, Building origin, ResourceType? resourceType, UnitType? unitType)
         {
-            onNewJobNeeded.Raise(new CreateNewJobEventArgs(jobType, destination, origin, resourceType));
+            onNewJobNeeded.Raise(new CreateNewJobEventArgs(jobType, destination, origin, resourceType, unitType));
         }
         
         public void CreateNewUnitEvent(TrainingBuilding trainingBuilding, UnitType unitType)

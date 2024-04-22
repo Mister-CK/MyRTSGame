@@ -23,6 +23,7 @@ namespace MyRTSGame.Model
         public ResourceType[] OutputTypesWhenCompleted { get; set; }
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
+        protected UnitType OccupantType = UnitType.Villager;
         
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
@@ -77,9 +78,13 @@ namespace MyRTSGame.Model
             State.SetObject(this);
             buildingController.CreateUpdateViewForBuildingEvent(this);
 
-            if (State is CompletedState) StartResourceCreationCoroutine();
+            if (State is CompletedState)
+            {
+                buildingController.CreateJobNeededEvent(JobType.LookForBuildingJob, this, null, null, OccupantType);
+                StartResourceCreationCoroutine();
+            }
             
-            if (State is ConstructionState) buildingController.CreateJobNeededEvent(JobType.BuilderJob, this, null, null);
+            if (State is ConstructionState) buildingController.CreateJobNeededEvent(JobType.BuilderJob, this, null, null, null);
         }
         
         public IBuildingState GetState()

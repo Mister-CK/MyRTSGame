@@ -13,6 +13,7 @@ namespace MyRTSGame.Model
             base.Start();
 
             OutputTypesWhenCompleted = new[] { ResourceType.Lumber };
+            OccupantType = UnitType.LumberJack;
         }
         
         public override void StartResourceCreationCoroutine()

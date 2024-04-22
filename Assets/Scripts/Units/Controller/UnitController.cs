@@ -115,5 +115,11 @@ namespace MyRTSGame.Model
             if (args is not UnitEventArgs unitEventArgs) return;
             unitEventArgs.Unit.SetPendingJobRequest(false);
         }
+        
+        public void CreateNewLookForBuildingJob(Unit unit)
+        {
+            unit.SetPendingJobRequest(true);
+            onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, JobType.LookForBuildingJob));
+        }
     }
 }
