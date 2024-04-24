@@ -15,7 +15,7 @@ namespace MyRTSGame.Model.ResourceSystem.Model
             return Resource;
         }
 
-        private void Awake()
+        protected virtual void Start()
         {
             ResourceController = ResourceController.Instance;
         }

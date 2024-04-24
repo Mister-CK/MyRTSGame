@@ -88,7 +88,12 @@ namespace MyRTSGame.Model
         {
             if (CurrentJob is LookingForBuildingJob lookingForBuildingJob)
             {
+                Debug.Log("Found building");
                 IsLookingForBuilding = false;
+                HasDestination = false;
+                CurrentJob = null;
+                Destination = null;
+                
                 return;
             }
 

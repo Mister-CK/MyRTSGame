@@ -4,9 +4,10 @@ using MyRTSGame.Model.ResourceSystem.Model;
 public class Tree : NaturalResource
 {
 
-    public void Awake()
+    protected override void Start()
     {
-        Resource = new Resource(){ResourceType = ResourceType.Wood, Quantity = 50};
+        base.Start();
+        Resource = new Resource(){ResourceType = ResourceType.Lumber, Quantity = 50};
         ResourceController.CreateAddResourceJobsEvent(this);
     }
 }

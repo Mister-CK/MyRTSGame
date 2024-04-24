@@ -109,6 +109,10 @@ namespace MyRTSGame.Model
         public void CreateUnitJobRequest(Unit unit, JobType jobType)
         {
             unit.SetPendingJobRequest(true);
+            if (jobType == JobType.CollectResourceJob)
+            {
+                Debug.Log("create jobRequest of type: " + jobType);
+            }
             onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, jobType));
         }
         

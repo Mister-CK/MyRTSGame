@@ -12,6 +12,11 @@ namespace MyRTSGame.Model
 
         public void AddJob(CollectResourceJob job)
         {
+            Debug.Log("AddCollectResourceJob for ResourceType: " + job.ResourceType);
+            if (!_jobs.ContainsKey(job.ResourceType))
+            {
+                _jobs[job.ResourceType] = new List<CollectResourceJob>();
+            }
             _jobs[job.ResourceType].Add(job);
         }
 
@@ -27,6 +32,7 @@ namespace MyRTSGame.Model
         
         public CollectResourceJob GetNextJobForResourceType(ResourceType resourceType)
         {
+            Debug.Log("GetNextJobForResourceType for ResourceType: " + resourceType);
             if (_jobs[resourceType].Count <= 0) return null;
 
             var job = _jobs[resourceType][0];

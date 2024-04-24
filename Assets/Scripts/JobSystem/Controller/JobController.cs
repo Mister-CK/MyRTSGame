@@ -211,6 +211,7 @@ namespace MyRTSGame.Model
 
         private Job GetNextResourceCollectionJobForUnit(Unit unit)
         {
+            Debug.Log("GetNextResourceCollectionJobForUnit for Unit: " + unit.GetUnitType());
             if (unit is not ResourceCollector resourceCollector) return null;
             return collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceToCollect());
         }
