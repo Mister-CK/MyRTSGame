@@ -88,7 +88,8 @@ namespace MyRTSGame.Model
         {
             if (CurrentJob is LookingForBuildingJob lookingForBuildingJob)
             {
-                Debug.Log("Found building");
+                if (this is not ResourceCollector resourceCollector) throw new ArgumentException("only resourceCollectors can look for buildings");
+                resourceCollector.SetBuilding(lookingForBuildingJob.Destination as Building);
                 IsLookingForBuilding = false;
                 HasDestination = false;
                 CurrentJob = null;

@@ -4,7 +4,6 @@ namespace MyRTSGame.Model
 {
     public class LumberJack: ResourceCollector
     {
-        
         public LumberJack()
         {
             UnitType = UnitType.LumberJack;
