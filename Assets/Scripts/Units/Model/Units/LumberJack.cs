@@ -2,12 +2,13 @@ using Unity.VisualScripting;
 
 namespace MyRTSGame.Model
 {
-    public class LumberJack: Unit
+    public class LumberJack: ResourceCollector
     {
         
         public LumberJack()
         {
             UnitType = UnitType.LumberJack;
+            ResourceTypeToCollect  = ResourceType.Lumber;
         }
 
         protected override void Start()

@@ -12,7 +12,7 @@ public class ConstructionStateBuildingUIView : MonoBehaviour
     public void ActivateConstructionStateBuildingView(Building building)
     {
         constructionStateBuildingView.gameObject.SetActive(true);
-        constructionStateBuildingName.text = building.BuildingType.ToString();
+        constructionStateBuildingName.text = building.GetBuildingType().ToString();
     }
     
     public void DeactivateConstructionStateBuildingView()

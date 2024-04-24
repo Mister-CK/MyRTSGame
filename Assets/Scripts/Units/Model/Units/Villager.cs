@@ -18,7 +18,7 @@ namespace MyRTSGame.Model
             {
                 TakeResource(villagerJob.Origin, villagerJob.ResourceType);
                 Destination = villagerJob.Destination;
-                Agent.SetDestination(Destination.transform.position);
+                Agent.SetDestination(Destination.GetPosition());
                 return;
             }
             DeliverResource(villagerJob.Destination, villagerJob.ResourceType);
@@ -32,10 +32,10 @@ namespace MyRTSGame.Model
             unitController.RemoveResourceFromBuilding(building, resourceType, 1);
         }
 
-        private void DeliverResource(Building building, ResourceType resourceType)
+        private void DeliverResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = false;
-            unitController.AddResourceToBuilding(building, resourceType, 1);
+            unitController.AddResourceToBuilding(destination, resourceType, 1);
         }
 
         public void UnAssignVillagerJob(DestinationType destinationType)

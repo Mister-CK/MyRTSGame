@@ -9,7 +9,7 @@ namespace MyRTSGame.Model
         public UnitController unitController;
         protected NavMeshAgent Agent;
         protected bool HasDestination;
-        protected Building Destination;
+        protected IDestination Destination;
         protected UnitType UnitType;
         protected Job CurrentJob;
         private float _stamina;
@@ -86,6 +86,12 @@ namespace MyRTSGame.Model
 
         protected virtual void ExecuteJob()
         {
+            if (CurrentJob is LookingForBuildingJob lookingForBuildingJob)
+            {
+                IsLookingForBuilding = false;
+                return;
+            }
+
             if (CurrentJob is ConsumptionJob consumptionJob)
             {
                 unitController.RemoveResourceFromBuilding(consumptionJob.Destination, consumptionJob.ResourceType, 1);
@@ -122,6 +128,7 @@ namespace MyRTSGame.Model
             {
                 Builder => JobType.BuilderJob,
                 Villager => JobType.VillagerJob,
+                ResourceCollector => JobType.CollectResourceJob,
                 _ => throw new ArgumentException("unit type not recognized in RequestNewJob")
             };
 
@@ -134,7 +141,7 @@ namespace MyRTSGame.Model
             CurrentJob = job;
             Destination = job.Destination;
             if (job is VillagerJob villagerJob) Destination = villagerJob.Origin; //todo refactor villagerJob to use Destination instead of Origin for first building.
-            Agent.SetDestination(Destination.transform.position);
+            Agent.SetDestination(Destination.GetPosition());
             HasDestination = true;
         }
     }

@@ -14,6 +14,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onJobRequestDenied;
+        [SerializeField] private GameEvent GetClosestResourceEvent;
+        
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         [SerializeField] private ConsumptionJobQueue consumptionJobQueue;
@@ -48,7 +50,7 @@ namespace MyRTSGame.Model
 
             foreach (var building in buildings)
             {
-                if (building.BuildingType == BuildingType.Warehouse)
+                if (building.GetBuildingType() == BuildingType.Warehouse)
                 {
                     warehouse = building;
                     continue;
@@ -192,6 +194,7 @@ namespace MyRTSGame.Model
                 JobType.VillagerJob => villagerJobQueue.GetNextJob(),
                 JobType.ConsumptionJob => consumptionJobQueue.GetNextJob(),
                 JobType.LookForBuildingJob => lookingForBuildingJobQueue.GetNextJobForUnitType(unitWithJobTypeEventArgs.Unit.GetUnitType()),
+                JobType.CollectResourceJob => GetNewCollectResourceJob(unitWithJobTypeEventArgs.Unit),
                 _ => throw new ArgumentException("JobType not recognized in HandleUnitJobRequest")
             };
             if (newJob == null)           
@@ -202,6 +205,14 @@ namespace MyRTSGame.Model
             newJob.Unit = unitWithJobTypeEventArgs.Unit;
             newJob.SetInProgress(true);
             onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, newJob));
+        }
+
+        private Job GetNewCollectResourceJob(Unit unit)
+        {
+            if (unit is not ResourceCollector resourceCollector) return null;
+            var job = new CollectResourceJob() {Unit = unit, ResourceType = resourceCollector.GetResourceToCollect()};
+            GetClosestResourceEvent.Raise(new UnitWithJobEventArgs(unit, job));
+            return job;
         }
         
     }

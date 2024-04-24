@@ -38,7 +38,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
     public void ActivateBuildingView(Building building)
     {
         buildingView.gameObject.SetActive(true);
-        buildingName.text = building.BuildingType.ToString();
+        buildingName.text = building.GetBuildingType().ToString();
         
         foreach (var res in building.Inventory)
         {

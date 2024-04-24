@@ -22,7 +22,7 @@ public class FoundationStateBuildingUIView : MonoBehaviour
     public void ActivateFoundationStateBuildingView(Building building)
     {
         foundationStateBuildingView.gameObject.SetActive(true);
-        foundationStateBuildingName.text = building.BuildingType.ToString();
+        foundationStateBuildingName.text = building.GetBuildingType().ToString();
         Instantiate(inputTitlePrefab, inputLayoutGrid.transform);
         Instantiate(columnsPrefab, inputLayoutGrid.transform);
 

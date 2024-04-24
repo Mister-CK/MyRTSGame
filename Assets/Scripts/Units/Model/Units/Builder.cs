@@ -17,7 +17,7 @@ namespace MyRTSGame.Model
             base.ExecuteJob();
             if (CurrentJob is not BuilderJob) return;
 
-            Destination.SetState(new CompletedState(Destination.BuildingType));
+            Destination.SetState(new CompletedState(Destination.GetBuildingType()));
             HasDestination = false;
         }
 

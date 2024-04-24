@@ -38,7 +38,7 @@ namespace MyRTSGame.Model
                 if (_building.Material.color == Color.green)
                 {
                     _isPlacing = false;
-                    _building.SetState(new FoundationState(_building.BuildingType));
+                    _building.SetState(new FoundationState(_building.GetBuildingType()));
                     navMeshSurface.BuildNavMesh(); // TODO: this causes the game too freeze for a moment, should be replaced with a more efficient solution
                 }
 
@@ -56,8 +56,8 @@ namespace MyRTSGame.Model
         {
             _isPlacing = true;
             _building = Instantiate(buildingPrefab);
-            _building.BuildingType = buildingPrefab.BuildingType;
-            _building.SetState(new PlacingState(_building.BuildingType));
+            _building.SetBuildingType(buildingPrefab.GetBuildingType());
+            _building.SetState(new PlacingState(_building.GetBuildingType()));
         }
     }
 }

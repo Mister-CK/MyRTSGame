@@ -59,6 +59,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/LookingForBuildingJobQueue.cs" />
+    <Compile Include="Assets/Scripts/Interface/IDestination.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Tree.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/CollectResourceJob.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/ConsumptionJob.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorWorkshop.cs" />
     <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Units/ResourceCollector.cs" />
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs" />

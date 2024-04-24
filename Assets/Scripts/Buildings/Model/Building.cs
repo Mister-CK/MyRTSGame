@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-    public abstract class Building : MonoBehaviour, ISelectable
+    public abstract class Building : MonoBehaviour, ISelectable, IDestination
     {
         [SerializeField] private GameEvent onSelectionEvent;
 
@@ -17,7 +15,7 @@ namespace MyRTSGame.Model
         public Dictionary<ResourceType, InventoryData> Inventory { get; set; }        
         public IBuildingState State;
         public Material Material { get; set; }
-        public BuildingType BuildingType { get; set; }
+        protected BuildingType BuildingType;
         public ResourceType[] InputTypes { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public ResourceType[] OutputTypesWhenCompleted { get; set; }
@@ -47,6 +45,21 @@ namespace MyRTSGame.Model
             buildingController = BuildingController.Instance;
         }
 
+        public Vector3 GetPosition()
+        {
+            return this.transform.position;
+        }
+
+        public void SetBuildingType(BuildingType buildingType)
+        {
+            BuildingType = buildingType;
+        }
+        
+        public BuildingType GetBuildingType()
+        {
+            return BuildingType;
+        }
+        
         protected virtual void Start()
         {
             
@@ -140,27 +153,31 @@ namespace MyRTSGame.Model
             Destroy(this);
         }
         
-        public void AddVillagerJobToThisBuilding(VillagerJob job )
+        public void AddVillagerJobToThisBuilding(Job job )
         {
-            Inventory[job.ResourceType].Incoming++;
-            VillagerJobsToThisBuilding.Add(job);
+            if (job is not VillagerJob villagerJob) return;
+            Inventory[villagerJob.ResourceType].Incoming++;
+            VillagerJobsToThisBuilding.Add(villagerJob);
         }
 
-        public void AddVillagerJobFromThisBuilding(VillagerJob job )
+        public void AddVillagerJobFromThisBuilding(Job job )
         {
-            
-            Inventory[job.ResourceType].Outgoing++;
-            VillagerJobsFromThisBuilding.Add(job);
+            if (job is not VillagerJob villagerJob) return;
+            Inventory[villagerJob.ResourceType].Outgoing++;
+            VillagerJobsFromThisBuilding.Add(villagerJob);
         }
         
-        public void AddBuilderJobFromThisBuilding(BuilderJob job )
+        public void AddBuilderJobFromThisBuilding(Job job )
         {
-            builderJobsForThisBuilding.Add(job);
+            if (job is not BuilderJob builderJob) return;
+            builderJobsForThisBuilding.Add(builderJob);
         }
         
-        public void AddConsumptionJobForThisBuilding(ConsumptionJob job)
+        public void AddConsumptionJobForThisBuilding(Job job)
         {
-            consumptionJobsForThisbuilding.Add(job);
+            if (job is not ConsumptionJob consumptionJob) return;
+
+            consumptionJobsForThisbuilding.Add(consumptionJob);
         }
     }
 }

@@ -5,6 +5,7 @@ namespace MyRTSGame.Model
         BuilderJob,
         VillagerJob,
         ConsumptionJob,
-        LookForBuildingJob
+        LookForBuildingJob,
+        CollectResourceJob
     }
 }

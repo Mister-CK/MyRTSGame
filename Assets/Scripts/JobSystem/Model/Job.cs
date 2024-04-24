@@ -5,7 +5,7 @@ namespace MyRTSGame.Model
     public class Job
     {
         private bool _inProgress;
-        public Building Destination { get; set; }
+        public IDestination Destination { get; set; }
         public Unit Unit;
 
         public bool IsInProgress()

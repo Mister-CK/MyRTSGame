@@ -18,6 +18,22 @@ namespace MyRTSGame.Model.ResourceSystem.Model
             }
         }
         
+        public NaturalResource GetClosestResourceOfType(ResourceType resourceType, Vector3 position)
+        {
+            var resources = Resources[resourceType];
+            NaturalResource closestResource = null;
+            var closestDistance = float.MaxValue;
+            foreach (var resource in resources)
+            {
+                var distance = Vector3.Distance(resource.transform.position, position);
+                if (distance >= closestDistance) continue;
+                closestDistance = distance;
+                closestResource = resource;
+            }
+
+            return closestResource;
+        }
+        
         public List<NaturalResource> GetNaturalResourcesOfType(ResourceType resourceType)
         {
             return Resources[resourceType];

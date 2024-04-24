@@ -92,14 +92,16 @@ namespace MyRTSGame.Model
             onSelectionEvent.Raise(new SelectionEventArgs(selectable));
         }  
         
-        public void RemoveResourceFromBuilding(Building building, ResourceType resourceType, int quantity)
+        public void RemoveResourceFromBuilding(IDestination destination, ResourceType resourceType, int quantity)
         {
+            if(destination is not Building building) return;
             onResourceRemovedFromBuilding.Raise(new BuildingResourceTypeQuantityEventArgs(building, resourceType,
                 quantity));
         }
 
-        public void AddResourceToBuilding(Building building, ResourceType resourceType, int quantity)
+        public void AddResourceToBuilding(IDestination destination, ResourceType resourceType, int quantity)
         {
+            if(destination is not Building building) return;
             onResourceAddedToBuilding.Raise(new BuildingResourceTypeQuantityEventArgs(building, resourceType,
                 quantity));
         }
