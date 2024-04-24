@@ -152,13 +152,6 @@ namespace MyRTSGame.Model
             buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding, builderJobsForThisBuilding);
             Destroy(this);
         }
-        
-        public void AddVillagerJobToThisBuilding(Job job )
-        {
-            if (job is not VillagerJob villagerJob) return;
-            Inventory[villagerJob.ResourceType].Incoming++;
-            VillagerJobsToThisBuilding.Add(villagerJob);
-        }
 
         public void AddVillagerJobFromThisBuilding(Job job )
         {
@@ -167,17 +160,21 @@ namespace MyRTSGame.Model
             VillagerJobsFromThisBuilding.Add(villagerJob);
         }
         
-        public void AddBuilderJobFromThisBuilding(Job job )
+        public void AddJobToDestination(Job job)
         {
-            if (job is not BuilderJob builderJob) return;
-            builderJobsForThisBuilding.Add(builderJob);
-        }
-        
-        public void AddConsumptionJobForThisBuilding(Job job)
-        {
-            if (job is not ConsumptionJob consumptionJob) return;
-
-            consumptionJobsForThisbuilding.Add(consumptionJob);
+            switch (job)
+            {
+                case VillagerJob villagerJob:
+                    Inventory[villagerJob.ResourceType].Incoming++;
+                    VillagerJobsToThisBuilding.Add(villagerJob);
+                    return;
+                case BuilderJob builderJob:
+                    builderJobsForThisBuilding.Add(builderJob);
+                    return;
+                case ConsumptionJob consumptionJob:
+                    consumptionJobsForThisbuilding.Add(consumptionJob);
+                    return;
+            }
         }
     }
 }

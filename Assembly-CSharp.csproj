@@ -106,6 +106,7 @@
     <Compile Include="Assets/Scripts/Camera.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/ConstructionStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/CollectResourceJobQueue.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowProduction.cs" />
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/ConstructionState.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Assets/Scripts/Units/Model/Units/ResourceCollector.cs" />
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/ResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Bakery.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs" />

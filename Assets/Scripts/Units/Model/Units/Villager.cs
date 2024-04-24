@@ -26,10 +26,10 @@ namespace MyRTSGame.Model
             
         }
 
-        private void TakeResource(Building building, ResourceType resourceType)
+        private void TakeResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = true;
-            unitController.RemoveResourceFromBuilding(building, resourceType, 1);
+            unitController.RemoveResourceFromBuilding(destination, resourceType, 1);
         }
 
         private void DeliverResource(IDestination destination, ResourceType resourceType)

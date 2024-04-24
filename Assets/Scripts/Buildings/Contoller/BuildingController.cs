@@ -134,18 +134,10 @@ namespace MyRTSGame.Model
         private static void HandleNewJobCreated(IGameEventArgs args)
         {
             if (args is not JobEventArgs eventArgs) return;
-            switch (eventArgs.Job)
+            eventArgs.Job.Destination.AddJobToDestination(eventArgs.Job);
+            if (eventArgs.Job is VillagerJob villagerJob)
             {
-                case VillagerJob villagerJob:
-                    villagerJob.Origin.AddVillagerJobFromThisBuilding(villagerJob);
-                    villagerJob.Destination.AddVillagerJobToThisBuilding(villagerJob);
-                    return;
-                case BuilderJob builderJob:
-                    builderJob.Destination.AddBuilderJobFromThisBuilding(builderJob);
-                    return;
-                case ConsumptionJob consumptionJob:
-                    consumptionJob.Destination.AddConsumptionJobForThisBuilding(consumptionJob);
-                    return;
+                villagerJob.Origin.AddVillagerJobFromThisBuilding(villagerJob);
             }
         }
 
