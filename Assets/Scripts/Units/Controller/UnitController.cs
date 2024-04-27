@@ -15,7 +15,6 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onDeleteUnitEvent;
-        [SerializeField] private GameEvent onAddJobToQueue;
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
@@ -142,14 +141,6 @@ namespace MyRTSGame.Model
             ResourceType? resourceType, UnitType? unitType)
         {
             onNewJobNeeded.Raise(new CreateNewJobEventArgs(jobType, destination, origin, resourceType, unitType));
-        }
-
-
-        public void AddJobBackToQueue(Job job)
-        {
-            job.SetInProgress(false);
-            job.Unit = null;
-            onAddJobToQueue.Raise(new JobEventArgs(job));
         }
     }
 }

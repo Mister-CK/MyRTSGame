@@ -18,6 +18,15 @@ namespace MyRTSGame.Model
         private bool _hasRequestedConsumptionJob;
         protected bool IsLookingForBuilding = false;
         
+        public Job GetCurrentJob()
+        {
+            return CurrentJob;
+        }
+
+        public void SetCurrentJob(Job job)
+        {
+            CurrentJob = job;
+        }
         public void SetStamina(float stamina)
         {
             _stamina = stamina;
@@ -151,24 +160,9 @@ namespace MyRTSGame.Model
             Agent.SetDestination(Destination.GetPosition());
             HasDestination = true;
         }
-
-        private bool CheckIfJobNeedsToBeAddedBackToQueue()
-        {
-            return CurrentJob switch
-            {
-                null => false,
-                ConsumptionJob => false,
-                BuilderJob => true,
-                LookingForBuildingJob => true,
-                VillagerJob => this is Villager villager && !villager.GetHasResource(),
-                CollectResourceJob => this is ResourceCollector resourceCollector && !resourceCollector.GetHasResource(),
-                _ => throw new InvalidOperationException("Unknown job type")
-            };
-        }
         
         public void DeleteUnit()
         {
-            if (CheckIfJobNeedsToBeAddedBackToQueue()) unitController.AddJobBackToQueue(CurrentJob);
             Destroy(gameObject);
         }
     }

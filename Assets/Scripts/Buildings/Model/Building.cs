@@ -176,5 +176,28 @@ namespace MyRTSGame.Model
                     return;
             }
         }
+        
+        public void RemoveVillagerJobFromThisBuilding(VillagerJob villagerJob)
+        {
+            Inventory[villagerJob.ResourceType].Outgoing--;
+            VillagerJobsFromThisBuilding.Remove(villagerJob);
+        }
+        
+        public void RemoveJobFromDestination(Job job)
+        {
+            switch (job)
+            {
+                case VillagerJob villagerJob:
+                    Inventory[villagerJob.ResourceType].Incoming--;
+                    VillagerJobsToThisBuilding.Remove(villagerJob);
+                    return;
+                case BuilderJob builderJob:
+                    builderJobsForThisBuilding.Remove(builderJob);
+                    return;
+                case ConsumptionJob consumptionJob:
+                    consumptionJobsForThisbuilding.Remove(consumptionJob);
+                    return;
+            }
+        }
     }
 }

@@ -71,15 +71,14 @@ namespace MyRTSGame.Model
             if (CurrentSelectedObject is Building selectedBuilding)
             {
                 onDeleteBuildingEvent.Raise(new BuildingEventArgs(selectedBuilding));
-                SelectObject(null);
             }
             
-            //TODO: implement for Units
             if (CurrentSelectedObject is Unit selectedUnit)
             {
                 onDeleteUnitEvent.Raise(new UnitEventArgs(selectedUnit));
-                SelectObject(null);
             }
+            SelectObject(null);
+            selectionView.ClearView();
         }
     }
 }

@@ -22,6 +22,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteVillagerJobsEvent;
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
         [SerializeField] private GameEvent onNewJobCreated;
+        [SerializeField] private GameEvent onDeleteJobEvent;
+
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -46,6 +48,7 @@ namespace MyRTSGame.Model
             onRemoveTrainingJobEvent.RegisterListener(OnRemoveTrainingJob);
             onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
+            onDeleteJobEvent.RegisterListener(HandleDeleteJobEvent);
         }
 
         private void OnDisable()
@@ -58,6 +61,7 @@ namespace MyRTSGame.Model
             onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
             onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
+            onDeleteJobEvent.UnregisterListener(HandleDeleteJobEvent);
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -145,6 +149,17 @@ namespace MyRTSGame.Model
             onDeleteVillagerJobsEvent.Raise(new VillagerJobListEventArgs(villagerJobsFromThisBuilding, DestinationType.Origin));
             onDeleteVillagerJobsEvent.Raise(new VillagerJobListEventArgs(villagerJobsToThisBuilding, DestinationType.Destination));
             onDeleteBuilderJobsEvent.Raise(new BuilderJobListEventArgs(builderJobsForThisBuilding));
+        }
+        
+        private void HandleDeleteJobEvent(IGameEventArgs args)
+        {
+            if (args is not JobEventArgs eventArgs) return;
+            if (eventArgs.Job.Destination is not Building building) return;
+            building.RemoveJobFromDestination(eventArgs.Job);
+            if (eventArgs.Job is VillagerJob villagerJob)
+            {
+                villagerJob.Origin.RemoveVillagerJobFromThisBuilding(villagerJob);
+            }
         }
     }
 }
