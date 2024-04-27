@@ -4,6 +4,10 @@ namespace MyRTSGame.Model
     {
         private bool _hasResource;
 
+        public bool GetHasResource()
+        {
+            return _hasResource;
+        }
         public Villager()
         {
             UnitType = UnitType.Villager;

@@ -14,6 +14,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private GameEvent onNewJobNeeded;
+        [SerializeField] private GameEvent onDeleteUnitEvent;
+        [SerializeField] private GameEvent onAddJobToQueue;
+        
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
         [SerializeField] private LumberJack lumberJackPrefab;
@@ -37,6 +40,7 @@ namespace MyRTSGame.Model
             onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
             onUnitJobDeleted.RegisterListener(HandleUnitJobDeleted);
             onJobRequestDenied.RegisterListener(HandleJobRequestDenied);
+            onDeleteUnitEvent.RegisterListener(HandleDeleteUnitEvent);
         }
 
         private void OnDisable()
@@ -45,6 +49,7 @@ namespace MyRTSGame.Model
             onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
             onUnitJobDeleted.UnregisterListener(HandleUnitJobDeleted);
             onJobRequestDenied.UnregisterListener(HandleJobRequestDenied);
+            onDeleteUnitEvent.UnregisterListener(HandleDeleteUnitEvent);
         }
 
 
@@ -120,6 +125,12 @@ namespace MyRTSGame.Model
             if (args is not UnitEventArgs unitEventArgs) return;
             unitEventArgs.Unit.SetPendingJobRequest(false);
         }
+        
+        private void HandleDeleteUnitEvent(IGameEventArgs args)
+        {
+            if (args is not UnitEventArgs unitEventArgs) return;
+            unitEventArgs.Unit.DeleteUnit();
+        }
 
         public void CreateNewLookForBuildingJob(Unit unit)
         {
@@ -131,6 +142,14 @@ namespace MyRTSGame.Model
             ResourceType? resourceType, UnitType? unitType)
         {
             onNewJobNeeded.Raise(new CreateNewJobEventArgs(jobType, destination, origin, resourceType, unitType));
+        }
+
+
+        public void AddJobBackToQueue(Job job)
+        {
+            job.SetInProgress(false);
+            job.Unit = null;
+            onAddJobToQueue.Raise(new JobEventArgs(job));
         }
     }
 }

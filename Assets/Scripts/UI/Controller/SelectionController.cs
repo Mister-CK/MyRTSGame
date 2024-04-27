@@ -71,7 +71,6 @@ namespace MyRTSGame.Model
             if (CurrentSelectedObject is Building selectedBuilding)
             {
                 onDeleteBuildingEvent.Raise(new BuildingEventArgs(selectedBuilding));
-                Destroy(selectedBuilding.gameObject);
                 SelectObject(null);
             }
             
@@ -79,7 +78,6 @@ namespace MyRTSGame.Model
             if (CurrentSelectedObject is Unit selectedUnit)
             {
                 onDeleteUnitEvent.Raise(new UnitEventArgs(selectedUnit));
-                Destroy(selectedUnit.gameObject);
                 SelectObject(null);
             }
         }

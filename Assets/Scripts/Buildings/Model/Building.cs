@@ -150,7 +150,7 @@ namespace MyRTSGame.Model
         {
             BuildingList.RemoveBuilding(this);
             buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding, builderJobsForThisBuilding);
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         public void AddVillagerJobFromThisBuilding(Job job )

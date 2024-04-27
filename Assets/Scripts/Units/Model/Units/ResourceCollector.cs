@@ -27,6 +27,11 @@ namespace MyRTSGame.Model
             ResourceTypeToCollect = resourceType;
         }
         
+        public bool GetHasResource()
+        {
+            return _hasResource;
+        }
+        
         protected override void ExecuteJob()
         {
             base.ExecuteJob();

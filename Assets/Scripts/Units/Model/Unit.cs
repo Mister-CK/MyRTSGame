@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -149,6 +150,26 @@ namespace MyRTSGame.Model
             if (job is VillagerJob villagerJob) Destination = villagerJob.Origin; //todo refactor villagerJob to use Destination instead of Origin for first building.
             Agent.SetDestination(Destination.GetPosition());
             HasDestination = true;
+        }
+
+        private bool CheckIfJobNeedsToBeAddedBackToQueue()
+        {
+            return CurrentJob switch
+            {
+                null => false,
+                ConsumptionJob => false,
+                BuilderJob => true,
+                LookingForBuildingJob => true,
+                VillagerJob => this is Villager villager && !villager.GetHasResource(),
+                CollectResourceJob => this is ResourceCollector resourceCollector && !resourceCollector.GetHasResource(),
+                _ => throw new InvalidOperationException("Unknown job type")
+            };
+        }
+        
+        public void DeleteUnit()
+        {
+            if (CheckIfJobNeedsToBeAddedBackToQueue()) unitController.AddJobBackToQueue(CurrentJob);
+            Destroy(gameObject);
         }
     }
 }

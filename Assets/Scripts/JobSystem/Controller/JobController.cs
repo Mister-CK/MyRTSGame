@@ -15,6 +15,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private GameEvent onAddCollectResourceJobsEvent;
+        [SerializeField] private GameEvent onAddJobToQueue;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -31,6 +32,7 @@ namespace MyRTSGame.Model
             onDeleteBuilderJobsEvent.RegisterListener(HandleDeleteBuilderJobsEvent);
             onRequestUnitJob.RegisterListener(HandleUnitJobRequest);
             onAddCollectResourceJobsEvent.RegisterListener(HandleOnAddResourceJobsEvent);
+            onAddJobToQueue.RegisterListener(HandleAddJobToQueue);
         }
 
         private void OnDisable()
@@ -41,6 +43,7 @@ namespace MyRTSGame.Model
             onDeleteBuilderJobsEvent.UnregisterListener(HandleDeleteBuilderJobsEvent);
             onRequestUnitJob.UnregisterListener(HandleUnitJobRequest);
             onAddCollectResourceJobsEvent.UnregisterListener(HandleOnAddResourceJobsEvent);
+            onAddJobToQueue.RegisterListener(HandleAddJobToQueue);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -231,6 +234,31 @@ namespace MyRTSGame.Model
         {
             if (unit is not ResourceCollector resourceCollector) return null;
             return collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceToCollect());
+        }
+
+        private void HandleAddJobToQueue(IGameEventArgs args)
+        {
+            if (args is not JobEventArgs jobEventArgs) return;
+            switch (jobEventArgs.Job)
+            {
+                case BuilderJob builderJob:
+                    builderJobQueue.AddJob(builderJob);
+                    return;
+                case VillagerJob villagerJob:
+                    villagerJobQueue.AddJob(villagerJob);
+                    return;
+                case ConsumptionJob consumptionJob:
+                    consumptionJobQueue.AddJob(consumptionJob);
+                    return;
+                case LookingForBuildingJob lookingForBuildingJob:
+                    lookingForBuildingJobQueue.AddJob(lookingForBuildingJob);
+                    return;
+                case CollectResourceJob collectResourceJob:
+                    collectResourceJobQueue.AddJob(collectResourceJob);
+                    return;
+                default:
+                    throw new ArgumentException("JobType not recognized in HandleAddJobToQueue");
+            }
         }
     }
 }
