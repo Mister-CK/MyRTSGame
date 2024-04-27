@@ -17,6 +17,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onAddCollectResourceJobsEvent;
         [SerializeField] private GameEvent onDeleteUnitEvent;
         [SerializeField] private GameEvent onDeleteJobEvent;
+        [SerializeField] private GameEvent onCompleteJobEvent;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -34,6 +35,7 @@ namespace MyRTSGame.Model
             onRequestUnitJob.RegisterListener(HandleUnitJobRequest);
             onAddCollectResourceJobsEvent.RegisterListener(HandleOnAddResourceJobsEvent);
             onDeleteUnitEvent.RegisterListener(HandleDeleteUnitEvent);
+            onCompleteJobEvent.RegisterListener(HandleCompleteJob);
         }
 
         private void OnDisable()
@@ -45,6 +47,7 @@ namespace MyRTSGame.Model
             onRequestUnitJob.UnregisterListener(HandleUnitJobRequest);
             onAddCollectResourceJobsEvent.UnregisterListener(HandleOnAddResourceJobsEvent);
             onDeleteUnitEvent.UnregisterListener(HandleDeleteUnitEvent);
+            onCompleteJobEvent.UnregisterListener(HandleCompleteJob);
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -234,7 +237,7 @@ namespace MyRTSGame.Model
         private Job GetNextResourceCollectionJobForUnit(Unit unit)
         {
             if (unit is not ResourceCollector resourceCollector) return null;
-            return collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceToCollect());
+            return collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceTypeToCollect());
         }
 
         private void AddJobToQueue(Job job)
@@ -287,6 +290,12 @@ namespace MyRTSGame.Model
             {
                 onDeleteJobEvent.Raise(new JobEventArgs(unitEventArgs.Unit.GetCurrentJob()));
             }
+        }
+
+        private void HandleCompleteJob(IGameEventArgs args)
+        {
+            if (args is not JobEventArgs jobEventArgs) return;
+            jobEventArgs.Job.SetInProgress(false);
         }
     }
 }

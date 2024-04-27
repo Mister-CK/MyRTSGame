@@ -15,6 +15,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onDeleteUnitEvent;
+        [SerializeField] private GameEvent onCompleteJobEvent;
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
@@ -134,5 +135,11 @@ namespace MyRTSGame.Model
         {
             onNewJobNeeded.Raise(new CreateNewJobEventArgs(jobType, destination, origin, resourceType, unitType));
         }
+
+        public void CompleteJob(Job job)
+        {
+            onCompleteJobEvent.Raise(new JobEventArgs(job));
+        }
+
     }
 }

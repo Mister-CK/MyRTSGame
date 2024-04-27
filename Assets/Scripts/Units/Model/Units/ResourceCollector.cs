@@ -16,8 +16,12 @@ namespace MyRTSGame.Model
         {
             _building = building;
         }
+        public bool GetHasResource()
+        {
+            return _hasResource;
+        }
         
-        public ResourceType GetResourceToCollect()
+        public ResourceType GetResourceTypeToCollect()
         {
             return ResourceTypeToCollect;
         }
@@ -25,11 +29,6 @@ namespace MyRTSGame.Model
         public void SetResourceTypeToCollect(ResourceType resourceType)
         {
             ResourceTypeToCollect = resourceType;
-        }
-        
-        public bool GetHasResource()
-        {
-            return _hasResource;
         }
         
         protected override void ExecuteJob()
@@ -46,8 +45,10 @@ namespace MyRTSGame.Model
             }
             DeliverResource(_building, collectResourceJob.ResourceType);
             unitController.CreateJobNeededEvent(JobType.VillagerJob, null, _building, collectResourceJob.ResourceType, null);
-
+            unitController.CompleteJob(CurrentJob);
             HasDestination = false;
+            CurrentJob = null;
+            Destination = null;
         }
         
         private void TakeResource(IDestination destination, ResourceType resourceType)

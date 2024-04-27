@@ -150,7 +150,6 @@ namespace MyRTSGame.Model
         
         public virtual void AddResource(ResourceType resourceType, int quantity)
         {
-            Inventory[resourceType].Incoming -= quantity;
             Inventory[resourceType].Current += quantity;
             if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
         }

@@ -23,6 +23,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteBuilderJobsEvent;
         [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onDeleteJobEvent;
+        [SerializeField] private GameEvent onCompleteJobEvent;
 
         public static BuildingController Instance { get; private set; }
 
@@ -49,6 +50,7 @@ namespace MyRTSGame.Model
             onDeleteBuildingEvent.RegisterListener(HandleDeleteBuildingEvent);
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
             onDeleteJobEvent.RegisterListener(HandleDeleteJobEvent);
+            onCompleteJobEvent.RegisterListener(HandleCompleteJobEvent);
         }
 
         private void OnDisable()
@@ -62,6 +64,8 @@ namespace MyRTSGame.Model
             onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
             onDeleteJobEvent.UnregisterListener(HandleDeleteJobEvent);
+            onCompleteJobEvent.UnregisterListener(HandleCompleteJobEvent);
+
         }
         
         private static void OnResourceAdded(IGameEventArgs args)
@@ -152,6 +156,17 @@ namespace MyRTSGame.Model
         }
         
         private void HandleDeleteJobEvent(IGameEventArgs args)
+        {
+            if (args is not JobEventArgs eventArgs) return;
+            if (eventArgs.Job.Destination is not Building building) return;
+            building.RemoveJobFromDestination(eventArgs.Job);
+            if (eventArgs.Job is VillagerJob villagerJob)
+            {
+                villagerJob.Origin.RemoveVillagerJobFromThisBuilding(villagerJob);
+            }
+        }
+
+        private void HandleCompleteJobEvent(IGameEventArgs args)
         {
             if (args is not JobEventArgs eventArgs) return;
             if (eventArgs.Job.Destination is not Building building) return;

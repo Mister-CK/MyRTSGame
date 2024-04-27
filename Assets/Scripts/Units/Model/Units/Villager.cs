@@ -2,7 +2,13 @@ namespace MyRTSGame.Model
 {
     public class Villager : Unit
     {
-        private bool _hasResource = false;
+        private bool _hasResource;
+        
+        public Villager()
+        {
+            UnitType = UnitType.Villager;
+        }
+        
         public bool GetHasResource()
         {
             return _hasResource;
@@ -12,10 +18,7 @@ namespace MyRTSGame.Model
         {
             _hasResource = hasResource;
         }
-        public Villager()
-        {
-            UnitType = UnitType.Villager;
-        }
+
 
         protected override void ExecuteJob()
         {
@@ -30,8 +33,10 @@ namespace MyRTSGame.Model
                 return;
             }
             DeliverResource(villagerJob.Destination, villagerJob.ResourceType);
+            unitController.CompleteJob(CurrentJob);
             HasDestination = false;
-            
+            CurrentJob = null;
+            Destination = null;
         }
 
         private void TakeResource(IDestination destination, ResourceType resourceType)
