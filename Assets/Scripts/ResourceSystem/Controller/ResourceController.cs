@@ -8,10 +8,11 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
 {
     public class ResourceController :  MonoBehaviour
     {
-        [SerializeField] private ResourceList _resourceList;
-        
+        [SerializeField] private GameEvent onResourceRemovedFromDestination;
         [SerializeField] private GameEvent onAddCollectResourceJobsEvent;
         [SerializeField] private GameEvent onNewJobCreated;
+        
+        [SerializeField] private ResourceList _resourceList;
         public static ResourceController Instance { get; private set; }
 
         private void Awake()
@@ -28,11 +29,13 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         private void OnEnable()
         {
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
+            onResourceRemovedFromDestination.RegisterListener(HandleResourceRemovedFromDestination);
         }
 
         private void OnDisable()
         {
             onNewJobCreated.UnregisterListener(HandleNewJobCreated);
+            onResourceRemovedFromDestination.UnregisterListener(HandleResourceRemovedFromDestination);
         }
 
         // private void HandleGetClosestResourceEvent(IGameEventArgs args)
@@ -57,5 +60,12 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
             collectResourceJob.Destination.AddJobToDestination(eventArgs.Job);
         }
         
+        private void HandleResourceRemovedFromDestination(IGameEventArgs args)
+        {
+            if (args is not DestinationResourceTypeQuantityEventArgs destinationResourceTypeQuantityEventArgs) return;
+            if (destinationResourceTypeQuantityEventArgs.Destination is not NaturalResource naturalResource) return;
+            
+            naturalResource.RemoveResource(destinationResourceTypeQuantityEventArgs.ResourceType, destinationResourceTypeQuantityEventArgs.Quantity);
+        }
     }
 }

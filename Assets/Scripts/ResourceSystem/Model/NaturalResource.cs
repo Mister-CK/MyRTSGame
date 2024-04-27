@@ -36,6 +36,16 @@ namespace MyRTSGame.Model.ResourceSystem.Model
             if (job is not CollectResourceJob collectResourceJob) return;
             _collectResourceJobs.Add(collectResourceJob);
         }
+        
+        public void RemoveResource(ResourceType resourceType, int quantity)
+        {
+            if (Resource.ResourceType != resourceType) throw new System.Exception("Resource type does not match");
+            Resource.Quantity -= quantity;
+            if (Resource.Quantity <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
 
         public BuildingType GetBuildingType()
         {

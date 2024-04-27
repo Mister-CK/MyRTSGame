@@ -95,15 +95,13 @@ namespace MyRTSGame.Model
         
         public void RemoveResourceFromDestination(IDestination destination, ResourceType resourceType, int quantity)
         {
-            if(destination is not Building building) return;
-            onResourceRemovedFromDestination.Raise(new DestinationResourceTypeQuantityEventArgs(building, resourceType,
+            onResourceRemovedFromDestination.Raise(new DestinationResourceTypeQuantityEventArgs(destination, resourceType,
                 quantity));
         }
 
         public void AddResourceToDestination(IDestination destination, ResourceType resourceType, int quantity)
         {
-            if(destination is not Building building) return;
-            onResourceAddedToBuilding.Raise(new DestinationResourceTypeQuantityEventArgs(building, resourceType,
+            onResourceAddedToBuilding.Raise(new DestinationResourceTypeQuantityEventArgs(destination, resourceType,
                 quantity));
         }
 

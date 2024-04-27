@@ -481,6 +481,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32334586}
   m_CullTransparentMesh: 1
+--- !u!1001 &89893267
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 161940881}
+    m_Modifications:
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8738003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183070976581456306, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_Name
+      value: LumberJack (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
 --- !u!1 &94712929
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +957,8 @@ Transform:
   - {fileID: 442216269}
   - {fileID: 1048523067}
   - {fileID: 94712930}
+  - {fileID: 1680604939}
+  - {fileID: 894981297}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &174391895 stripped
@@ -5619,9 +5678,9 @@ RectTransform:
   - {fileID: 1649069610}
   m_Father: {fileID: 847905580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 360, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &553121591
@@ -6161,9 +6220,9 @@ RectTransform:
   - {fileID: 285237151}
   m_Father: {fileID: 553121590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 97.5, y: -40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 75, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &621797395
@@ -7587,9 +7646,9 @@ RectTransform:
   - {fileID: 1587071380}
   m_Father: {fileID: 553121590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 75, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &857256553
@@ -7789,6 +7848,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867515893}
   m_CullTransparentMesh: 1
+--- !u!4 &894981297 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+  m_PrefabInstance: {fileID: 89893267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &895030952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7336935787240069783, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
@@ -10806,7 +10870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f59f05203346e09d65cd43df4345d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onResourceRemovedFromBuilding: {fileID: 11400000, guid: 8f1ffc440db3f47468dacc912a5335e7, type: 2}
+  onResourceRemovedFromDestination: {fileID: 11400000, guid: 8f1ffc440db3f47468dacc912a5335e7, type: 2}
   onResourceAddedToBuilding: {fileID: 11400000, guid: 96ac4e9b22a4f4b5d8ffc8201b3214cb, type: 2}
   onNewJobNeeded: {fileID: 11400000, guid: 927d80f7b8794483ba2a686ef6256181, type: 2}
   onAddProductionJobEvent: {fileID: 11400000, guid: af36e03a9e3e04cd6a5d366519bbaa6e, type: 2}
@@ -10873,9 +10937,9 @@ RectTransform:
   - {fileID: 1701040611}
   m_Father: {fileID: 553121590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 75, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1258605884
@@ -12622,8 +12686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6214badc40e040ca8eb600dcfdf8db58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resourceList: {fileID: 281228161}
+  onResourceRemovedFromDestination: {fileID: 11400000, guid: 8f1ffc440db3f47468dacc912a5335e7, type: 2}
   onAddCollectResourceJobsEvent: {fileID: 11400000, guid: e615dd2f8548248f390d38b1388ce5c3, type: 2}
+  onNewJobCreated: {fileID: 11400000, guid: 5cfcf31dcb0a6498e98f45e1d1ec2f48, type: 2}
+  _resourceList: {fileID: 281228161}
 --- !u!1 &1463963394
 GameObject:
   m_ObjectHideFlags: 0
@@ -13777,9 +13843,9 @@ RectTransform:
   - {fileID: 1278401938}
   m_Father: {fileID: 553121590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 272.5, y: -40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 75, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1649069611
@@ -14064,6 +14130,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670770596}
   m_CullTransparentMesh: 1
+--- !u!4 &1680604939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+  m_PrefabInstance: {fileID: 1747727138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1680887860
 GameObject:
   m_ObjectHideFlags: 0
@@ -14648,6 +14719,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739331842}
   m_CullTransparentMesh: 1
+--- !u!1001 &1747727138
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 161940881}
+    m_Modifications:
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8738003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183070976581456306, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: m_Name
+      value: LumberJack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
 --- !u!4 &1763287921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7336935787240069783, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
@@ -17294,6 +17422,10 @@ PrefabInstance:
       propertyPath: onConsumptionJobAssigned
       value: 
       objectReference: {fileID: 11400000, guid: 5c4f81a1e33ee484bb50e65ced623424, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onResourceRemovedFromDestination
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f1ffc440db3f47468dacc912a5335e7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
