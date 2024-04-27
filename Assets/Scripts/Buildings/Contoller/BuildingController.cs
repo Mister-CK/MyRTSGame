@@ -134,6 +134,7 @@ namespace MyRTSGame.Model
         private static void HandleNewJobCreated(IGameEventArgs args)
         {
             if (args is not JobEventArgs eventArgs) return;
+            if (eventArgs.Job is CollectResourceJob) return;
             eventArgs.Job.Destination.AddJobToDestination(eventArgs.Job);
             if (eventArgs.Job is VillagerJob villagerJob)
             {

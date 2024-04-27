@@ -155,6 +155,24 @@ namespace MyRTSGame.Model
             onNewJobCreated.Raise(new JobEventArgs(villagerJob));
         }
         
+        private void HandleOnAddResourceJobsEvent(IGameEventArgs args)
+        {
+            if (args is not NaturalResourceEventArgs naturalResourceEventArgs) return;
+            
+            var job = new CollectResourceJob()
+            {
+                Destination = naturalResourceEventArgs.NaturalResource,
+                ResourceType = naturalResourceEventArgs.NaturalResource.GetResource().ResourceType
+            };
+
+            for (var i = 0; i < naturalResourceEventArgs.NaturalResource.GetResource().Quantity; i++)
+            {
+                collectResourceJobQueue.AddJob(job);
+            }
+            onNewJobCreated.Raise(new JobEventArgs(job));
+
+        }
+        
         private void CreateConsumptionJob(CreateNewJobEventArgs createNewJobEventArgs)
         {
             var consumptionJob = new ConsumptionJob() { Destination = createNewJobEventArgs.Destination, ResourceType = createNewJobEventArgs.ResourceType.GetValueOrDefault()};
@@ -211,21 +229,8 @@ namespace MyRTSGame.Model
 
         private Job GetNextResourceCollectionJobForUnit(Unit unit)
         {
-            Debug.Log("GetNextResourceCollectionJobForUnit for Unit: " + unit.GetUnitType());
             if (unit is not ResourceCollector resourceCollector) return null;
             return collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceToCollect());
         }
-
-        private void HandleOnAddResourceJobsEvent(IGameEventArgs args)
-        {
-            if (args is not NaturalResourceEventArgs naturalResourceEventArgs) return;
-            var job = new CollectResourceJob()
-            {
-                Destination = naturalResourceEventArgs.NaturalResource,
-                ResourceType = naturalResourceEventArgs.NaturalResource.GetResource().ResourceType
-            };
-            collectResourceJobQueue.AddJob(job);
-        }
-        
     }
 }

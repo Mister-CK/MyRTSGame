@@ -11,7 +11,7 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         [SerializeField] private ResourceList _resourceList;
         
         [SerializeField] private GameEvent onAddCollectResourceJobsEvent;
-
+        [SerializeField] private GameEvent onNewJobCreated;
         public static ResourceController Instance { get; private set; }
 
         private void Awake()
@@ -27,10 +27,12 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         }
         private void OnEnable()
         {
+            onNewJobCreated.RegisterListener(HandleNewJobCreated);
         }
 
         private void OnDisable()
         {
+            onNewJobCreated.UnregisterListener(HandleNewJobCreated);
         }
 
         // private void HandleGetClosestResourceEvent(IGameEventArgs args)
@@ -46,6 +48,13 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         public void CreateAddResourceJobsEvent(NaturalResource naturalResource)
         {
             onAddCollectResourceJobsEvent.Raise(new NaturalResourceEventArgs(naturalResource));
+        }
+        
+        private static void HandleNewJobCreated(IGameEventArgs args)
+        {
+            if (args is not JobEventArgs eventArgs) return;
+            if (eventArgs.Job is not CollectResourceJob collectResourceJob) return;
+            collectResourceJob.Destination.AddJobToDestination(eventArgs.Job);
         }
         
     }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using MyRTSGame.Model.ResourceSystem.Controller;
 using UnityEngine;
@@ -10,20 +9,22 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         protected Resource Resource;
         public BoxCollider BCollider { get; private set; }
         protected ResourceController ResourceController;
-        public Resource GetResource()
-        {
-            return Resource;
-        }
+        private List<CollectResourceJob> _collectResourceJobs = new List<CollectResourceJob>();
 
         protected virtual void Start()
         {
             ResourceController = ResourceController.Instance;
         }
-
+        
+        public Resource GetResource()
+        {
+            return Resource;
+        }
         public void SetResource(Resource resource)
         {
             Resource = resource;
         }
+        
         
         public Vector3 GetPosition()
         {
@@ -32,7 +33,8 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         
         public void AddJobToDestination(Job job)
         {
-            throw new System.NotImplementedException();
+            if (job is not CollectResourceJob collectResourceJob) return;
+            _collectResourceJobs.Add(collectResourceJob);
         }
 
         public BuildingType GetBuildingType()
