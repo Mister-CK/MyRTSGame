@@ -2,11 +2,15 @@ namespace MyRTSGame.Model
 {
     public class Villager : Unit
     {
-        private bool _hasResource;
-
+        private bool _hasResource = false;
         public bool GetHasResource()
         {
             return _hasResource;
+        }
+        
+        public void SetHasResource(bool hasResource)
+        {
+            _hasResource = hasResource;
         }
         public Villager()
         {
@@ -40,21 +44,6 @@ namespace MyRTSGame.Model
         {
             _hasResource = false;
             unitController.AddResourceToDestination(destination, resourceType, 1);
-        }
-
-        public void UnAssignVillagerJob(DestinationType destinationType)
-        {
-            if (destinationType == DestinationType.Origin && _hasResource)
-            {
-                return;
-            }
-
-            HasDestination = false;
-            
-            Agent.SetDestination(Agent.transform.position);
-            CurrentJob = null;
-            _hasResource = false;
-            Destination = null;
         }
     }
 }

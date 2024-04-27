@@ -167,5 +167,22 @@ namespace MyRTSGame.Model
             if (this is not ResourceCollector resourceCollector) return;
             unitController.CreateJobNeededEvent(JobType.LookForBuildingJob, resourceCollector.GetBuilding(), null, null, resourceCollector.GetBuilding().GetOccupantType());
         }
+        
+        public void UnAssignJob(DestinationType destinationType)
+        {
+            if (this is Villager villager)
+            {
+                if (destinationType == DestinationType.Origin && villager.GetHasResource())
+                {
+                    return;
+                }
+                villager.SetHasResource(false);
+            }
+
+            HasDestination = false;
+            CurrentJob = null;
+            Destination = null;
+            Agent.SetDestination(Agent.transform.position);
+        }
     }
 }

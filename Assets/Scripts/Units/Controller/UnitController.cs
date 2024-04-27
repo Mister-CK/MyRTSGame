@@ -83,16 +83,8 @@ namespace MyRTSGame.Model
         private void HandleUnitJobDeleted(IGameEventArgs args)
         {
             if (args is not UnitWithJobEventArgsAndDestinationType unitWithJobEventArgsAndDestinationType) return;
-            if (unitWithJobEventArgsAndDestinationType.Unit is Builder builder)
-            {
-                builder.UnAssignBuilderJob();
-            }
-
-            if (unitWithJobEventArgsAndDestinationType.Unit is Villager villager)
-            {
-                villager.UnAssignVillagerJob(unitWithJobEventArgsAndDestinationType.DestinationType
-                    .GetValueOrDefault());
-            }
+            unitWithJobEventArgsAndDestinationType.Unit.UnAssignJob(unitWithJobEventArgsAndDestinationType.DestinationType
+                .GetValueOrDefault());
         }
 
         public void HandleClick(ISelectable selectable)

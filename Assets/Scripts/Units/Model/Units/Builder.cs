@@ -16,16 +16,8 @@ namespace MyRTSGame.Model
 
             Destination.SetState(new CompletedState(Destination.GetBuildingType()));
             HasDestination = false;
-        }
-
-        public void UnAssignBuilderJob()
-        {
             CurrentJob = null;
             Destination = null;
-            HasDestination = false;
-            Agent.SetDestination(Agent.transform.position);
-
-            SetDestination();
         }
     }
 }
