@@ -29,13 +29,13 @@ namespace MyRTSGame.Model
         private void TakeResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = true;
-            unitController.RemoveResourceFromBuilding(destination, resourceType, 1);
+            unitController.RemoveResourceFromDestination(destination, resourceType, 1);
         }
 
         private void DeliverResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = false;
-            unitController.AddResourceToBuilding(destination, resourceType, 1);
+            unitController.AddResourceToDestination(destination, resourceType, 1);
         }
 
         public void UnAssignVillagerJob(DestinationType destinationType)

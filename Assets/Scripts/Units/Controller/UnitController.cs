@@ -7,7 +7,7 @@ namespace MyRTSGame.Model
     {
         [SerializeField] private GameEvent onNewUnitEvent;
         [SerializeField] private GameEvent onSelectionEvent;
-        [SerializeField] private GameEvent onResourceRemovedFromBuilding;
+        [SerializeField] private GameEvent onResourceRemovedFromDestination;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
         [SerializeField] private GameEvent onUnitJobDeleted;
         [SerializeField] private GameEvent onRequestUnitJob;
@@ -93,17 +93,17 @@ namespace MyRTSGame.Model
             onSelectionEvent.Raise(new SelectionEventArgs(selectable));
         }  
         
-        public void RemoveResourceFromBuilding(IDestination destination, ResourceType resourceType, int quantity)
+        public void RemoveResourceFromDestination(IDestination destination, ResourceType resourceType, int quantity)
         {
             if(destination is not Building building) return;
-            onResourceRemovedFromBuilding.Raise(new BuildingResourceTypeQuantityEventArgs(building, resourceType,
+            onResourceRemovedFromDestination.Raise(new DestinationResourceTypeQuantityEventArgs(building, resourceType,
                 quantity));
         }
 
-        public void AddResourceToBuilding(IDestination destination, ResourceType resourceType, int quantity)
+        public void AddResourceToDestination(IDestination destination, ResourceType resourceType, int quantity)
         {
             if(destination is not Building building) return;
-            onResourceAddedToBuilding.Raise(new BuildingResourceTypeQuantityEventArgs(building, resourceType,
+            onResourceAddedToBuilding.Raise(new DestinationResourceTypeQuantityEventArgs(building, resourceType,
                 quantity));
         }
 

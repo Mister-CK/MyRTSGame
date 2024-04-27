@@ -100,7 +100,7 @@ namespace MyRTSGame.Model
 
             if (CurrentJob is ConsumptionJob consumptionJob)
             {
-                unitController.RemoveResourceFromBuilding(consumptionJob.Destination, consumptionJob.ResourceType, 1);
+                unitController.RemoveResourceFromDestination(consumptionJob.Destination, consumptionJob.ResourceType, 1);
                 HasDestination = false;
                 CurrentJob = null;
                 Destination = null;

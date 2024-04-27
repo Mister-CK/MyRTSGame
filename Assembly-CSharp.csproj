@@ -67,6 +67,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/TrainingBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs" />
+    <Compile Include="Assets/Scripts/GameEvents/EventArgs/DestinationResourceTypeQuantityEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/SelectionController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GoldSmelter.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/ConsumptionJob.cs" />
@@ -120,7 +121,6 @@
     <Compile Include="Assets/Scripts/Units/Model/UnitList.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/FishermansHut.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronSmelter.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingResourceTypeQuantityEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ProductionBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/School.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GoldMine.cs" />

@@ -9,7 +9,7 @@ namespace MyRTSGame.Model
     public class BuildingController : MonoBehaviour
     {
 
-        [SerializeField] private GameEvent onResourceRemovedFromBuilding;
+        [SerializeField] private GameEvent onResourceRemovedFromDestination;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onAddProductionJobEvent;
@@ -39,7 +39,7 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onResourceAddedToBuilding.RegisterListener(OnResourceAdded);
-            onResourceRemovedFromBuilding.RegisterListener(OnResourceRemoved);
+            onResourceRemovedFromDestination.RegisterListener(OnResourceRemoved);
             onAddProductionJobEvent.RegisterListener(OnAddProductionJob);
             onRemoveProductionJobEvent.RegisterListener(OnRemoveProductionJob);
             onAddTrainingJobEvent.RegisterListener(OnAddTrainingJob);
@@ -51,7 +51,7 @@ namespace MyRTSGame.Model
         private void OnDisable()
         {
             onResourceAddedToBuilding.UnregisterListener(OnResourceAdded);
-            onResourceRemovedFromBuilding.UnregisterListener(OnResourceRemoved);
+            onResourceRemovedFromDestination.UnregisterListener(OnResourceRemoved);
             onAddProductionJobEvent.UnregisterListener(OnAddProductionJob);
             onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
             onAddTrainingJobEvent.UnregisterListener(OnAddTrainingJob);
@@ -62,18 +62,16 @@ namespace MyRTSGame.Model
         
         private static void OnResourceAdded(IGameEventArgs args)
         {
-            if (args is BuildingResourceTypeQuantityEventArgs eventArgs)
-            {
-                eventArgs.Building.AddResource(eventArgs.ResourceType, eventArgs.Quantity);
-            }
+            if (args is not DestinationResourceTypeQuantityEventArgs eventArgs) return;
+            if (eventArgs.Destination is not Building building) return;
+            building.AddResource(eventArgs.ResourceType, eventArgs.Quantity);
         }
         
         private static void OnResourceRemoved(IGameEventArgs args)
         {
-            if (args is BuildingResourceTypeQuantityEventArgs eventArgs)
-            {
-                eventArgs.Building.RemoveResource(eventArgs.ResourceType, eventArgs.Quantity);
-            }
+            if (args is not DestinationResourceTypeQuantityEventArgs eventArgs) return;
+            if (eventArgs.Destination is not Building building) return;
+            building.RemoveResource(eventArgs.ResourceType, eventArgs.Quantity);
         }
         
         public void CreateJobNeededEvent(JobType jobType, Building destination, Building origin, ResourceType? resourceType, UnitType? unitType)
