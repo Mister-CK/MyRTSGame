@@ -164,6 +164,8 @@ namespace MyRTSGame.Model
         public void DeleteUnit()
         {
             Destroy(gameObject);
+            if (this is not ResourceCollector resourceCollector) return;
+            unitController.CreateJobNeededEvent(JobType.LookForBuildingJob, resourceCollector.GetBuilding(), null, null, resourceCollector.GetBuilding().GetOccupantType());
         }
     }
 }

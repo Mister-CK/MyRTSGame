@@ -30,6 +30,15 @@ namespace MyRTSGame.Model
         private List<BuilderJob> builderJobsForThisBuilding = new List<BuilderJob>();
         private List<ConsumptionJob> consumptionJobsForThisbuilding = new List<ConsumptionJob>();
 
+        public UnitType GetOccupantType()
+        {
+            return OccupantType;
+        }
+        
+        public void SetOccupantType(UnitType unitType)
+        {
+            OccupantType = unitType;
+        }
         private void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
