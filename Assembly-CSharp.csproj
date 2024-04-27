@@ -54,6 +54,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Unit.cs" />
+    <Compile Include="Assets/Scripts/Units/View/LumberJackView.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/UIController.cs" />
     <Compile Include="Assets/Scripts/UI/Components/UIDeleteButton.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />

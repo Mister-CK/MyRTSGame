@@ -4,9 +4,6 @@ namespace MyRTSGame.Model
 {
     public class Builder : Unit
     {
-        [SerializeField] private BuilderJobQueue builderJobQueue;
-        private BuilderJob _currentBuilderJob;
-        
         public Builder()
         {
             UnitType = UnitType.Builder;

@@ -31,7 +31,6 @@ public class SelectionView : MonoBehaviour
     public void SetView(ISelectable selectable)
     {
         ClearView();
-        
         switch (selectable)
         {
             case Building building:
@@ -51,8 +50,8 @@ public class SelectionView : MonoBehaviour
     private void SetSelectedUnit(Unit unit)
     {
         unitUIView.ActivateView(unit);
-
     }
+    
     private void UpdateSelectedBuilding(Building building)
     {
         if (building.State is FoundationState)

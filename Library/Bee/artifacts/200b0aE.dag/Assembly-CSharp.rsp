@@ -471,6 +471,7 @@
 "Assets/Scripts/Units/Model/Units/ResourceCollector.cs"
 "Assets/Scripts/Units/Model/Units/Villager.cs"
 "Assets/Scripts/Units/View/BuilderView.cs"
+"Assets/Scripts/Units/View/LumberJackView.cs"
 "Assets/Scripts/Units/View/UnitView.cs"
 "Assets/Scripts/Units/View/VillagerView.cs"
 -langversion:9.0
