@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onRequestUnitJob;
         [SerializeField] private GameEvent onAssignJob;
         [SerializeField] private GameEvent onJobRequestDenied;
-        
+        [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
         [SerializeField] private LumberJack lumberJackPrefab;
@@ -30,7 +30,7 @@ namespace MyRTSGame.Model
                 Instance = this;
             }
         }
-        
+
         private void OnEnable()
         {
             onAssignJob.RegisterListener(HandleJobAssigned);
@@ -46,13 +46,14 @@ namespace MyRTSGame.Model
             onUnitJobDeleted.UnregisterListener(HandleUnitJobDeleted);
             onJobRequestDenied.UnregisterListener(HandleJobRequestDenied);
         }
-        
-        
+
+
         private void HandleCreateNewUnit(IGameEventArgs args)
         {
             if (args is not TrainingBuildingUnitTypeEventArgs trainingBuildingUnitTypeEventArgs) return;
 
-            var spawnPosition = trainingBuildingUnitTypeEventArgs.TrainingBuilding.transform.position + new Vector3(2, 0, -2); 
+            var spawnPosition = trainingBuildingUnitTypeEventArgs.TrainingBuilding.transform.position +
+                                new Vector3(2, 0, -2);
             switch (trainingBuildingUnitTypeEventArgs.UnitType)
             {
                 case UnitType.Villager:
@@ -68,13 +69,13 @@ namespace MyRTSGame.Model
                     throw new ArgumentOutOfRangeException(trainingBuildingUnitTypeEventArgs.UnitType.ToString());
             }
         }
-        
+
         private void HandleJobAssigned(IGameEventArgs args)
         {
             if (args is not UnitWithJobEventArgs unitWithJobEventArgs) return;
             unitWithJobEventArgs.Unit.AcceptNewJob(unitWithJobEventArgs.Job);
         }
-        
+
         private void HandleUnitJobDeleted(IGameEventArgs args)
         {
             if (args is not UnitWithJobEventArgsAndDestinationType unitWithJobEventArgsAndDestinationType) return;
@@ -82,20 +83,23 @@ namespace MyRTSGame.Model
             {
                 builder.UnAssignBuilderJob();
             }
+
             if (unitWithJobEventArgsAndDestinationType.Unit is Villager villager)
             {
-                villager.UnAssignVillagerJob(unitWithJobEventArgsAndDestinationType.DestinationType.GetValueOrDefault());
+                villager.UnAssignVillagerJob(unitWithJobEventArgsAndDestinationType.DestinationType
+                    .GetValueOrDefault());
             }
         }
-        
+
         public void HandleClick(ISelectable selectable)
         {
             onSelectionEvent.Raise(new SelectionEventArgs(selectable));
-        }  
-        
+        }
+
         public void RemoveResourceFromDestination(IDestination destination, ResourceType resourceType, int quantity)
         {
-            onResourceRemovedFromDestination.Raise(new DestinationResourceTypeQuantityEventArgs(destination, resourceType,
+            onResourceRemovedFromDestination.Raise(new DestinationResourceTypeQuantityEventArgs(destination,
+                resourceType,
                 quantity));
         }
 
@@ -110,17 +114,23 @@ namespace MyRTSGame.Model
             unit.SetPendingJobRequest(true);
             onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, jobType));
         }
-        
+
         private void HandleJobRequestDenied(IGameEventArgs args)
         {
             if (args is not UnitEventArgs unitEventArgs) return;
             unitEventArgs.Unit.SetPendingJobRequest(false);
         }
-        
+
         public void CreateNewLookForBuildingJob(Unit unit)
         {
             unit.SetPendingJobRequest(true);
             onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, JobType.LookForBuildingJob));
+        }
+
+        public void CreateJobNeededEvent(JobType jobType, Building destination, Building origin,
+            ResourceType? resourceType, UnitType? unitType)
+        {
+            onNewJobNeeded.Raise(new CreateNewJobEventArgs(jobType, destination, origin, resourceType, unitType));
         }
     }
 }

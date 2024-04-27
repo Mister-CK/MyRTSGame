@@ -40,6 +40,8 @@ namespace MyRTSGame.Model
                 return;
             }
             DeliverResource(_building, collectResourceJob.ResourceType);
+            unitController.CreateJobNeededEvent(JobType.VillagerJob, null, _building, collectResourceJob.ResourceType, null);
+
             HasDestination = false;
         }
         
