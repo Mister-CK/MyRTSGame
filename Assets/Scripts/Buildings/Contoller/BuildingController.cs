@@ -170,6 +170,10 @@ namespace MyRTSGame.Model
         {
             if (args is not JobEventArgs eventArgs) return;
             if (eventArgs.Job.Destination is not Building building) return;
+            if (eventArgs.Job is LookingForBuildingJob lookingForBuildingJob)
+            {
+                building.SetOccupant(lookingForBuildingJob.Unit);
+            }
             building.RemoveJobFromDestination(eventArgs.Job);
             if (eventArgs.Job is VillagerJob villagerJob)
             {

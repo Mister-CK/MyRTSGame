@@ -100,6 +100,7 @@ namespace MyRTSGame.Model
             {
                 if (this is not ResourceCollector resourceCollector) throw new ArgumentException("only resourceCollectors can look for buildings");
                 resourceCollector.SetBuilding(lookingForBuildingJob.Destination as Building);
+                unitController.CompleteJob(lookingForBuildingJob);
                 IsLookingForBuilding = false;
                 HasDestination = false;
                 CurrentJob = null;

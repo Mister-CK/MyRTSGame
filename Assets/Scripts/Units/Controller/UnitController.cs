@@ -141,5 +141,6 @@ namespace MyRTSGame.Model
             onCompleteJobEvent.Raise(new JobEventArgs(job));
         }
 
+        
     }
 }

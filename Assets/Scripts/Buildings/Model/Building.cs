@@ -30,7 +30,8 @@ namespace MyRTSGame.Model
         private List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
         private List<BuilderJob> builderJobsForThisBuilding = new List<BuilderJob>();
         private List<ConsumptionJob> consumptionJobsForThisbuilding = new List<ConsumptionJob>();
-
+        private List<LookingForBuildingJob> lookingForBuildingJobsForThisBuilding = new List<LookingForBuildingJob>();
+        
         public void SetOccupant(Unit unit)
         {
             Occupant = unit;
@@ -194,6 +195,10 @@ namespace MyRTSGame.Model
                 case ConsumptionJob consumptionJob:
                     consumptionJobsForThisbuilding.Add(consumptionJob);
                     return;
+                case LookingForBuildingJob lookingForBuildingJob:
+                    lookingForBuildingJobsForThisBuilding.Add(lookingForBuildingJob);
+                    return;
+                default: throw new System.ArgumentException("job type not recognized in AddJobToDestination");
             }
         }
         
