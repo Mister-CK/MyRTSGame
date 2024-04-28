@@ -9,11 +9,9 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeselectionEvent;
         [SerializeField] private GameEvent onDeleteBuildingEvent;
         [SerializeField] private GameEvent onDeleteUnitEvent;
-        
         [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
          
         [SerializeField] private SelectionView selectionView;
-        private ISelectable CurrentSelectedObject { get; set; }
         
         private void OnEnable()
         {
@@ -29,25 +27,13 @@ namespace MyRTSGame.Model
 
         private void SetUIView(IGameEventArgs args)
         {
-            if (CurrentSelectedObject is Building selectedBuilding)
-            {
-                selectionView.SetView(selectedBuilding);
-            }
+            if (args is not BuildingEventArgs buildingEventArgs) return;
+            selectionView.UpdateView(buildingEventArgs.Building);
         }
         
-        private void LateUpdate()
+        public void DeSelectObject()
         {
-            if (Input.GetMouseButtonDown(1))
-            {
-                onDeselectionEvent.Raise(null);
-                if (CurrentSelectedObject != null)
-                {
-                    selectionView.ClearView();
-                    CurrentSelectedObject = null;
-                }
-            }
-
-            selectionView.UpdateView(CurrentSelectedObject);
+            onDeselectionEvent.Raise(null);
         }
 
         private void SelectObject(IGameEventArgs args)
@@ -55,25 +41,17 @@ namespace MyRTSGame.Model
             if (args is not SelectionEventArgs selectionEventArgs) return;
 
             var newObject = selectionEventArgs.SelectedObject;
-
-            if (CurrentSelectedObject != null && CurrentSelectedObject != newObject)
-            {
-                selectionView.ClearView();
-            }
-
-            CurrentSelectedObject = newObject;
-
-            selectionView.SetView(CurrentSelectedObject);
+            selectionView.SelectObject(newObject);
         }
 
-        public void CreateDeleteEvent()
+        public void CreateDeleteEvent(ISelectable selectedObject)
         {
-            if (CurrentSelectedObject is Building selectedBuilding)
+            if (selectedObject is Building selectedBuilding)
             {
                 onDeleteBuildingEvent.Raise(new BuildingEventArgs(selectedBuilding));
             }
             
-            if (CurrentSelectedObject is Unit selectedUnit)
+            if (selectedObject is Unit selectedUnit)
             {
                 onDeleteUnitEvent.Raise(new UnitEventArgs(selectedUnit));
             }

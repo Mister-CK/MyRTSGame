@@ -15,9 +15,27 @@ public class SelectionView : MonoBehaviour
     [SerializeField] public SelectionController selectionController;
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
+    private ISelectable CurrentSelectedObject { get; set; }
+    
+    private void LateUpdate()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            selectionController.DeSelectObject();
+            if (CurrentSelectedObject != null)
+            {
+                ClearView();
+                CurrentSelectedObject = null;
+            }
+        }
+
+        UpdateView(CurrentSelectedObject);
+    }
+    
     
     public void UpdateView(ISelectable selectable)
     {
+        if (selectable != CurrentSelectedObject) return;
         switch (selectable)
         {
             case Building building:
@@ -126,9 +144,27 @@ public class SelectionView : MonoBehaviour
         constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
     }
 
+    public void SelectObject(ISelectable selectable)
+    {
+        if (CurrentSelectedObject != null && CurrentSelectedObject != selectable)
+        {
+            ClearView();
+        }
+
+        CurrentSelectedObject = selectable;
+
+        SetView(CurrentSelectedObject);
+    }
+    
+    public void HandleOccupantButtonClick()
+    {
+        if (CurrentSelectedObject is not Building building) return;
+        SelectObject(building.GetOccupant());
+    }
+    
     public void HandleDeleteButtonClick()
     {
-        selectionController.CreateDeleteEvent();
+        selectionController.CreateDeleteEvent(CurrentSelectedObject);
     }
     
     private void CreateResourceGridForBuilding(Building building)

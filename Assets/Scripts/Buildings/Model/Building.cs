@@ -22,7 +22,8 @@ namespace MyRTSGame.Model
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
         protected UnitType OccupantType = UnitType.Villager;
-        
+        protected Unit Occupant = null;
+
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
         private List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
@@ -30,6 +31,16 @@ namespace MyRTSGame.Model
         private List<BuilderJob> builderJobsForThisBuilding = new List<BuilderJob>();
         private List<ConsumptionJob> consumptionJobsForThisbuilding = new List<ConsumptionJob>();
 
+        public void SetOccupant(Unit unit)
+        {
+            Occupant = unit;
+        }
+        
+        public Unit GetOccupant()
+        {
+            return Occupant;
+        }
+        
         public UnitType GetOccupantType()
         {
             return OccupantType;
@@ -86,6 +97,7 @@ namespace MyRTSGame.Model
 
         public void OnMouseDown()
         {
+            if (State is PlacingState) return;
             onSelectionEvent.Raise(new SelectionEventArgs(this));
         }
 
