@@ -30,10 +30,13 @@ namespace MyRTSGame.Model
             if (args is not BuildingEventArgs buildingEventArgs) return;
             selectionView.UpdateView(buildingEventArgs.Building);
         }
-        
-        public void DeSelectObject()
+
+        private void LateUpdate()
         {
-            onDeselectionEvent.Raise(null);
+            if (Input.GetMouseButtonDown(1))
+            {
+                onDeselectionEvent.Raise(null);
+            }
         }
 
         private void SelectObject(IGameEventArgs args)

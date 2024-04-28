@@ -16,12 +16,11 @@ public class SelectionView : MonoBehaviour
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
     private ISelectable CurrentSelectedObject { get; set; }
-    
+
     private void LateUpdate()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            selectionController.DeSelectObject();
             if (CurrentSelectedObject != null)
             {
                 ClearView();
@@ -31,8 +30,7 @@ public class SelectionView : MonoBehaviour
 
         UpdateView(CurrentSelectedObject);
     }
-    
-    
+
     public void UpdateView(ISelectable selectable)
     {
         if (selectable != CurrentSelectedObject) return;
@@ -158,7 +156,9 @@ public class SelectionView : MonoBehaviour
     
     public void HandleOccupantButtonClick()
     {
+        Debug.Log("HandleOccupantButtonClick clicked");
         if (CurrentSelectedObject is not Building building) return;
+        Debug.Log(building.GetOccupant());
         SelectObject(building.GetOccupant());
     }
     
