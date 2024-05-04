@@ -451,6 +451,8 @@
 "Assets/Scripts/ResourceSystem/Model/NaturalResource.cs"
 "Assets/Scripts/ResourceSystem/Model/NaturalResources/Tree.cs"
 "Assets/Scripts/ResourceSystem/Model/ResourceList.cs"
+"Assets/Scripts/ResourceSystem/View/NaturalResourceView.cs"
+"Assets/Scripts/ResourceSystem/View/TreeView.cs"
 "Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/ConstructionStateBuildingUIView.cs"
 "Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs"

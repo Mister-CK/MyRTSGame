@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MyRTSGame.Model.ResourceSystem.Model
 {
-    public class NaturalResource: MonoBehaviour, IDestination
+    public class NaturalResource: MonoBehaviour, IDestination, ISelectable
     {
         protected Resource Resource;
         public BoxCollider BCollider { get; private set; }

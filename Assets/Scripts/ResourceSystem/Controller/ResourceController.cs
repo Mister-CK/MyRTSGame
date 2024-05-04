@@ -11,6 +11,7 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         [SerializeField] private GameEvent onResourceRemovedFromDestination;
         [SerializeField] private GameEvent onAddCollectResourceJobsEvent;
         [SerializeField] private GameEvent onNewJobCreated;
+        [SerializeField] private GameEvent onSelectionEvent;
         
         [SerializeField] private ResourceList _resourceList;
         public static ResourceController Instance { get; private set; }
@@ -66,6 +67,11 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
             if (destinationResourceTypeQuantityEventArgs.Destination is not NaturalResource naturalResource) return;
             
             naturalResource.RemoveResource(destinationResourceTypeQuantityEventArgs.ResourceType, destinationResourceTypeQuantityEventArgs.Quantity);
+        }
+
+        public void HandleClick(ISelectable selectable)
+        {
+            onSelectionEvent.Raise(new SelectionEventArgs(selectable));
         }
     }
 }

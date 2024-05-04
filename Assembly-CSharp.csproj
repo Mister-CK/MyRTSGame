@@ -97,6 +97,7 @@
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/View/NaturalResourceView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Wheatfarm.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceList.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/CollectResourceJob.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/View/TreeView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/ResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs" />

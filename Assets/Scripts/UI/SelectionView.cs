@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model;
+using MyRTSGame.Model.ResourceSystem.Model;
 using MyRTSGame.Model.UnitViews;
 using TMPro;
 using UnityEngine;
@@ -56,7 +57,15 @@ public class SelectionView : MonoBehaviour
             case Unit unit:
                 SetSelectedUnit(unit);
                 break;
+            case NaturalResource naturalResource:
+                SetSelectedResource(naturalResource);
+                break;
         }
+    }
+    
+    private void SetSelectedResource(NaturalResource naturalResource)
+    {
+        Debug.Log("SetSelectedResource");
     }
 
     private void UpdateSelectedUnit(Unit unit)
