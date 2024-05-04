@@ -96,6 +96,7 @@ public class SelectionView : MonoBehaviour
         if (building.State is CompletedState)
         {
             completedStateBuildingUIView.UpdateResourceQuantities(building);
+            completedStateBuildingUIView.SetOccupantButton(building);
             return;
         }
     }

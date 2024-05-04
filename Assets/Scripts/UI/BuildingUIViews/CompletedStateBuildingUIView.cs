@@ -11,6 +11,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
     [SerializeField] private Image buildingView;
     [SerializeField] private TextMeshProUGUI buildingName;
     [SerializeField] private GameObject columnsPrefab;
+    [SerializeField] private GameObject OccupantButton;
     
     [SerializeField] private GameObject inputLayoutGrid;
     [SerializeField] private GameObject inputTitlePrefab;
@@ -35,10 +36,15 @@ public class CompletedStateBuildingUIView : MonoBehaviour
     private List<ResourceRowProduction> _resourceRowProduction = new ();
     private List<ResourceRowTraining> _resourceRowsTraining = new ();
 
+    public void SetOccupantButton(Building building)
+    {
+        OccupantButton.SetActive(building.GetOccupant() != null);
+    }
     public void ActivateBuildingView(Building building)
     {
         buildingView.gameObject.SetActive(true);
         buildingName.text = building.GetBuildingType().ToString();
+        SetOccupantButton(building);
         
         foreach (var res in building.Inventory)
         {
