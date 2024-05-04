@@ -20,6 +20,12 @@ namespace MyRTSGame.Model
         {
             return _hasResource;
         }
+
+        public void SetHasResource(bool hasResource)
+        {
+            _hasResource = hasResource;
+        }
+        
         
         public ResourceType GetResourceTypeToCollect()
         {
@@ -61,6 +67,16 @@ namespace MyRTSGame.Model
         {
             _hasResource = false;
             unitController.AddResourceToDestination(destination, resourceType, 1);
+        }
+        
+        public void BuildingDeleted()
+        {
+            HasDestination = false;
+            SetHasResource(false);
+            SetBuilding(null);
+            SetIsLookingForBuilding(true);
+            SetCurrentJob(null);
+            Agent.SetDestination(Agent.transform.position);
         }
     }
 }

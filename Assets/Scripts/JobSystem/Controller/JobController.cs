@@ -18,6 +18,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteUnitEvent;
         [SerializeField] private GameEvent onDeleteJobEvent;
         [SerializeField] private GameEvent onCompleteJobEvent;
+        [SerializeField] private GameEvent onAbortJobEvent;
         
         [SerializeField] private BuilderJobQueue builderJobQueue;
         [SerializeField] private VillagerJobQueue villagerJobQueue;
@@ -36,6 +37,7 @@ namespace MyRTSGame.Model
             onAddCollectResourceJobsEvent.RegisterListener(HandleOnAddResourceJobsEvent);
             onDeleteUnitEvent.RegisterListener(HandleDeleteUnitEvent);
             onCompleteJobEvent.RegisterListener(HandleCompleteJob);
+            onAbortJobEvent.RegisterListener(HandleOnAbortJobEvent);
         }
 
         private void OnDisable()
@@ -48,6 +50,8 @@ namespace MyRTSGame.Model
             onAddCollectResourceJobsEvent.UnregisterListener(HandleOnAddResourceJobsEvent);
             onDeleteUnitEvent.UnregisterListener(HandleDeleteUnitEvent);
             onCompleteJobEvent.UnregisterListener(HandleCompleteJob);
+            onAbortJobEvent.UnregisterListener(HandleOnAbortJobEvent);
+
         }
         
         private static Building FindDestinationForJob(VillagerJob villagerJob)
@@ -264,7 +268,7 @@ namespace MyRTSGame.Model
             }
         }
 
-        private bool CheckIfJobNeedsToBeAddedBackToQueue(Unit unit)
+        private static bool CheckIfJobNeedsToBeAddedBackToQueue(Unit unit)
         {
             return unit.GetCurrentJob() switch
             {
@@ -296,6 +300,15 @@ namespace MyRTSGame.Model
         {
             if (args is not JobEventArgs jobEventArgs) return;
             jobEventArgs.Job.SetInProgress(false);
+        }
+        
+        private void HandleOnAbortJobEvent(IGameEventArgs args)
+        {
+            if (args is not JobEventArgs jobEventArgs) return;
+            if (CheckIfJobNeedsToBeAddedBackToQueue(jobEventArgs.Job.Unit))
+            {
+                AddJobToQueue(jobEventArgs.Job);
+            } 
         }
     }
 }

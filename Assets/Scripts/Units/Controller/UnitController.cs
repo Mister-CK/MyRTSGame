@@ -16,6 +16,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewJobNeeded;
         [SerializeField] private GameEvent onDeleteUnitEvent;
         [SerializeField] private GameEvent onCompleteJobEvent;
+        [SerializeField] private GameEvent onDeleteBuildingForOccupantEvent;
+        [SerializeField] private GameEvent onAbortJobEvent;
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
@@ -41,6 +43,7 @@ namespace MyRTSGame.Model
             onUnitJobDeleted.RegisterListener(HandleUnitJobDeleted);
             onJobRequestDenied.RegisterListener(HandleJobRequestDenied);
             onDeleteUnitEvent.RegisterListener(HandleDeleteUnitEvent);
+            onDeleteBuildingForOccupantEvent.RegisterListener(HandleOnDeleteBuildingForOccupantEvent);
         }
 
         private void OnDisable()
@@ -50,6 +53,7 @@ namespace MyRTSGame.Model
             onUnitJobDeleted.UnregisterListener(HandleUnitJobDeleted);
             onJobRequestDenied.UnregisterListener(HandleJobRequestDenied);
             onDeleteUnitEvent.UnregisterListener(HandleDeleteUnitEvent);
+            onDeleteBuildingForOccupantEvent.UnregisterListener(HandleOnDeleteBuildingForOccupantEvent);
         }
 
 
@@ -141,6 +145,14 @@ namespace MyRTSGame.Model
             onCompleteJobEvent.Raise(new JobEventArgs(job));
         }
 
-        
+        private void HandleOnDeleteBuildingForOccupantEvent(IGameEventArgs args)
+        {
+            if (args is not BuildingEventArgs buildingEventArgs) return;
+            var occupant = buildingEventArgs.Building.GetOccupant();
+            onAbortJobEvent.Raise(new JobEventArgs(occupant.GetCurrentJob()));
+            if (occupant is not ResourceCollector resourceCollector) return;
+            resourceCollector.BuildingDeleted();
+
+        }
     }
 }

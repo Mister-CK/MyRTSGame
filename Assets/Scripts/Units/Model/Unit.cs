@@ -18,6 +18,16 @@ namespace MyRTSGame.Model
         private bool _hasRequestedConsumptionJob;
         protected bool IsLookingForBuilding = false;
         
+        public void SetIsLookingForBuilding(bool isLookingForBuilding)
+        {
+            IsLookingForBuilding = isLookingForBuilding;
+        }
+        
+        public void GetIsLookingForBuilding(bool isLookingForBuilding)
+        {
+            IsLookingForBuilding = isLookingForBuilding;
+        }
+        
         public Job GetCurrentJob()
         {
             return CurrentJob;
@@ -119,7 +129,7 @@ namespace MyRTSGame.Model
                 return;
             }
         }
-        protected void SetDestination()
+        private void SetDestination()
         {
             if (_hasPendingJobRequest) return;
             if (_stamina < 30 && !_hasRequestedConsumptionJob)

@@ -22,7 +22,7 @@ namespace MyRTSGame.Model
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
         protected UnitType OccupantType = UnitType.Villager;
-        protected Unit Occupant = null;
+        private Unit Occupant;
 
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
@@ -102,7 +102,7 @@ namespace MyRTSGame.Model
             onSelectionEvent.Raise(new SelectionEventArgs(this));
         }
 
-        public virtual void StartResourceCreationCoroutine()
+        protected virtual void StartResourceCreationCoroutine()
         {
             // This method can be overridden in derived classes to start the specific coroutine for each building type.
         }
@@ -170,6 +170,7 @@ namespace MyRTSGame.Model
         public void DeleteBuilding()
         {
             BuildingList.RemoveBuilding(this);
+            if (Occupant != null) buildingController.CreateDeleteBuildingForOccupantEvent(this);
             buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding, builderJobsForThisBuilding);
             Destroy(gameObject);
         }

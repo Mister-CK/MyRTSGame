@@ -25,6 +25,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteJobEvent;
         [SerializeField] private GameEvent onCompleteJobEvent;
         [SerializeField] private GameEvent onRemoveOccupantFromBuildingEvent;
+        [SerializeField] private GameEvent onDeleteBuildingForOccupantEvent;
         
         public static BuildingController Instance { get; private set; }
 
@@ -188,6 +189,11 @@ namespace MyRTSGame.Model
         {
             if (args is not BuildingEventArgs eventArgs) return;
             eventArgs.Building.SetOccupant(null);
+        }
+
+        public void CreateDeleteBuildingForOccupantEvent(Building building)
+        {
+            onDeleteBuildingForOccupantEvent.Raise(new BuildingEventArgs(building));
         }
     }
 }
