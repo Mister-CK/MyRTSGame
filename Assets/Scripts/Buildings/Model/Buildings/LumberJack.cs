@@ -16,7 +16,7 @@ namespace MyRTSGame.Model
             OccupantType = UnitType.LumberJack;
         }
         
-        public override void StartResourceCreationCoroutine()
+        protected override void StartResourceCreationCoroutine()
         {
             // StartCoroutine(CreateResource(5, ResourceType.Lumber));
         }

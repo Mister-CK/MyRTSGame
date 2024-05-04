@@ -14,7 +14,7 @@ namespace MyRTSGame.Model
             OutputTypesWhenCompleted = new[] { ResourceType.Wheat };
         }
 
-        public override void StartResourceCreationCoroutine()
+        protected override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateResource(15, ResourceType.Wheat));
         }

@@ -40,7 +40,7 @@ namespace MyRTSGame.Model
             HasInput = true;
         }
         
-        public override void StartResourceCreationCoroutine()
+        protected override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateResourceFromQueue(15));
         }

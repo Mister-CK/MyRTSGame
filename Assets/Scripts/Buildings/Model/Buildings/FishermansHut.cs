@@ -15,7 +15,7 @@ namespace MyRTSGame.Model
         OutputTypesWhenCompleted = new[] { ResourceType.Fish };
     }
 
-    public override void StartResourceCreationCoroutine()
+    protected override void StartResourceCreationCoroutine()
     {
         StartCoroutine(CreateResource(15, ResourceType.Fish));
     }

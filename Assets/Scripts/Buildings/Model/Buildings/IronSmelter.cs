@@ -17,7 +17,7 @@ namespace MyRTSGame.Model
             HasInput = true;
         }
         
-        public override void StartResourceCreationCoroutine()
+        protected override void StartResourceCreationCoroutine()
         {
             Resource[] input = { new() { ResourceType = ResourceType.IronOre, Quantity = 1 }, new() { ResourceType = ResourceType.Coal, Quantity = 1 } };
             Resource[] output = { new() { ResourceType = ResourceType.Iron, Quantity = 1 } };

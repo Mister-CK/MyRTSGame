@@ -16,7 +16,7 @@ namespace MyRTSGame.Model
 
         }
 
-        public override void StartResourceCreationCoroutine()
+        protected override void StartResourceCreationCoroutine()
         {
             StartCoroutine(CreateResource(15, ResourceType.GoldOre));
         }
