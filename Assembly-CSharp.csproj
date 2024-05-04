@@ -153,7 +153,6 @@
     <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Units/ResourceCollector.cs" />
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitBuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/CollectResourceJob.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/ResourceEventArgs.cs" />

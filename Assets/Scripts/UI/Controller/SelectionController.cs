@@ -29,7 +29,7 @@ namespace MyRTSGame.Model
         private void SetUIView(IGameEventArgs args)
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
-            selectionView.UpdateView(buildingEventArgs.Building);
+            selectionView.SetView(buildingEventArgs.Building);
         }
 
         private void LateUpdate()
