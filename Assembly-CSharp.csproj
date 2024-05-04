@@ -91,6 +91,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ResourceBuilding.cs" />
+    <Compile Include="Assets/Scripts/Enums/BuildingState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />

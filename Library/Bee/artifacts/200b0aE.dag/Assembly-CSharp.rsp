@@ -403,6 +403,7 @@
 "Assets/Scripts/Buildings/Model/BuildingStates/PlacingState.cs"
 "Assets/Scripts/Buildings/Model/InventoryData.cs"
 "Assets/Scripts/Camera.cs"
+"Assets/Scripts/Enums/BuildingState.cs"
 "Assets/Scripts/Enums/BuildingType.cs"
 "Assets/Scripts/Enums/DestinationType.cs"
 "Assets/Scripts/Enums/JobType.cs"

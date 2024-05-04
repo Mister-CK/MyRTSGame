@@ -13,6 +13,7 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private CompletedStateBuildingUIView completedStateBuildingUIView;
     [SerializeField] private UnitUIView unitUIView;
     [SerializeField] public SelectionController selectionController;
+    private BuildingState _buildingViewState;
     private GameObject _currentGrid = null; 
     private Dictionary<ResourceType, TextMeshProUGUI> _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
     private ISelectable CurrentSelectedObject { get; set; }
@@ -44,7 +45,7 @@ public class SelectionView : MonoBehaviour
                 break;
         }
     }
-    public void SetView(ISelectable selectable)
+    private void SetView(ISelectable selectable)
     {
         ClearView();
         switch (selectable)
@@ -67,17 +68,38 @@ public class SelectionView : MonoBehaviour
     {
         unitUIView.ActivateView(unit);
     }
+
+    private bool SetViewIfStateHasChanged(Building building)
+    {
+        switch (building.State)
+        {
+            case FoundationState when _buildingViewState != BuildingState.FoundationState:
+                _buildingViewState = BuildingState.FoundationState;
+                SetView(building);
+                return true;
+            case ConstructionState when _buildingViewState != BuildingState.ConstructionState:
+                _buildingViewState = BuildingState.ConstructionState;
+                SetView(building);
+                return true;
+            case CompletedState when _buildingViewState != BuildingState.CompletedState:
+                _buildingViewState = BuildingState.CompletedState;
+                SetView(building);
+                return true;
+        }
+
+        return false;
+    }
     
     private void UpdateSelectedBuilding(Building building)
     {
+        if (SetViewIfStateHasChanged(building)) return;
         if (building.State is FoundationState)
-        {
+        { 
             foundationStateBuildingUIView.UpdateResourceQuantities(building);
             return;
         }
         if (building.State is ConstructionState)
         {
-            // Nothing to update for construction state
             return;
         }
         

@@ -17,19 +17,19 @@ namespace MyRTSGame.Model
         private void OnEnable()
         {
             onSelectionEvent.RegisterListener(SelectObject);
-            onUpdateUIViewForBuildingEvent.RegisterListener(SetUIView);
+            onUpdateUIViewForBuildingEvent.RegisterListener(UpdateUIView);
         }
 
         private void OnDisable()
         {
             onSelectionEvent.UnregisterListener(SelectObject);
-            onUpdateUIViewForBuildingEvent.UnregisterListener(SetUIView);
+            onUpdateUIViewForBuildingEvent.UnregisterListener(UpdateUIView);
         }
 
-        private void SetUIView(IGameEventArgs args)
+        private void UpdateUIView(IGameEventArgs args)
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
-            selectionView.SetView(buildingEventArgs.Building);
+            selectionView.UpdateView(buildingEventArgs.Building);
         }
 
         private void LateUpdate()
