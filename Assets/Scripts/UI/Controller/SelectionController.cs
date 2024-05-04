@@ -50,7 +50,6 @@ namespace MyRTSGame.Model
 
         public void CreateDeleteEvent(ISelectable selectedObject)
         {
-            Debug.Log("CreateDeleteEvent");
             if (selectedObject is Building selectedBuilding)
             {
                 onDeleteBuildingEvent.Raise(new BuildingEventArgs(selectedBuilding));
