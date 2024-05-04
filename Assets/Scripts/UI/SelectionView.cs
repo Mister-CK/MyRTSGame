@@ -157,10 +157,14 @@ public class SelectionView : MonoBehaviour
     
     public void HandleOccupantButtonClick()
     {
-        Debug.Log("HandleOccupantButtonClick clicked");
         if (CurrentSelectedObject is not Building building) return;
-        Debug.Log(building.GetOccupant());
         SelectObject(building.GetOccupant());
+    }
+    
+    public void HandleBuildingButtonClick()
+    {
+        if (CurrentSelectedObject is not ResourceCollector resourceCollector) return;
+        SelectObject(resourceCollector.GetBuilding());
     }
     
     public void HandleDeleteButtonClick()

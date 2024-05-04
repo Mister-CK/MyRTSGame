@@ -8,12 +8,25 @@ namespace MyRTSGame.Model.UnitViews
     {
         [SerializeField] private Image unitUIView;
         [SerializeField] private TextMeshProUGUI unitName;
+        [SerializeField] private GameObject buildingButton;
         [SerializeField] private GameObject staminaBarPrefab; 
         [SerializeField] private GameObject statusBars;
         private Slider _slider;
+        
+        private void SetBuildingButton(Unit unit)
+        {
+            if (unit is not ResourceCollector resourceCollector)
+            {
+                buildingButton.SetActive(false);
+                return;
+            }
+            buildingButton.SetActive(resourceCollector.GetBuilding() != null);
+        }
+
         public void ActivateView(Unit unit)
         {
             unitUIView.gameObject.SetActive(true);
+            SetBuildingButton(unit);
             unitName.text = unit.GetUnitType().ToString();
             var bar = Instantiate(staminaBarPrefab, statusBars.transform);
             _slider = bar.GetComponent<Slider>();
@@ -35,6 +48,7 @@ namespace MyRTSGame.Model.UnitViews
 
         public void UpdateView(Unit unit)
         {
+            SetBuildingButton(unit);
             _slider.value = unit.GetStamina();
         }
     }
