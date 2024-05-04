@@ -418,6 +418,7 @@
 "Assets/Scripts/GameEvents/EventArgs/SelectionEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/TrainingBuildingUnitTypeEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs"
+"Assets/Scripts/GameEvents/EventArgs/UnitBuildingEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs"

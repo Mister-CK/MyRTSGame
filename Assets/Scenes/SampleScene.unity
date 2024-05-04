@@ -3285,7 +3285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 328688142}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2057471062}
+        m_TargetAssemblyTypeName: SelectionView, Assembly-CSharp
+        m_MethodName: HandleOccupantButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &328688142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7335,7 +7347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &831199724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10891,6 +10903,8 @@ MonoBehaviour:
   onDeleteVillagerJobsEvent: {fileID: 11400000, guid: 45b136c7956094796a594737ff7e2de3, type: 2}
   onDeleteBuilderJobsEvent: {fileID: 11400000, guid: 53996197db9154684a34ee1e5d4bcb1b, type: 2}
   onNewJobCreated: {fileID: 11400000, guid: 5cfcf31dcb0a6498e98f45e1d1ec2f48, type: 2}
+  onDeleteJobEvent: {fileID: 11400000, guid: 88c2a09ad8a814a539a2b6a573db1278, type: 2}
+  onCompleteJobEvent: {fileID: 11400000, guid: a4a248efe8dce49a7b8d002cecfac489, type: 2}
 --- !u!4 &1219401900
 Transform:
   m_ObjectHideFlags: 0
@@ -11083,6 +11097,9 @@ MonoBehaviour:
   onRequestUnitJob: {fileID: 11400000, guid: 1affaad6fc1ad4900b7655551677d076, type: 2}
   onJobRequestDenied: {fileID: 11400000, guid: 472176f32dd6a4ab19a4b8b9473d58fe, type: 2}
   onAddCollectResourceJobsEvent: {fileID: 11400000, guid: e615dd2f8548248f390d38b1388ce5c3, type: 2}
+  onDeleteUnitEvent: {fileID: 11400000, guid: a6600ef06dcaa46f384318c783d56b79, type: 2}
+  onDeleteJobEvent: {fileID: 11400000, guid: 88c2a09ad8a814a539a2b6a573db1278, type: 2}
+  onCompleteJobEvent: {fileID: 11400000, guid: a4a248efe8dce49a7b8d002cecfac489, type: 2}
   builderJobQueue: {fileID: 11400000, guid: 8a95e7069ad5545aeb5d4883b074f7e3, type: 2}
   villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
   consumptionJobQueue: {fileID: 11400000, guid: e876de4be1a014d40b08826f4a8c6f7f, type: 2}
@@ -17402,6 +17419,14 @@ PrefabInstance:
       propertyPath: onUnitJobDeleted
       value: 
       objectReference: {fileID: 11400000, guid: 82c2fba2f7b7a467d82d088007e8453c, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onDeleteUnitEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: a6600ef06dcaa46f384318c783d56b79, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onCompleteJobEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: a4a248efe8dce49a7b8d002cecfac489, type: 2}
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: onJobRequestDenied
       value: 

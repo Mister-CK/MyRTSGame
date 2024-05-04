@@ -24,7 +24,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onDeleteJobEvent;
         [SerializeField] private GameEvent onCompleteJobEvent;
-
+        [SerializeField] private GameEvent onRemoveOccupantFromBuildingEvent;
+        
         public static BuildingController Instance { get; private set; }
 
         private void Awake()
@@ -51,6 +52,7 @@ namespace MyRTSGame.Model
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
             onDeleteJobEvent.RegisterListener(HandleDeleteJobEvent);
             onCompleteJobEvent.RegisterListener(HandleCompleteJobEvent);
+            onRemoveOccupantFromBuildingEvent.RegisterListener(HandleOnRemoveOccupantFromBuildingEvent);
         }
 
         private void OnDisable()
@@ -65,6 +67,7 @@ namespace MyRTSGame.Model
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
             onDeleteJobEvent.UnregisterListener(HandleDeleteJobEvent);
             onCompleteJobEvent.UnregisterListener(HandleCompleteJobEvent);
+            onRemoveOccupantFromBuildingEvent.UnregisterListener(HandleOnRemoveOccupantFromBuildingEvent);
 
         }
         
@@ -179,6 +182,12 @@ namespace MyRTSGame.Model
             {
                 villagerJob.Origin.RemoveVillagerJobFromThisBuilding(villagerJob);
             }
+        }
+
+        private void HandleOnRemoveOccupantFromBuildingEvent(IGameEventArgs args)
+        {
+            if (args is not BuildingEventArgs eventArgs) return;
+            eventArgs.Building.SetOccupant(null);
         }
     }
 }

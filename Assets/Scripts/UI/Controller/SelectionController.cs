@@ -10,7 +10,8 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onDeleteBuildingEvent;
         [SerializeField] private GameEvent onDeleteUnitEvent;
         [SerializeField] private GameEvent onUpdateUIViewForBuildingEvent;
-         
+        [SerializeField] private GameEvent onRemoveOccupantFromBuildingEvent;
+        
         [SerializeField] private SelectionView selectionView;
         
         private void OnEnable()
@@ -49,6 +50,7 @@ namespace MyRTSGame.Model
 
         public void CreateDeleteEvent(ISelectable selectedObject)
         {
+            Debug.Log("CreateDeleteEvent");
             if (selectedObject is Building selectedBuilding)
             {
                 onDeleteBuildingEvent.Raise(new BuildingEventArgs(selectedBuilding));
@@ -56,6 +58,14 @@ namespace MyRTSGame.Model
             
             if (selectedObject is Unit selectedUnit)
             {
+                if (selectedUnit is ResourceCollector resourceCollector)
+                {
+                    var building = resourceCollector.GetBuilding();
+                    if (building != null)
+                    {
+                        onRemoveOccupantFromBuildingEvent.Raise(new BuildingEventArgs(building));
+                    }
+                }
                 onDeleteUnitEvent.Raise(new UnitEventArgs(selectedUnit));
             }
             SelectObject(null);
