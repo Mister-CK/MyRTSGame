@@ -463,6 +463,7 @@
 "Assets/Scripts/UI/Components/UIDeleteButton.cs"
 "Assets/Scripts/UI/Controller/SelectionController.cs"
 "Assets/Scripts/UI/Controller/UIController.cs"
+"Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs"
 "Assets/Scripts/UI/SelectionView.cs"
 "Assets/Scripts/UI/UIBuildButtonHandler.cs"
 "Assets/Scripts/UI/UnitUIViews/UnitUIView.cs"

@@ -11,6 +11,7 @@ namespace MyRTSGame.Model.UnitViews
         [SerializeField] private GameObject buildingButton;
         [SerializeField] private GameObject staminaBarPrefab; 
         [SerializeField] private GameObject statusBars;
+        
         private Slider _slider;
         
         private void SetBuildingButton(Unit unit)

@@ -94,6 +94,7 @@
     <Compile Include="Assets/Scripts/Enums/BuildingState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
+    <Compile Include="Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />

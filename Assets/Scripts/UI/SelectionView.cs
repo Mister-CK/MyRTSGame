@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model;
 using MyRTSGame.Model.ResourceSystem.Model;
+using MyRTSGame.Model.ResourceSystem.View;
 using MyRTSGame.Model.UnitViews;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class SelectionView : MonoBehaviour
     [SerializeField] private ConstructionStateBuildingUIView constructionStateBuildingUIView;
     [SerializeField] private CompletedStateBuildingUIView completedStateBuildingUIView;
     [SerializeField] private UnitUIView unitUIView;
+    [SerializeField] private NaturalResourceUIView naturalResourceUIView;
+
     [SerializeField] public SelectionController selectionController;
     private BuildingState _buildingViewState;
     private GameObject _currentGrid = null; 
@@ -65,7 +68,7 @@ public class SelectionView : MonoBehaviour
     
     private void SetSelectedResource(NaturalResource naturalResource)
     {
-        Debug.Log("SetSelectedResource");
+        naturalResourceUIView.ActivateView(naturalResource);
     }
 
     private void UpdateSelectedUnit(Unit unit)
@@ -167,7 +170,8 @@ public class SelectionView : MonoBehaviour
             Destroy(_currentGrid);
             _resourceTexts.Clear();
         }
-        
+
+        naturalResourceUIView.DeactivateView();
         unitUIView.DeactivateView();
         completedStateBuildingUIView.DeactivateBuildingView();
         foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
