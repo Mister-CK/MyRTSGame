@@ -47,6 +47,9 @@ public class SelectionView : MonoBehaviour
             case Unit unit:
                 UpdateSelectedUnit(unit);
                 break;
+            case NaturalResource naturalResource:
+                UpdateSelectedResource(naturalResource);
+                break;
         }
     }
     private void SetView(ISelectable selectable)
@@ -71,6 +74,11 @@ public class SelectionView : MonoBehaviour
         naturalResourceUIView.ActivateView(naturalResource);
     }
 
+    private void UpdateSelectedResource(NaturalResource naturalResource)
+    {
+        naturalResourceUIView.UpdateView(naturalResource);
+    }
+    
     private void UpdateSelectedUnit(Unit unit)
     {
         unitUIView.UpdateView(unit);
