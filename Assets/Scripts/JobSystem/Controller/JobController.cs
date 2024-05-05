@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using MyRTSGame.Model.ResourceSystem.Model;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -24,7 +27,6 @@ namespace MyRTSGame.Model
         [SerializeField] private VillagerJobQueue villagerJobQueue;
         [SerializeField] private ConsumptionJobQueue consumptionJobQueue;
         [SerializeField] private LookingForBuildingJobQueue lookingForBuildingJobQueue;
-        [SerializeField] private CollectResourceJobQueue collectResourceJobQueue;
         private static BuildingList BuildingList => BuildingList.Instance;
         
         private void OnEnable()
@@ -140,7 +142,6 @@ namespace MyRTSGame.Model
                 default:
                     throw new ArgumentException("invalid JobType provided to HandleNewBuilderJobNeeded");
             }
-
         }
 
         private void CreateLookingForBuildingJob(CreateNewJobEventArgs createNewJobEventArgs)
@@ -166,6 +167,16 @@ namespace MyRTSGame.Model
             onNewJobCreated.Raise(new JobEventArgs(villagerJob));
         }
         
+        private static List<ResourceBuilding> FindBuildingsWithResourceTypeWithinRange(NaturalResource naturalResource)
+        {
+            return BuildingList
+                .GetBuildings()
+                .OfType<ResourceBuilding>()
+                .Where(resourceBuilding => Array.IndexOf(resourceBuilding.InputTypes, naturalResource.GetResource().ResourceType) != -1)
+                .Where(resourceBuilding => Vector3.Distance(resourceBuilding.transform.position, naturalResource.transform.position) <= 10)
+                .ToList();
+        }
+        
         private void HandleOnAddResourceJobsEvent(IGameEventArgs args)
         {
             if (args is not NaturalResourceEventArgs naturalResourceEventArgs) return;
@@ -175,13 +186,13 @@ namespace MyRTSGame.Model
                 Destination = naturalResourceEventArgs.NaturalResource,
                 ResourceType = naturalResourceEventArgs.NaturalResource.GetResource().ResourceType
             };
-
-            for (var i = 0; i < naturalResourceEventArgs.NaturalResource.GetResource().Quantity; i++)
+            
+            FindBuildingsWithResourceTypeWithinRange(naturalResourceEventArgs.NaturalResource).ForEach(building =>
             {
-                collectResourceJobQueue.AddJob(job);
-            }
-            onNewJobCreated.Raise(new JobEventArgs(job));
+                building.AddCollectResourceJobToBuilding(job);
+            });
 
+            onNewJobCreated.Raise(new JobEventArgs(job));
         }
         
         private void CreateConsumptionJob(CreateNewJobEventArgs createNewJobEventArgs)
@@ -198,7 +209,6 @@ namespace MyRTSGame.Model
             foreach (var villagerJob in jobListEventArgs.VillagerJobs)
             {
                 villagerJobQueue.RemoveJob(villagerJob);
-                Debug.Log("Delete Villager Job in progress");
                 if (!villagerJob.IsInProgress()) continue;
                 onUnitJobDeleted.Raise(new UnitWithJobEventArgsAndDestinationType(villagerJob.Unit, 
                     villagerJob, jobListEventArgs.DestinationType));
@@ -219,7 +229,7 @@ namespace MyRTSGame.Model
         private void HandleUnitJobRequest(IGameEventArgs args)
         {
             if (args is not UnitWithJobTypeEventArgs unitWithJobTypeEventArgs) return;
-            Job newJob = unitWithJobTypeEventArgs.JobType switch
+            var newJob = unitWithJobTypeEventArgs.JobType switch
             {
                 JobType.BuilderJob => builderJobQueue.GetNextJob(),
                 JobType.VillagerJob => villagerJobQueue.GetNextJob(),
@@ -238,7 +248,7 @@ namespace MyRTSGame.Model
             onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, newJob));
         }
 
-        private Job GetNextResourceCollectionJobForUnit(Unit unit)
+        private static Job GetNextResourceCollectionJobForUnit(Unit unit)
         {
             if (unit is not ResourceCollector resourceCollector) return null;
             if (resourceCollector.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
@@ -270,7 +280,7 @@ namespace MyRTSGame.Model
                     lookingForBuildingJobQueue.AddJob(lookingForBuildingJob);
                     return;
                 case CollectResourceJob collectResourceJob:
-                    collectResourceJobQueue.AddJob(collectResourceJob);
+                    //doesn't need to be added back to anything
                     return;
                 default:
                     throw new ArgumentException("JobType not recognized in HandleAddJobToQueue");
@@ -305,7 +315,7 @@ namespace MyRTSGame.Model
             }
         }
 
-        private void HandleCompleteJob(IGameEventArgs args)
+        private static void HandleCompleteJob(IGameEventArgs args)
         {
             if (args is not JobEventArgs jobEventArgs) return;
             jobEventArgs.Job.SetInProgress(false);

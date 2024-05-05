@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model.ResourceSystem.Model;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -43,6 +44,11 @@ namespace MyRTSGame.Model
             );
         }
 
+        public void AddCollectResourceJobToBuilding(CollectResourceJob collectResourceJob)
+        {
+            _collectResourceJobsForThisBuilding.Add(collectResourceJob);
+        }
+        
         public CollectResourceJob GetCollectResourceJobFromBuilding()
         {
             if (_collectResourceJobsForThisBuilding.Count <= 0) return null;

@@ -434,7 +434,6 @@
 "Assets/Scripts/JobSystem/Model/Job.cs"
 "Assets/Scripts/JobSystem/Model/JobQueueBase.cs"
 "Assets/Scripts/JobSystem/Model/JobQueues/BuilderJobQueue.cs"
-"Assets/Scripts/JobSystem/Model/JobQueues/CollectResourceJobQueue.cs"
 "Assets/Scripts/JobSystem/Model/JobQueues/ConsumptionJobQueue.cs"
 "Assets/Scripts/JobSystem/Model/JobQueues/LookingForBuildingJobQueue.cs"
 "Assets/Scripts/JobSystem/Model/JobQueues/VillagerJobQueue.cs"
