@@ -11714,7 +11714,6 @@ MonoBehaviour:
   villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
   consumptionJobQueue: {fileID: 11400000, guid: e876de4be1a014d40b08826f4a8c6f7f, type: 2}
   lookingForBuildingJobQueue: {fileID: 11400000, guid: f33e021cfa29e48c7a91d68f1d08e9c6, type: 2}
-  collectResourceJobQueue: {fileID: 11400000, guid: f8c88c832ee444d9abb3dd1a2258bb1c, type: 2}
 --- !u!4 &1266247124
 Transform:
   m_ObjectHideFlags: 0
@@ -13401,7 +13400,9 @@ MonoBehaviour:
   onAddCollectResourceJobsEvent: {fileID: 11400000, guid: e615dd2f8548248f390d38b1388ce5c3, type: 2}
   onNewJobCreated: {fileID: 11400000, guid: 5cfcf31dcb0a6498e98f45e1d1ec2f48, type: 2}
   onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+  onPlantResourceEvent: {fileID: 11400000, guid: 4b4bb894194714b0db88f2685b0d7cea, type: 2}
   _resourceList: {fileID: 281228161}
+  treePrefab: {fileID: 3946421596193778632, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
 --- !u!1 &1463963394
 GameObject:
   m_ObjectHideFlags: 0
@@ -18558,6 +18559,10 @@ PrefabInstance:
       propertyPath: onBuilderJobAssigned
       value: 
       objectReference: {fileID: 11400000, guid: d12a91f57bd554b47b16da6331ad7920, type: 2}
+    - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
+      propertyPath: onPlantResourceEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b4bb894194714b0db88f2685b0d7cea, type: 2}
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: onRequestVillagerJob
       value: 

@@ -12,8 +12,9 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         [SerializeField] private GameEvent onAddCollectResourceJobsEvent;
         [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onSelectionEvent;
-        
+        [SerializeField] private GameEvent onPlantResourceEvent;
         [SerializeField] private ResourceList _resourceList;
+        [SerializeField] private GameObject treePrefab;
         public static ResourceController Instance { get; private set; }
 
         private void Awake()
@@ -31,12 +32,14 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         {
             onNewJobCreated.RegisterListener(HandleNewJobCreated);
             onResourceRemovedFromDestination.RegisterListener(HandleResourceRemovedFromDestination);
+            onPlantResourceEvent.RegisterListener(HandleOnPlantResourceEvent);
         }
 
         private void OnDisable()
         {
             onNewJobCreated.UnregisterListener(HandleNewJobCreated);
             onResourceRemovedFromDestination.UnregisterListener(HandleResourceRemovedFromDestination);
+            onPlantResourceEvent.UnregisterListener(HandleOnPlantResourceEvent);
         }
 
         // private void HandleGetClosestResourceEvent(IGameEventArgs args)
@@ -58,7 +61,8 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         {
             if (args is not JobEventArgs eventArgs) return;
             if (eventArgs.Job is not CollectResourceJob collectResourceJob) return;
-            collectResourceJob.Destination.AddJobToDestination(eventArgs.Job);
+            if (collectResourceJob.Destination is not NaturalResource naturalResource) return;
+            naturalResource.AddJobToDestination(eventArgs.Job);
         }
         
         private void HandleResourceRemovedFromDestination(IGameEventArgs args)
@@ -72,6 +76,18 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         public void HandleClick(ISelectable selectable)
         {
             onSelectionEvent.Raise(new SelectionEventArgs(selectable));
+        }
+        
+        private void PlantTree(Vector3 location)
+        {
+            Instantiate(treePrefab, location, Quaternion.identity);
+        }
+
+        private void HandleOnPlantResourceEvent(IGameEventArgs args)
+        {
+            if (args is not JobEventArgs jobEventArgs) return;
+            if (jobEventArgs.Job is not PlantResourceJob plantResourceJob) return;
+            if (plantResourceJob.ResourceType == ResourceType.Lumber) PlantTree(plantResourceJob.Destination.GetPosition());
         }
     }
 }

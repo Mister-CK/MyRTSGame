@@ -18,6 +18,7 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onCompleteJobEvent;
         [SerializeField] private GameEvent onDeleteBuildingForOccupantEvent;
         [SerializeField] private GameEvent onAbortJobEvent;
+        [SerializeField] private GameEvent onPlantResourceEvent;
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
@@ -152,7 +153,11 @@ namespace MyRTSGame.Model
             onAbortJobEvent.Raise(new JobEventArgs(occupant.GetCurrentJob()));
             if (occupant is not ResourceCollector resourceCollector) return;
             resourceCollector.BuildingDeleted();
+        }
 
+        public void CreatePlantResourceEvent(Job job)
+        {
+            onPlantResourceEvent.Raise(new JobEventArgs(job));
         }
     }
 }

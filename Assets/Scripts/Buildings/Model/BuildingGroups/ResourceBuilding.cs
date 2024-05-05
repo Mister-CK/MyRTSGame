@@ -12,6 +12,11 @@ namespace MyRTSGame.Model
         private List<CollectResourceJob> _collectResourceJobsForThisBuilding = new List<CollectResourceJob>();
         protected const float MaxDistanceFromBuilding = 10f;
 
+        public float GetMaxDistanceFromBuilding()
+        {
+            return MaxDistanceFromBuilding;
+        }
+        
         public IEnumerator CreateResource(int timeInSeconds, ResourceType resourceType)
         {
             while (true)

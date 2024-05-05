@@ -66,6 +66,7 @@
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
+    <Compile Include="Assets/Scripts/JobSystem/Model/LocationDestination.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/TrainingBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs" />

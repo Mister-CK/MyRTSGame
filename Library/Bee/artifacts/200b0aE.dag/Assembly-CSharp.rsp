@@ -445,6 +445,7 @@
 "Assets/Scripts/JobSystem/Model/Jobs/ProductionJob.cs"
 "Assets/Scripts/JobSystem/Model/Jobs/TrainingJob.cs"
 "Assets/Scripts/JobSystem/Model/Jobs/VillagerJob.cs"
+"Assets/Scripts/JobSystem/Model/LocationDestination.cs"
 "Assets/Scripts/JobSystem/View/JobListToDisplay.cs"
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/ResourceSystem/Controller/ResourceController.cs"

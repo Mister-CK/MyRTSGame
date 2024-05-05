@@ -13,8 +13,8 @@ namespace MyRTSGame.Model
         {
             base.ExecuteJob();
             if (CurrentJob is not BuilderJob) return;
-
-            Destination.SetState(new CompletedState(Destination.GetBuildingType()));
+            if (Destination is not Building building) return;
+            building.SetState(new CompletedState(building.GetBuildingType()));
             unitController.CompleteJob(CurrentJob);
             HasDestination = false;
             CurrentJob = null;

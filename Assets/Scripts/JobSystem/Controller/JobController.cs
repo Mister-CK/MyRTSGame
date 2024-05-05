@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model.ResourceSystem.Model;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MyRTSGame.Model
 {
@@ -172,7 +173,7 @@ namespace MyRTSGame.Model
             return BuildingList
                 .GetBuildings()
                 .OfType<ResourceBuilding>()
-                .Where(resourceBuilding => Array.IndexOf(resourceBuilding.InputTypes, naturalResource.GetResource().ResourceType) != -1)
+                .Where(resourceBuilding => Array.IndexOf(resourceBuilding.OutputTypesWhenCompleted, naturalResource.GetResource().ResourceType) != -1)
                 .Where(resourceBuilding => Vector3.Distance(resourceBuilding.transform.position, naturalResource.transform.position) <= 10)
                 .ToList();
         }
@@ -181,18 +182,20 @@ namespace MyRTSGame.Model
         {
             if (args is not NaturalResourceEventArgs naturalResourceEventArgs) return;
             
-            var job = new CollectResourceJob()
+            var collectResourceJob = new CollectResourceJob()
             {
                 Destination = naturalResourceEventArgs.NaturalResource,
                 ResourceType = naturalResourceEventArgs.NaturalResource.GetResource().ResourceType
             };
-            
-            FindBuildingsWithResourceTypeWithinRange(naturalResourceEventArgs.NaturalResource).ForEach(building =>
+
+            var buildings = FindBuildingsWithResourceTypeWithinRange(naturalResourceEventArgs.NaturalResource);
+            Debug.Log(buildings.Count);
+            buildings.ForEach(building =>
             {
-                building.AddCollectResourceJobToBuilding(job);
+                building.AddCollectResourceJobToBuilding(collectResourceJob);
             });
 
-            onNewJobCreated.Raise(new JobEventArgs(job));
+            onNewJobCreated.Raise(new JobEventArgs(collectResourceJob));
         }
         
         private void CreateConsumptionJob(CreateNewJobEventArgs createNewJobEventArgs)
@@ -247,13 +250,56 @@ namespace MyRTSGame.Model
             newJob.SetInProgress(true);
             onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, newJob));
         }
+        
+        //todo: improve the location generation. They only seem to go to to one side of the building, due to the way Random.Range works.
+        private static Vector3 GetRandomPointToPlantTree(ResourceBuilding resourceBuilding)
+        {
+            var freeSpaceAroundPoint = 2f;
+            var dist = resourceBuilding.GetMaxDistanceFromBuilding();
+            var minDist = 4f; // Minimum distance from the building
+            var randomPoint = new Vector3(0, 0, 0);
+            int maxAttempts = 1000; // Maximum number of attempts to find a suitable point
+            int attempts = 0;
+
+            while (attempts < maxAttempts)
+            {
+                var randomX = Random.Range(minDist, dist);
+                var randomZ = Random.Range(minDist, dist);
+                randomPoint = new Vector3(randomX, 0, randomZ) + resourceBuilding.transform.position;
+
+                Collider[] colliders = Physics.OverlapSphere(randomPoint, freeSpaceAroundPoint);
+                if (colliders.Length <= 1) break;
+
+                attempts++;
+            }
+
+            if (attempts >= maxAttempts)
+            {
+                throw new Exception("Could not find a suitable point to plant tree");
+            }
+
+            return randomPoint;
+        }
 
         private static Job GetNextResourceCollectionJobForUnit(Unit unit)
         {
             if (unit is not ResourceCollector resourceCollector) return null;
             if (resourceCollector.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
-            return resourceBuilding.GetCollectResourceJobFromBuilding();
+            Job job = resourceBuilding.GetCollectResourceJobFromBuilding();
+            if (job != null) return job;
 
+            var locationGameObject = new GameObject("LocationDestination");
+            var locationDestination = locationGameObject.AddComponent<LocationDestination>();
+            locationDestination.transform.position = GetRandomPointToPlantTree(resourceCollector.GetBuilding() as ResourceBuilding);
+            
+            job = new PlantResourceJob()
+            {
+                Destination = locationDestination,
+                ResourceType = resourceCollector.GetResourceTypeToCollect(),
+                Unit = resourceCollector
+            };
+            
+            return job;
             // var nextCollectResourceJob = collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceTypeToCollect());
             // if (nextCollectResourceJob != null) return nextCollectResourceJob;
             // var plantResourceJob = new PlantResourceJob()

@@ -13,9 +13,9 @@ namespace MyRTSGame.Model
         private void Update()
         {
             var jobs = villagerJobQueue.GetJobs();
-
-            jobListText.text = string.Join("\n",
-                jobs.Select(job => job.ResourceType + " " + job.Origin.GetBuildingType()+ " " + job.Destination.GetBuildingType()));
+            jobs.Select(job => job.ResourceType + " " + 
+                               (job.Origin is Building originBuilding ? originBuilding.GetBuildingType() : "Not a building") + " " + 
+                               (job.Destination is Building destinationBuilding ? destinationBuilding.GetBuildingType() : "Not a building"));
         }
     }
 }

@@ -145,7 +145,8 @@ namespace MyRTSGame.Model
         {
             if (args is not JobEventArgs eventArgs) return;
             if (eventArgs.Job is CollectResourceJob) return;
-            eventArgs.Job.Destination.AddJobToDestination(eventArgs.Job);
+            if (eventArgs.Job.Destination is not Building building) return;
+            building.AddJobToDestination(eventArgs.Job);
             if (eventArgs.Job is VillagerJob villagerJob)
             {
                 villagerJob.Origin.AddVillagerJobFromThisBuilding(villagerJob);

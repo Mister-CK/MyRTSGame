@@ -40,17 +40,22 @@ namespace MyRTSGame.Model
         protected override void ExecuteJob()
         {
             base.ExecuteJob();
-            if (CurrentJob is not CollectResourceJob collectResourceJob) return;
             
-            if (!_hasResource)
+            if (Destination != _building)
             {
-                TakeResource(collectResourceJob.Destination, collectResourceJob.ResourceType);
+                if (CurrentJob is PlantResourceJob) unitController.CreatePlantResourceEvent(CurrentJob);
+                if (CurrentJob is CollectResourceJob collectResourceJob) TakeResource(collectResourceJob.Destination, collectResourceJob.ResourceType);
                 Destination = _building;
                 Agent.SetDestination(Destination.GetPosition());
                 return;
             }
-            DeliverResource(_building, collectResourceJob.ResourceType);
-            unitController.CreateJobNeededEvent(JobType.VillagerJob, null, _building, collectResourceJob.ResourceType, null);
+
+            if (CurrentJob is CollectResourceJob collectResourceJob2)
+            {
+                DeliverResource(_building, collectResourceJob2.ResourceType);
+                unitController.CreateJobNeededEvent(JobType.VillagerJob, null, _building, collectResourceJob2.ResourceType, null);
+            }
+
             unitController.CompleteJob(CurrentJob);
             HasDestination = false;
             CurrentJob = null;
