@@ -32,6 +32,35 @@ namespace MyRTSGame.Model
         private List<ConsumptionJob> consumptionJobsForThisbuilding = new List<ConsumptionJob>();
         private List<LookingForBuildingJob> lookingForBuildingJobsForThisBuilding = new List<LookingForBuildingJob>();
         
+        private void Awake()
+        {
+            BCollider = this.AddComponent<BoxCollider>();
+            BCollider.size = new Vector3(3, 3, 3);
+            
+            // I don't think this should be necessary
+            InputTypes = new ResourceType[0];
+            OutputTypesWhenCompleted = new ResourceType[0];
+            InputTypesWhenCompleted = new ResourceType[0];
+
+            Inventory = InitInventory(InputTypes);
+            
+            buildingController = BuildingController.Instance;
+        }
+
+        protected virtual void Start()
+        {
+            BuildingList = BuildingList.Instance; 
+            State = new PlacingState(BuildingType);
+            
+            capacityForCompletedBuilding = 5;
+            resourceCountNeededForConstruction = 3;
+        }
+
+        private void Update()
+        {
+            if (State is PlacingState placingState) placingState.CheckOverlap(this);
+        }
+        
         public void SetOccupant(Unit unit)
         {
             Occupant = unit;
@@ -51,20 +80,6 @@ namespace MyRTSGame.Model
         {
             OccupantType = unitType;
         }
-        private void Awake()
-        {
-            BCollider = this.AddComponent<BoxCollider>();
-            BCollider.size = new Vector3(3, 3, 3);
-            
-            // I don't think this should be necessary
-            InputTypes = new ResourceType[0];
-            OutputTypesWhenCompleted = new ResourceType[0];
-            InputTypesWhenCompleted = new ResourceType[0];
-
-            Inventory = InitInventory(InputTypes);
-            
-            buildingController = BuildingController.Instance;
-        }
 
         public Vector3 GetPosition()
         {
@@ -81,20 +96,6 @@ namespace MyRTSGame.Model
             return BuildingType;
         }
         
-        protected virtual void Start()
-        {
-            
-            BuildingList = BuildingList.Instance; 
-            State = new PlacingState(BuildingType);
-            
-            capacityForCompletedBuilding = 5;
-            resourceCountNeededForConstruction = 3;
-        }
-
-        private void Update()
-        {
-            if (State is PlacingState placingState) placingState.CheckOverlap(this);
-        }
 
         public void OnMouseDown()
         {
@@ -116,6 +117,14 @@ namespace MyRTSGame.Model
             if (State is CompletedState)
             {
                 buildingController.CreateJobNeededEvent(JobType.LookForBuildingJob, this, null, null, OccupantType);
+                if (this is ResourceBuilding resourceBuilding)
+                {
+                    foreach(var outputType in resourceBuilding.OutputTypesWhenCompleted)
+                    {
+                        resourceBuilding.AddCollectResourceJobsToBuilding(outputType);
+                    }
+                }
+                
                 StartResourceCreationCoroutine();
             }
             

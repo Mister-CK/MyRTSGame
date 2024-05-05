@@ -442,6 +442,7 @@
 "Assets/Scripts/JobSystem/Model/Jobs/CollectResourceJob.cs"
 "Assets/Scripts/JobSystem/Model/Jobs/ConsumptionJob.cs"
 "Assets/Scripts/JobSystem/Model/Jobs/LookingForBuildingJob.cs"
+"Assets/Scripts/JobSystem/Model/Jobs/PlantResourceJob.cs"
 "Assets/Scripts/JobSystem/Model/Jobs/ProductionJob.cs"
 "Assets/Scripts/JobSystem/Model/Jobs/TrainingJob.cs"
 "Assets/Scripts/JobSystem/Model/Jobs/VillagerJob.cs"

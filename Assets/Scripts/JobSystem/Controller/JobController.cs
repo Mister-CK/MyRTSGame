@@ -241,7 +241,16 @@ namespace MyRTSGame.Model
         private Job GetNextResourceCollectionJobForUnit(Unit unit)
         {
             if (unit is not ResourceCollector resourceCollector) return null;
-            return collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceTypeToCollect());
+            if (resourceCollector.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
+            return resourceBuilding.GetCollectResourceJobFromBuilding();
+
+            // var nextCollectResourceJob = collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceTypeToCollect());
+            // if (nextCollectResourceJob != null) return nextCollectResourceJob;
+            // var plantResourceJob = new PlantResourceJob()
+            // {
+            //     Destination = BuildingList.GetBuildingByType(BuildingType.NaturalResource),
+            //     ResourceType = resourceCollector.GetResourceTypeToCollect()
+            // };
         }
 
         private void AddJobToQueue(Job job)
