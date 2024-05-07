@@ -189,7 +189,6 @@ namespace MyRTSGame.Model
             };
 
             var buildings = FindBuildingsWithResourceTypeWithinRange(naturalResourceEventArgs.NaturalResource);
-            Debug.Log(buildings.Count);
             buildings.ForEach(building =>
             {
                 building.AddCollectResourceJobToBuilding(collectResourceJob);
@@ -257,17 +256,22 @@ namespace MyRTSGame.Model
             var freeSpaceAroundPoint = 2f;
             var dist = resourceBuilding.GetMaxDistanceFromBuilding();
             var minDist = 4f; // Minimum distance from the building
+            var maxAttempts = 1000; // Maximum number of attempts to find a suitable point
+            var attempts = 0;
+
             var randomPoint = new Vector3(0, 0, 0);
-            int maxAttempts = 1000; // Maximum number of attempts to find a suitable point
-            int attempts = 0;
 
             while (attempts < maxAttempts)
             {
-                var randomX = Random.Range(minDist, dist);
-                var randomZ = Random.Range(minDist, dist);
-                randomPoint = new Vector3(randomX, 0, randomZ) + resourceBuilding.transform.position;
+                var randomRadius = Random.Range(minDist, dist);
+                var randomAngle = Random.Range(0, 2 * Mathf.PI);
 
-                Collider[] colliders = Physics.OverlapSphere(randomPoint, freeSpaceAroundPoint);
+                var randomX = randomRadius * Mathf.Cos(randomAngle);
+                var randomZ = randomRadius * Mathf.Sin(randomAngle);
+
+                randomPoint = new Vector3(randomX + resourceBuilding.transform.localScale.x / 2, 0, randomZ + resourceBuilding.transform.localScale.z / 2) + resourceBuilding.transform.position;
+
+                var colliders = Physics.OverlapSphere(randomPoint, freeSpaceAroundPoint);
                 if (colliders.Length <= 1) break;
 
                 attempts++;
