@@ -1,12 +1,14 @@
+using System;
 using System.Collections.Generic;
 using MyRTSGame.Model.ResourceSystem.Controller;
 using UnityEngine;
 
 namespace MyRTSGame.Model.ResourceSystem.Model
 {
-    public class NaturalResource: MonoBehaviour, IDestination, ISelectable
+    public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory
     {
-        protected Resource Resource;
+        public Dictionary<ResourceType, InventoryData> Inventory { get; set; }
+        protected ResourceType ResourceType;
         public BoxCollider BCollider { get; private set; }
         protected ResourceController ResourceController;
         private List<CollectResourceJob> _collectResourceJobs = new List<CollectResourceJob>();
@@ -16,15 +18,14 @@ namespace MyRTSGame.Model.ResourceSystem.Model
             ResourceController = ResourceController.Instance;
         }
         
-        public Resource GetResource()
+        public ResourceType GetResourceType()
         {
-            return Resource;
+            return ResourceType;
         }
-        public void SetResource(Resource resource)
+        public void SetResourceType(ResourceType resourceType)
         {
-            Resource = resource;
+            ResourceType = resourceType;
         }
-        
         
         public Vector3 GetPosition()
         {
@@ -37,23 +38,42 @@ namespace MyRTSGame.Model.ResourceSystem.Model
             _collectResourceJobs.Add(collectResourceJob);
         }
         
+        
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
-            if (Resource.ResourceType != resourceType) throw new System.Exception("Resource type does not match");
-            Resource.Quantity -= quantity;
-            if (Resource.Quantity <= 0)
+            Inventory[resourceType].Outgoing -= quantity;
+            Inventory[resourceType].Current -= quantity;
+            if (IsInventoryEmpty())
             {
-                Destroy(gameObject);
+                Destroy(gameObject); //this doesn't work well, the object is destroyed but it remains in the UI.
             }
         }
-
-        public BuildingType GetBuildingType()
+        
+        public virtual void AddResource(ResourceType resourceType, int quantity)
         {
-            throw new System.NotImplementedException();
-        }   
-        public void SetState(IBuildingState newState)
+            Inventory[resourceType].Incoming -= quantity;
+            Inventory[resourceType].Current += quantity;
+        }
+        
+        public Dictionary<ResourceType, InventoryData> GetInventory()
         {
-            throw new System.NotImplementedException();
+            return Inventory;
+        }
+        
+        public void ModifyInventory(ResourceType resourceType, Action<InventoryData> modifyAction)
+        {
+            if (Inventory.ContainsKey(resourceType))
+            {
+                modifyAction(Inventory[resourceType]);
+            }
+            else
+            {
+                throw new ArgumentException($"The inventory does not contain the resource type: {resourceType}");
+            }
+        }
+        private bool IsInventoryEmpty()
+        {
+            return Inventory[ResourceType].Current <= 0;
         }
     }
 }

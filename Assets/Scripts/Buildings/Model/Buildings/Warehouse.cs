@@ -34,7 +34,7 @@ namespace MyRTSGame.Model
             if (BuildingList.GetFirstWareHouse())
             {
                 BuildingList.SetFirstWareHouse(false);
-                Inventory = InitInventory(_resourceTypes);
+                Inventory = InventoryHelper.InitInventory(_resourceTypes);
                 foreach (var keyValuePair in startingResources)
                 {
                     Inventory[keyValuePair.Key] = keyValuePair.Value;

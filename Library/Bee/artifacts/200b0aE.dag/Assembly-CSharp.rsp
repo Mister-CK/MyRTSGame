@@ -429,6 +429,7 @@
 "Assets/Scripts/Interface/IBuildingState.cs"
 "Assets/Scripts/Interface/IDestination.cs"
 "Assets/Scripts/Interface/IGameEventArgs.cs"
+"Assets/Scripts/Interface/IInventory.cs"
 "Assets/Scripts/Interface/ISelectable.cs"
 "Assets/Scripts/JobSystem/Controller/JobController.cs"
 "Assets/Scripts/JobSystem/Model/Job.cs"

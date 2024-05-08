@@ -34,7 +34,7 @@ namespace MyRTSGame.Model
         {
             return Physics.OverlapSphere(transform.position, radius)
                 .Select(hitCollider => hitCollider.GetComponentInParent<Tree>())
-                .Where(naturalResource => naturalResource != null && naturalResource.GetResource().ResourceType == resourceType)
+                .Where(naturalResource => naturalResource != null && naturalResource.GetResourceType() == resourceType)
                 .ToList();
         }
         
@@ -44,7 +44,7 @@ namespace MyRTSGame.Model
                 FindResourcesWithinRadius(resourceType, MaxDistanceFromBuilding).Select(naturalResource => new CollectResourceJob
                 {
                     Destination = naturalResource,
-                    ResourceType = naturalResource.GetResource().ResourceType
+                    ResourceType = naturalResource.GetResourceType()
                 }).ToList()
             );
         }

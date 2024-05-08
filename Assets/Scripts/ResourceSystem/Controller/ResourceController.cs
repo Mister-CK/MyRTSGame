@@ -42,16 +42,6 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
             onPlantResourceEvent.UnregisterListener(HandleOnPlantResourceEvent);
         }
 
-        // private void HandleGetClosestResourceEvent(IGameEventArgs args)
-        // {
-        //     if (args is not UnitWithJobEventArgs unitWithJobEventArgs) return;
-        //     if (unitWithJobEventArgs.Unit is not ResourceCollector resourceCollector) return;
-        //     var naturalResource = _resourceList.GetClosestResourceOfType(resourceCollector.GetResourceToCollect(), unitWithJobEventArgs.Unit.transform.position);
-        //     unitWithJobEventArgs.Job.Destination = naturalResource;
-        //
-        //     OnCollectResourceAssignJob.Raise();
-        // }
-
         public void CreateAddResourceJobsEvent(NaturalResource naturalResource)
         {
             onAddCollectResourceJobsEvent.Raise(new NaturalResourceEventArgs(naturalResource));

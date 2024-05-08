@@ -46,7 +46,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         buildingName.text = building.GetBuildingType().ToString();
         SetOccupantButton(building);
         
-        foreach (var res in building.Inventory)
+        foreach (var res in building.GetInventory())
         {
             _resourceQuantities[res.Key] = res.Value.Current;
         }

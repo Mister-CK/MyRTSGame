@@ -58,6 +58,7 @@
     <Compile Include="Assets/Scripts/Units/View/LumberJackView.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/UIController.cs" />
     <Compile Include="Assets/Scripts/UI/Components/UIDeleteButton.cs" />
+    <Compile Include="Assets/Scripts/Interface/IInventory.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Interface/IDestination.cs" />

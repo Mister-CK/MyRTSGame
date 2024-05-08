@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-    public abstract class Building : MonoBehaviour, ISelectable, IDestination
+    public abstract class Building : MonoBehaviour, ISelectable, IDestination, IInventory
     {
         [SerializeField] private GameEvent onSelectionEvent;
 
@@ -44,7 +44,7 @@ namespace MyRTSGame.Model
             OutputTypesWhenCompleted = new ResourceType[0];
             InputTypesWhenCompleted = new ResourceType[0];
 
-            Inventory = InitInventory(InputTypes);
+            Inventory = InventoryHelper.InitInventory(InputTypes);
             
             buildingController = BuildingController.Instance;
         }
@@ -145,17 +145,7 @@ namespace MyRTSGame.Model
                 Quaternion.identity, transform);
         }
 
-        public static Dictionary<ResourceType, InventoryData> InitInventory(IEnumerable<ResourceType> resTypes)
-        {
-            var inventory = new Dictionary<ResourceType, InventoryData>();
 
-            foreach (var resType in resTypes)
-            {
-                inventory[resType] = new InventoryData() { InJob = 0, Current = 0, Outgoing = 0, Incoming = 0};
-            }
-
-            return inventory;
-        }
 
         public Dictionary<ResourceType, InventoryData> GetInventory()
         {

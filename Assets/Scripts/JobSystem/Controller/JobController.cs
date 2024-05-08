@@ -173,7 +173,7 @@ namespace MyRTSGame.Model
             return BuildingList
                 .GetBuildings()
                 .OfType<ResourceBuilding>()
-                .Where(resourceBuilding => Array.IndexOf(resourceBuilding.OutputTypesWhenCompleted, naturalResource.GetResource().ResourceType) != -1)
+                .Where(resourceBuilding => Array.IndexOf(resourceBuilding.OutputTypesWhenCompleted, naturalResource.GetResourceType()) != -1)
                 .Where(resourceBuilding => Vector3.Distance(resourceBuilding.transform.position, naturalResource.transform.position) <= 10)
                 .ToList();
         }
@@ -185,7 +185,7 @@ namespace MyRTSGame.Model
             var collectResourceJob = new CollectResourceJob()
             {
                 Destination = naturalResourceEventArgs.NaturalResource,
-                ResourceType = naturalResourceEventArgs.NaturalResource.GetResource().ResourceType
+                ResourceType = naturalResourceEventArgs.NaturalResource.GetResourceType()
             };
 
             var buildings = FindBuildingsWithResourceTypeWithinRange(naturalResourceEventArgs.NaturalResource);

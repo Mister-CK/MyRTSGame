@@ -23,22 +23,23 @@ namespace MyRTSGame.Model
         
         public void ActivateView(NaturalResource naturalResource)
         {
+
             resourceUIView.gameObject.SetActive(true);
             naturalResourceName.text = naturalResource.name;
             var bar = Instantiate(statusBarPrefab, statusBars.transform);
             _slider = bar.GetComponent<Slider>();
             _slider.value = 100; //todo: replace with time to to completion
             //_slider.value = unit.GetStamina();
-            var resource = naturalResource.GetResource();
+            var resourceType = naturalResource.GetResourceType();
             
             Instantiate(resourceGridTitle, resourceGrid.transform);
             Instantiate(columnsPrefab, resourceGrid.transform);
 
             var resourceRow = Instantiate(resourceRowPrefab, resourceGrid.transform);
             var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
-            resourceRowOutput.ResourceType = resource.ResourceType;
-            resourceRowOutput.resourceTypeText.text = resource.ResourceType.ToString();
-            resourceRowOutput.quantity.text = resource.Quantity.ToString();
+            resourceRowOutput.ResourceType = resourceType;
+            resourceRowOutput.resourceTypeText.text = resourceType.ToString();
+            resourceRowOutput.quantity.text = naturalResource.GetInventory()[resourceType].Current.ToString();
             _resourceRows.Add(resourceRowOutput);
         }
         
@@ -70,7 +71,7 @@ namespace MyRTSGame.Model
             foreach (var outputRow in _resourceRows)
             {
                 var resType = outputRow.ResourceType;
-                var resValue = naturalResource.GetResource().Quantity;
+                var resValue = naturalResource.GetInventory()[outputRow.ResourceType].Current;
                 outputRow.UpdateQuantity(resValue);
             }
         }

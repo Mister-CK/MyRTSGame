@@ -7,7 +7,9 @@ public class Tree : NaturalResource
     protected override void Start()
     {
         base.Start();
-        Resource = new Resource(){ResourceType = ResourceType.Lumber, Quantity = 1};
+        Inventory = InventoryHelper.InitInventory(new[] {ResourceType.Lumber});
+        ResourceType = ResourceType.Lumber;
+        ModifyInventory(ResourceType, data => data.Current = 1);
         ResourceController.CreateAddResourceJobsEvent(this);
     }
 }
