@@ -24,7 +24,7 @@ namespace MyRTSGame.Model
                 yield return new WaitForSeconds(timeInSeconds);
                 if (Inventory[resourceType].Current < Capacity)
                 {
-                    AddResource(resourceType, 1);
+                    ModifyInventory(resourceType, data => data.Current++);
                     buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, resourceType, null);
                 }
             }

@@ -50,7 +50,7 @@ namespace MyRTSGame.Model
                 
                 foreach (var resource in trainingJob.Input)
                 {
-                    RemoveResource(resource.ResourceType, resource.Quantity);
+                    ModifyInventory(resource.ResourceType, data => data.Current -= resource.Quantity);
                 }
                 
                 buildingController.CreateNewUnitEvent(this, trainingJob.UnitType);

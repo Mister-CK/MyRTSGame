@@ -76,7 +76,7 @@ namespace MyRTSGame.Model
                 var inventory = building.GetInventory();
 
                 if (Array.IndexOf(inputTypes, resourceType) == -1) continue;
-                if (inventory[resourceType].Current + inventory[resourceType].Incoming >= building.GetCapacity()) continue;
+                if (inventory[resourceType].Current + inventory[resourceType].InJob >= building.GetCapacity()) continue;
                 destination = building;
                 
                 break;
@@ -247,6 +247,12 @@ namespace MyRTSGame.Model
             }
             newJob.Unit = unitWithJobTypeEventArgs.Unit;
             newJob.SetInProgress(true);
+            if (newJob is VillagerJob villagerJob)
+            {
+                villagerJob.Origin.ModifyInventory(villagerJob.ResourceType, data => data.Outgoing += 1);
+                if (villagerJob.Destination is Building building) building.ModifyInventory(villagerJob.ResourceType, data => data.Incoming += 1);
+            }
+
             onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, newJob));
         }
         

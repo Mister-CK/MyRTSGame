@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace MyRTSGame.Model
         public bool HasInput;
         private GameObject _buildingObject;
         public int Capacity = 999;
-        public int capacityForCompletedBuilding { get; set; }
+        public int CapacityForCompletedBuilding { get; set; }
         public Dictionary<ResourceType, InventoryData> Inventory { get; set; }        
         public IBuildingState State;
         public Material Material { get; set; }
@@ -22,10 +23,11 @@ namespace MyRTSGame.Model
         public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
         protected UnitType OccupantType = UnitType.Villager;
-        private Unit Occupant;
+        private Unit _occupant;
 
         public int resourceCountNeededForConstruction = 0;
         public BuildingController buildingController;
+        
         private List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
         private List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
         private List<BuilderJob> builderJobsForThisBuilding = new List<BuilderJob>();
@@ -52,7 +54,7 @@ namespace MyRTSGame.Model
             BuildingList = BuildingList.Instance; 
             State = new PlacingState(BuildingType);
             
-            capacityForCompletedBuilding = 5;
+            CapacityForCompletedBuilding = 5;
             resourceCountNeededForConstruction = 3;
         }
 
@@ -63,12 +65,12 @@ namespace MyRTSGame.Model
         
         public void SetOccupant(Unit unit)
         {
-            Occupant = unit;
+            _occupant = unit;
         }
         
         public Unit GetOccupant()
         {
-            return Occupant;
+            return _occupant;
         }
         
         public UnitType GetOccupantType()
@@ -149,7 +151,7 @@ namespace MyRTSGame.Model
 
             foreach (var resType in resTypes)
             {
-                inventory[resType] = new InventoryData() { Incoming = 0, Current = 0, Outgoing = 0 };
+                inventory[resType] = new InventoryData() { InJob = 0, Current = 0, Outgoing = 0, Incoming = 0};
             }
 
             return inventory;
@@ -167,11 +169,13 @@ namespace MyRTSGame.Model
         
         public void RemoveResource(ResourceType resourceType, int quantity)
         {
+            Inventory[resourceType].Outgoing -= quantity;
             Inventory[resourceType].Current -= quantity;
         }
         
         public virtual void AddResource(ResourceType resourceType, int quantity)
         {
+            Inventory[resourceType].Incoming -= quantity;
             Inventory[resourceType].Current += quantity;
             if (State is FoundationState foundationState) foundationState.CheckRequiredResources(this);
         }
@@ -179,7 +183,7 @@ namespace MyRTSGame.Model
         public void DeleteBuilding()
         {
             BuildingList.RemoveBuilding(this);
-            if (Occupant != null) buildingController.CreateDeleteBuildingForOccupantEvent(this);
+            if (_occupant != null) buildingController.CreateDeleteBuildingForOccupantEvent(this);
             buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding, builderJobsForThisBuilding);
             Destroy(gameObject);
         }
@@ -187,7 +191,7 @@ namespace MyRTSGame.Model
         public void AddVillagerJobFromThisBuilding(Job job )
         {
             if (job is not VillagerJob villagerJob) return;
-            Inventory[villagerJob.ResourceType].Outgoing++;
+            Inventory[villagerJob.ResourceType].InJob++;
             VillagerJobsFromThisBuilding.Add(villagerJob);
         }
         
@@ -196,7 +200,7 @@ namespace MyRTSGame.Model
             switch (job)
             {
                 case VillagerJob villagerJob:
-                    Inventory[villagerJob.ResourceType].Incoming++;
+                    Inventory[villagerJob.ResourceType].InJob++;
                     VillagerJobsToThisBuilding.Add(villagerJob);
                     return;
                 case BuilderJob builderJob:
@@ -214,7 +218,7 @@ namespace MyRTSGame.Model
         
         public void RemoveVillagerJobFromThisBuilding(VillagerJob villagerJob)
         {
-            Inventory[villagerJob.ResourceType].Outgoing--;
+            Inventory[villagerJob.ResourceType].InJob--;
             VillagerJobsFromThisBuilding.Remove(villagerJob);
         }
         
@@ -223,7 +227,7 @@ namespace MyRTSGame.Model
             switch (job)
             {
                 case VillagerJob villagerJob:
-                    Inventory[villagerJob.ResourceType].Incoming--;
+                    Inventory[villagerJob.ResourceType].InJob--;
                     VillagerJobsToThisBuilding.Remove(villagerJob);
                     return;
                 case BuilderJob builderJob:
@@ -234,5 +238,18 @@ namespace MyRTSGame.Model
                     return;
             }
         }
+        
+        public void ModifyInventory(ResourceType resourceType, Action<InventoryData> modifyAction)
+        {
+            if (Inventory.ContainsKey(resourceType))
+            {
+                modifyAction(Inventory[resourceType]);
+            }
+            else
+            {
+                throw new ArgumentException($"The inventory does not contain the resource type: {resourceType}");
+            }
+        }
     }
+    
 }

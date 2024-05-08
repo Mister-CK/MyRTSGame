@@ -26,11 +26,11 @@ namespace MyRTSGame.Model
 
             for (int i = 0; i < startingResourceKeys.Count; i++)
             {
-                startingResources.Add(startingResourceKeys[i], new InventoryData(){Current = startingResourceValues[i], Incoming = 0, Outgoing = 0});
+                startingResources.Add(startingResourceKeys[i], new InventoryData(){Current = startingResourceValues[i], InJob = 0, Outgoing = 0});
             }
             
             base.Start();
-            capacityForCompletedBuilding = 999;
+            CapacityForCompletedBuilding = 999;
             if (BuildingList.GetFirstWareHouse())
             {
                 BuildingList.SetFirstWareHouse(false);

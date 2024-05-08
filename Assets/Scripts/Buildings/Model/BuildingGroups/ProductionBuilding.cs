@@ -9,9 +9,9 @@ namespace MyRTSGame.Model
     {
         private void TransmuteResource(IEnumerable<Resource> input, IEnumerable<Resource> output)
         {
-            foreach (var resource in input) RemoveResource(resource.ResourceType, resource.Quantity);
+            foreach (var resource in input) ModifyInventory(resource.ResourceType, data => data.Current -= resource.Quantity);
 
-            foreach (var resource in output) AddResource(resource.ResourceType, resource.Quantity);
+            foreach (var resource in output) ModifyInventory(resource.ResourceType,data => data.Current += resource.Quantity);
         }
         
         protected IEnumerator CreateOutputFromInput(int intervalInSeconds, Resource[] input, Resource[] output)

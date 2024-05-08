@@ -17,7 +17,7 @@ namespace MyRTSGame.Model
 
         public void SetObject(Building building)
         {
-            building.Capacity = building.capacityForCompletedBuilding;
+            building.Capacity = building.CapacityForCompletedBuilding;
             var completedObject = _buildingManager.CompletedObjects[_buildingType];
             building.SetObject(completedObject);
             var localScale = completedObject.transform.localScale;

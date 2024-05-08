@@ -51,9 +51,11 @@ namespace MyRTSGame.Model
                 
                 foreach (var resource in productionJob.Input)
                 {
-                    RemoveResource(resource.ResourceType, resource.Quantity);
+                    ModifyInventory(resource.ResourceType, data => data.Current -= resource.Quantity);
                 }
-                AddResource(productionJob.Output.ResourceType, productionJob.Output.Quantity);
+
+                ModifyInventory(productionJob.Output.ResourceType,
+                    data => data.Current -= productionJob.Output.Quantity);
                 
                 buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType, null);
             }
