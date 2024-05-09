@@ -57,7 +57,7 @@ namespace MyRTSGame.Model
                 ModifyInventory(productionJob.Output.ResourceType,
                     data => data.Current -= productionJob.Output.Quantity);
                 
-                buildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType, null);
+                BuildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType, null);
             }
         }
     }

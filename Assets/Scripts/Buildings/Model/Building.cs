@@ -10,12 +10,14 @@ namespace MyRTSGame.Model
         [SerializeField] private GameEvent onSelectionEvent;
 
         public bool HasInput;
-        private GameObject _buildingObject;
         public int Capacity = 999;
         public int CapacityForCompletedBuilding { get; set; }
+        public int resourceCountNeededForConstruction = 0;
+        
+        protected IBuildingState State;
         protected Dictionary<ResourceType, InventoryData> Inventory;    
-        public IBuildingState State;
         public Material Material { get; set; }
+        private GameObject _buildingObject;
         protected BuildingType BuildingType;
         public ResourceType[] InputTypes { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
@@ -25,14 +27,13 @@ namespace MyRTSGame.Model
         protected UnitType OccupantType = UnitType.Villager;
         private Unit _occupant;
 
-        public int resourceCountNeededForConstruction = 0;
-        public BuildingController buildingController;
+        protected BuildingController BuildingController;
         
-        private List<VillagerJob> VillagerJobsToThisBuilding = new List<VillagerJob>();
-        private List<VillagerJob> VillagerJobsFromThisBuilding = new List<VillagerJob>();
-        private List<BuilderJob> builderJobsForThisBuilding = new List<BuilderJob>();
-        private List<ConsumptionJob> consumptionJobsForThisbuilding = new List<ConsumptionJob>();
-        private List<LookingForBuildingJob> lookingForBuildingJobsForThisBuilding = new List<LookingForBuildingJob>();
+        private readonly List<VillagerJob> _villagerJobsToThisBuilding = new List<VillagerJob>();
+        private readonly List<VillagerJob> _villagerJobsFromThisBuilding = new List<VillagerJob>();
+        private readonly List<BuilderJob> _builderJobsForThisBuilding = new List<BuilderJob>();
+        private readonly List<ConsumptionJob> _consumptionJobsForThisbuilding = new List<ConsumptionJob>();
+        private readonly List<LookingForBuildingJob> _lookingForBuildingJobsForThisBuilding = new List<LookingForBuildingJob>();
         
         private void Awake()
         {
@@ -46,7 +47,7 @@ namespace MyRTSGame.Model
 
             Inventory = InventoryHelper.InitInventory(InputTypes);
             
-            buildingController = BuildingController.Instance;
+            BuildingController = BuildingController.Instance;
         }
 
         protected virtual void Start()
@@ -85,7 +86,7 @@ namespace MyRTSGame.Model
 
         public Vector3 GetPosition()
         {
-            return this.transform.position;
+            return transform.position;
         }
 
         public void SetBuildingType(BuildingType buildingType)
@@ -98,7 +99,6 @@ namespace MyRTSGame.Model
             return BuildingType;
         }
         
-
         public void OnMouseDown()
         {
             if (State is PlacingState) return;
@@ -114,11 +114,11 @@ namespace MyRTSGame.Model
         {
             State = newState;
             State.SetObject(this);
-            buildingController.CreateUpdateViewForBuildingEvent(this);
+            BuildingController.CreateUpdateViewForBuildingEvent(this);
 
             if (State is CompletedState)
             {
-                buildingController.CreateJobNeededEvent(JobType.LookForBuildingJob, this, null, null, OccupantType);
+                BuildingController.CreateJobNeededEvent(JobType.LookForBuildingJob, this, null, null, OccupantType);
                 if (this is ResourceBuilding resourceBuilding)
                 {
                     foreach(var outputType in resourceBuilding.OutputTypesWhenCompleted)
@@ -130,7 +130,7 @@ namespace MyRTSGame.Model
                 StartResourceCreationCoroutine();
             }
             
-            if (State is ConstructionState) buildingController.CreateJobNeededEvent(JobType.BuilderJob, this, null, null, null);
+            if (State is ConstructionState) BuildingController.CreateJobNeededEvent(JobType.BuilderJob, this, null, null, null);
         }
         
         public IBuildingState GetState()
@@ -176,8 +176,8 @@ namespace MyRTSGame.Model
         public void DeleteBuilding()
         {
             BuildingList.RemoveBuilding(this);
-            if (_occupant != null) buildingController.CreateDeleteBuildingForOccupantEvent(this);
-            buildingController.CreateDeleteJobsForBuildingEvent(VillagerJobsFromThisBuilding, VillagerJobsToThisBuilding, builderJobsForThisBuilding);
+            if (_occupant != null) BuildingController.CreateDeleteBuildingForOccupantEvent(this);
+            BuildingController.CreateDeleteJobsForBuildingEvent(_villagerJobsFromThisBuilding, _villagerJobsToThisBuilding, _builderJobsForThisBuilding);
             Destroy(gameObject);
         }
 
@@ -185,7 +185,7 @@ namespace MyRTSGame.Model
         {
             if (job is not VillagerJob villagerJob) return;
             Inventory[villagerJob.ResourceType].InJob++;
-            VillagerJobsFromThisBuilding.Add(villagerJob);
+            _villagerJobsFromThisBuilding.Add(villagerJob);
         }
         
         public void AddJobToDestination(Job job)
@@ -194,16 +194,16 @@ namespace MyRTSGame.Model
             {
                 case VillagerJob villagerJob:
                     Inventory[villagerJob.ResourceType].InJob++;
-                    VillagerJobsToThisBuilding.Add(villagerJob);
+                    _villagerJobsToThisBuilding.Add(villagerJob);
                     return;
                 case BuilderJob builderJob:
-                    builderJobsForThisBuilding.Add(builderJob);
+                    _builderJobsForThisBuilding.Add(builderJob);
                     return;
                 case ConsumptionJob consumptionJob:
-                    consumptionJobsForThisbuilding.Add(consumptionJob);
+                    _consumptionJobsForThisbuilding.Add(consumptionJob);
                     return;
                 case LookingForBuildingJob lookingForBuildingJob:
-                    lookingForBuildingJobsForThisBuilding.Add(lookingForBuildingJob);
+                    _lookingForBuildingJobsForThisBuilding.Add(lookingForBuildingJob);
                     return;
                 default: throw new System.ArgumentException("job type not recognized in AddJobToDestination");
             }
@@ -212,7 +212,7 @@ namespace MyRTSGame.Model
         public void RemoveVillagerJobFromThisBuilding(VillagerJob villagerJob)
         {
             Inventory[villagerJob.ResourceType].InJob--;
-            VillagerJobsFromThisBuilding.Remove(villagerJob);
+            _villagerJobsFromThisBuilding.Remove(villagerJob);
         }
         
         public void RemoveJobFromDestination(Job job)
@@ -221,13 +221,13 @@ namespace MyRTSGame.Model
             {
                 case VillagerJob villagerJob:
                     Inventory[villagerJob.ResourceType].InJob--;
-                    VillagerJobsToThisBuilding.Remove(villagerJob);
+                    _villagerJobsToThisBuilding.Remove(villagerJob);
                     return;
                 case BuilderJob builderJob:
-                    builderJobsForThisBuilding.Remove(builderJob);
+                    _builderJobsForThisBuilding.Remove(builderJob);
                     return;
                 case ConsumptionJob consumptionJob:
-                    consumptionJobsForThisbuilding.Remove(consumptionJob);
+                    _consumptionJobsForThisbuilding.Remove(consumptionJob);
                     return;
             }
         }

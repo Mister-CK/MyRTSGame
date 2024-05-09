@@ -53,7 +53,7 @@ namespace MyRTSGame.Model
                     ModifyInventory(resource.ResourceType, data => data.Current -= resource.Quantity);
                 }
                 
-                buildingController.CreateNewUnitEvent(this, trainingJob.UnitType);
+                BuildingController.CreateNewUnitEvent(this, trainingJob.UnitType);
             }
         }
         

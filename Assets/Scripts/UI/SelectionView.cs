@@ -91,7 +91,7 @@ public class SelectionView : MonoBehaviour
 
     private bool SetViewIfStateHasChanged(Building building)
     {
-        switch (building.State)
+        switch (building.GetState())
         {
             case FoundationState when _buildingViewState != BuildingState.FoundationState:
                 _buildingViewState = BuildingState.FoundationState;
@@ -113,12 +113,12 @@ public class SelectionView : MonoBehaviour
     private void UpdateSelectedBuilding(Building building)
     {
         if (SetViewIfStateHasChanged(building)) return;
-        if (building.State is FoundationState)
+        if (building.GetState() is FoundationState)
         { 
             foundationStateBuildingUIView.UpdateResourceQuantities(building);
             return;
         }
-        if (building.State is ConstructionState)
+        if (building.GetState() is ConstructionState)
         {
             return;
         }
@@ -135,7 +135,7 @@ public class SelectionView : MonoBehaviour
             return;
         }
         
-        if (building.State is CompletedState)
+        if (building.GetState() is CompletedState)
         {
             completedStateBuildingUIView.UpdateResourceQuantities(building);
             completedStateBuildingUIView.SetOccupantButton(building);
@@ -145,12 +145,13 @@ public class SelectionView : MonoBehaviour
     
     private void SetSelectedBuilding(Building building)
     {
-        if (building.State is FoundationState)
+        var state = building.GetState();
+        if (state is FoundationState)
         {
             foundationStateBuildingUIView.ActivateFoundationStateBuildingView(building);
             return;
         }
-        if (building.State is ConstructionState)
+        if (state is ConstructionState)
         {
             constructionStateBuildingUIView.ActivateConstructionStateBuildingView(building);
             return;
@@ -162,7 +163,7 @@ public class SelectionView : MonoBehaviour
             return;
         }
         
-        if (building.State is CompletedState)
+        if (state is CompletedState)
         {
             completedStateBuildingUIView.ActivateBuildingView(building);
             return;
