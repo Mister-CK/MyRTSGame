@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-    public abstract class Building : MonoBehaviour, ISelectable, IDestination, IInventory
+    public abstract class Building : MonoBehaviour, ISelectable, IDestination, IInventory, IState<IBuildingState>
     {
         [SerializeField] private GameEvent onSelectionEvent;
 

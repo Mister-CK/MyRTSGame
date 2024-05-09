@@ -61,6 +61,7 @@
     <Compile Include="Assets/Scripts/Interface/IInventory.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
+    <Compile Include="Assets/Scripts/Interface/IResourceState.cs" />
     <Compile Include="Assets/Scripts/Interface/IDestination.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Tree.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
@@ -90,11 +91,13 @@
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Units/LumberJack.cs" />
+    <Compile Include="Assets/Scripts/Interface/IState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ResourceBuilding.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/StoneQuarry.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/GrowingState.cs" />
     <Compile Include="Assets/Scripts/UI/SelectionView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/Enums/UnitType.cs" />

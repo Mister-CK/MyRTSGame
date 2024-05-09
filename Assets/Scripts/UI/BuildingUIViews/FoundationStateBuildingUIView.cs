@@ -17,7 +17,7 @@ public class FoundationStateBuildingUIView : MonoBehaviour
     [SerializeField] private GameObject inputLayoutGrid;
     
     private List<ResourceRowInput> _resourceRowsInput = new List<ResourceRowInput>();
-    Dictionary<ResourceType, int> resourceQuantities = new Dictionary<ResourceType, int>();
+    private Dictionary<ResourceType, int> resourceQuantities = new Dictionary<ResourceType, int>();
 
     public void ActivateFoundationStateBuildingView(Building building)
     {

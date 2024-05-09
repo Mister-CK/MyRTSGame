@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using MyRTSGame.Model.ResourceSystem.Controller;
+using MyRTSGame.Model.ResourceSystem.Model.ResourceStates;
 using UnityEngine;
 
 namespace MyRTSGame.Model.ResourceSystem.Model
 {
-    public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory
+    public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory, IState<IResourceState>
     {
+        private IResourceState _state;
         protected Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         protected ResourceType ResourceType;
         public BoxCollider BCollider { get; private set; }
@@ -16,8 +18,9 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         protected virtual void Start()
         {
             ResourceController = ResourceController.Instance;
+            _state = new GrowingState(this, this);
         }
-        
+
         public ResourceType GetResourceType()
         {
             return ResourceType;
@@ -79,6 +82,21 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         private bool IsInventoryEmpty()
         {
             return Inventory[ResourceType].Current <= 0;
+        }
+        
+        public IResourceState GetState()
+        {
+            return _state;
+        }
+
+        public void SetState(IResourceState state)
+        {
+            _state = state;
+            if (_state is ResourceStates.CompletedState)
+            {
+                ModifyInventory(ResourceType, data => data.Current = 1);
+                ResourceController.CreateAddResourceJobsEvent(this); // I don't think this is used anymore
+            }
         }
     }
 }

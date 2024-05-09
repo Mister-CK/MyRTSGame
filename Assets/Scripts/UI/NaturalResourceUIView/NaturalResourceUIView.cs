@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using MyRTSGame.Model.ResourceSystem.Model;
+using MyRTSGame.Model.ResourceSystem.Model.ResourceStates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,18 +20,34 @@ namespace MyRTSGame.Model
         [SerializeField] private GameObject resourceRowPrefab;
         [SerializeField] private GameObject columnsPrefab;
         private List<ResourceRowOutput> _resourceRows = new ();
-
-        private Slider _slider;
         
-        public void ActivateView(NaturalResource naturalResource)
+        private Slider _slider;
+        NaturalResource _naturalResource;
+        
+        private void InitGrowthSlider(GrowingState growingState)
         {
-
-            resourceUIView.gameObject.SetActive(true);
-            naturalResourceName.text = naturalResource.name;
             var bar = Instantiate(statusBarPrefab, statusBars.transform);
             _slider = bar.GetComponent<Slider>();
-            _slider.value = 100; //todo: replace with time to to completion
-            //_slider.value = unit.GetStamina();
+            _slider.value = growingState.GetPercentageGrown();
+        }
+
+        public void Update()
+        {
+            if (_naturalResource.GetState() is GrowingState growingState)
+            {
+                _slider.value = growingState.GetPercentageGrown();    
+            }
+        }
+
+        public void ActivateView(NaturalResource naturalResource)
+        {
+            _naturalResource = naturalResource;
+            resourceUIView.gameObject.SetActive(true);
+            naturalResourceName.text = naturalResource.name;
+            if (naturalResource.GetState() is GrowingState growingState)
+            {
+                InitGrowthSlider(growingState);
+            }
             var resourceType = naturalResource.GetResourceType();
             
             Instantiate(resourceGridTitle, resourceGrid.transform);
@@ -61,7 +79,8 @@ namespace MyRTSGame.Model
                     Destroy(child.gameObject);
                 }
             }
-            
+
+            _naturalResource = null;
             _resourceRows = new List<ResourceRowOutput>();
 
         }
