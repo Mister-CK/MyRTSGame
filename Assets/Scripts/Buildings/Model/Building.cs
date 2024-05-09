@@ -17,12 +17,13 @@ namespace MyRTSGame.Model
         protected IBuildingState State;
         protected Dictionary<ResourceType, InventoryData> Inventory;    
         public Material Material { get; set; }
+        public BoxCollider BCollider { get; private set; }
+
         private GameObject _buildingObject;
         protected BuildingType BuildingType;
         public ResourceType[] InputTypes { get; set; }
         public ResourceType[] InputTypesWhenCompleted { get; set; }
         public ResourceType[] OutputTypesWhenCompleted { get; set; }
-        public BoxCollider BCollider { get; private set; }
         protected BuildingList BuildingList;
         protected UnitType OccupantType = UnitType.Villager;
         private Unit _occupant;
@@ -61,7 +62,7 @@ namespace MyRTSGame.Model
 
         private void Update()
         {
-            if (State is PlacingState placingState) placingState.CheckOverlap(this);
+            if (State is PlacingState placingState) PlacingState.CheckOverlap(this);
         }
         
         public void SetOccupant(Unit unit)

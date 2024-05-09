@@ -45,6 +45,7 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.17f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/FoundationState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorSmith.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/LookingForBuildingJobQueue.cs" />
@@ -67,14 +68,17 @@
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
+    <Compile Include="Assets/Scripts/UI/UIBuildTerrainButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/LocationDestination.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/TrainingBuilding.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Road.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/DestinationResourceTypeQuantityEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/SelectionController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GoldSmelter.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Controller/TerrainController.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/ConsumptionJob.cs" />
     <Compile Include="Assets/Scripts/Units/View/UnitView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
@@ -82,6 +86,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/VillagerJob.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/PlacingState.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Units/Builder.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/LookingForBuildingJob.cs" />
@@ -103,8 +108,10 @@
     <Compile Include="Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Rock.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
+    <Compile Include="Assets/Scripts/Terrains/TerrainManager.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Vine.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/NaturalResourceView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Wheatfarm.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs" />
@@ -117,11 +124,13 @@
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowProduction.cs" />
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/BuilderJob.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Model/Terrain.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/TrainingJob.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Building.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Butcher.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowInput.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/JobEventArgs.cs" />
@@ -138,9 +147,13 @@
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowOutput.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/UIBuildButtonHandler.cs" />
+    <Compile Include="Assets/Scripts/Enums/TerrainType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/CreateNewJobEventArgs.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Farmland.cs" />
     <Compile Include="Assets/Scripts/UI/UnitUIViews/UnitUIView.cs" />
+    <Compile Include="Assets/Scripts/Terrains/TerrainPlacer.cs" />
+    <Compile Include="Assets/Scripts/Interface/ITerrainState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Vinyard.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/VillagerJobQueue.cs" />
@@ -155,6 +168,7 @@
     <Compile Include="Assets/Scripts/Enums/UnitType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/ConsumptionJobQueue.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/RockView.cs" />
+    <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueueBase.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/SpecialBuilding.cs" />

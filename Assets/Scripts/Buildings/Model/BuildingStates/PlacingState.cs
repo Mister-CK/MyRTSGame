@@ -26,7 +26,7 @@ namespace MyRTSGame.Model
             building.InputTypes = new ResourceType[0];
         }
 
-        public void CheckOverlap(Building building)
+        public static void CheckOverlap(Building building)
         {
             var transform = building.transform;
             var boxSize = building.BCollider.size + new Vector3(2,2,2); // Guarantee a gap of 2 between buildings

@@ -6,11 +6,11 @@ public class CreateNewJobEventArgs : EventArgs, IGameEventArgs
 {
     public JobType JobType { get; }
     [CanBeNull] public Building Origin { get; }
-    [CanBeNull] public Building Destination { get; }
+    [CanBeNull] public IDestination Destination { get; }
     public ResourceType? ResourceType { get; }
     public UnitType? UnitType { get; }
 
-    public CreateNewJobEventArgs(JobType jobType, [CanBeNull] Building destination, [CanBeNull] Building origin, ResourceType? resourceType, UnitType? unitType)
+    public CreateNewJobEventArgs(JobType jobType, [CanBeNull] IDestination destination, [CanBeNull] Building origin, ResourceType? resourceType, UnitType? unitType)
     {
         Origin = origin;
         Destination = destination;

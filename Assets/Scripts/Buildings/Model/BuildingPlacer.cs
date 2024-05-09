@@ -13,8 +13,7 @@ namespace MyRTSGame.Model
         {
             if (!_isPlacing) return;
             
-            var placingState = (PlacingState)_building.GetState();
-            placingState.CheckOverlap(_building);
+            PlacingState.CheckOverlap(_building);
 
             // Create a ray from the camera going through the mouse position
             var ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
