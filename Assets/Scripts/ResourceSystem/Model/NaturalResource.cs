@@ -8,6 +8,7 @@ namespace MyRTSGame.Model.ResourceSystem.Model
 {
     public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory, IState<IResourceState>
     {
+        protected int MaxQuantity;
         private IResourceState _state;
         protected Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         protected ResourceType ResourceType;
@@ -94,7 +95,7 @@ namespace MyRTSGame.Model.ResourceSystem.Model
             _state = state;
             if (_state is ResourceStates.CompletedState)
             {
-                ModifyInventory(ResourceType, data => data.Current = 1);
+                ModifyInventory(ResourceType, data => data.Current = MaxQuantity);
                 ResourceController.CreateAddResourceJobsEvent(this); // I don't think this is used anymore
             }
         }

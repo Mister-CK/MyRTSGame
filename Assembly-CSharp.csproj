@@ -100,6 +100,7 @@
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Rock.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/Enums/UnitType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/ConsumptionJobQueue.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/View/RockView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SawMill.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueueBase.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/SpecialBuilding.cs" />
