@@ -5,13 +5,12 @@ namespace MyRTSGame.Model
 {
     public interface IInventory
     {
-        public Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         public void ModifyInventory(ResourceType resourceType, Action<InventoryData> modifyAction);
         public void RemoveResource(ResourceType resourceType, int quantity);
         public void AddResource(ResourceType resourceType, int quantity);
 
-        public Dictionary<ResourceType, InventoryData> GetInventory();
-
+        public Dictionary<ResourceType, InventoryData> GetInventory();  
+        public void SetInventory(Dictionary<ResourceType, InventoryData> inventory);
     }
     
     public static class InventoryHelper

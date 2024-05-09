@@ -13,7 +13,7 @@ namespace MyRTSGame.Model
         private GameObject _buildingObject;
         public int Capacity = 999;
         public int CapacityForCompletedBuilding { get; set; }
-        public Dictionary<ResourceType, InventoryData> Inventory { get; set; }        
+        protected Dictionary<ResourceType, InventoryData> Inventory;    
         public IBuildingState State;
         public Material Material { get; set; }
         protected BuildingType BuildingType;
@@ -145,7 +145,10 @@ namespace MyRTSGame.Model
                 Quaternion.identity, transform);
         }
 
-
+        public void SetInventory(Dictionary<ResourceType, InventoryData>  inventory)
+        {
+            Inventory = inventory;
+        }
 
         public Dictionary<ResourceType, InventoryData> GetInventory()
         {

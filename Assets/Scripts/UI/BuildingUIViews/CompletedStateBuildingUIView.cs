@@ -162,7 +162,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         foreach (var outputRow in _resourceRowsOutput)
         {
             var resType = outputRow.ResourceType;
-            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            var resValue = building.GetInventory().FirstOrDefault(res => res.Key == resType).Value;
             outputRow.UpdateQuantity(resValue.Current);
             outputRow.UpdateInOutGoingJobs(resValue.Outgoing); 
         }
@@ -170,7 +170,7 @@ public class CompletedStateBuildingUIView : MonoBehaviour
         foreach (var inputRow in _resourceRowsInput)
         {
             var resType = inputRow.ResourceType;
-            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            var resValue = building.GetInventory().FirstOrDefault(res => res.Key == resType).Value;
             inputRow.UpdateQuantity(resValue.Current);
             inputRow.UpdateInIncomingJobs(resValue.Incoming);
         }

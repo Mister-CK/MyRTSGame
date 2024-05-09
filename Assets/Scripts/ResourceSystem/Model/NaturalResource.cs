@@ -7,7 +7,7 @@ namespace MyRTSGame.Model.ResourceSystem.Model
 {
     public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory
     {
-        public Dictionary<ResourceType, InventoryData> Inventory { get; set; }
+        protected Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         protected ResourceType ResourceType;
         public BoxCollider BCollider { get; private set; }
         protected ResourceController ResourceController;
@@ -58,6 +58,11 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         public Dictionary<ResourceType, InventoryData> GetInventory()
         {
             return Inventory;
+        }
+        
+        public void SetInventory(Dictionary<ResourceType, InventoryData> inventory)
+        {
+            Inventory = inventory;
         }
         
         public void ModifyInventory(ResourceType resourceType, Action<InventoryData> modifyAction)

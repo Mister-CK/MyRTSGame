@@ -26,7 +26,7 @@ public class FoundationStateBuildingUIView : MonoBehaviour
         Instantiate(inputTitlePrefab, inputLayoutGrid.transform);
         Instantiate(columnsPrefab, inputLayoutGrid.transform);
 
-        foreach (var res in building.Inventory)
+        foreach (var res in building.GetInventory())
         {
             resourceQuantities[res.Key] = res.Value.Current;
         }
@@ -48,7 +48,7 @@ public class FoundationStateBuildingUIView : MonoBehaviour
         foreach (var row in _resourceRowsInput)
         {
             var resType = row.ResourceType;
-            var resValue = building.Inventory.FirstOrDefault(res => res.Key == resType).Value;
+            var resValue = building.GetInventory().FirstOrDefault(res => res.Key == resType).Value;
             row.UpdateQuantity(resValue.Current);
             row.UpdateInIncomingJobs(resValue.Incoming);
         }
