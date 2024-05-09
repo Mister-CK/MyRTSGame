@@ -19,7 +19,6 @@ namespace MyRTSGame.Model
             HasDestination = false;
             CurrentJob = null;
             Destination = null;
-
         }
     }
 }
