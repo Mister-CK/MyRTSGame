@@ -353,6 +353,7 @@ namespace MyRTSGame.Model
                 LookingForBuildingJob => true,
                 VillagerJob => unit is Villager villager && !villager.GetHasResource(),
                 CollectResourceJob => unit is ResourceCollector resourceCollector && !resourceCollector.GetHasResource(),
+                PlantResourceJob => false,
                 _ => throw new InvalidOperationException("Unknown job type")
             };
         }
