@@ -9,6 +9,7 @@ namespace MyRTSGame.Model.ResourceSystem.Model
     public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory, IState<IResourceState>
     {
         protected int MaxQuantity;
+        protected float GrowthRate;
         private IResourceState _state;
         protected Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         protected ResourceType ResourceType;
@@ -19,7 +20,7 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         protected virtual void Start()
         {
             ResourceController = ResourceController.Instance;
-            _state = new GrowingState(this, this);
+            _state = new GrowingState(this, this, GrowthRate);
         }
 
         public ResourceType GetResourceType()

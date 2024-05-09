@@ -57,7 +57,7 @@ namespace MyRTSGame.Model
             }
         }
         
-        public List<TrainingJob> GetTrainingJobsForUnitTypes(IEnumerable<UnitType> unitTypes)
+        protected List<TrainingJob> GetTrainingJobsForUnitTypes(IEnumerable<UnitType> unitTypes)
         {
             List<TrainingJob> trainingJobs = new List<TrainingJob>();
             foreach(var unitType in unitTypes)
@@ -70,6 +70,9 @@ namespace MyRTSGame.Model
                     case UnitType.Builder:
                         trainingJobs.Add(_builderJob);
                         break;
+                    case UnitType.StoneMiner:
+                        trainingJobs.Add(_stoneMiner);
+                        break;
                     case UnitType.LumberJack:
                         trainingJobs.Add(_lumberjackJob);
                         break;
@@ -80,7 +83,7 @@ namespace MyRTSGame.Model
             return trainingJobs;
         }
         
-        private TrainingJob _villagerJob = new TrainingJob
+        private readonly TrainingJob _villagerJob = new TrainingJob
         {
             Input = new Resource[]
             {
@@ -90,7 +93,7 @@ namespace MyRTSGame.Model
             Quantity = 0
         };
         
-        private TrainingJob _builderJob = new TrainingJob
+        private readonly TrainingJob _builderJob = new TrainingJob
         {
             Input = new Resource[]
             {
@@ -100,7 +103,17 @@ namespace MyRTSGame.Model
             Quantity = 0
         };
         
-        private TrainingJob _lumberjackJob = new TrainingJob
+        private readonly TrainingJob _stoneMiner = new TrainingJob
+        {
+            Input = new Resource[]
+            {
+                new Resource { ResourceType = ResourceType.Gold, Quantity = 2 }
+            },
+            UnitType = UnitType.StoneMiner,
+            Quantity = 0
+        };
+        
+        private readonly TrainingJob _lumberjackJob = new TrainingJob
         {
             Input = new Resource[]
             {
@@ -109,5 +122,6 @@ namespace MyRTSGame.Model
             UnitType = UnitType.LumberJack,
             Quantity = 0
         };
+        
     }
 }

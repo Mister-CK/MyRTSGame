@@ -4,6 +4,7 @@ namespace MyRTSGame.Model
     {
         Villager,
         Builder,
-        LumberJack
+        StoneMiner,
+        LumberJack,
     }
 }

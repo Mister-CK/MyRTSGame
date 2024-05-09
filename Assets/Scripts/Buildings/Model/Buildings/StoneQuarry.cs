@@ -13,11 +13,12 @@ namespace MyRTSGame.Model
             base.Start();
 
             OutputTypesWhenCompleted = new[] { ResourceType.Stone };
+            OccupantType = UnitType.StoneMiner;
         }
 
         protected override void StartResourceCreationCoroutine()
         {
-            StartCoroutine(CreateResource( 15, ResourceType.Stone));
+            // StartCoroutine(CreateResource( 15, ResourceType.Stone));
         }
     }
 }

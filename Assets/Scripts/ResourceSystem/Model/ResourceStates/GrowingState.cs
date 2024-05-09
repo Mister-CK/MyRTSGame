@@ -6,21 +6,19 @@ namespace MyRTSGame.Model.ResourceSystem.Model.ResourceStates
     public class GrowingState: IResourceState
     {
         private float _percentageGrown;
-        private NaturalResource _naturalResource;
-        private MonoBehaviour _monoBehaviour;
+        private readonly NaturalResource _naturalResource;
 
-        public GrowingState(NaturalResource naturalResource, MonoBehaviour monoBehaviour)
+        public GrowingState(NaturalResource naturalResource, MonoBehaviour monoBehaviour, float growthRate)
         {
             _naturalResource = naturalResource;
-            _monoBehaviour = monoBehaviour;
-            _monoBehaviour.StartCoroutine(HandleGrowth());
+            monoBehaviour.StartCoroutine(HandleGrowth(growthRate));
         }
 
-        private IEnumerator HandleGrowth()
+        private IEnumerator HandleGrowth(float growthRate)
         {
             while (_percentageGrown < 100)
             {
-                _percentageGrown += .2f; 
+                _percentageGrown += growthRate; 
                 yield return new WaitForSeconds(.1f);
 
                 if (_percentageGrown >= 100)

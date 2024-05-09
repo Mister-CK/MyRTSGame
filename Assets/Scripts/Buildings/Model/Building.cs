@@ -119,14 +119,6 @@ namespace MyRTSGame.Model
             if (State is CompletedState)
             {
                 BuildingController.CreateJobNeededEvent(JobType.LookForBuildingJob, this, null, null, OccupantType);
-                if (this is ResourceBuilding resourceBuilding)
-                {
-                    foreach(var outputType in resourceBuilding.OutputTypesWhenCompleted)
-                    {
-                        resourceBuilding.GetCollectResourceJob(outputType);
-                    }
-                }
-                
                 StartResourceCreationCoroutine();
             }
             

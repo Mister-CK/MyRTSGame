@@ -10,14 +10,14 @@ namespace MyRTSGame.Model
     public abstract class ResourceBuilding : Building
     {
         private List<CollectResourceJob> _collectResourceJobsForThisBuilding = new List<CollectResourceJob>();
-        protected const float MaxDistanceFromBuilding = 10f;
+        private const float MaxDistanceFromBuilding = 10f;
 
         public float GetMaxDistanceFromBuilding()
         {
             return MaxDistanceFromBuilding;
         }
         
-        public IEnumerator CreateResource(int timeInSeconds, ResourceType resourceType)
+        protected IEnumerator CreateResource(int timeInSeconds, ResourceType resourceType)
         {
             while (true)
             {
@@ -33,7 +33,7 @@ namespace MyRTSGame.Model
         private NaturalResource FindAvailableResourcesWithinRadius(ResourceType resourceType, float radius)
         {
             return Physics.OverlapSphere(transform.position, radius)
-                .Select(hitCollider => hitCollider.GetComponentInParent<Tree>())
+                .Select(hitCollider => hitCollider.GetComponentInParent<NaturalResource>())
                 .FirstOrDefault(naturalResource => naturalResource != null &&
                                                    naturalResource.GetResourceType() == resourceType &&
                                                    naturalResource.GetInventory()[resourceType].Current >

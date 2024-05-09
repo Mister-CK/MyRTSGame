@@ -298,11 +298,21 @@ namespace MyRTSGame.Model
             Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.GetResourceTypeToCollect());
             if (job != null) return job;
 
+            return resourceCollector switch
+            {
+                LumberJack => CreatePlantResourceJob(resourceCollector),
+                StoneMiner => null,
+                _ => null,
+            };
+        }
+
+        private static Job CreatePlantResourceJob(ResourceCollector resourceCollector)
+        {
             var locationGameObject = new GameObject("LocationDestination");
             var locationDestination = locationGameObject.AddComponent<LocationDestination>();
             locationDestination.transform.position = GetRandomPointToPlantTree(resourceCollector.GetBuilding() as ResourceBuilding);
             
-            job = new PlantResourceJob()
+            Job job = new PlantResourceJob()
             {
                 Destination = locationDestination,
                 ResourceType = resourceCollector.GetResourceTypeToCollect(),
@@ -310,13 +320,6 @@ namespace MyRTSGame.Model
             };
             
             return job;
-            // var nextCollectResourceJob = collectResourceJobQueue.GetNextJobForResourceType(resourceCollector.GetResourceTypeToCollect());
-            // if (nextCollectResourceJob != null) return nextCollectResourceJob;
-            // var plantResourceJob = new PlantResourceJob()
-            // {
-            //     Destination = BuildingList.GetBuildingByType(BuildingType.NaturalResource),
-            //     ResourceType = resourceCollector.GetResourceTypeToCollect()
-            // };
         }
 
         private void AddJobToQueue(Job job)

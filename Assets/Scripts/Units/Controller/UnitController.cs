@@ -22,6 +22,7 @@ namespace MyRTSGame.Model
         
         [SerializeField] private Villager villagerPrefab;
         [SerializeField] private Builder builderPrefab;
+        [SerializeField] private StoneMiner stoneMinerPrefab;
         [SerializeField] private LumberJack lumberJackPrefab;
         public static UnitController Instance { get; private set; }
 
@@ -71,6 +72,9 @@ namespace MyRTSGame.Model
                     break;
                 case UnitType.Builder:
                     Instantiate(builderPrefab, spawnPosition, Quaternion.identity);
+                    break;
+                case UnitType.StoneMiner:
+                    Instantiate(stoneMinerPrefab, spawnPosition, Quaternion.identity);
                     break;
                 case UnitType.LumberJack:
                     Instantiate(lumberJackPrefab, spawnPosition, Quaternion.identity);
