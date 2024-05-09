@@ -30,38 +30,32 @@ namespace MyRTSGame.Model
             }
         }
 
-        private IEnumerable<NaturalResource> FindResourcesWithinRadius(ResourceType resourceType, float radius)
+        private NaturalResource FindAvailableResourcesWithinRadius(ResourceType resourceType, float radius)
         {
             return Physics.OverlapSphere(transform.position, radius)
                 .Select(hitCollider => hitCollider.GetComponentInParent<Tree>())
-                .Where(naturalResource => naturalResource != null && naturalResource.GetResourceType() == resourceType)
-                .ToList();
+                .FirstOrDefault(naturalResource => naturalResource != null &&
+                                                   naturalResource.GetResourceType() == resourceType &&
+                                                   naturalResource.GetInventory()[resourceType].Current >
+                                                   naturalResource.GetInventory()[resourceType].Outgoing);
         }
         
-        public void AddCollectResourceJobsToBuilding(ResourceType resourceType)
+        public CollectResourceJob GetCollectResourceJob(ResourceType resourceType)
         {
-            _collectResourceJobsForThisBuilding.AddRange(
-                FindResourcesWithinRadius(resourceType, MaxDistanceFromBuilding).Select(naturalResource => new CollectResourceJob
-                {
-                    Destination = naturalResource,
-                    ResourceType = naturalResource.GetResourceType()
-                }).ToList()
-            );
+            var naturalResource = FindAvailableResourcesWithinRadius(resourceType, MaxDistanceFromBuilding);
+            if (naturalResource == null) return null;
+            var collectResourceJob = new CollectResourceJob()
+            {
+                Destination = naturalResource,
+                ResourceType = naturalResource.GetResourceType()
+            };
+            naturalResource.ModifyInventory(resourceType, data => data.Outgoing++);
+            return collectResourceJob;
         }
 
         public void AddCollectResourceJobToBuilding(CollectResourceJob collectResourceJob)
         {
             _collectResourceJobsForThisBuilding.Add(collectResourceJob);
         }
-        
-        public CollectResourceJob GetCollectResourceJobFromBuilding()
-        {
-            if (_collectResourceJobsForThisBuilding.Count <= 0) return null;
-            
-            var job = _collectResourceJobsForThisBuilding[0];
-            _collectResourceJobsForThisBuilding.RemoveAt(0);
-            return job;
-        }
-        
     }
 }

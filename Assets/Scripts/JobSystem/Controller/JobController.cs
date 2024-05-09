@@ -295,7 +295,7 @@ namespace MyRTSGame.Model
         {
             if (unit is not ResourceCollector resourceCollector) return null;
             if (resourceCollector.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
-            Job job = resourceBuilding.GetCollectResourceJobFromBuilding();
+            Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.GetResourceTypeToCollect());
             if (job != null) return job;
 
             var locationGameObject = new GameObject("LocationDestination");

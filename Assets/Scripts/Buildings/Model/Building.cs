@@ -123,7 +123,7 @@ namespace MyRTSGame.Model
                 {
                     foreach(var outputType in resourceBuilding.OutputTypesWhenCompleted)
                     {
-                        resourceBuilding.AddCollectResourceJobsToBuilding(outputType);
+                        resourceBuilding.GetCollectResourceJob(outputType);
                     }
                 }
                 
