@@ -4,14 +4,15 @@ using UnityEngine;
 
 namespace MyRTSGame.Model.Terrains.Model
 {
-    public class Terrain : MonoBehaviour, IDestination, IState<ITerrainState>
+    public class Terrain : MonoBehaviour, IDestination, IState<ITerrainState>, IBuildable
     {
         protected ITerrainState State;
         protected TerrainType TerrainType;
         protected Material Material { get; set; }
         protected BoxCollider BCollider { get; private set; }
         private GameObject _terrainObject;
-        protected TerrainController TerrainController; 
+        protected TerrainController TerrainController;
+        private readonly float _buildRate = 10f;
         public void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -76,9 +77,14 @@ namespace MyRTSGame.Model.Terrains.Model
                 Quaternion.identity, transform);        
         }
         
-        Vector3 MyRTSGame.Model.IDestination.GetPosition()
+        Vector3 IDestination.GetPosition()
         {
             return transform.position;
+        }
+        
+        public float GetBuildRate()
+        {
+            return _buildRate;
         }
     }
 }

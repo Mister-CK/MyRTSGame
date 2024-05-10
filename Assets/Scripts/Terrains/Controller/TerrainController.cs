@@ -23,12 +23,10 @@ namespace MyRTSGame.Model.Terrains
 
         private void OnEnable()
         {
-            throw new NotImplementedException();
         }
         
         private void OnDisable()
         {
-            throw new NotImplementedException();
         }
         
         public void CreateJobNeededEvent(JobType jobType, IDestination destination, Building origin, ResourceType? resourceType, UnitType? unitType)

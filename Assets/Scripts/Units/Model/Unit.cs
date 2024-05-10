@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using Debug = UnityEngine.Debug;
 
 namespace MyRTSGame.Model
 {
@@ -17,7 +18,7 @@ namespace MyRTSGame.Model
         private bool _hasPendingJobRequest;
         private bool _hasRequestedConsumptionJob;
         protected bool IsLookingForBuilding = false;
-        
+        protected bool HasJobToExecute = true;
         public void SetIsLookingForBuilding(bool isLookingForBuilding)
         {
             IsLookingForBuilding = isLookingForBuilding;
@@ -84,9 +85,14 @@ namespace MyRTSGame.Model
             // }
             
             if (HasDestination)
+            {
                 CheckIfDestinationIsReached();
+            }
             else
+            {
                 SetDestination();
+                HasJobToExecute = true;
+            }
         }
 
         private void CheckIfDestinationIsReached()
@@ -97,8 +103,13 @@ namespace MyRTSGame.Model
                 {
                     if (!Agent.hasPath || Agent.velocity.sqrMagnitude == 0f)
                     {
+                        
                         // The agent has reached its destination
-                        ExecuteJob();
+                        if (HasJobToExecute)
+                        {
+                            HasJobToExecute = false;
+                            ExecuteJob();
+                        }
                     }
                 }
             }
@@ -115,7 +126,6 @@ namespace MyRTSGame.Model
                 HasDestination = false;
                 CurrentJob = null;
                 Destination = null;
-                
                 return;
             }
 
@@ -129,6 +139,7 @@ namespace MyRTSGame.Model
                 return;
             }
         }
+
         private void SetDestination()
         {
             if (_hasPendingJobRequest) return;

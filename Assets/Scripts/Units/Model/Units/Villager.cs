@@ -29,6 +29,7 @@ namespace MyRTSGame.Model
             {
                 TakeResource(villagerJob.Origin, villagerJob.ResourceType);
                 Destination = villagerJob.Destination;
+                HasJobToExecute = true;
                 Agent.SetDestination(Destination.GetPosition());
                 return;
             }

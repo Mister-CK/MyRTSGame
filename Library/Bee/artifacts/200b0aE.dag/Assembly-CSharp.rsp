@@ -427,6 +427,7 @@
 "Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs"
 "Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs"
 "Assets/Scripts/GameEvents/GameEvent.cs"
+"Assets/Scripts/Interface/IBuildable.cs"
 "Assets/Scripts/Interface/IBuildingState.cs"
 "Assets/Scripts/Interface/IDestination.cs"
 "Assets/Scripts/Interface/IGameEventArgs.cs"

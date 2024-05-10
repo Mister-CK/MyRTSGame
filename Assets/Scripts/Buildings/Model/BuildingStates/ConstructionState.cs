@@ -1,19 +1,32 @@
-﻿namespace MyRTSGame.Model
+﻿using UnityEngine;
+
+namespace MyRTSGame.Model
 {
     public class ConstructionState : IBuildingState
     {
         private readonly BuildingManager _buildingManager = BuildingManager.Instance;
-        private readonly BuildingType _buildingType;
-        public ConstructionState(BuildingType buildingType)
+        private readonly Building _building;
+        private float _percentageCompleted = 0;
+        public ConstructionState(Building building)
         {
-            _buildingType = buildingType;
+            _building = building;
         }
 
         public void SetObject(Building building)
         {
-            building.SetObject(_buildingManager.FoundationObjects[_buildingType]);
-            building.BCollider.size = _buildingManager.FoundationObjects[_buildingType].transform.localScale;
-            building.BCollider.center = _buildingManager.FoundationObjects[_buildingType].transform.localScale / 2;
+            building.SetObject(_buildingManager.FoundationObjects[_building.GetBuildingType()]);
+            building.BCollider.size = _buildingManager.FoundationObjects[_building.GetBuildingType()].transform.localScale;
+            building.BCollider.center = _buildingManager.FoundationObjects[_building.GetBuildingType()].transform.localScale / 2;
+        }
+
+        public void IncreasePercentageCompleted(float percentage)
+        {
+            _percentageCompleted += percentage;
+            if (_percentageCompleted >= 100)
+            {
+                Debug.Log("Building Completed");
+                _building.SetState(new CompletedState(_building.GetBuildingType()));
+            }
         }
     }
 }

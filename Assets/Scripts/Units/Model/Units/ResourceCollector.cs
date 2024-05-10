@@ -47,6 +47,7 @@ namespace MyRTSGame.Model
                 if (CurrentJob is CollectResourceJob collectResourceJob) TakeResource(collectResourceJob.Destination, collectResourceJob.ResourceType);
                 Destination = _building;
                 Agent.SetDestination(Destination.GetPosition());
+                HasJobToExecute = true;
                 return;
             }
 

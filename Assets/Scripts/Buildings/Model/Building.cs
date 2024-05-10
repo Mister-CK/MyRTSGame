@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MyRTSGame.Model
 {
-    public abstract class Building : MonoBehaviour, ISelectable, IDestination, IInventory, IState<IBuildingState>
+    public abstract class Building : MonoBehaviour, ISelectable, IDestination, IInventory, IState<IBuildingState>, IBuildable
     {
         [SerializeField] private GameEvent onSelectionEvent;
 
@@ -27,7 +28,7 @@ namespace MyRTSGame.Model
         protected BuildingList BuildingList;
         protected UnitType OccupantType = UnitType.Villager;
         private Unit _occupant;
-
+        private readonly float _buildRate = 1f;
         protected BuildingController BuildingController;
         
         private readonly List<VillagerJob> _villagerJobsToThisBuilding = new List<VillagerJob>();
@@ -235,6 +236,11 @@ namespace MyRTSGame.Model
             {
                 throw new ArgumentException($"The inventory does not contain the resource type: {resourceType}");
             }
+        }
+        
+        public float GetBuildRate()
+        {
+            return _buildRate;
         }
     }
     

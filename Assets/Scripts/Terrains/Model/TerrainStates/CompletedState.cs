@@ -2,16 +2,16 @@ namespace MyRTSGame.Model.Terrains.Model.TerrainStates
 {
     public class CompletedState: ITerrainState
     {
-        private readonly TerrainType _terrainType;
+        private readonly Terrain _terrain;
         private readonly TerrainManager _terrainManager = TerrainManager.Instance;
 
-        public CompletedState(TerrainType terrainType)
+        public CompletedState(Terrain terrain)
         {
-            _terrainType = terrainType;
+            _terrain = terrain;
         }
         public void SetObject(Terrain terrain)
         {
-            var completedObject = _terrainManager.CompletedObjects[_terrainType];
+            var completedObject = _terrainManager.CompletedObjects[_terrain.GetTerrainType()];
             terrain.SetObject(completedObject);
         }
     }

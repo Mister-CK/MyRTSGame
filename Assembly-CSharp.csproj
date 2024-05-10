@@ -159,6 +159,7 @@
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/VillagerJobQueue.cs" />
     <Compile Include="Assets/Scripts/Buildings/Contoller/BuildingController.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingUnitTypeEventArgs.cs" />
+    <Compile Include="Assets/Scripts/Interface/IBuildable.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/StoneQuarry.cs" />

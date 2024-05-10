@@ -13131,6 +13131,7 @@ Transform:
   - {fileID: 1219401900}
   - {fileID: 1266247124}
   - {fileID: 1454350578}
+  - {fileID: 1757019531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309162370
@@ -13718,7 +13719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb49c63bdf7441089bca765d0cd42309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainPrefab: {fileID: 0}
+  terrainPrefab: {fileID: -8538958959602705874, guid: 793604f2caf8e4e55956be9ae89f1bb9, type: 3}
   terrainPlacer: {fileID: 942762450}
 --- !u!1 &1349801082
 GameObject:
@@ -16998,6 +16999,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+--- !u!1 &1757019530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1757019531}
+  - component: {fileID: 1757019532}
+  m_Layer: 0
+  m_Name: TerrainController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1757019531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757019530}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1307244125}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1757019532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757019530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1790ef4d1554d72917c94397094cda6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onNewJobNeeded: {fileID: 11400000, guid: 927d80f7b8794483ba2a686ef6256181, type: 2}
 --- !u!4 &1763287921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7336935787240069783, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
@@ -17497,7 +17543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1876233369
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17542,9 +17588,9 @@ RectTransform:
   - {fileID: 334573808}
   m_Father: {fileID: 847905580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -440}
   m_SizeDelta: {x: 360, y: 390}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1876233370
