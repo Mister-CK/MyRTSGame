@@ -5,6 +5,7 @@ namespace MyRTSGame.Model.Terrains.Model.Terrains
         public Vine()
         {
             TerrainType = TerrainType.Vine;
+            ResourceType = ResourceType.Wine;
         }
     }
 }

@@ -9,7 +9,6 @@ namespace MyRTSGame.Model.ResourceSystem.Model.NaturalResources
             Inventory = InventoryHelper.InitInventory(new[] {ResourceType.Stone});
             MaxQuantity = 100;
             ResourceType = ResourceType.Stone;
-
         }
     }
 }

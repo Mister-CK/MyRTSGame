@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model.ResourceSystem.Model;
+using MyRTSGame.Model.Terrains.Model.Terrains;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -255,8 +256,6 @@ namespace MyRTSGame.Model
 
             onAssignJob.Raise(new UnitWithJobEventArgs(unitWithJobTypeEventArgs.Unit, newJob));
         }
-        
-        //todo: improve the location generation. They only seem to go to to one side of the building, due to the way Random.Range works.
         private static Vector3 GetRandomPointToPlantTree(ResourceBuilding resourceBuilding)
         {
             var freeSpaceAroundPoint = 2f;
@@ -291,19 +290,44 @@ namespace MyRTSGame.Model
             return randomPoint;
         }
 
-        private static Job GetNextResourceCollectionJobForUnit(Unit unit)
+        private Job GetNextResourceCollectionJobForUnit(Unit unit)
         {
             if (unit is not ResourceCollector resourceCollector) return null;
             if (resourceCollector.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
-            Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.GetResourceTypeToCollect());
+            Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.GetResourceTypeToCollect()); //resourceType to collect should be on building, farmer can collect multiple resources, wheatfarm only 1
             if (job != null) return job;
 
             return resourceCollector switch
             {
                 LumberJack => CreatePlantResourceJob(resourceCollector),
+                Farmer => CreatePlantWheatJob(resourceCollector),
                 StoneMiner => null,
                 _ => null,
             };
+        }
+        
+        private Terrains.Model.Terrain FindAvailableTerrainWithinRadius(ResourceType resourceType, float radius)
+        {
+            return Physics.OverlapSphere(transform.position, radius)
+                .Select(hitCollider => hitCollider.GetComponentInParent<Terrains.Model.Terrain>())
+                .FirstOrDefault(terrain => terrain != null &&
+                                           !terrain.GetHasResource() &&
+                                           terrain.GetResourceType() == resourceType);
+        }
+        
+        private Job CreatePlantWheatJob(ResourceCollector resourceCollector)
+        {
+            var farmlandToPlantWheat = FindAvailableTerrainWithinRadius(resourceCollector.GetResourceTypeToCollect(), 10f);
+            if (farmlandToPlantWheat == null) return null; //no available farmland found;
+            
+            Job job = new PlantResourceJob()
+            {
+                Destination = farmlandToPlantWheat,
+                ResourceType = resourceCollector.GetResourceTypeToCollect(),
+                Unit = resourceCollector
+            };
+            
+            return job;
         }
 
         private static Job CreatePlantResourceJob(ResourceCollector resourceCollector)

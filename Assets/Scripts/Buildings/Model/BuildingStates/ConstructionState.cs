@@ -24,7 +24,6 @@ namespace MyRTSGame.Model
             _percentageCompleted += percentage;
             if (_percentageCompleted >= 100)
             {
-                Debug.Log("Building Completed");
                 _building.SetState(new CompletedState(_building.GetBuildingType()));
             }
         }

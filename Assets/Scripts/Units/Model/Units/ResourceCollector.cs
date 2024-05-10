@@ -1,3 +1,4 @@
+using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
 using UnityEngine;
 
 namespace MyRTSGame.Model
@@ -44,7 +45,11 @@ namespace MyRTSGame.Model
             if (Destination != _building)
             {
                 if (CurrentJob is PlantResourceJob) unitController.CreatePlantResourceEvent(CurrentJob);
-                if (CurrentJob is CollectResourceJob collectResourceJob) TakeResource(collectResourceJob.Destination, collectResourceJob.ResourceType);
+                if (CurrentJob is CollectResourceJob collectResourceJob)
+                {
+                    TakeResource(collectResourceJob.Destination, collectResourceJob.ResourceType);
+                    if (collectResourceJob.Destination is Wheat wheat) wheat.GetFarmland().SetHasResource(false); 
+                }
                 Destination = _building;
                 Agent.SetDestination(Destination.GetPosition());
                 HasJobToExecute = true;

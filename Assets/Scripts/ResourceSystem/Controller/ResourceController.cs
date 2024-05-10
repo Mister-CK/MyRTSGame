@@ -1,6 +1,8 @@
 
 using System;
 using MyRTSGame.Model.ResourceSystem.Model;
+using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
+using MyRTSGame.Model.Terrains.Model.Terrains;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +16,7 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onPlantResourceEvent;
         [SerializeField] private ResourceList _resourceList;
+        [SerializeField] private GameObject wheatPrefab;
         [SerializeField] private GameObject treePrefab;
         public static ResourceController Instance { get; private set; }
 
@@ -68,16 +71,24 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
             onSelectionEvent.Raise(new SelectionEventArgs(selectable));
         }
         
-        private void PlantTree(Vector3 location)
+        private GameObject PlantResource(Vector3 location, ResourceType resourceType)
         {
-            Instantiate(treePrefab, location, Quaternion.identity);
+            if (resourceType == ResourceType.Lumber) return Instantiate(treePrefab, location, Quaternion.identity);
+            if (resourceType == ResourceType.Wheat) return Instantiate(wheatPrefab, location, Quaternion.identity);
+            throw new ArgumentOutOfRangeException("Unkown resource type: " + resourceType);
         }
+
 
         private void HandleOnPlantResourceEvent(IGameEventArgs args)
         {
             if (args is not JobEventArgs jobEventArgs) return;
             if (jobEventArgs.Job is not PlantResourceJob plantResourceJob) return;
-            if (plantResourceJob.ResourceType == ResourceType.Lumber) PlantTree(plantResourceJob.Destination.GetPosition());
+            var plantedGameObject = PlantResource(plantResourceJob.Destination.GetPosition(), plantResourceJob.ResourceType);
+            if (jobEventArgs.Job.Destination is Farmland farmland)
+            {
+                farmland.SetHasResource(true);
+                plantedGameObject.GetComponent<Wheat>().SetFarmland(farmland);
+            }
         }
     }
 }

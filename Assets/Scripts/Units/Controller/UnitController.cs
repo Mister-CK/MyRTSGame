@@ -24,6 +24,8 @@ namespace MyRTSGame.Model
         [SerializeField] private Builder builderPrefab;
         [SerializeField] private StoneMiner stoneMinerPrefab;
         [SerializeField] private LumberJack lumberJackPrefab;
+        [SerializeField] private Farmer farmerPrefab;
+
         public static UnitController Instance { get; private set; }
 
         private void Awake()
@@ -78,6 +80,9 @@ namespace MyRTSGame.Model
                     break;
                 case UnitType.LumberJack:
                     Instantiate(lumberJackPrefab, spawnPosition, Quaternion.identity);
+                    break;
+                case UnitType.Farmer:
+                    Instantiate(farmerPrefab, spawnPosition, Quaternion.identity);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(trainingBuildingUnitTypeEventArgs.UnitType.ToString());

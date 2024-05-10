@@ -6,5 +6,6 @@ namespace MyRTSGame.Model
         Builder,
         StoneMiner,
         LumberJack,
+        Farmer,
     }
 }

@@ -13,6 +13,8 @@ namespace MyRTSGame.Model.Terrains.Model
         private GameObject _terrainObject;
         protected TerrainController TerrainController;
         private readonly float _buildRate = 10f;
+        protected bool HasResource;
+        protected ResourceType ResourceType;
         public void Awake()
         {
             BCollider = this.AddComponent<BoxCollider>();
@@ -85,6 +87,26 @@ namespace MyRTSGame.Model.Terrains.Model
         public float GetBuildRate()
         {
             return _buildRate;
+        }
+
+        public bool GetHasResource()
+        {
+            return HasResource;
+        }
+        
+        public void SetHasResource(bool hasResource)
+        {
+            HasResource = hasResource;
+        }
+        
+        public ResourceType GetResourceType()
+        {
+            return ResourceType;
+        }
+        
+        public void SetResourceType(ResourceType resourceType)
+        {
+            ResourceType = resourceType;
         }
     }
 }

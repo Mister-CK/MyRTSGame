@@ -67,6 +67,7 @@
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Tree.cs" />
     <Compile Include="Assets/Scripts/Enums/ResourceType.cs" />
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/View/WheatView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
     <Compile Include="Assets/Scripts/UI/UIBuildTerrainButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
@@ -91,7 +92,9 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/LookingForBuildingJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingList.cs" />
+    <Compile Include="Assets/Scripts/Units/View/FarmerView.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Controller/ResourceController.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Grapes.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResource.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Units/StoneMiner.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ResourceBuilding.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingState.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Wheat.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
@@ -110,12 +114,14 @@
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
     <Compile Include="Assets/Scripts/Terrains/TerrainManager.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Units/Farmer.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Vine.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/NaturalResourceView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Wheatfarm.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceList.cs" />
+    <Compile Include="Assets/Scripts/ResourceSystem/View/GrapesView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/InventoryData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobTypeEventArgs.cs" />
     <Compile Include="Assets/Scripts/Camera.cs" />
