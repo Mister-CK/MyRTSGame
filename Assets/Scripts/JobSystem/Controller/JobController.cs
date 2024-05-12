@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model.ResourceSystem.Model;
-using MyRTSGame.Model.Terrains.Model.Terrains;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -294,7 +293,7 @@ namespace MyRTSGame.Model
         {
             if (unit is not ResourceCollector resourceCollector) return null;
             if (resourceCollector.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
-            Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.GetResourceTypeToCollect()); //resourceType to collect should be on building, farmer can collect multiple resources, wheatfarm only 1
+            Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.GetResourceTypeToCollect()); 
             if (job != null) return job;
 
             return resourceCollector switch
@@ -306,9 +305,9 @@ namespace MyRTSGame.Model
             };
         }
         
-        private Terrains.Model.Terrain FindAvailableTerrainWithinRadius(ResourceType resourceType, float radius)
+        private Terrains.Model.Terrain FindAvailableTerrainWithinRadius(ResourceType resourceType, float radius, Vector3 position)
         {
-            return Physics.OverlapSphere(transform.position, radius)
+            return Physics.OverlapSphere(position, radius)
                 .Select(hitCollider => hitCollider.GetComponentInParent<Terrains.Model.Terrain>())
                 .FirstOrDefault(terrain => terrain != null &&
                                            terrain.GetState() is Terrains.Model.TerrainStates.CompletedState && 
@@ -318,7 +317,7 @@ namespace MyRTSGame.Model
         
         private Job CreatePlantWheatJob(ResourceCollector resourceCollector)
         {
-            var farmlandToPlantWheat = FindAvailableTerrainWithinRadius(resourceCollector.GetResourceTypeToCollect(), 10f);
+            var farmlandToPlantWheat = FindAvailableTerrainWithinRadius(resourceCollector.GetResourceTypeToCollect(), 10f, resourceCollector.GetBuilding().transform.position);
             if (farmlandToPlantWheat == null) return null; //no available farmland found;
             
             Job job = new PlantResourceJob()
