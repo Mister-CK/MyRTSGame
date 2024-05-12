@@ -1,10 +1,8 @@
 
 using System;
 using MyRTSGame.Model.ResourceSystem.Model;
-using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
-using MyRTSGame.Model.Terrains.Model.Terrains;
-using UnityEditor;
 using UnityEngine;
+using Terrain = MyRTSGame.Model.Terrains.Model.Terrain;
 
 namespace MyRTSGame.Model.ResourceSystem.Controller
 {
@@ -15,9 +13,10 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         [SerializeField] private GameEvent onNewJobCreated;
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onPlantResourceEvent;
-        [SerializeField] private ResourceList _resourceList;
         [SerializeField] private GameObject wheatPrefab;
         [SerializeField] private GameObject treePrefab;
+        [SerializeField] private GameObject grapesPrefab;
+        
         public static ResourceController Instance { get; private set; }
 
         private void Awake()
@@ -75,6 +74,7 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
         {
             if (resourceType == ResourceType.Lumber) return Instantiate(treePrefab, location, Quaternion.identity);
             if (resourceType == ResourceType.Wheat) return Instantiate(wheatPrefab, location, Quaternion.identity);
+            if (resourceType == ResourceType.Wine) return Instantiate(grapesPrefab, location, Quaternion.identity);
             throw new ArgumentOutOfRangeException("Unkown resource type: " + resourceType);
         }
 
@@ -84,10 +84,10 @@ namespace MyRTSGame.Model.ResourceSystem.Controller
             if (args is not JobEventArgs jobEventArgs) return;
             if (jobEventArgs.Job is not PlantResourceJob plantResourceJob) return;
             var plantedGameObject = PlantResource(plantResourceJob.Destination.GetPosition(), plantResourceJob.ResourceType);
-            if (jobEventArgs.Job.Destination is Farmland farmland)
+            if (jobEventArgs.Job.Destination is Terrain terrain)
             {
-                farmland.SetHasResource(true);
-                plantedGameObject.GetComponent<Wheat>().SetFarmland(farmland);
+                terrain.SetHasResource(true);
+                plantedGameObject.GetComponent<NaturalResource>().SetTerrain(terrain);
             }
         }
     }

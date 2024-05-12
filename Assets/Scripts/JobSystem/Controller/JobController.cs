@@ -311,6 +311,7 @@ namespace MyRTSGame.Model
             return Physics.OverlapSphere(transform.position, radius)
                 .Select(hitCollider => hitCollider.GetComponentInParent<Terrains.Model.Terrain>())
                 .FirstOrDefault(terrain => terrain != null &&
+                                           terrain.GetState() is Terrains.Model.TerrainStates.CompletedState && 
                                            !terrain.GetHasResource() &&
                                            terrain.GetResourceType() == resourceType);
         }

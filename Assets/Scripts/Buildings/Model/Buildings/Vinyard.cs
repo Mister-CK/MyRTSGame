@@ -13,12 +13,13 @@ namespace MyRTSGame.Model
             base.Start();
 
             OutputTypesWhenCompleted = new[] { ResourceType.Wine };
+            OccupantType = UnitType.Farmer;
 
         }
 
         protected override void StartResourceCreationCoroutine()
         {
-            StartCoroutine(CreateResource( 15, ResourceType.Wine));
+            // StartCoroutine(CreateResource( 15, ResourceType.Wine));
         }
     }
 }

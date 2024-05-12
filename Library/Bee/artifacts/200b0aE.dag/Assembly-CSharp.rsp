@@ -460,7 +460,6 @@
 "Assets/Scripts/ResourceSystem/Model/NaturalResources/Rock.cs"
 "Assets/Scripts/ResourceSystem/Model/NaturalResources/Tree.cs"
 "Assets/Scripts/ResourceSystem/Model/NaturalResources/Wheat.cs"
-"Assets/Scripts/ResourceSystem/Model/ResourceList.cs"
 "Assets/Scripts/ResourceSystem/Model/ResourceStates/CompletedState.cs"
 "Assets/Scripts/ResourceSystem/Model/ResourceStates/GrowingState.cs"
 "Assets/Scripts/ResourceSystem/View/GrapesView.cs"

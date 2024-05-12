@@ -1,3 +1,5 @@
+using MyRTSGame.Model.Terrains.Model.Terrains;
+
 namespace MyRTSGame.Model.Terrains.Model.TerrainStates
 {
     public class CompletedState: ITerrainState

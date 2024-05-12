@@ -14,8 +14,10 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         protected Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         protected ResourceType ResourceType;
         public BoxCollider BCollider { get; private set; }
-        protected ResourceController ResourceController;
         private List<CollectResourceJob> _collectResourceJobs = new List<CollectResourceJob>();
+        protected Terrains.Model.Terrain Terrain;
+        
+        protected ResourceController ResourceController;
 
         protected virtual void Start()
         {
@@ -99,6 +101,16 @@ namespace MyRTSGame.Model.ResourceSystem.Model
                 ModifyInventory(ResourceType, data => data.Current = MaxQuantity);
                 ResourceController.CreateAddResourceJobsEvent(this); // I don't think this is used anymore
             }
+        }
+        
+        public void SetTerrain(Terrains.Model.Terrain terrain)
+        {
+            Terrain = terrain;
+        }
+        
+        public Terrains.Model.Terrain GetTerrain()
+        {
+            return Terrain;
         }
     }
 }

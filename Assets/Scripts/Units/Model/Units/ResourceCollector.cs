@@ -48,7 +48,8 @@ namespace MyRTSGame.Model
                 if (CurrentJob is CollectResourceJob collectResourceJob)
                 {
                     TakeResource(collectResourceJob.Destination, collectResourceJob.ResourceType);
-                    if (collectResourceJob.Destination is Wheat wheat) wheat.GetFarmland().SetHasResource(false); 
+                    if (collectResourceJob.Destination is Wheat wheat) wheat.GetTerrain().SetHasResource(false);
+                    if (collectResourceJob.Destination is Grapes grapes) grapes.GetTerrain().SetHasResource(false);
                 }
                 Destination = _building;
                 Agent.SetDestination(Destination.GetPosition());
