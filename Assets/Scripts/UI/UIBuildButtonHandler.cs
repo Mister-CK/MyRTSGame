@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Buildings.Model;
+using UnityEngine;
 
 namespace MyRTSGame.Model
 {

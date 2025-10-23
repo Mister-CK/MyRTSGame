@@ -1,6 +1,8 @@
+using Buildings.Model;
+using Enums;
+using Interface;
 using System;
 using JetBrains.Annotations;
-using MyRTSGame.Model;
 
 public class CreateNewJobEventArgs : EventArgs, IGameEventArgs
 {

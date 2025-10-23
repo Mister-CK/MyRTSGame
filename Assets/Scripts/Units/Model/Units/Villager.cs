@@ -1,3 +1,6 @@
+using Enums;
+using Interface;
+
 namespace MyRTSGame.Model
 {
     public class Villager : Unit
@@ -34,7 +37,7 @@ namespace MyRTSGame.Model
                 return;
             }
             DeliverResource(villagerJob.Destination, villagerJob.ResourceType);
-            unitController.CompleteJob(CurrentJob);
+            unitService.CompleteJob(CurrentJob);
             HasDestination = false;
             CurrentJob = null;
             Destination = null;
@@ -43,13 +46,13 @@ namespace MyRTSGame.Model
         private void TakeResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = true;
-            unitController.RemoveResourceFromDestination(destination, resourceType, 1);
+            unitService.RemoveResourceFromDestination(destination, resourceType, 1);
         }
 
         private void DeliverResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = false;
-            unitController.AddResourceToDestination(destination, resourceType, 1);
+            unitService.AddResourceToDestination(destination, resourceType, 1);
         }
     }
 }

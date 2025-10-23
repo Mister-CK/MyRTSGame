@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Buildings.Model.BuildingStates;
+using Interface;
+using MyRTSGame.Model;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model
 {
     public class ConstructionState : IBuildingState
     {

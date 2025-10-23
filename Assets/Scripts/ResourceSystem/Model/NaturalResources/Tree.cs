@@ -1,6 +1,7 @@
 using MyRTSGame.Model;
 using MyRTSGame.Model.ResourceSystem.Model;
-using UnityEngine.UIElements;
+using Enums;
+using Interface;
 
 public class Tree : NaturalResource
 {

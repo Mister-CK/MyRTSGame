@@ -1,5 +1,6 @@
+using Buildings.Model;
+using Interface;
 using System;
-using MyRTSGame.Model;
 
 public class BuildingEventArgs : EventArgs, IGameEventArgs
 {

@@ -1,5 +1,6 @@
+using Enums;
+using Interface;
 using System;
-using MyRTSGame.Model;
 
 public class DestinationResourceTypeQuantityEventArgs : EventArgs, IGameEventArgs
 {

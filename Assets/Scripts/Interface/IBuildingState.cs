@@ -1,4 +1,6 @@
-﻿namespace MyRTSGame.Model
+﻿using Buildings.Model;
+
+namespace Interface
 {
     public interface IBuildingState
     {

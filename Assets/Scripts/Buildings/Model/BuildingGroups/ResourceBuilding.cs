@@ -1,11 +1,12 @@
+using Enums;
+using MyRTSGame.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model.ResourceSystem.Model;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model.BuildingGroups
 {
     public abstract class ResourceBuilding : Building
     {
@@ -25,7 +26,7 @@ namespace MyRTSGame.Model
                 if (Inventory[resourceType].Current < Capacity)
                 {
                     ModifyInventory(resourceType, data => data.Current++);
-                    BuildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, resourceType, null);
+                    BuildingService.CreateJobNeededEvent(JobType.VillagerJob, null, this, resourceType, null);
                 }
             }
         }

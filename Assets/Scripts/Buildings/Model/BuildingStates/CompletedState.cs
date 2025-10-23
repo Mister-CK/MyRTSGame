@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Enums;
+using Interface;
+using MyRTSGame.Model;
 using System.Linq;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model.BuildingStates
 {
     public class CompletedState : IBuildingState
     {

@@ -1,6 +1,9 @@
+using Application;
+using Buildings.Model;
+using Enums;
+using Interface;
 using System;
 using System.Collections.Generic;
-using MyRTSGame.Model.ResourceSystem.Controller;
 using MyRTSGame.Model.ResourceSystem.Model.ResourceStates;
 using UnityEngine;
 
@@ -17,11 +20,11 @@ namespace MyRTSGame.Model.ResourceSystem.Model
         private List<CollectResourceJob> _collectResourceJobs = new List<CollectResourceJob>();
         protected Terrains.Model.Terrain Terrain;
         
-        protected ResourceController ResourceController;
+        public ResourceService resourceService;
 
         protected virtual void Start()
         {
-            ResourceController = ResourceController.Instance;
+            ServiceInjector.Instance.InjectResourceDependencies(this);
             _state = new GrowingState(this, this, GrowthRate);
         }
 
@@ -99,7 +102,7 @@ namespace MyRTSGame.Model.ResourceSystem.Model
             if (_state is ResourceStates.CompletedState)
             {
                 ModifyInventory(ResourceType, data => data.Current = MaxQuantity);
-                ResourceController.CreateAddResourceJobsEvent(this); // I don't think this is used anymore
+                resourceService.CreateAddResourceJobsEvent(this); // I don't think this is used anymore
             }
         }
         

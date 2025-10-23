@@ -1,4 +1,6 @@
-namespace MyRTSGame.Model.Terrains.Model.Terrains
+using Enums;
+
+namespace Terrains.Model.Terrains
 {
     public class Road : Terrain
     {

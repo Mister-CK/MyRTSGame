@@ -1,4 +1,4 @@
-namespace MyRTSGame.Model
+namespace Buildings.Model
 {
     public class InventoryData
     {

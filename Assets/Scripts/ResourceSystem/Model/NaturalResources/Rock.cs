@@ -1,3 +1,6 @@
+using Enums;
+using Interface;
+
 namespace MyRTSGame.Model.ResourceSystem.Model.NaturalResources
 {
     public class Rock : NaturalResource

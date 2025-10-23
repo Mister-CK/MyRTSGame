@@ -1,4 +1,4 @@
-﻿namespace MyRTSGame.Model
+﻿namespace Enums
 {
     public enum BuildingType
     {

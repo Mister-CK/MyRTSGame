@@ -1,10 +1,15 @@
+using Application;
+using Buildings.Model.BuildingStates;
+using Enums;
+using Interface;
+using MyRTSGame.Model;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
+using Unit = MyRTSGame.Model.Unit;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model
 {
     public abstract class Building : MonoBehaviour, ISelectable, IDestination, IInventory, IState<IBuildingState>, IBuildable
     {
@@ -29,16 +34,17 @@ namespace MyRTSGame.Model
         protected UnitType OccupantType = UnitType.Villager;
         private Unit _occupant;
         private readonly float _buildRate = 1f;
-        protected BuildingController BuildingController;
         
         private readonly List<VillagerJob> _villagerJobsToThisBuilding = new List<VillagerJob>();
         private readonly List<VillagerJob> _villagerJobsFromThisBuilding = new List<VillagerJob>();
         private readonly List<BuilderJob> _builderJobsForThisBuilding = new List<BuilderJob>();
         private readonly List<ConsumptionJob> _consumptionJobsForThisbuilding = new List<ConsumptionJob>();
         private readonly List<LookingForBuildingJob> _lookingForBuildingJobsForThisBuilding = new List<LookingForBuildingJob>();
-        
+
+        public BuildingService BuildingService { get; set; }
         private void Awake()
         {
+            ServiceInjector.Instance.InjectBuildingDependenies(this);
             BCollider = this.AddComponent<BoxCollider>();
             BCollider.size = new Vector3(3, 3, 3);
             
@@ -49,7 +55,6 @@ namespace MyRTSGame.Model
 
             Inventory = InventoryHelper.InitInventory(InputTypes);
             
-            BuildingController = BuildingController.Instance;
         }
 
         protected virtual void Start()
@@ -116,15 +121,15 @@ namespace MyRTSGame.Model
         {
             State = newState;
             State.SetObject(this);
-            BuildingController.CreateUpdateViewForBuildingEvent(this);
+            BuildingService.CreateUpdateViewForBuildingEvent(this);
 
             if (State is CompletedState)
             {
-                BuildingController.CreateJobNeededEvent(JobType.LookForBuildingJob, this, null, null, OccupantType);
+                BuildingService.CreateJobNeededEvent(JobType.LookForBuildingJob, this, null, null, OccupantType);
                 StartResourceCreationCoroutine();
             }
             
-            if (State is ConstructionState) BuildingController.CreateJobNeededEvent(JobType.BuilderJob, this, null, null, null);
+            if (State is ConstructionState) BuildingService.CreateJobNeededEvent(JobType.BuilderJob, this, null, null, null);
         }
         
         public IBuildingState GetState()
@@ -170,8 +175,8 @@ namespace MyRTSGame.Model
         public void DeleteBuilding()
         {
             BuildingList.RemoveBuilding(this);
-            if (_occupant != null) BuildingController.CreateDeleteBuildingForOccupantEvent(this);
-            BuildingController.CreateDeleteJobsForBuildingEvent(_villagerJobsFromThisBuilding, _villagerJobsToThisBuilding, _builderJobsForThisBuilding);
+            if (_occupant != null) BuildingService.CreateDeleteBuildingForOccupantEvent(this);
+            BuildingService.CreateDeleteJobsForBuildingEvent(_villagerJobsFromThisBuilding, _villagerJobsToThisBuilding, _builderJobsForThisBuilding);
             Destroy(gameObject);
         }
 

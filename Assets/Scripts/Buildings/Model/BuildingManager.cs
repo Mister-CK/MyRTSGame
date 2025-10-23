@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Enums;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace  Buildings.Model
 {
     public class BuildingManager : MonoBehaviour
     {

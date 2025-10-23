@@ -1,6 +1,6 @@
-using MyRTSGame.Model.Terrains.Model;
+using Terrains.Model;
 
-namespace MyRTSGame.Model
+namespace Interface
 {
     public interface ITerrainState
     {

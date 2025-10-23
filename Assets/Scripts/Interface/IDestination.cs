@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Interface
 {
     public interface IDestination
     {

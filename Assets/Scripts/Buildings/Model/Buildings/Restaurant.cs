@@ -1,3 +1,6 @@
+using Buildings.Model.BuildingGroups;
+using Enums;
+
 namespace MyRTSGame.Model
 {
     public class Restaurant : ConsumptionBuilding
@@ -23,7 +26,7 @@ namespace MyRTSGame.Model
             {
                 return;
             }
-            BuildingController.CreateJobNeededEvent(JobType.ConsumptionJob, this, null, resourceType, null);
+            BuildingService.CreateJobNeededEvent(JobType.ConsumptionJob, this, null, resourceType, null);
         }
     }
 }

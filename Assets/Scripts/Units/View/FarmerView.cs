@@ -6,7 +6,7 @@ namespace Units.View
     {
         private void OnMouseDown()
         {
-            unitController.HandleClick(GetComponentInParent<Farmer>());
+            unitService.HandleClick(GetComponentInParent<Farmer>());
         }
     }
 }

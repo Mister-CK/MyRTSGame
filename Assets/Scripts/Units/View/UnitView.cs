@@ -1,14 +1,16 @@
+using Application;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MyRTSGame.Model
 {
     public class UnitView : MonoBehaviour
     {
-        public UnitController unitController;
+        [FormerlySerializedAs("unitController")] public UnitService unitService;
         
         private void Start()
         {
-            unitController = UnitController.Instance;
+            ServiceInjector.Instance.InjectUnitDependencies(this);
         }
     }
 }

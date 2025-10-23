@@ -1,17 +1,18 @@
-﻿using UnityEngine;
-
-namespace MyRTSGame.Model.Terrains.Model
+﻿using Terrains.Model.TerrainStates;
+using UnityEngine;
+using MyTerrain = Terrains.Model.Terrain;
+namespace Terrains
 {
     public class TerrainPlacer : MonoBehaviour
     {
-        private Terrain _terrain;
+        private MyTerrain _terrain;
         private bool _isPlacing;
 
         private void Update()
         {
             if (!_isPlacing) return;
             
-            TerrainStates.PlacingState.CheckOverlap(_terrain);
+            PlacingState.CheckOverlap(_terrain);
 
             // Create a ray from the camera going through the mouse position
             var ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -35,7 +36,7 @@ namespace MyRTSGame.Model.Terrains.Model
                 if (_terrain.GetMaterial().color == Color.green)
                 {
                     _isPlacing = false;
-                    _terrain.SetState(new TerrainStates.FoundationState(_terrain.GetTerrainType()));
+                    _terrain.SetState(new FoundationState(_terrain.GetTerrainType()));
                 }
 
             // If the right mouse button is clicked, cancel the placement
@@ -48,12 +49,12 @@ namespace MyRTSGame.Model.Terrains.Model
         }
 
 
-        public void StartPlacingTerrainFoundation(Terrain terrainPrefab)
+        public void StartPlacingTerrainFoundation(MyTerrain terrainPrefab)
         {
             _isPlacing = true;
             _terrain = Instantiate(terrainPrefab);
             _terrain.SetTerrainType(terrainPrefab.GetTerrainType());
-            _terrain.SetState(new TerrainStates.PlacingState(_terrain.GetTerrainType()));
+            _terrain.SetState(new PlacingState(_terrain.GetTerrainType()));
         }
     }
 }

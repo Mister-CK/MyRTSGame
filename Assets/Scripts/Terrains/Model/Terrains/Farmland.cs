@@ -1,6 +1,6 @@
-using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
+using Enums;
 
-namespace MyRTSGame.Model.Terrains.Model.Terrains
+namespace Terrains.Model.Terrains
 {
     public class Farmland: Terrain
     {

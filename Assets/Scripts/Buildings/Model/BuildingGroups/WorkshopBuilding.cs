@@ -1,9 +1,11 @@
+using Enums;
+using MyRTSGame.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model.BuildingGroups
 {
     public abstract class WorkshopBuilding : Building
     {
@@ -57,7 +59,7 @@ namespace MyRTSGame.Model
                 ModifyInventory(productionJob.Output.ResourceType,
                     data => data.Current -= productionJob.Output.Quantity);
                 
-                BuildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType, null);
+                BuildingService.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType, null);
             }
         }
     }

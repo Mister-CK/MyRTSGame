@@ -1,4 +1,6 @@
 
+using Enums;
+
 namespace MyRTSGame.Model
 {
     public class LumberJack: ResourceCollector

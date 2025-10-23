@@ -1,6 +1,8 @@
+using Enums;
+using Interface;
 using UnityEngine;
 
-namespace MyRTSGame.Model.Terrains.Model.TerrainStates
+namespace Terrains.Model.TerrainStates
 {
     public class PlacingState : ITerrainState
     {

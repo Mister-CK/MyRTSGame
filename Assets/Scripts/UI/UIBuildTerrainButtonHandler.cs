@@ -1,11 +1,11 @@
-﻿using MyRTSGame.Model.Terrains.Model;
+﻿using Terrains;
 using UnityEngine;
-
-namespace MyRTSGame.Model
+using MyTerrain  = Terrains.Model.Terrain;
+namespace UI
 {
     public class UIBuildTerrainButtonHandler : MonoBehaviour
     {
-        [SerializeField] private Terrains.Model.Terrain terrainPrefab;
+        [SerializeField] private MyTerrain terrainPrefab;
         [SerializeField] private TerrainPlacer terrainPlacer;
 
         public void OnButtonClick()

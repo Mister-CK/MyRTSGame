@@ -1,15 +1,14 @@
-using MyRTSGame.Model.ResourceSystem.Controller;
+using Application;
 using UnityEngine;
 
-namespace MyRTSGame.Model.ResourceSystem.View
+namespace ResourceSystem.View
 {
     public class NaturalResourceView: MonoBehaviour
     {
-        protected ResourceController ResourceController;
-        
+        [SerializeField] public ResourceService resourceService;
         private void Start()
         {
-            ResourceController = ResourceController.Instance;
+            ServiceInjector.Instance.InjectNaturalResourceViewDependencies(this);
         }
     }
 }

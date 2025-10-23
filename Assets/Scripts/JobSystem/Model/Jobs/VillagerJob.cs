@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Buildings.Model;
+using Enums;
+using System.Collections.Generic;
 
 namespace MyRTSGame.Model
 {

@@ -1,6 +1,9 @@
-using System;
+using Buildings.Model;
 using System.Collections;
 using UnityEngine;
+using Terrain = Terrains.Model.Terrain;
+using Enums;
+using Interface;
 
 namespace MyRTSGame.Model
 {
@@ -23,7 +26,7 @@ namespace MyRTSGame.Model
                 }
             }
 
-            if (buildable is Terrains.Model.Terrain terrain)
+            if (buildable is Terrain terrain)
             {
                 terrain.SetState(new Terrains.Model.TerrainStates.ConstructionState(terrain));
                 while (terrain.GetState() is Terrains.Model.TerrainStates.ConstructionState constructionState)
@@ -33,7 +36,7 @@ namespace MyRTSGame.Model
                         .IncreasePercentageCompleted(terrain.GetBuildRate());
                 }
             }
-            unitController.CompleteJob(CurrentJob);
+            unitService.CompleteJob(CurrentJob);
             Destination = null;
             HasDestination = false;
             CurrentJob = null;

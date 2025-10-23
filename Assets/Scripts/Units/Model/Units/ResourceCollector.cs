@@ -1,3 +1,6 @@
+using Buildings.Model;
+using Enums;
+using Interface;
 using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
 using UnityEngine;
 
@@ -44,7 +47,7 @@ namespace MyRTSGame.Model
             
             if (Destination != _building)
             {
-                if (CurrentJob is PlantResourceJob) unitController.CreatePlantResourceEvent(CurrentJob);
+                if (CurrentJob is PlantResourceJob) unitService.CreatePlantResourceEvent(CurrentJob);
                 if (CurrentJob is CollectResourceJob collectResourceJob)
                 {
                     TakeResource(collectResourceJob.Destination, collectResourceJob.ResourceType);
@@ -60,10 +63,10 @@ namespace MyRTSGame.Model
             if (CurrentJob is CollectResourceJob collectResourceJob2)
             {
                 DeliverResource(_building, collectResourceJob2.ResourceType);
-                unitController.CreateJobNeededEvent(JobType.VillagerJob, null, _building, collectResourceJob2.ResourceType, null);
+                unitService.CreateJobNeededEvent(JobType.VillagerJob, null, _building, collectResourceJob2.ResourceType, null);
             }
 
-            unitController.CompleteJob(CurrentJob);
+            unitService.CompleteJob(CurrentJob);
             HasDestination = false;
             CurrentJob = null;
             Destination = null;
@@ -72,13 +75,13 @@ namespace MyRTSGame.Model
         private void TakeResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = true;
-            unitController.RemoveResourceFromDestination(destination, resourceType, 1);
+            unitService.RemoveResourceFromDestination(destination, resourceType, 1);
         }
 
         private void DeliverResource(IDestination destination, ResourceType resourceType)
         {
             _hasResource = false;
-            unitController.AddResourceToDestination(destination, resourceType, 1);
+            unitService.AddResourceToDestination(destination, resourceType, 1);
         }
         
         public void BuildingDeleted()

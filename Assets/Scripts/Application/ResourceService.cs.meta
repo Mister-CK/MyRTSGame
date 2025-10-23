@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 6214badc40e040ca8eb600dcfdf8db58
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - onResourceRemovedFromDestination: {instanceID: 0}
+  - onAddCollectResourceJobsEvent: {instanceID: 0}
+  - onNewJobCreated: {instanceID: 0}
+  - onSelectionEvent: {instanceID: 0}
+  - onPlantResourceEvent: {instanceID: 0}
+  - wheatPrefab: {instanceID: 0}
+  - treePrefab: {instanceID: 0}
+  - grapesPrefab: {fileID: 1843492253250498778, guid: 794066c9a372a4ac1b4abce76991b034, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

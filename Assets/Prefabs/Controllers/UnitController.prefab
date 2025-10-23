@@ -44,8 +44,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be6bd9790eb46d892a3bd6353354ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onNewVillagerEvent: {fileID: 11400000, guid: 231135c33dbe840f88af6a806ea0af3f, type: 2}
+  onNewUnitEvent: {fileID: 11400000, guid: 006121dc78c4442958f110df7b8b9ddb, type: 2}
   onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
-  onResourceRemovedFromBuilding: {fileID: 11400000, guid: 8f1ffc440db3f47468dacc912a5335e7, type: 2}
+  onResourceRemovedFromDestination: {fileID: 0}
   onResourceAddedToBuilding: {fileID: 11400000, guid: 96ac4e9b22a4f4b5d8ffc8201b3214cb, type: 2}
+  onUnitJobDeleted: {fileID: 0}
+  onRequestUnitJob: {fileID: 0}
+  onAssignJob: {fileID: 0}
+  onJobRequestDenied: {fileID: 0}
+  onNewJobNeeded: {fileID: 0}
+  onDeleteUnitEvent: {fileID: 0}
+  onCompleteJobEvent: {fileID: 0}
+  onDeleteBuildingForOccupantEvent: {fileID: 0}
+  onAbortJobEvent: {fileID: 0}
+  onPlantResourceEvent: {fileID: 0}
   villagerPrefab: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+  builderPrefab: {fileID: 0}
+  stoneMinerPrefab: {fileID: 0}
+  lumberJackPrefab: {fileID: 0}
+  farmerPrefab: {fileID: 0}

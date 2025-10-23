@@ -1,3 +1,5 @@
+using Enums;
+
 namespace MyRTSGame.Model
 {
     public class LookingForBuildingJob: Job

@@ -1,4 +1,4 @@
-namespace MyRTSGame.Model
+namespace Interface
 {
     public interface IState<T>
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model
 {
     public class BuildingList : MonoBehaviour
     {

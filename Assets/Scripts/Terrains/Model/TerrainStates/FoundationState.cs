@@ -1,4 +1,7 @@
-namespace MyRTSGame.Model.Terrains.Model.TerrainStates
+using Enums;
+using Interface;
+
+namespace Terrains.Model.TerrainStates
 {
     public class FoundationState: ITerrainState
     {

@@ -1,12 +1,12 @@
 using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
 
-namespace MyRTSGame.Model.ResourceSystem.View
+namespace ResourceSystem.View
 {
     public class WheatView: NaturalResourceView
     {
         private void OnMouseDown()
         {
-            ResourceController.HandleClick(GetComponentInParent<Wheat>());
+            resourceService.HandleClick(GetComponentInParent<Wheat>());
         }
     }
 }

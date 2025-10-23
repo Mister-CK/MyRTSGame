@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Enums;
+using Interface;
+using MyRTSGame.Model;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model
 {
     public class FoundationState : IBuildingState
     {

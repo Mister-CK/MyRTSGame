@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using Interface;
 
 namespace MyRTSGame.Model
 {

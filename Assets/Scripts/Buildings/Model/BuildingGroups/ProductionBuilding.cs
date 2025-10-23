@@ -1,9 +1,11 @@
+using Enums;
+using MyRTSGame.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model.BuildingGroups
 {
     public abstract class ProductionBuilding : Building
     {
@@ -33,7 +35,7 @@ namespace MyRTSGame.Model
                 TransmuteResource(input, output);
                 foreach (var resource in output)
                 {
-                    BuildingController.CreateJobNeededEvent(JobType.VillagerJob, null, this, resource.ResourceType, null);
+                    BuildingService.CreateJobNeededEvent(JobType.VillagerJob, null, this, resource.ResourceType, null);
                 }
             }
         }

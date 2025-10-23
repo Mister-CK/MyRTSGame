@@ -1,7 +1,7 @@
 ﻿using Unity.AI.Navigation;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model
 {
     public class BuildingPlacer : MonoBehaviour
     {

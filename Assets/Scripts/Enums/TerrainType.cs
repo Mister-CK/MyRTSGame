@@ -1,6 +1,4 @@
-using MyRTSGame.Model.Terrains.Model.Terrains;
-
-namespace MyRTSGame.Model
+namespace Enums
 {
     public enum TerrainType
     {

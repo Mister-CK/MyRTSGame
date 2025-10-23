@@ -1,4 +1,6 @@
-﻿namespace MyRTSGame.Model
+﻿using Enums;
+
+namespace MyRTSGame.Model
 {
     public class Resource
     {

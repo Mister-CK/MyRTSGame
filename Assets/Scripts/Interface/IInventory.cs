@@ -1,7 +1,9 @@
+using Buildings.Model;
+using Enums;
 using System;
 using System.Collections.Generic;
 
-namespace MyRTSGame.Model
+namespace Interface
 {
     public interface IInventory
     {

@@ -1,9 +1,11 @@
+using Enums;
+using MyRTSGame.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Buildings.Model.BuildingGroups
 {
     public class TrainingBuilding : Building
     {
@@ -53,7 +55,7 @@ namespace MyRTSGame.Model
                     ModifyInventory(resource.ResourceType, data => data.Current -= resource.Quantity);
                 }
                 
-                BuildingController.CreateNewUnitEvent(this, trainingJob.UnitType);
+                BuildingService.CreateNewUnitEvent(this, trainingJob.UnitType);
             }
         }
         

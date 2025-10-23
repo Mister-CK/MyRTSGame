@@ -1,14 +1,19 @@
+using Application;
+using Buildings.Model;
+using Enums;
+using Interface;
 using System;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 namespace MyRTSGame.Model
 {
     public abstract class Unit: MonoBehaviour, ISelectable
     {
-        public UnitController unitController;
+        [FormerlySerializedAs("unitController")] public UnitService unitService;
         protected NavMeshAgent Agent;
         protected bool HasDestination;
         protected IDestination Destination;
@@ -70,8 +75,9 @@ namespace MyRTSGame.Model
         protected virtual void Start()
         {
             _stamina = 100;
+            ServiceInjector.Instance.InjectUnitDependencies(this);
+
             Agent = GetComponentInChildren<NavMeshAgent>();
-            unitController = UnitController.Instance;
         }
         
         protected void Update()
@@ -123,7 +129,7 @@ namespace MyRTSGame.Model
                 if (lookingForBuildingJob.Destination is not Building building) return;
                 resourceCollector.SetBuilding(building);
                 resourceCollector.SetResourceTypeToCollect(building.OutputTypesWhenCompleted[0]);
-                unitController.CompleteJob(lookingForBuildingJob);
+                unitService.CompleteJob(lookingForBuildingJob);
                 IsLookingForBuilding = false;
                 HasDestination = false;
                 CurrentJob = null;
@@ -133,7 +139,7 @@ namespace MyRTSGame.Model
 
             if (CurrentJob is ConsumptionJob consumptionJob)
             {
-                unitController.RemoveResourceFromDestination(consumptionJob.Destination, consumptionJob.ResourceType, 1);
+                unitService.RemoveResourceFromDestination(consumptionJob.Destination, consumptionJob.ResourceType, 1);
                 HasDestination = false;
                 CurrentJob = null;
                 Destination = null;
@@ -147,14 +153,14 @@ namespace MyRTSGame.Model
             if (_hasPendingJobRequest) return;
             if (_stamina < 30 && !_hasRequestedConsumptionJob)
             {
-                unitController.CreateUnitJobRequest(this, JobType.ConsumptionJob);
+                unitService.CreateUnitJobRequest(this, JobType.ConsumptionJob);
                 _hasRequestedConsumptionJob = true;
                 return;
             }
 
             if (IsLookingForBuilding)
             {
-                unitController.CreateNewLookForBuildingJob(this);
+                unitService.CreateNewLookForBuildingJob(this);
                 return;
             }
 
@@ -172,7 +178,7 @@ namespace MyRTSGame.Model
                 _ => throw new ArgumentException("unit type not recognized in RequestNewJob")
             };
 
-            unitController.CreateUnitJobRequest(this, jobType);
+            unitService.CreateUnitJobRequest(this, jobType);
         }
 
         public void AcceptNewJob(Job job)
@@ -189,7 +195,7 @@ namespace MyRTSGame.Model
         {
             Destroy(gameObject);
             if (this is not ResourceCollector resourceCollector) return;
-            unitController.CreateJobNeededEvent(JobType.LookForBuildingJob, resourceCollector.GetBuilding(), null, null, resourceCollector.GetBuilding().GetOccupantType());
+            unitService.CreateJobNeededEvent(JobType.LookForBuildingJob, resourceCollector.GetBuilding(), null, null, resourceCollector.GetBuilding().GetOccupantType());
         }
         
         public void UnAssignJob(DestinationType destinationType)

@@ -1,7 +1,8 @@
+using Enums;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Terrains
 {
     public class TerrainManager : MonoBehaviour
     {

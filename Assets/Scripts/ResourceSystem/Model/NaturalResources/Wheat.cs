@@ -1,4 +1,5 @@
-using MyRTSGame.Model.Terrains.Model.Terrains;
+using Enums;
+using Interface;
 
 namespace MyRTSGame.Model.ResourceSystem.Model.NaturalResources
 {
