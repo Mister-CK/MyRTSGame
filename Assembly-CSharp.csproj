@@ -54,9 +54,11 @@
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/LookingForBuildingJobQueue.cs" />
     <Compile Include="Assets/Scripts/Units/View/BuilderView.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Component/UnitComponent.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/JobExecutors/ConsumptionExecutor.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/Application/ServiceInjector.cs" />
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/JobExecutors/LookingForBuildingExecutor.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/PlantResourceJob.cs" />
     <Compile Include="Assets/Scripts/Application/JobService.cs" />
     <Compile Include="Assets/Scripts/Units/View/LumberJackView.cs" />
@@ -91,6 +93,7 @@
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowTraining.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/FarmerData.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/JobExecutors/BuilderJobExecutor.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/VillagerJob.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Assets/Scripts/Units/Model/Data/BuilderData.cs" />
     <Compile Include="Assets/Scripts/Units/View/FarmerView.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Grapes.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/JobExecutors/PlantResourceExecutor.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResource.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/FoundationState.cs" />
@@ -134,12 +138,14 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowProduction.cs" />
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/JobExecutors/CollectResourceExecutor.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrain.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/ConstructionState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/TrainingJob.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Building.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/JobExecutors/VillagerJobExecutor.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Butcher.cs" />
     <Compile Include="Assets/Scripts/Application/UnitService.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/ConstructionState.cs" />
@@ -196,6 +202,7 @@
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
     <Compile Include="Assets/Scripts/Application/TerrainService.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
+    <Compile Include="Assets/Scripts/Interface/IJobExecutor.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/LumberJackData.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/CollectResourceJob.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/TreeView.cs" />

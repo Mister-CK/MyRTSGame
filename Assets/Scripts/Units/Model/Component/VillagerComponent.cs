@@ -2,12 +2,19 @@ using Enums;
 using Interface;
 using MyRTSGame.Model;
 using Units.Model.Data;
+using Units.Model.JobExecutors;
 
 namespace Units.Model.Component
 {
     public class VillagerComponent : UnitComponent
     {
         protected override JobType DefaultJobType => JobType.VillagerJob;
+        
+        static VillagerComponent()
+        {
+            JobExecutorsMap.Add(typeof(VillagerJob), new VillagerJobExecutor());
+        }
+        
         protected override void HandleJobAssignment(Job job)
         {
             if (job is VillagerJob villagerJob) Data.SetDestination(villagerJob.Origin); 
@@ -28,33 +35,13 @@ namespace Units.Model.Component
 
         public VillagerData VillagerData => (VillagerData)Data;
 
-        protected override void ExecuteJob()
-        {
-            base.ExecuteJob();
-            if (Data.CurrentJob is not VillagerJob villagerJob) return;
-            
-            if (!VillagerData.GetHasResource())
-            {
-                TakeResource(villagerJob.Origin, villagerJob.ResourceType);
-                Data.SetDestination(villagerJob.Destination);
-                Data.SetHasJobToExecute(true);
-                Agent.SetDestination(Data.Destination.GetPosition());
-                return;
-            }
-            DeliverResource(villagerJob.Destination, villagerJob.ResourceType);
-            unitService.CompleteJob(Data.CurrentJob);
-            Data.SetHasDestination(false);
-            Data.SetCurrentJob(null);
-            Data.SetDestination(null);
-        }
-
-        private void TakeResource(IDestination destination, ResourceType resourceType)
+        public void TakeResource(IDestination destination, ResourceType resourceType)
         {
             VillagerData.SetHasResource(true);
             unitService.RemoveResourceFromDestination(destination, resourceType, 1);
         }
 
-        private void DeliverResource(IDestination destination, ResourceType resourceType)
+        public void DeliverResource(IDestination destination, ResourceType resourceType)
         {
             VillagerData.SetHasResource(false);
             unitService.AddResourceToDestination(destination, resourceType, 1);

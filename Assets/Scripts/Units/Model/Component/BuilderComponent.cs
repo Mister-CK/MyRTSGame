@@ -6,19 +6,24 @@ using Terrain = Terrains.Model.Terrain;
 using Interface;
 using MyRTSGame.Model;
 using Units.Model.Data;
+using Units.Model.JobExecutors;
 
 namespace Units.Model.Component
 {
     public class BuilderComponent : UnitComponent
     {
         protected override JobType DefaultJobType => JobType.BuilderJob;
-        
+        static BuilderComponent()
+        {
+            JobExecutorsMap.Add(typeof(BuilderJob), new BuilderJobExecutor());
+
+        }
         protected override UnitData CreateUnitData()
         {
             return new BuilderData();
         }
 
-        private IEnumerator Build(IBuildable buildable)
+        public IEnumerator Build(IBuildable buildable)
         {
             if (buildable is Building building)
             {
@@ -44,22 +49,6 @@ namespace Units.Model.Component
             Data.SetDestination(null);
             Data.SetHasDestination(false);
             Data.SetCurrentJob(null);
-
-        }
-        
-        protected override void ExecuteJob()
-        {
-            base.ExecuteJob();
-
-            if (Data.CurrentJob is not BuilderJob) return;
-            if (Data.Destination is Building building)
-            {
-                StartCoroutine(Build(building));
-            }
-            if (Data.Destination is Terrain terrain)
-            {
-                StartCoroutine(Build(terrain));
-            }
 
         }
     }

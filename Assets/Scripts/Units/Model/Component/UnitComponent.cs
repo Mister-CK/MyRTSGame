@@ -3,7 +3,9 @@ using Enums;
 using Interface;
 using MyRTSGame.Model;
 using System;
+using System.Collections.Generic;
 using Units.Model.Data;
+using Units.Model.JobExecutors;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,10 +14,16 @@ namespace Units.Model.Component
     public abstract class UnitComponent : MonoBehaviour, ISelectable
     {
         public UnitService unitService;
-        
         public UnitData Data { get; private set; }
-        protected NavMeshAgent Agent;
+        public NavMeshAgent Agent { get; private set; }
         protected abstract JobType DefaultJobType { get; }
+        protected static readonly Dictionary<Type, IJobExecutor> JobExecutorsMap = new();
+       
+        static UnitComponent() 
+        {
+            JobExecutorsMap.Add(typeof(LookingForBuildingJob), new LookingForBuildingExecutor());
+            JobExecutorsMap.Add(typeof(ConsumptionJob), new ConsumptionExecutor());
+        }
         
         protected virtual void Awake()
         {
@@ -58,30 +66,16 @@ namespace Units.Model.Component
 
         protected virtual void HandlePreDeletionCleanup() { }
 
-        protected virtual void HandleLookingForBuildingJob(LookingForBuildingJob job) { }
+        public virtual void HandleLookingForBuildingJob(LookingForBuildingJob job) { }
 
         protected virtual void HandleUnAssignCleanup(DestinationType destinationType) { }
-        protected virtual void ExecuteJob()
-        {
-            if (Data.CurrentJob is LookingForBuildingJob lookingForBuildingJob)
-            {
-                HandleLookingForBuildingJob(lookingForBuildingJob);
-                
-                unitService.CompleteJob(lookingForBuildingJob);
-                Data.SetIsLookingForBuilding(false);
-                Data.ResetJobState();
-                return;
-            }
 
-            if (Data.CurrentJob is ConsumptionJob consumptionJob)
-            {
-                unitService.RemoveResourceFromDestination(consumptionJob.Destination, consumptionJob.ResourceType, 1);
-                
-                Data.ResetJobState();
-                Data.ReplenishStamina();
-                Data.SetRequestedConsumptionJob(false);
-                return;
-            }
+        private void ExecuteJob()
+        {
+            if (Data.CurrentJob == null) return;
+            var jobType = Data.CurrentJob.GetType();
+            if (JobExecutorsMap.TryGetValue(jobType, out var executor)) executor.Execute(this, Data.CurrentJob);
+            else Debug.Log("Executor not found for job type: " + jobType);
         }
         
         public void AcceptNewJob(Job job)
