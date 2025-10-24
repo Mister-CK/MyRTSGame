@@ -1,4 +1,5 @@
 using Buildings.Model;
+using Enums;
 using System.Collections;
 using UnityEngine;
 using Terrain = Terrains.Model.Terrain;
@@ -10,6 +11,8 @@ namespace Units.Model.Component
 {
     public class BuilderComponent : UnitComponent
     {
+        protected override JobType DefaultJobType => JobType.BuilderJob;
+        
         protected override UnitData CreateUnitData()
         {
             return new BuilderData();

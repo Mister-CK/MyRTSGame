@@ -14,8 +14,8 @@ namespace Units.Model.Component
         public UnitService unitService;
         
         public UnitData Data { get; private set; }
-        
         protected NavMeshAgent Agent;
+        protected abstract JobType DefaultJobType { get; }
         
         protected virtual void Awake()
         {
@@ -26,15 +26,9 @@ namespace Units.Model.Component
         protected virtual void Start()
         {
 
-            if (ServiceInjector.Instance != null)
-            {
-                ServiceInjector.Instance.InjectUnitDependencies(this);
-            }
-            else
-            {
-                Debug.LogError("ServiceInjector not found. UnitService will be null.");
-            }
-            
+            if (ServiceInjector.Instance != null) ServiceInjector.Instance.InjectUnitDependencies(this);
+            else Debug.LogError("ServiceInjector not found. UnitService will be null.");
+
             Agent = GetComponentInChildren<NavMeshAgent>();
         }
         
@@ -44,7 +38,6 @@ namespace Units.Model.Component
             
             // if (_stamina < 0)
             // {
-            //     //delete unit event
             //     Destroy(this);
             //     return;
             // }
@@ -59,30 +52,15 @@ namespace Units.Model.Component
                 Data.SetHasJobToExecute(true);
             }
         }
-        
         protected abstract UnitData CreateUnitData();
-        
-        protected void SetData(UnitData unitData)
-        {
-            if (Data != null)
-            {
-                Debug.LogError("Unit data is already set.");
-                return;
-            }
-            Data = unitData;
-        }
 
-        private void CheckIfDestinationIsReached()
-        {
-            if (Agent.pathPending) return;
-            if (Agent.remainingDistance > Agent.stoppingDistance) return;
-            if (Agent.pathStatus != NavMeshPathStatus.PathComplete) return;
-            if (Agent.hasPath && Agent.velocity.sqrMagnitude != 0f) return;
-            if (!Data.HasJobToExecute) return;
-            Data.SetHasJobToExecute(false);
-            ExecuteJob();
-        }
+        protected virtual void HandleJobAssignment(Job job) { }
 
+        protected virtual void HandlePreDeletionCleanup() { }
+
+        protected virtual void HandleLookingForBuildingJob(LookingForBuildingJob job) { }
+
+        protected virtual void HandleUnAssignCleanup(DestinationType destinationType) { }
         protected virtual void ExecuteJob()
         {
             if (Data.CurrentJob is LookingForBuildingJob lookingForBuildingJob)
@@ -105,8 +83,49 @@ namespace Units.Model.Component
                 return;
             }
         }
-        protected virtual void HandleLookingForBuildingJob(LookingForBuildingJob job) { }
+        
+        public void AcceptNewJob(Job job)
+        {
+            Data.SetPendingJobRequest(false);
+            Data.SetCurrentJob(job);
+            Data.SetDestination(job.Destination);
+            Data.SetHasDestination(true);
 
+            HandleJobAssignment(job);
+
+            Agent.SetDestination(Data.Destination.GetPosition());
+        }
+        
+        public void DeleteUnit()
+        {
+            HandlePreDeletionCleanup();
+            Destroy(gameObject);
+        }
+        
+        public void UnAssignJob(DestinationType destinationType)
+        {
+            HandleUnAssignCleanup(destinationType);
+            Data.ResetJobState();
+            Agent.SetDestination(Agent.transform.position);
+        }
+        
+        private void SetData(UnitData unitData)
+        {
+            if (Data != null) return;
+            Data = unitData;
+        }
+
+        private void CheckIfDestinationIsReached()
+        {
+            if (Agent.pathPending) return;
+            if (Agent.remainingDistance > Agent.stoppingDistance) return;
+            if (Agent.pathStatus != NavMeshPathStatus.PathComplete) return;
+            if (Agent.hasPath && Agent.velocity.sqrMagnitude != 0f) return;
+            if (!Data.HasJobToExecute) return;
+            Data.SetHasJobToExecute(false);
+            ExecuteJob();
+        }
+        
         private void SetDestination()
         {
             if (Data.HasPendingJobRequest) return;
@@ -130,53 +149,7 @@ namespace Units.Model.Component
         
         private void RequestNewJob()
         {
-            var jobType = this switch
-            {
-                BuilderComponent => JobType.BuilderJob,
-                VillagerComponent => JobType.VillagerJob,
-                ResourceCollectorComponent => JobType.CollectResourceJob,
-                _ => throw new ArgumentException("unit type not recognized in RequestNewJob")
-            };
-
-            unitService.CreateUnitJobRequest(this, jobType);
-        }
-        
-        public void AcceptNewJob(Job job)
-        {
-            Data.SetPendingJobRequest(false);
-            Data.SetCurrentJob(job);
-            Data.SetDestination(job.Destination);
-            
-            if (job is VillagerJob villagerJob) Data.SetDestination(villagerJob.Origin); 
-            
-            Agent.SetDestination(Data.Destination.GetPosition());
-            Data.SetHasDestination(true);
-        }
-
-        public void DeleteUnit()
-        {
-
-            if (this is ResourceCollectorComponent resourceCollectorComponent)
-            {
-                var collectorData = (ResourceCollectorData)resourceCollectorComponent.Data;
-                unitService.CreateJobNeededEvent(JobType.LookForBuildingJob, collectorData.Building, null, null, collectorData.Building.GetOccupantType());
-            }
-            
-            Destroy(gameObject);
-        }
-        
-        public void UnAssignJob(DestinationType destinationType)
-        {
-            if (this is VillagerComponent villager)
-            {
-                if (destinationType == DestinationType.Origin && villager.VillagerData.GetHasResource())
-                {
-                    return;
-                }
-                villager.VillagerData.SetHasResource(false);
-            }
-            Data.ResetJobState();
-            Agent.SetDestination(Agent.transform.position);
+            unitService.CreateUnitJobRequest(this, DefaultJobType);
         }
     }
 }

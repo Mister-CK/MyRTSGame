@@ -7,10 +7,23 @@ namespace Units.Model.Component
 {
     public class VillagerComponent : UnitComponent
     {
-        
+        protected override JobType DefaultJobType => JobType.VillagerJob;
+        protected override void HandleJobAssignment(Job job)
+        {
+            if (job is VillagerJob villagerJob) Data.SetDestination(villagerJob.Origin); 
+        }
         protected override UnitData CreateUnitData()
         {
             return new VillagerData();
+        }
+
+        protected override void HandleUnAssignCleanup(DestinationType destinationType)
+        {
+            if (destinationType == DestinationType.Origin && VillagerData.GetHasResource())
+            {
+                return;
+            }
+            VillagerData.SetHasResource(false);
         }
 
         public VillagerData VillagerData => (VillagerData)Data;
