@@ -7,6 +7,7 @@ using MyRTSGame.Model;
 using MyRTSGame.Model.ResourceSystem.Model;
 using MyRTSGame.Model.UnitViews;
 using TMPro;
+using Units.Model.Component;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,7 +47,7 @@ public class SelectionView : MonoBehaviour
             case Building building:
                 UpdateSelectedBuilding(building);
                 break;
-            case Unit unit:
+            case UnitComponent unit:
                 UpdateSelectedUnit(unit);
                 break;
             case NaturalResource naturalResource:
@@ -62,7 +63,7 @@ public class SelectionView : MonoBehaviour
             case Building building:
                 SetSelectedBuilding(building);
                 break;
-            case Unit unit:
+            case UnitComponent unit:
                 SetSelectedUnit(unit);
                 break;
             case NaturalResource naturalResource:
@@ -81,12 +82,12 @@ public class SelectionView : MonoBehaviour
         naturalResourceUIView.UpdateView(naturalResource);
     }
     
-    private void UpdateSelectedUnit(Unit unit)
+    private void UpdateSelectedUnit(UnitComponent unit)
     {
         unitUIView.UpdateView(unit);
     }
     
-    private void SetSelectedUnit(Unit unit)
+    private void SetSelectedUnit(UnitComponent unit)
     {
         unitUIView.ActivateView(unit);
     }
@@ -209,8 +210,8 @@ public class SelectionView : MonoBehaviour
     
     public void HandleBuildingButtonClick()
     {
-        if (CurrentSelectedObject is not ResourceCollector resourceCollector) return;
-        SelectObject(resourceCollector.GetBuilding());
+        if (CurrentSelectedObject is not ResourceCollectorComponent resourceCollector) return;
+        SelectObject(resourceCollector.CollectorData.GetBuilding());
     }
     
     public void HandleDeleteButtonClick()

@@ -42,11 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8183070976581456306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65c9e4d4be34f119cbad8d3d11cc9b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3417901084544ffca53fe5aae8dacfa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitController: {fileID: 0}
-  builderJobQueue: {fileID: 11400000, guid: 8a95e7069ad5545aeb5d4883b074f7e3, type: 2}
+  unitService: {fileID: 0}
 --- !u!1 &8950333491838010940
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,4 +189,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a8b04a32cf43b9b3afef97366f91eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitController: {fileID: 0}
+  unitService: {fileID: 0}

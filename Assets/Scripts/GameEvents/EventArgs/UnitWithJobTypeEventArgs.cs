@@ -1,14 +1,14 @@
 using Enums;
 using Interface;
 using System;
-using MyRTSGame.Model;
+using Units.Model.Component;
 
 public class UnitWithJobTypeEventArgs : EventArgs, IGameEventArgs
 {
-    public Unit Unit { get; }
+    public UnitComponent Unit { get; }
     public JobType JobType { get; }
 
-    public UnitWithJobTypeEventArgs(Unit unit, JobType jobType)
+    public UnitWithJobTypeEventArgs(UnitComponent unit, JobType jobType)
     {
         Unit = unit;
         JobType = jobType;

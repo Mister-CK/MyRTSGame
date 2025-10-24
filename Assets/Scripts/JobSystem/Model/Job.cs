@@ -1,4 +1,5 @@
 using Interface;
+using Units.Model.Component;
 
 namespace MyRTSGame.Model
 {
@@ -6,7 +7,7 @@ namespace MyRTSGame.Model
     {
         private bool _inProgress;
         public IDestination Destination { get; set; }
-        public Unit Unit;
+        public UnitComponent Unit;
 
         public bool IsInProgress()
         {

@@ -2,6 +2,7 @@ using Buildings.Model;
 using MyRTSGame.Model;
 using MyRTSGame.Model.ResourceSystem.Model;
 using ResourceSystem.View;
+using Units.Model.Component;
 using UnityEngine;
 using Terrain = Terrains.Model.Terrain;
 
@@ -43,7 +44,7 @@ namespace Application
             building.BuildingService = buildingService;
         }
         
-        public void InjectUnitDependencies(Unit unit)
+        public void InjectUnitDependencies(UnitComponent unit)
         {
             unit.unitService = unitService;
         }
@@ -81,8 +82,8 @@ namespace Application
         private void InjectUnitService()
         {
             
-            Unit[] allUnits = FindObjectsOfType<Unit>();
-            foreach (Unit unit in allUnits)
+            UnitComponent[] allUnits = FindObjectsOfType<UnitComponent>();
+            foreach (UnitComponent unit in allUnits)
             {
                 unit.unitService = unitService;
             }

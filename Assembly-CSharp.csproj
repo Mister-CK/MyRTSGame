@@ -41,9 +41,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.2.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll" />
-    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.2.0/Lib/Editor/PlasticSCM/log4netPlastic.dll" />
-    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.2.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll" />
+    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll" />
+    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/log4netPlastic.dll" />
+    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.62f2/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.62f2/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -53,18 +53,19 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/LookingForBuildingJobQueue.cs" />
     <Compile Include="Assets/Scripts/Units/View/BuilderView.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Units/Villager.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Component/UnitComponent.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsSmith.cs" />
     <Compile Include="Assets/Scripts/Application/ServiceInjector.cs" />
     <Compile Include="Assets/Scripts/Interface/IGameEventArgs.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Unit.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/PlantResourceJob.cs" />
     <Compile Include="Assets/Scripts/Application/JobService.cs" />
     <Compile Include="Assets/Scripts/Units/View/LumberJackView.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/UIController.cs" />
     <Compile Include="Assets/Scripts/UI/Components/UIDeleteButton.cs" />
     <Compile Include="Assets/Scripts/Interface/IInventory.cs" />
+    <Compile Include="Assets/Scripts/Units/UnitList.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Component/VillagerComponent.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Interface/IResourceState.cs" />
     <Compile Include="Assets/Scripts/Interface/IDestination.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets/Scripts/Units/View/VillagerView.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/WheatView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Component/LumberJackComponent.cs" />
     <Compile Include="Assets/Scripts/UI/UIBuildTerrainButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/LocationDestination.cs" />
@@ -84,24 +86,24 @@
     <Compile Include="Assets/Scripts/UI/Controller/SelectionController.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GoldSmelter.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/ConsumptionJob.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Data/UnitData.cs" />
     <Compile Include="Assets/Scripts/Units/View/UnitView.cs" />
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowTraining.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Data/FarmerData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/VillagerJob.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/PlacingState.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Units/Builder.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/LookingForBuildingJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingList.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Data/BuilderData.cs" />
     <Compile Include="Assets/Scripts/Units/View/FarmerView.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Grapes.cs" />
     <Compile Include="Assets/Scripts/Interface/ISelectable.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResource.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Units/StoneMiner.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/FoundationState.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Units/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Interface/IState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
@@ -111,13 +113,13 @@
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Wheat.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/CompletedState.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Component/BuilderComponent.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Rock.cs" />
     <Compile Include="Assets/Scripts/Terrains/TerrainManager.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Units/Farmer.cs" />
     <Compile Include="Assets/Scripts/Application/BuildingService.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Vine.cs" />
@@ -145,9 +147,9 @@
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/JobEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Data/ResourceCollectorData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Warehouse.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/UnitList.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/FishermansHut.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronSmelter.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ProductionBuilding.cs" />
@@ -156,11 +158,14 @@
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowOutput.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/UIBuildButtonHandler.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Component/FarmerComponent.cs" />
     <Compile Include="Assets/Scripts/Enums/TerrainType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/CreateNewJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Farmland.cs" />
     <Compile Include="Assets/Scripts/Interface/ITerrainState.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Data/StoneMinerData.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Data/VillagerData.cs" />
     <Compile Include="Assets/Scripts/UI/UnitUIViews/UnitUIView.cs" />
     <Compile Include="Assets/Scripts/Terrains/TerrainPlacer.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/PigFarm.cs" />
@@ -184,15 +189,17 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ConsumptionBuilding.cs" />
     <Compile Include="Assets/Scripts/Units/View/StoneMinerView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Mill.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Component/ResourceCollectorComponent.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorWorkshop.cs" />
     <Compile Include="Assets/Scripts/JobSystem/View/JobListToDisplay.cs" />
-    <Compile Include="Assets/Scripts/Units/Model/Units/ResourceCollector.cs" />
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
     <Compile Include="Assets/Scripts/Application/TerrainService.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Data/LumberJackData.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/CollectResourceJob.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/TreeView.cs" />
+    <Compile Include="Assets/Scripts/Units/Model/Component/StoneMinerComponent.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/ResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/BuilderJobQueue.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs" />
@@ -473,7 +480,7 @@
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.testtools.codecoverage@1.2.6/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.62f2/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -859,50 +866,17 @@
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2022.3.62f2/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AI.Navigation">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
@@ -916,20 +890,47 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.AI.Navigation.Updater">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Settings.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Settings.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
@@ -942,6 +943,12 @@
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

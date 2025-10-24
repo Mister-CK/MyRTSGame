@@ -5,9 +5,9 @@ using Interface;
 using MyRTSGame.Model;
 using System;
 using System.Collections.Generic;
+using Units.Model.Component;
 using Unity.VisualScripting;
 using UnityEngine;
-using Unit = MyRTSGame.Model.Unit;
 
 namespace Buildings.Model
 {
@@ -32,7 +32,7 @@ namespace Buildings.Model
         public ResourceType[] OutputTypesWhenCompleted { get; set; }
         protected BuildingList BuildingList;
         protected UnitType OccupantType = UnitType.Villager;
-        private Unit _occupant;
+        private UnitComponent _occupant;
         private readonly float _buildRate = 1f;
         
         private readonly List<VillagerJob> _villagerJobsToThisBuilding = new List<VillagerJob>();
@@ -71,12 +71,12 @@ namespace Buildings.Model
             if (State is PlacingState placingState) PlacingState.CheckOverlap(this);
         }
         
-        public void SetOccupant(Unit unit)
+        public void SetOccupant(UnitComponent unit)
         {
             _occupant = unit;
         }
         
-        public Unit GetOccupant()
+        public UnitComponent GetOccupant()
         {
             return _occupant;
         }

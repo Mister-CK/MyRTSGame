@@ -1,12 +1,12 @@
 using Interface;
 using System;
-using MyRTSGame.Model;
+using Units.Model.Component;
 
 public class UnitEventArgs : EventArgs, IGameEventArgs
 {
-    public Unit Unit { get; }
+    public UnitComponent Unit { get; }
 
-    public UnitEventArgs(Unit unit)
+    public UnitEventArgs(UnitComponent unit)
     {
         Unit = unit;
     }

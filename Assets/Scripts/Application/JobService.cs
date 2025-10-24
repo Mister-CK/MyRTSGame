@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MyRTSGame.Model.ResourceSystem.Model;
+using Units.Model.Component;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Terrain = Terrains.Model.Terrain;
@@ -242,7 +243,7 @@ namespace Application
                 JobType.BuilderJob => builderJobQueue.GetNextJob(),
                 JobType.VillagerJob => villagerJobQueue.GetNextJob(),
                 JobType.ConsumptionJob => consumptionJobQueue.GetNextJob(),
-                JobType.LookForBuildingJob => lookingForBuildingJobQueue.GetNextJobForUnitType(unitWithJobTypeEventArgs.Unit.GetUnitType()),
+                JobType.LookForBuildingJob => lookingForBuildingJobQueue.GetNextJobForUnitType(unitWithJobTypeEventArgs.Unit.Data.UnitType),
                 JobType.CollectResourceJob => GetNextResourceCollectionJobForUnit(unitWithJobTypeEventArgs.Unit),
                 _ => throw new ArgumentException("JobType not recognized in HandleUnitJobRequest")
             };
@@ -295,18 +296,19 @@ namespace Application
             return randomPoint;
         }
 
-        private Job GetNextResourceCollectionJobForUnit(Unit unit)
+        private Job GetNextResourceCollectionJobForUnit(UnitComponent unit)
         {
-            if (unit is not ResourceCollector resourceCollector) return null;
-            if (resourceCollector.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
-            Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.GetResourceTypeToCollect()); 
+            if (unit is not ResourceCollectorComponent resourceCollector) return null;
+            if (resourceCollector.CollectorData.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
+
+            Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.CollectorData.ResourceTypeToCollect); 
             if (job != null) return job;
 
             return resourceCollector switch
             {
-                LumberJack => CreatePlantResourceJob(resourceCollector),
-                Farmer => CreatePlantWheatJob(resourceCollector),
-                StoneMiner => null,
+                LumberJackComponent => CreatePlantResourceJob(resourceCollector),
+                FarmerComponent => CreatePlantWheatJob(resourceCollector),
+                StoneMinerComponent => null,
                 _ => null,
             };
         }
@@ -321,31 +323,31 @@ namespace Application
                                            terrain.GetResourceType() == resourceType);
         }
         
-        private Job CreatePlantWheatJob(ResourceCollector resourceCollector)
+        private Job CreatePlantWheatJob(ResourceCollectorComponent resourceCollector)
         {
-            var farmlandToPlantWheat = FindAvailableTerrainWithinRadius(resourceCollector.GetResourceTypeToCollect(), 10f, resourceCollector.GetBuilding().transform.position);
+            var farmlandToPlantWheat = FindAvailableTerrainWithinRadius(resourceCollector.CollectorData.ResourceTypeToCollect, 10f, resourceCollector.CollectorData.GetBuilding().transform.position);
             if (farmlandToPlantWheat == null) return null; //no available farmland found;
             
             Job job = new PlantResourceJob()
             {
                 Destination = farmlandToPlantWheat,
-                ResourceType = resourceCollector.GetResourceTypeToCollect(),
+                ResourceType = resourceCollector.CollectorData.ResourceTypeToCollect,
                 Unit = resourceCollector
             };
             
             return job;
         }
 
-        private static Job CreatePlantResourceJob(ResourceCollector resourceCollector)
+        private static Job CreatePlantResourceJob(ResourceCollectorComponent resourceCollector)
         {
             var locationGameObject = new GameObject("LocationDestination");
             var locationDestination = locationGameObject.AddComponent<LocationDestination>();
-            locationDestination.transform.position = GetRandomPointToPlantTree(resourceCollector.GetBuilding() as ResourceBuilding);
+            locationDestination.transform.position = GetRandomPointToPlantTree(resourceCollector.CollectorData.GetBuilding() as ResourceBuilding);
             
             Job job = new PlantResourceJob()
             {
                 Destination = locationDestination,
-                ResourceType = resourceCollector.GetResourceTypeToCollect(),
+                ResourceType = resourceCollector.CollectorData.ResourceTypeToCollect,
                 Unit = resourceCollector
             };
             
@@ -376,16 +378,16 @@ namespace Application
             }
         }
 
-        private static bool CheckIfJobNeedsToBeAddedBackToQueue(Unit unit)
+        private static bool CheckIfJobNeedsToBeAddedBackToQueue(UnitComponent unit)
         {
-            return unit.GetCurrentJob() switch
+            return unit.Data.CurrentJob switch
             {
                 null => false,
                 ConsumptionJob => true,
                 BuilderJob => true,
                 LookingForBuildingJob => true,
-                VillagerJob => unit is Villager villager && !villager.GetHasResource(),
-                CollectResourceJob => unit is ResourceCollector resourceCollector && !resourceCollector.GetHasResource(),
+                VillagerJob => unit is VillagerComponent villager && !villager.VillagerData.GetHasResource(),
+                CollectResourceJob => unit is ResourceCollectorComponent resourceCollector && !resourceCollector.CollectorData.GetHasResource(),
                 PlantResourceJob => false,
                 _ => throw new InvalidOperationException("Unknown job type")
             };
@@ -397,11 +399,11 @@ namespace Application
 
             if (CheckIfJobNeedsToBeAddedBackToQueue(unitEventArgs.Unit))
             {
-                AddJobToQueue(unitEventArgs.Unit.GetCurrentJob());
+                AddJobToQueue(unitEventArgs.Unit.Data.CurrentJob);
             } 
             else
             {
-                onDeleteJobEvent.Raise(new JobEventArgs(unitEventArgs.Unit.GetCurrentJob()));
+                onDeleteJobEvent.Raise(new JobEventArgs(unitEventArgs.Unit.Data.CurrentJob));
             }
         }
 

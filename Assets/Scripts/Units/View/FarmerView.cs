@@ -1,4 +1,5 @@
 using MyRTSGame.Model;
+using Units.Model.Component;
 
 namespace Units.View
 {
@@ -6,7 +7,7 @@ namespace Units.View
     {
         private void OnMouseDown()
         {
-            unitService.HandleClick(GetComponentInParent<Farmer>());
+            unitService.HandleClick(GetComponentInParent<FarmerComponent>());
         }
     }
 }

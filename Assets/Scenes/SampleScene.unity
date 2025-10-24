@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -852,6 +851,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1191,6 +1194,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8916903803936129532, guid: 916ef07e9b5e041b3b627b9bbe6f9ae9, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1910,6 +1917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
     - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: unitController
       value: 
@@ -3176,50 +3187,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280395530}
   m_CullTransparentMesh: 1
---- !u!1 &281228159
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 281228160}
-  - component: {fileID: 281228161}
-  m_Layer: 0
-  m_Name: ResourceList
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &281228160
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281228159}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1665158145}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &281228161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281228159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef1f0d038aca48b79370334182c8248a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &285237150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,6 +3597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8916903803936129532, guid: 916ef07e9b5e041b3b627b9bbe6f9ae9, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3687,6 +3658,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4423,6 +4398,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4718,6 +4697,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4775,6 +4758,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8916903803936129532, guid: 916ef07e9b5e041b3b627b9bbe6f9ae9, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5327,6 +5314,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8916903803936129532, guid: 916ef07e9b5e041b3b627b9bbe6f9ae9, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5384,6 +5375,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5779,6 +5774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
     - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: unitController
       value: 
@@ -7165,7 +7164,7 @@ GameObject:
   - component: {fileID: 604154920}
   - component: {fileID: 604154919}
   m_Layer: 0
-  m_Name: SelectionController
+  m_Name: SelectionService
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7390,6 +7389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7759,6 +7762,18 @@ PrefabInstance:
     - target: {fileID: 1294986029055520071, guid: 0e59aef32c09b4bdbbfe8749640f902f, type: 3}
       propertyPath: m_Name
       value: Farmer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461987694165740856, guid: 0e59aef32c09b4bdbbfe8749640f902f, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
+    - target: {fileID: 2591181180143237250, guid: 0e59aef32c09b4bdbbfe8749640f902f, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
+    - target: {fileID: 2879261718673188122, guid: 0e59aef32c09b4bdbbfe8749640f902f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 5733082183098548242, guid: 0e59aef32c09b4bdbbfe8749640f902f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11906,6 +11921,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8916903803936129532, guid: 916ef07e9b5e041b3b627b9bbe6f9ae9, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12319,6 +12338,10 @@ PrefabInstance:
       value: Villager (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: unitController
       value: 
       objectReference: {fileID: 1492421414}
@@ -12484,7 +12507,7 @@ GameObject:
   - component: {fileID: 1219401900}
   - component: {fileID: 1219401899}
   m_Layer: 0
-  m_Name: BuildingController
+  m_Name: BuildingService
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12683,7 +12706,7 @@ GameObject:
   - component: {fileID: 1266247124}
   - component: {fileID: 1266247123}
   m_Layer: 0
-  m_Name: JobController
+  m_Name: JobService
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13068,6 +13091,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13185,6 +13212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1307244125}
+  - component: {fileID: 1307244126}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -13213,6 +13241,23 @@ Transform:
   - {fileID: 1757019531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307244126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307244124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d57d3e8b0648f7b3e117f89633d368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingService: {fileID: 1219401899}
+  jobService: {fileID: 1266247123}
+  unitService: {fileID: 1492421414}
+  terrainService: {fileID: 1757019532}
+  resourceService: {fileID: 1454350579}
 --- !u!1 &1309162370
 GameObject:
   m_ObjectHideFlags: 0
@@ -14422,6 +14467,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8916903803936129532, guid: 916ef07e9b5e041b3b627b9bbe6f9ae9, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14574,7 +14623,7 @@ GameObject:
   - component: {fileID: 1454350578}
   - component: {fileID: 1454350579}
   m_Layer: 0
-  m_Name: ResourceController
+  m_Name: ResourceService
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14612,9 +14661,9 @@ MonoBehaviour:
   onNewJobCreated: {fileID: 11400000, guid: 5cfcf31dcb0a6498e98f45e1d1ec2f48, type: 2}
   onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
   onPlantResourceEvent: {fileID: 11400000, guid: 4b4bb894194714b0db88f2685b0d7cea, type: 2}
-  _resourceList: {fileID: 281228161}
   wheatPrefab: {fileID: 1843492253250498778, guid: efc0b0f7b74ba4dedbac20c7030c9461, type: 3}
   treePrefab: {fileID: 3946421596193778632, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+  grapesPrefab: {fileID: 1843492253250498778, guid: 794066c9a372a4ac1b4abce76991b034, type: 3}
 --- !u!1 &1463963394
 GameObject:
   m_ObjectHideFlags: 0
@@ -14760,6 +14809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
     - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: unitController
       value: 
@@ -15079,6 +15132,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16165,7 +16222,6 @@ Transform:
   - {fileID: 1703384107}
   - {fileID: 949988373}
   - {fileID: 8652102}
-  - {fileID: 281228160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1670770596
@@ -16321,6 +16377,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3451818361723632871, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
   m_PrefabInstance: {fileID: 1747727138}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1680604940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8515797604946276443, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+  m_PrefabInstance: {fileID: 1747727138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009d9fee142d485bba154c1b4efc47ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680887860
 GameObject:
   m_ObjectHideFlags: 0
@@ -17073,6 +17140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LumberJack
       objectReference: {fileID: 0}
+    - target: {fileID: 8515797604946276443, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
     m_RemovedComponents:
     - {fileID: 4614039646780917568, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
     m_RemovedGameObjects: []
@@ -17090,7 +17161,7 @@ GameObject:
   - component: {fileID: 1757019531}
   - component: {fileID: 1757019532}
   m_Layer: 0
-  m_Name: TerrainController
+  m_Name: TerrainService
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17124,6 +17195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onNewJobNeeded: {fileID: 11400000, guid: 927d80f7b8794483ba2a686ef6256181, type: 2}
+  onPlantResourceEvent: {fileID: 11400000, guid: 4b4bb894194714b0db88f2685b0d7cea, type: 2}
 --- !u!4 &1763287921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7336935787240069783, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
@@ -17322,6 +17394,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18874,6 +18950,10 @@ PrefabInstance:
       value: Villager (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: unitController
       value: 
       objectReference: {fileID: 1492421414}
@@ -18982,6 +19062,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+      propertyPath: resourceService
+      value: 
+      objectReference: {fileID: 1454350579}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19232,6 +19316,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
     - target: {fileID: 1958591725669277307, guid: 584ca8a7c6e614579b4a7bdd51e491fb, type: 3}
       propertyPath: unitController
       value: 
@@ -19515,6 +19603,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5075016175931538989, guid: a7c8c9c0faba9427aa299fea49109224, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
+    - target: {fileID: 6359889876144408051, guid: a7c8c9c0faba9427aa299fea49109224, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
     - target: {fileID: 8183070976581456306, guid: a7c8c9c0faba9427aa299fea49109224, type: 3}
       propertyPath: m_Name
       value: StoneMiner
@@ -19931,6 +20027,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
+      propertyPath: unitService
+      value: 
+      objectReference: {fileID: 1492421414}
+    - target: {fileID: 5462729930453971675, guid: bb97f63306d94464bab310ce3b33e553, type: 3}
       propertyPath: unitController
       value: 
       objectReference: {fileID: 1492421414}
@@ -20055,7 +20155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483933122344428775, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: m_Name
-      value: UnitController
+      value: UnitService
       objectReference: {fileID: 0}
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: unitList
@@ -20088,7 +20188,7 @@ PrefabInstance:
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: lumberJackPrefab
       value: 
-      objectReference: {fileID: -183385901213133478, guid: 9fe433fd7f515446da3d0dc251cd7474, type: 3}
+      objectReference: {fileID: 1680604940}
     - target: {fileID: 8509542991530555386, guid: e6fa39d4249724a3f8da21a3ad514bc3, type: 3}
       propertyPath: onRequestUnitJob
       value: 

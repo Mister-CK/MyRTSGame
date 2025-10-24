@@ -1,13 +1,14 @@
 using Interface;
 using System;
 using MyRTSGame.Model;
+using Units.Model.Component;
 
 public class UnitWithJobEventArgs : EventArgs, IGameEventArgs
 {
-    public Unit Unit { get; }
+    public UnitComponent Unit { get; }
     public Job Job { get; }
     
-    public UnitWithJobEventArgs(Unit unit, Job job)
+    public UnitWithJobEventArgs(UnitComponent unit, Job job)
     {
         Unit = unit;
         Job = job;

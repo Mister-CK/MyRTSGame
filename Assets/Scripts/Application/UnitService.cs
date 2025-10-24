@@ -3,6 +3,7 @@ using Enums;
 using Interface;
 using MyRTSGame.Model;
 using System;
+using Units.Model.Component;
 using UnityEngine;
 
 namespace Application
@@ -24,11 +25,11 @@ namespace Application
         [SerializeField] private GameEvent onAbortJobEvent;
         [SerializeField] private GameEvent onPlantResourceEvent;
         
-        [SerializeField] private Villager villagerPrefab;
-        [SerializeField] private Builder builderPrefab;
-        [SerializeField] private StoneMiner stoneMinerPrefab;
-        [SerializeField] private LumberJack lumberJackPrefab;
-        [SerializeField] private Farmer farmerPrefab;
+        [SerializeField] private VillagerComponent villagerPrefab;
+        [SerializeField] private BuilderComponent builderPrefab;
+        [SerializeField] private StoneMinerComponent stoneMinerPrefab;
+        [SerializeField] private LumberJackComponent lumberJackPrefab;
+        [SerializeField] private FarmerComponent farmerPrefab;
 
         private void OnEnable()
         {
@@ -110,16 +111,16 @@ namespace Application
                 quantity));
         }
 
-        public void CreateUnitJobRequest(Unit unit, JobType jobType)
+        public void CreateUnitJobRequest(UnitComponent unit, JobType jobType)
         {
-            unit.SetPendingJobRequest(true);
+            unit.Data.SetPendingJobRequest(true);
             onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, jobType));
         }
 
         private void HandleJobRequestDenied(IGameEventArgs args)
         {
             if (args is not UnitEventArgs unitEventArgs) return;
-            unitEventArgs.Unit.SetPendingJobRequest(false);
+            unitEventArgs.Unit.Data.SetPendingJobRequest(false);
         }
         
         private void HandleDeleteUnitEvent(IGameEventArgs args)
@@ -128,9 +129,9 @@ namespace Application
             unitEventArgs.Unit.DeleteUnit();
         }
 
-        public void CreateNewLookForBuildingJob(Unit unit)
+        public void CreateNewLookForBuildingJob(UnitComponent unit)
         {
-            unit.SetPendingJobRequest(true);
+            unit.Data.SetPendingJobRequest(true);
             onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, JobType.LookForBuildingJob));
         }
 
@@ -149,8 +150,8 @@ namespace Application
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
             var occupant = buildingEventArgs.Building.GetOccupant();
-            onAbortJobEvent.Raise(new JobEventArgs(occupant.GetCurrentJob()));
-            if (occupant is not ResourceCollector resourceCollector) return;
+            onAbortJobEvent.Raise(new JobEventArgs(occupant.Data.CurrentJob));
+            if (occupant is not ResourceCollectorComponent resourceCollector) return;
             resourceCollector.BuildingDeleted();
         }
 

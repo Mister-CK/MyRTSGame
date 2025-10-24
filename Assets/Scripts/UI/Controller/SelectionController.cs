@@ -1,5 +1,6 @@
 using Buildings.Model;
 using Interface;
+using Units.Model.Component;
 using UnityEngine;
 
 
@@ -57,11 +58,11 @@ namespace MyRTSGame.Model
                 onDeleteBuildingEvent.Raise(new BuildingEventArgs(selectedBuilding));
             }
             
-            if (selectedObject is Unit selectedUnit)
+            if (selectedObject is UnitComponent selectedUnit)
             {
-                if (selectedUnit is ResourceCollector resourceCollector)
+                if (selectedUnit is ResourceCollectorComponent resourceCollector)
                 {
-                    var building = resourceCollector.GetBuilding();
+                    var building = resourceCollector.CollectorData.GetBuilding();
                     if (building != null)
                     {
                         onRemoveOccupantFromBuildingEvent.Raise(new BuildingEventArgs(building));

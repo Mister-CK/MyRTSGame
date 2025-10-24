@@ -1,4 +1,5 @@
 using TMPro;
+using Units.Model.Component;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -14,24 +15,24 @@ namespace MyRTSGame.Model.UnitViews
         
         private Slider _slider;
         
-        private void SetBuildingButton(Unit unit)
+        private void SetBuildingButton(UnitComponent unit)
         {
-            if (unit is not ResourceCollector resourceCollector)
+            if (unit is not ResourceCollectorComponent resourceCollector)
             {
                 buildingButton.SetActive(false);
                 return;
             }
-            buildingButton.SetActive(resourceCollector.GetBuilding() != null);
+            buildingButton.SetActive(resourceCollector.CollectorData.GetBuilding() != null);
         }
 
-        public void ActivateView(Unit unit)
+        public void ActivateView(UnitComponent unit)
         {
             unitUIView.gameObject.SetActive(true);
             SetBuildingButton(unit);
-            unitName.text = unit.GetUnitType().ToString();
+            unitName.text = unit.Data.UnitType.ToString();
             var bar = Instantiate(staminaBarPrefab, statusBars.transform);
             _slider = bar.GetComponent<Slider>();
-            _slider.value = unit.GetStamina();
+            _slider.value = unit.Data.GetStamina();
         }
 
         public void DeactivateView()
@@ -47,10 +48,10 @@ namespace MyRTSGame.Model.UnitViews
             }
         }
 
-        public void UpdateView(Unit unit)
+        public void UpdateView(UnitComponent unit)
         {
             SetBuildingButton(unit);
-            _slider.value = unit.GetStamina();
+            _slider.value = unit.Data.GetStamina();
         }
     }
 }
