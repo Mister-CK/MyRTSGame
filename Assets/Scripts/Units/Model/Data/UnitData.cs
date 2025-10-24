@@ -7,7 +7,7 @@ namespace Units.Model.Data
     public class UnitData
     {
         private float _stamina  = 100f;
-        
+
         public UnitType UnitType { get; private set; } 
         public Job CurrentJob { get; private set; }
         public IDestination Destination { get; private set; }

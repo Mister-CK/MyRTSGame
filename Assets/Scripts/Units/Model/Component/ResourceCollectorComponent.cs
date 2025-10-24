@@ -32,7 +32,7 @@ namespace Units.Model.Component
             
             // --- RESOURCE COLLECTOR HOP 1: ARRVIVED AT RESOURCE/PLANTING SITE ---
             // If the unit's current destination is NOT the building (i.e., it's a resource or planting site).
-            if (Data.Destination != CollectorData.GetBuilding())
+            if (Data.Destination != CollectorData.Building)
             {
                 if (Data.CurrentJob is PlantResourceJob)
                 {
@@ -53,7 +53,7 @@ namespace Units.Model.Component
                 }
                 
                 // CRITICAL 2-HOP LOGIC: Set the NEW destination to the building and initiate the second hop.
-                Data.SetDestination(CollectorData.GetBuilding());
+                Data.SetDestination(CollectorData.Building);
                 Agent.SetDestination(Data.Destination.GetPosition());
                 Data.SetHasJobToExecute(true); // Forces the Update loop to move the Agent.
                 
@@ -68,11 +68,11 @@ namespace Units.Model.Component
             if (Data.CurrentJob is CollectResourceJob collectResourceJob2)
             {
                 // Action 1: Deliver Resource
-                DeliverResource(CollectorData.GetBuilding(), CollectorData.ResourceTypeToCollect);
+                DeliverResource(CollectorData.Building, CollectorData.ResourceTypeToCollect);
                 
                 // Action 2: Trigger follow-up job (Villager)
                 unitService.CreateJobNeededEvent(
-                    JobType.VillagerJob, null, CollectorData.GetBuilding(), CollectorData.ResourceTypeToCollect, null
+                    JobType.VillagerJob, null, CollectorData.Building, CollectorData.ResourceTypeToCollect, null
                 );
             }
 

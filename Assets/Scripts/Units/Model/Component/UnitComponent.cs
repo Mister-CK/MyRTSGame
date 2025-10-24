@@ -13,13 +13,13 @@ namespace Units.Model.Component
     {
         public UnitService unitService;
         
-        public UnitData Data { get; protected set; }
+        public UnitData Data { get; private set; }
         
         protected NavMeshAgent Agent;
         
         protected virtual void Awake()
         {
-            UnitData initialData = CreateUnitData();
+            var initialData = CreateUnitData();
             SetData(initialData);
         }
 
@@ -74,21 +74,13 @@ namespace Units.Model.Component
 
         private void CheckIfDestinationIsReached()
         {
-            // ... (Movement logic remains the same) ...
-            if (!Agent.pathPending)
-            {
-                if (Agent.remainingDistance <= Agent.stoppingDistance && Agent.pathStatus == NavMeshPathStatus.PathComplete)
-                {
-                    if (!Agent.hasPath || Agent.velocity.sqrMagnitude == 0f)
-                    {
-                        if (Data.HasJobToExecute)
-                        {
-                            Data.SetHasJobToExecute(false);
-                            ExecuteJob();
-                        }
-                    }
-                }
-            }
+            if (Agent.pathPending) return;
+            if (Agent.remainingDistance > Agent.stoppingDistance) return;
+            if (Agent.pathStatus != NavMeshPathStatus.PathComplete) return;
+            if (Agent.hasPath && Agent.velocity.sqrMagnitude != 0f) return;
+            if (!Data.HasJobToExecute) return;
+            Data.SetHasJobToExecute(false);
+            ExecuteJob();
         }
 
         protected virtual void ExecuteJob()
@@ -105,20 +97,15 @@ namespace Units.Model.Component
 
             if (Data.CurrentJob is ConsumptionJob consumptionJob)
             {
-                // SERVICE CALL: Interact with the economy system
                 unitService.RemoveResourceFromDestination(consumptionJob.Destination, consumptionJob.ResourceType, 1);
                 
-                // DATA UPDATE: Use POCO methods to reset state
                 Data.ResetJobState();
                 Data.ReplenishStamina();
                 Data.SetRequestedConsumptionJob(false);
                 return;
             }
         }
-        protected virtual void HandleLookingForBuildingJob(LookingForBuildingJob job)
-        {
-            // Default implementation does nothing.
-        }
+        protected virtual void HandleLookingForBuildingJob(LookingForBuildingJob job) { }
 
         private void SetDestination()
         {
@@ -156,15 +143,12 @@ namespace Units.Model.Component
         
         public void AcceptNewJob(Job job)
         {
-            // DATA UPDATE
             Data.SetPendingJobRequest(false);
             Data.SetCurrentJob(job);
             Data.SetDestination(job.Destination);
             
-            // Specific logic for job types (should be handled in specialized component)
             if (job is VillagerJob villagerJob) Data.SetDestination(villagerJob.Origin); 
             
-            // ENGINE EXECUTION
             Agent.SetDestination(Data.Destination.GetPosition());
             Data.SetHasDestination(true);
         }
@@ -175,16 +159,14 @@ namespace Units.Model.Component
             if (this is ResourceCollectorComponent resourceCollectorComponent)
             {
                 var collectorData = (ResourceCollectorData)resourceCollectorComponent.Data;
-                unitService.CreateJobNeededEvent(JobType.LookForBuildingJob, collectorData.GetBuilding(), null, null, collectorData.GetBuilding().GetOccupantType());
+                unitService.CreateJobNeededEvent(JobType.LookForBuildingJob, collectorData.Building, null, null, collectorData.Building.GetOccupantType());
             }
             
-            // ENGINE EXECUTION
             Destroy(gameObject);
         }
         
         public void UnAssignJob(DestinationType destinationType)
         {
-            // Data logic for checking resource status (should be in ResourceCollectorComponent)
             if (this is VillagerComponent villager)
             {
                 if (destinationType == DestinationType.Origin && villager.VillagerData.GetHasResource())
@@ -193,11 +175,7 @@ namespace Units.Model.Component
                 }
                 villager.VillagerData.SetHasResource(false);
             }
-            
-            // DATA UPDATE
             Data.ResetJobState();
-            
-            // ENGINE EXECUTION
             Agent.SetDestination(Agent.transform.position);
         }
     }

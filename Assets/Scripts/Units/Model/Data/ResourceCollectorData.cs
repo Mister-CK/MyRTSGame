@@ -5,23 +5,18 @@ namespace Units.Model.Data
 {
     public class ResourceCollectorData : UnitData
     {
-        private Building _building;
-        private bool _hasResource = false;
-        
+        public Building Building { get; private set; }
+        public bool HasResource { get; private set; }
         public ResourceType ResourceTypeToCollect { get; private set; }
-
-        public Building GetBuilding() => _building;
-        public bool GetHasResource() => _hasResource;
-
         
         public void SetBuilding(Building building)
         {
-            _building = building;
+            Building = building;
         }
         
         public void SetHasResource(bool hasResource)
         {
-            _hasResource = hasResource;
+            HasResource = hasResource;
         }
 
         public void SetResourceTypeToCollect(ResourceType resourceType)

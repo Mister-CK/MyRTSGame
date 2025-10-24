@@ -62,7 +62,7 @@ namespace MyRTSGame.Model
             {
                 if (selectedUnit is ResourceCollectorComponent resourceCollector)
                 {
-                    var building = resourceCollector.CollectorData.GetBuilding();
+                    var building = resourceCollector.CollectorData.Building;
                     if (building != null)
                     {
                         onRemoveOccupantFromBuildingEvent.Raise(new BuildingEventArgs(building));

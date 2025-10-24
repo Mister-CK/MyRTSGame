@@ -22,7 +22,7 @@ namespace MyRTSGame.Model.UnitViews
                 buildingButton.SetActive(false);
                 return;
             }
-            buildingButton.SetActive(resourceCollector.CollectorData.GetBuilding() != null);
+            buildingButton.SetActive(resourceCollector.CollectorData.Building != null);
         }
 
         public void ActivateView(UnitComponent unit)

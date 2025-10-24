@@ -299,7 +299,7 @@ namespace Application
         private Job GetNextResourceCollectionJobForUnit(UnitComponent unit)
         {
             if (unit is not ResourceCollectorComponent resourceCollector) return null;
-            if (resourceCollector.CollectorData.GetBuilding() is not ResourceBuilding resourceBuilding) return null;
+            if (resourceCollector.CollectorData.Building is not ResourceBuilding resourceBuilding) return null;
 
             Job job = resourceBuilding.GetCollectResourceJob(resourceCollector.CollectorData.ResourceTypeToCollect); 
             if (job != null) return job;
@@ -325,7 +325,7 @@ namespace Application
         
         private Job CreatePlantWheatJob(ResourceCollectorComponent resourceCollector)
         {
-            var farmlandToPlantWheat = FindAvailableTerrainWithinRadius(resourceCollector.CollectorData.ResourceTypeToCollect, 10f, resourceCollector.CollectorData.GetBuilding().transform.position);
+            var farmlandToPlantWheat = FindAvailableTerrainWithinRadius(resourceCollector.CollectorData.ResourceTypeToCollect, 10f, resourceCollector.CollectorData.Building.transform.position);
             if (farmlandToPlantWheat == null) return null; //no available farmland found;
             
             Job job = new PlantResourceJob()
@@ -342,7 +342,7 @@ namespace Application
         {
             var locationGameObject = new GameObject("LocationDestination");
             var locationDestination = locationGameObject.AddComponent<LocationDestination>();
-            locationDestination.transform.position = GetRandomPointToPlantTree(resourceCollector.CollectorData.GetBuilding() as ResourceBuilding);
+            locationDestination.transform.position = GetRandomPointToPlantTree(resourceCollector.CollectorData.Building as ResourceBuilding);
             
             Job job = new PlantResourceJob()
             {
@@ -387,7 +387,7 @@ namespace Application
                 BuilderJob => true,
                 LookingForBuildingJob => true,
                 VillagerJob => unit is VillagerComponent villager && !villager.VillagerData.GetHasResource(),
-                CollectResourceJob => unit is ResourceCollectorComponent resourceCollector && !resourceCollector.CollectorData.GetHasResource(),
+                CollectResourceJob => unit is ResourceCollectorComponent resourceCollector && !resourceCollector.CollectorData.HasResource,
                 PlantResourceJob => false,
                 _ => throw new InvalidOperationException("Unknown job type")
             };

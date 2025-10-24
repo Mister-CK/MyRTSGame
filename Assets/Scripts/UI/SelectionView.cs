@@ -211,7 +211,7 @@ public class SelectionView : MonoBehaviour
     public void HandleBuildingButtonClick()
     {
         if (CurrentSelectedObject is not ResourceCollectorComponent resourceCollector) return;
-        SelectObject(resourceCollector.CollectorData.GetBuilding());
+        SelectObject(resourceCollector.CollectorData.Building);
     }
     
     public void HandleDeleteButtonClick()

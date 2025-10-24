@@ -1,4 +1,3 @@
-
 using Enums;
 
 namespace Units.Model.Data
