@@ -463,6 +463,7 @@
 "Assets/Scripts/JobSystem/Model/Jobs/VillagerJob.cs"
 "Assets/Scripts/JobSystem/Model/LocationDestination.cs"
 "Assets/Scripts/JobSystem/View/JobListToDisplay.cs"
+"Assets/Scripts/Navigation/NavMeshManager.cs"
 "Assets/Scripts/Resource.cs"
 "Assets/Scripts/ResourceSystem/Model/NaturalResource.cs"
 "Assets/Scripts/ResourceSystem/Model/NaturalResources/Grapes.cs"

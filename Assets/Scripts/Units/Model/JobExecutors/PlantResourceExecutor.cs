@@ -11,7 +11,7 @@ namespace Units.Model.JobExecutors
         {
             var rc = (ResourceCollectorComponent)unit;
 
-            if ((Building)unit.Data.Destination == rc.CollectorData.Building) return;
+            if (unit.Data.Destination is Building destinationBuilding && destinationBuilding == rc.CollectorData.Building) return;
             unit.unitService.CreatePlantResourceEvent(job);
             unit.unitService.CompleteJob(job); 
             

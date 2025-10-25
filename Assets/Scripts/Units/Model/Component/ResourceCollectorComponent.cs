@@ -26,7 +26,10 @@ namespace Units.Model.Component
         
         protected override void HandlePreDeletionCleanup()
         {
-            unitService.CreateJobNeededEvent(JobType.LookForBuildingJob, CollectorData.Building, null, null, CollectorData.Building.GetOccupantType());
+            if (CollectorData.Building != null)
+            {
+                unitService.CreateJobNeededEvent(JobType.LookForBuildingJob, CollectorData.Building, null, null, CollectorData.Building.GetOccupantType());
+            }
         }
         
         public override void HandleLookingForBuildingJob(LookingForBuildingJob job)

@@ -190,6 +190,7 @@
     <Compile Include="Assets/Scripts/ResourceSystem/View/RockView.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SawMill.cs" />
+    <Compile Include="Assets/Scripts/Navigation/NavMeshManager.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueueBase.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/SpecialBuilding.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ConsumptionBuilding.cs" />
@@ -936,11 +937,11 @@
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>

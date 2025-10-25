@@ -1,4 +1,5 @@
-﻿using Unity.AI.Navigation;
+﻿using Navigation;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace Buildings.Model
@@ -6,9 +7,13 @@ namespace Buildings.Model
     public class BuildingPlacer : MonoBehaviour
     {
         [SerializeField] private NavMeshSurface navMeshSurface;
+        private NavMeshManager _navMeshManager; 
         private Building _building;
         private bool _isPlacing;
-
+        private void Start()
+        {
+            _navMeshManager = FindObjectOfType<NavMeshManager>();
+        }
         private void Update()
         {
             if (!_isPlacing) return;
@@ -38,7 +43,10 @@ namespace Buildings.Model
                 {
                     _isPlacing = false;
                     _building.SetState(new FoundationState(_building.GetBuildingType()));
-                    navMeshSurface.BuildNavMesh(); // TODO: this causes the game too freeze for a moment, should be replaced with a more efficient solution
+            
+                    Bounds boundsToUpdate = GetBuildingBounds(_building);
+            
+                    _navMeshManager.UpdateNavMesh(boundsToUpdate, navMeshSurface.collectObjects);
                 }
 
             // If the right mouse button is clicked, cancel the placement
@@ -48,6 +56,20 @@ namespace Buildings.Model
                 Destroy(_building.gameObject);
             }
             
+        }
+        
+        private Bounds GetBuildingBounds(Building building)
+        {
+            Collider buildingCollider = building.GetComponentInChildren<Collider>();
+            
+            if (buildingCollider != null)
+            {
+                Bounds bounds = buildingCollider.bounds;
+                bounds.Expand(3.0f); // Increased expansion for safety
+                return bounds;
+            }
+            
+            return new Bounds(building.transform.position, Vector3.one * 10f);
         }
 
 

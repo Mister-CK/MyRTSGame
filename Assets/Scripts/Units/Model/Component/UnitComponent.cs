@@ -2,7 +2,9 @@ using Application;
 using Enums;
 using Interface;
 using MyRTSGame.Model;
+using Navigation;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Units.Model.Data;
 using Units.Model.JobExecutors;
@@ -38,6 +40,26 @@ namespace Units.Model.Component
             else Debug.LogError("ServiceInjector not found. UnitService will be null.");
 
             Agent = GetComponentInChildren<NavMeshAgent>();
+            StartCoroutine(InitializeAgentRoutine());
+        }
+
+        private IEnumerator InitializeAgentRoutine()
+        {
+            
+            yield return new WaitUntil(() => NavMeshManager.IsNavMeshReady);
+            if (Agent ==null) yield return null;
+            var currentPosition = Agent.transform.position;
+            var searchRadius = 2.0f; 
+
+            if (NavMesh.SamplePosition(currentPosition, out NavMeshHit hit, searchRadius, NavMesh.AllAreas))
+            {
+                Agent.Warp(hit.position); 
+            }
+            else
+            {
+                Debug.LogError($"Unit failed to find NavMesh surface. Check NavMeshManager initialization and scene coverage.");
+            }
+            
         }
         
         protected void Update()

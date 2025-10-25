@@ -351,11 +351,11 @@
 -analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/log4netPlastic.dll"
 -analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll"
 -analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Runtime/HelpUrls.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Runtime/NavMeshLink.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Runtime/NavMeshModifier.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Runtime/NavMeshModifierVolume.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Runtime/NavMeshSurface.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Runtime/HelpUrls.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Runtime/NavMeshLink.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Runtime/NavMeshModifier.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Runtime/NavMeshModifierVolume.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Runtime/NavMeshSurface.cs"
 -langversion:9.0
 /deterministic
 /optimize+

@@ -358,11 +358,11 @@
 -analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/log4netPlastic.dll"
 -analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll"
 -analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Editor/Updater/AssemblyInfo.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Editor/Updater/BuiltInToNavMeshSurfaceConverterContainer.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Editor/Updater/NavMeshSceneConverter.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Editor/Updater/NavMeshUpdaterEditor.cs"
-"Library/PackageCache/com.unity.ai.navigation@1.1.6/Editor/Updater/NavMeshUpdaterUtility.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Editor/Updater/AssemblyInfo.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Editor/Updater/BuiltInToNavMeshSurfaceConverterContainer.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Editor/Updater/NavMeshSceneConverter.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Editor/Updater/NavMeshUpdaterEditor.cs"
+"Library/PackageCache/com.unity.ai.navigation@1.1.7/Editor/Updater/NavMeshUpdaterUtility.cs"
 -langversion:9.0
 /deterministic
 /optimize+

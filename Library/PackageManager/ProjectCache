@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638969015600000000
-    m_Hash: 2247717725
+      ticks: 638969775800000000
+    m_Hash: 263044290
   m_LockFileStatus:
     m_FilePath: /Users/cka30181/workspaces/UnityProjects/MyRTSGame/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638969015600000000
-    m_Hash: 465985205
+      ticks: 638969775800000000
+    m_Hash: 444865625
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,12 +22,12 @@ m_LocalPackages:
 m_ProjectPath: /Users/cka30181/workspaces/UnityProjects/MyRTSGame/Packages
 m_EditorVersion: 2022.3.62f2 (7670c08855a9)
 m_ResolvedPackages:
-- packageId: com.unity.ai.navigation@1.1.6
+- packageId: com.unity.ai.navigation@1.1.7
   testable: 0
   isDirectDependency: 1
-  version: 1.1.6
+  version: 1.1.7
   source: 1
-  resolvedPath: /Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.ai.navigation@1.1.6
+  resolvedPath: /Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.ai.navigation@1.1.7
   assetPath: Packages/com.unity.ai.navigation
   name: com.unity.ai.navigation
   displayName: AI Navigation
@@ -104,13 +104,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638804054560000000
+  datePublishedTicks: 638869705370690000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.ai.navigation@1.1/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.cds.internal.unity3d.com/unity/com.unity.ai.navigation.git
-    revision: f6af42e7acca43eff2b426b1afd4925248486b1d
+    revision: 5a9f1f66840e719f7676c7c8925357450baae713
     path: 
   unityLifecycle:
     version: 1.1.6
