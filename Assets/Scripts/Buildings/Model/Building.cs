@@ -24,7 +24,6 @@ namespace Buildings.Model
         protected Dictionary<ResourceType, InventoryData> Inventory;    
         public Material Material { get; set; }
         public BoxCollider BCollider { get; private set; }
-
         private GameObject _buildingObject;
         protected BuildingType BuildingType;
         public ResourceType[] InputTypes { get; set; }

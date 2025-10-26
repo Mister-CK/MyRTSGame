@@ -33,19 +33,15 @@ namespace Navigation
 
         private IEnumerator UpdateNavMeshRoutine(Bounds boundsToUpdate, CollectObjects originalSetting)
         {
-            IsNavMeshReady = false; // Temporarily block unit pathfinding
+            IsNavMeshReady = false;
 
-            // 1. Apply bounds settings
             navMeshSurface.center = boundsToUpdate.center;
             navMeshSurface.size = boundsToUpdate.size;
 
-            // 2. Perform the asynchronous update
-            AsyncOperation operation = navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
+            var operation = navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
 
-            // 3. Wait for the update to complete
             yield return operation;
 
-            // 4. Restore and signal readiness
             navMeshSurface.collectObjects = originalSetting;
             IsNavMeshReady = true;
         }
