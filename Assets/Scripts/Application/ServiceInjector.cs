@@ -1,3 +1,4 @@
+using Application.Services;
 using Buildings.Model;
 using MyRTSGame.Model;
 using MyRTSGame.Model.ResourceSystem.Model;
@@ -92,8 +93,8 @@ namespace Application
         
         private void InjectTerrainService()
         {
-            Terrain[] allTerrains = FindObjectsOfType<Terrain>();
-            foreach (Terrain terrain in allTerrains)
+            var allTerrains = FindObjectsOfType<Terrain>();
+            foreach (var terrain in allTerrains)
             {
                 terrain.terrainService = terrainService;
             }
@@ -101,8 +102,8 @@ namespace Application
         
         private void InjectResourceService()
         {
-            NaturalResource[] allResources = FindObjectsOfType<NaturalResource>();
-            foreach (NaturalResource resource in allResources)
+            var allResources = FindObjectsOfType<NaturalResource>();
+            foreach (var resource in allResources)
             {
                 resource.resourceService = resourceService;
             }

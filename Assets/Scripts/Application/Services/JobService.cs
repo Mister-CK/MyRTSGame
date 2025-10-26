@@ -12,7 +12,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using Terrain = Terrains.Model.Terrain;
 
-namespace Application
+namespace Application.Services
 {
     public class JobService :  MonoBehaviour
     {

@@ -2,12 +2,11 @@ using Application.Factories;
 using Enums;
 using Interface;
 using MyRTSGame.Model;
-using System;
 using MyRTSGame.Model.ResourceSystem.Model;
 using UnityEngine;
 using Terrain = Terrains.Model.Terrain;
 
-namespace Application
+namespace Application.Services
 {
     public class ResourceService :  MonoBehaviour
     {
@@ -38,11 +37,9 @@ namespace Application
         public void PlantResource(PlantResourceJob job)
         {
             var plantedGameObject =  resourceFactory.CreateResource(job.Destination.GetPosition(), job.ResourceType);
-            if (job.Destination is Terrain terrain)
-            {
-                terrain.SetHasResource(true);
-                plantedGameObject.GetComponent<NaturalResource>().SetTerrain(terrain);
-            }
+            if (job.Destination is not Terrain terrain) return;
+            terrain.SetHasResource(true);
+            plantedGameObject.GetComponent<NaturalResource>().SetTerrain(terrain);
         }
         
         public void HandleClick(ISelectable selectable)

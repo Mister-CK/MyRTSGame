@@ -6,7 +6,7 @@ using MyRTSGame.Model;
 using Units.Model.Component;
 using UnityEngine;
 
-namespace Application
+namespace Application.Services
 {
     public class UnitService : MonoBehaviour
     {
