@@ -1,8 +1,8 @@
+using Application.Factories;
 using Buildings.Model;
 using Enums;
 using Interface;
 using MyRTSGame.Model;
-using System;
 using Units.Model.Component;
 using UnityEngine;
 
@@ -10,87 +10,49 @@ namespace Application
 {
     public class UnitService : MonoBehaviour
     {
-        [SerializeField] private GameEvent onNewUnitEvent;
+        [SerializeField] private UnitFactory unitFactory;
+
         [SerializeField] private GameEvent onSelectionEvent;
         [SerializeField] private GameEvent onResourceRemovedFromDestination;
         [SerializeField] private GameEvent onResourceAddedToBuilding;
-        [SerializeField] private GameEvent onUnitJobDeleted;
         [SerializeField] private GameEvent onRequestUnitJob;
-        [SerializeField] private GameEvent onAssignJob;
-        [SerializeField] private GameEvent onJobRequestDenied;
         [SerializeField] private GameEvent onNewJobNeeded;
-        [SerializeField] private GameEvent onDeleteUnitEvent;
         [SerializeField] private GameEvent onCompleteJobEvent;
-        [SerializeField] private GameEvent onDeleteBuildingForOccupantEvent;
         [SerializeField] private GameEvent onAbortJobEvent;
         [SerializeField] private GameEvent onPlantResourceEvent;
+
         
-        [SerializeField] private VillagerComponent villagerPrefab;
-        [SerializeField] private BuilderComponent builderPrefab;
-        [SerializeField] private StoneMinerComponent stoneMinerPrefab;
-        [SerializeField] private LumberJackComponent lumberJackPrefab;
-        [SerializeField] private FarmerComponent farmerPrefab;
-
-        private void OnEnable()
+        public void CreateNewUnitRequest(Building trainingBuilding,  UnitType unitType)
         {
-            onAssignJob.RegisterListener(HandleJobAssigned);
-            onNewUnitEvent.RegisterListener(HandleCreateNewUnit);
-            onUnitJobDeleted.RegisterListener(HandleUnitJobDeleted);
-            onJobRequestDenied.RegisterListener(HandleJobRequestDenied);
-            onDeleteUnitEvent.RegisterListener(HandleDeleteUnitEvent);
-            onDeleteBuildingForOccupantEvent.RegisterListener(HandleOnDeleteBuildingForOccupantEvent);
+            unitFactory.CreateNewUnit(trainingBuilding, unitType);
         }
 
-        private void OnDisable()
+        public void AssignJobToUnit(UnitComponent unit, Job job)
         {
-            onAssignJob.UnregisterListener(HandleJobAssigned);
-            onNewUnitEvent.UnregisterListener(HandleCreateNewUnit);
-            onUnitJobDeleted.UnregisterListener(HandleUnitJobDeleted);
-            onJobRequestDenied.UnregisterListener(HandleJobRequestDenied);
-            onDeleteUnitEvent.UnregisterListener(HandleDeleteUnitEvent);
-            onDeleteBuildingForOccupantEvent.UnregisterListener(HandleOnDeleteBuildingForOccupantEvent);
+            unit.AcceptNewJob(job);
         }
 
-
-        private void HandleCreateNewUnit(IGameEventArgs args)
+        public void DeleteUnitJob(UnitComponent unitComponent, DestinationType? destinationType)
         {
-            if (args is not TrainingBuildingUnitTypeEventArgs trainingBuildingUnitTypeEventArgs) return;
-
-            var spawnPosition = trainingBuildingUnitTypeEventArgs.TrainingBuilding.transform.position +
-                                new Vector3(2, 0, -2);
-            switch (trainingBuildingUnitTypeEventArgs.UnitType)
-            {
-                case UnitType.Villager:
-                    Instantiate(villagerPrefab, spawnPosition, Quaternion.identity);
-                    break;
-                case UnitType.Builder:
-                    Instantiate(builderPrefab, spawnPosition, Quaternion.identity);
-                    break;
-                case UnitType.StoneMiner:
-                    Instantiate(stoneMinerPrefab, spawnPosition, Quaternion.identity);
-                    break;
-                case UnitType.LumberJack:
-                    Instantiate(lumberJackPrefab, spawnPosition, Quaternion.identity);
-                    break;
-                case UnitType.Farmer:
-                    Instantiate(farmerPrefab, spawnPosition, Quaternion.identity);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(trainingBuildingUnitTypeEventArgs.UnitType.ToString());
-            }
+            unitComponent.UnAssignJob(destinationType.GetValueOrDefault());
         }
-
-        private void HandleJobAssigned(IGameEventArgs args)
+        
+        public void DenyJobRequest(UnitComponent unitComponent)
         {
-            if (args is not UnitWithJobEventArgs unitWithJobEventArgs) return;
-            unitWithJobEventArgs.Unit.AcceptNewJob(unitWithJobEventArgs.Job);
+            unitComponent.Data.SetPendingJobRequest(false);
         }
-
-        private void HandleUnitJobDeleted(IGameEventArgs args)
+        
+        public void DeleteUnit(UnitComponent unitComponent)
         {
-            if (args is not UnitWithJobEventArgsAndDestinationType unitWithJobEventArgsAndDestinationType) return;
-            unitWithJobEventArgsAndDestinationType.Unit.UnAssignJob(unitWithJobEventArgsAndDestinationType.DestinationType
-                .GetValueOrDefault());
+            unitComponent.DeleteUnit();
+        }
+        
+        public void DeleteBuildingForOccupantEvent(Building building)
+        {
+            var occupant = building.GetOccupant();
+            onAbortJobEvent.Raise(new JobEventArgs(occupant.Data.CurrentJob));
+            if (occupant is not ResourceCollectorComponent resourceCollector) return;
+            resourceCollector.BuildingDeleted();
         }
 
         public void HandleClick(ISelectable selectable)
@@ -117,18 +79,6 @@ namespace Application
             onRequestUnitJob.Raise(new UnitWithJobTypeEventArgs(unit, jobType));
         }
 
-        private void HandleJobRequestDenied(IGameEventArgs args)
-        {
-            if (args is not UnitEventArgs unitEventArgs) return;
-            unitEventArgs.Unit.Data.SetPendingJobRequest(false);
-        }
-        
-        private void HandleDeleteUnitEvent(IGameEventArgs args)
-        {
-            if (args is not UnitEventArgs unitEventArgs) return;
-            unitEventArgs.Unit.DeleteUnit();
-        }
-
         public void CreateNewLookForBuildingJob(UnitComponent unit)
         {
             unit.Data.SetPendingJobRequest(true);
@@ -144,15 +94,6 @@ namespace Application
         public void CompleteJob(Job job)
         {
             onCompleteJobEvent.Raise(new JobEventArgs(job));
-        }
-
-        private void HandleOnDeleteBuildingForOccupantEvent(IGameEventArgs args)
-        {
-            if (args is not BuildingEventArgs buildingEventArgs) return;
-            var occupant = buildingEventArgs.Building.GetOccupant();
-            onAbortJobEvent.Raise(new JobEventArgs(occupant.Data.CurrentJob));
-            if (occupant is not ResourceCollectorComponent resourceCollector) return;
-            resourceCollector.BuildingDeleted();
         }
 
         public void CreatePlantResourceEvent(Job job)

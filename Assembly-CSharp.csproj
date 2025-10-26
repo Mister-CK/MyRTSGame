@@ -112,6 +112,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/LumberJack.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ResourceBuilding.cs" />
+    <Compile Include="Assets/Scripts/Application/EventHandlers/UnitEventsHandler.cs" />
     <Compile Include="Assets/Scripts/Enums/BuildingState.cs" />
     <Compile Include="Assets/Scripts/Application/ResourceService.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/NaturalResources/Wheat.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Assets/Scripts/Enums/BuildingType.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/JobEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />
+    <Compile Include="Assets/Scripts/Application/Factories/UnitFactory.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/ResourceCollectorData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Warehouse.cs" />
