@@ -77,6 +77,7 @@
     <Compile Include="Assets/Scripts/ResourceSystem/View/WheatView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Component/LumberJackComponent.cs" />
+    <Compile Include="Assets/Scripts/Application/Factories/ResourceFactory.cs" />
     <Compile Include="Assets/Scripts/UI/UIBuildTerrainButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/LocationDestination.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/WorkshopBuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/DestinationResourceTypeQuantityEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Controller/SelectionController.cs" />
+    <Compile Include="Assets/Scripts/Application/EventHandlers/ResourceEventsHandler.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GoldSmelter.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/ConsumptionJob.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/UnitData.cs" />
