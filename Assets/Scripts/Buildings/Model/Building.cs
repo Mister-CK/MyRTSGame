@@ -233,9 +233,9 @@ namespace Buildings.Model
         
         public void ModifyInventory(ResourceType resourceType, Action<InventoryData> modifyAction)
         {
-            if (Inventory.ContainsKey(resourceType))
+            if (Inventory.TryGetValue(resourceType, out var inventoryData))
             {
-                modifyAction(Inventory[resourceType]);
+                modifyAction(inventoryData);
             }
             else
             {

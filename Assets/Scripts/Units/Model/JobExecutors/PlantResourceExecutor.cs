@@ -2,6 +2,7 @@ using Buildings.Model;
 using Interface;
 using MyRTSGame.Model;
 using Units.Model.Component;
+using UnityEngine;
 
 namespace Units.Model.JobExecutors
 {
@@ -10,15 +11,19 @@ namespace Units.Model.JobExecutors
         public void Execute(UnitComponent unit, Job job)
         {
             var rc = (ResourceCollectorComponent)unit;
-
-            if (unit.Data.Destination is Building destinationBuilding && destinationBuilding == rc.CollectorData.Building) return;
-            unit.unitService.CreatePlantResourceEvent(job);
-            unit.unitService.CompleteJob(job); 
+            if (rc.CollectorData.Destination is Building != rc.CollectorData.Building)
+            {
+                rc.unitService.CreatePlantResourceEvent(job);
+                rc.Data.SetDestination(rc.CollectorData.Building);
+                rc.Agent.SetDestination(unit.Data.Destination.GetPosition());
+                rc.Data.SetHasJobToExecute(true);
+                return;
+            }
             
-            unit.Data.SetDestination(rc.CollectorData.Building);
-            unit.Agent.SetDestination(unit.Data.Destination.GetPosition());
-            unit.Data.SetHasJobToExecute(true); 
-            unit.Data.SetCurrentJob(null); 
+            rc.unitService.CompleteJob(job);
+            rc.CollectorData.SetHasDestination(false);
+            rc.CollectorData.SetCurrentJob(null);
+            rc.CollectorData.SetDestination(null);
         }
     }
 }

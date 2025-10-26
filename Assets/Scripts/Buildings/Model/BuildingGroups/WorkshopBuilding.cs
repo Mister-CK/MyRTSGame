@@ -57,7 +57,7 @@ namespace Buildings.Model.BuildingGroups
                 }
 
                 ModifyInventory(productionJob.Output.ResourceType,
-                    data => data.Current -= productionJob.Output.Quantity);
+                    data => data.Current += productionJob.Output.Quantity);
                 
                 BuildingService.CreateJobNeededEvent(JobType.VillagerJob, null, this, productionJob.Output.ResourceType, null);
             }

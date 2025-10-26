@@ -10,7 +10,6 @@ namespace Units.Model.Component
     public class ResourceCollectorComponent : UnitComponent
     {
         protected override JobType DefaultJobType => JobType.CollectResourceJob;
-        
         static ResourceCollectorComponent()
         {
             JobExecutorsMap.Add(typeof(CollectResourceJob), new CollectResourceExecutor());

@@ -151,7 +151,7 @@ namespace Application
         private void HandleDeleteJobEvent(IGameEventArgs args)
         {
             if (args is not JobEventArgs eventArgs) return;
-            if (eventArgs.Job.Destination is not Building building) return;
+            if (eventArgs.Job?.Destination is not Building building) return;
             building.RemoveJobFromDestination(eventArgs.Job);
             if (eventArgs.Job is VillagerJob villagerJob)
             {
