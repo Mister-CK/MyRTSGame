@@ -3,7 +3,7 @@ using Units.Model.Component;
 using UnityEngine.UI;
 using UnityEngine;
 
-namespace MyRTSGame.Model.UnitViews
+namespace UI.UnitUIViews
 {
     public class UnitUIView : MonoBehaviour
     {

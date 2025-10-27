@@ -4,7 +4,7 @@ using Units.Model.Component;
 using UnityEngine;
 
 
-namespace MyRTSGame.Model
+namespace UI.Controller
 {
     public class SelectionController : MonoBehaviour
     {

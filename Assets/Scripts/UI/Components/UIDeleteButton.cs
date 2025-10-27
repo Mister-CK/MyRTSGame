@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace UI.Components
 {
     public class UIDeleteButton : MonoBehaviour
     {

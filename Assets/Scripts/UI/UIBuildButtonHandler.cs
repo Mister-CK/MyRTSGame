@@ -1,7 +1,7 @@
 ﻿using Buildings.Model;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace UI
 {
     public class UIBuildButtonHandler : MonoBehaviour
     {

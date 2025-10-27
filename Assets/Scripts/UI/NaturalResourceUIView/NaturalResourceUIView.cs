@@ -1,12 +1,12 @@
-using System;
 using System.Collections.Generic;
 using MyRTSGame.Model.ResourceSystem.Model;
 using MyRTSGame.Model.ResourceSystem.Model.ResourceStates;
 using TMPro;
+using UI.Components;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MyRTSGame.Model
+namespace UI.NaturalResourceUIView
 {
     public class NaturalResourceUIView: MonoBehaviour
     {

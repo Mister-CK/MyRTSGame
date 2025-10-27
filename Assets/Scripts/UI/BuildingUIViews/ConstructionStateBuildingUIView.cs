@@ -1,23 +1,23 @@
 using Buildings.Model;
-using MyRTSGame.Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-
-public class ConstructionStateBuildingUIView : MonoBehaviour
+namespace UI.BuildingUIViews
 {
-    [SerializeField] private Image constructionStateBuildingView;
-    [SerializeField] private TextMeshProUGUI constructionStateBuildingName;
-    
-    public void ActivateConstructionStateBuildingView(Building building)
+    public class ConstructionStateBuildingUIView : MonoBehaviour
     {
-        constructionStateBuildingView.gameObject.SetActive(true);
-        constructionStateBuildingName.text = building.GetBuildingType().ToString();
-    }
-    
-    public void DeactivateConstructionStateBuildingView()
-    {
-        constructionStateBuildingView.gameObject.SetActive(false);
+        [SerializeField] private Image constructionStateBuildingView;
+        [SerializeField] private TextMeshProUGUI constructionStateBuildingName;
+
+        public void ActivateConstructionStateBuildingView(Building building)
+        {
+            constructionStateBuildingView.gameObject.SetActive(true);
+            constructionStateBuildingName.text = building.GetBuildingType().ToString();
+        }
+
+        public void DeactivateConstructionStateBuildingView()
+        {
+            constructionStateBuildingView.gameObject.SetActive(false);
+        }
     }
 }

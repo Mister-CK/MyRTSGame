@@ -3,7 +3,7 @@ using Enums;
 using TMPro;
 using UnityEngine;
 
-namespace MyRTSGame.Model.Components
+namespace UI.Components
 {
     public class ResourceRowTraining : MonoBehaviour
     {
