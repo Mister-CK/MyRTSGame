@@ -89,7 +89,6 @@ namespace UI.NaturalResourceUIView
         {
             foreach (var outputRow in _resourceRows)
             {
-                var resType = outputRow.ResourceType;
                 var resValue = naturalResource.GetInventory()[outputRow.ResourceType].Current;
                 outputRow.UpdateQuantity(resValue);
             }
@@ -97,7 +96,6 @@ namespace UI.NaturalResourceUIView
 
         public void UpdateView(NaturalResource naturalResource)
         {
-            //_slider.value = naturalResource.GetStamina();
             UpdateResourceQuantities(naturalResource);
         }
     }

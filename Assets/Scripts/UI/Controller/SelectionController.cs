@@ -19,17 +19,17 @@ namespace UI.Controller
         
         private void OnEnable()
         {
-            onSelectionEvent.RegisterListener(SelectObject);
-            onUpdateUIViewForBuildingEvent.RegisterListener(UpdateUIView);
+            onSelectionEvent.RegisterListener(HandleSelectObject);
+            onUpdateUIViewForBuildingEvent.RegisterListener(HandleUpdateUIView);
         }
 
         private void OnDisable()
         {
-            onSelectionEvent.UnregisterListener(SelectObject);
-            onUpdateUIViewForBuildingEvent.UnregisterListener(UpdateUIView);
+            onSelectionEvent.UnregisterListener(HandleSelectObject);
+            onUpdateUIViewForBuildingEvent.UnregisterListener(HandleUpdateUIView);
         }
 
-        private void UpdateUIView(IGameEventArgs args)
+        private void HandleUpdateUIView(IGameEventArgs args)
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
             selectionView.UpdateView(buildingEventArgs.Building);
@@ -43,7 +43,7 @@ namespace UI.Controller
             }
         }
 
-        private void SelectObject(IGameEventArgs args)
+        private void HandleSelectObject(IGameEventArgs args)
         {
             if (args is not SelectionEventArgs selectionEventArgs) return;
 
@@ -70,7 +70,7 @@ namespace UI.Controller
                 }
                 onDeleteUnitEvent.Raise(new UnitEventArgs(selectedUnit));
             }
-            SelectObject(null);
+            HandleSelectObject(null);
             selectionView.ClearView();
         }
     }

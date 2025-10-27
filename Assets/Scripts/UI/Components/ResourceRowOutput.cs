@@ -1,10 +1,11 @@
 using Enums;
+using Interface;
 using TMPro;
 using UnityEngine;
 
 namespace UI.Components
 {
-        public class ResourceRowOutput : MonoBehaviour
+        public class ResourceRowOutput : MonoBehaviour, IResourceRow
         {
                 public ResourceType ResourceType { get; set; }
 
@@ -17,7 +18,7 @@ namespace UI.Components
                         quantity.text = newQuantity.ToString();
                 }
 
-                public void UpdateInOutGoingJobs(int newQuantity)
+                public void UpdateJobs(int newQuantity)
                 {
                         inOutGoingJobs.text = newQuantity.ToString();
                 }

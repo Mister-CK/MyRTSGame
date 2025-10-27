@@ -77,7 +77,6 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Restaurant.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Component/LumberJackComponent.cs" />
     <Compile Include="Assets/Scripts/Application/Factories/ResourceFactory.cs" />
-    <Compile Include="Assets/Scripts/UI/UIBuildTerrainButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Interface/IBuildingState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/LocationDestination.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/TrainingBuilding.cs" />
@@ -132,6 +131,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Vine.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/NaturalResourceView.cs" />
+    <Compile Include="Assets/Scripts/UI/Components/UIBuildTerrainButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Wheatfarm.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/GrapesView.cs" />
@@ -159,8 +159,10 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/JobEventArgs.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Job.cs" />
     <Compile Include="Assets/Scripts/Application/Factories/UnitFactory.cs" />
+    <Compile Include="Assets/Scripts/UI/Components/UIBuildButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/ResourceCollectorData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/VillagerJobListEventArgs.cs" />
+    <Compile Include="Assets/Scripts/Interface/IResourceRow.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Warehouse.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/FishermansHut.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronSmelter.cs" />
@@ -169,7 +171,6 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GoldMine.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowOutput.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/SelectionEventArgs.cs" />
-    <Compile Include="Assets/Scripts/UI/UIBuildButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Component/FarmerComponent.cs" />
     <Compile Include="Assets/Scripts/Enums/TerrainType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/CoalMine.cs" />

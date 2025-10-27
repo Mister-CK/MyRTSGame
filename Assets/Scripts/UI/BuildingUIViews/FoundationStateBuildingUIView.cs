@@ -19,7 +19,7 @@ namespace UI.BuildingUIViews
         [SerializeField] private GameObject inputLayoutGrid;
 
         private List<ResourceRowInput> _resourceRowsInput = new List<ResourceRowInput>();
-        private Dictionary<ResourceType, int> resourceQuantities = new Dictionary<ResourceType, int>();
+        private Dictionary<ResourceType, int> _resourceQuantities = new Dictionary<ResourceType, int>();
 
         public void ActivateFoundationStateBuildingView(Building building)
         {
@@ -30,7 +30,7 @@ namespace UI.BuildingUIViews
 
             foreach (var res in building.GetInventory())
             {
-                resourceQuantities[res.Key] = res.Value.Current;
+                _resourceQuantities[res.Key] = res.Value.Current;
             }
 
             foreach (var inputType in building.InputTypes)
@@ -39,7 +39,7 @@ namespace UI.BuildingUIViews
                 var resourceRowInput = resourceRow.GetComponent<ResourceRowInput>();
                 resourceRowInput.ResourceType = inputType;
                 resourceRowInput.resourceTypeText.text = inputType.ToString();
-                resourceRowInput.quantity.text = resourceQuantities[inputType].ToString();
+                resourceRowInput.quantity.text = _resourceQuantities[inputType].ToString();
                 _resourceRowsInput.Add(resourceRowInput);
             }
 
@@ -52,13 +52,12 @@ namespace UI.BuildingUIViews
                 var resType = row.ResourceType;
                 var resValue = building.GetInventory().FirstOrDefault(res => res.Key == resType).Value;
                 row.UpdateQuantity(resValue.Current);
-                row.UpdateInIncomingJobs(resValue.Incoming);
+                row.UpdateJobs(resValue.Incoming);
             }
         }
 
         public void DeactivateFoundationStateBuildingView()
         {
-            // Destroy all child objects (rows) of the outputLayoutGrid
             foreach (Transform child in inputLayoutGrid.transform)
             {
                 Destroy(child.gameObject);

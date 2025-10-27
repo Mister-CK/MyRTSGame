@@ -1,8 +1,8 @@
 using Buildings.Model;
 using Buildings.Model.BuildingGroups;
 using Enums;
+using Interface;
 using System.Collections.Generic;
-using System.Linq;
 using UI.Components;
 using TMPro;
 using UnityEngine;
@@ -15,7 +15,7 @@ namespace UI.BuildingUIViews
         [SerializeField] private Image buildingView;
         [SerializeField] private TextMeshProUGUI buildingName;
         [SerializeField] private GameObject columnsPrefab;
-        [SerializeField] private GameObject OccupantButton;
+        [SerializeField] private GameObject occupantButton;
 
         [SerializeField] private GameObject inputLayoutGrid;
         [SerializeField] private GameObject inputTitlePrefab;
@@ -33,16 +33,19 @@ namespace UI.BuildingUIViews
         [SerializeField] private GameObject jobQueueTitlePrefab;
         [SerializeField] private GameObject resourceRowProductionPrefab;
 
+        private readonly Dictionary<GameObject, List<GameObject>> _rowPool = new();
+        private readonly List<GameObject> _activeChildren = new();
+
         private readonly Dictionary<ResourceType, int> _resourceQuantities = new Dictionary<ResourceType, int>();
 
-        private List<ResourceRowInput> _resourceRowsInput = new();
-        private List<ResourceRowOutput> _resourceRowsOutput = new();
+        private List<IResourceRow> _resourceRowsInput = new();
+        private List<IResourceRow> _resourceRowsOutput = new();
         private List<ResourceRowProduction> _resourceRowProduction = new();
         private List<ResourceRowTraining> _resourceRowsTraining = new();
 
         public void SetOccupantButton(Building building)
         {
-            OccupantButton.SetActive(building.GetOccupant() != null);
+            occupantButton.SetActive(building.GetOccupant() != null);
         }
         public void ActivateBuildingView(Building building)
         {
@@ -57,11 +60,11 @@ namespace UI.BuildingUIViews
 
             if (building.InputTypesWhenCompleted.Length > 0)
             {
-                Instantiate(inputTitlePrefab, inputLayoutGrid.transform);
-                Instantiate(columnsPrefab, inputLayoutGrid.transform);
+                GetOrCreatePooledObject(inputTitlePrefab, inputLayoutGrid.transform);
+                GetOrCreatePooledObject(columnsPrefab, inputLayoutGrid.transform);
                 foreach (var inputType in building.InputTypesWhenCompleted)
                 {
-                    var resourceRow = Instantiate(resourceRowInputPrefab, inputLayoutGrid.transform);
+                    var resourceRow = GetOrCreatePooledObject(resourceRowInputPrefab, inputLayoutGrid.transform);
                     var resourceRowInput = resourceRow.GetComponent<ResourceRowInput>();
                     resourceRowInput.ResourceType = inputType;
                     resourceRowInput.resourceTypeText.text = inputType.ToString();
@@ -72,11 +75,11 @@ namespace UI.BuildingUIViews
 
             if (building.OutputTypesWhenCompleted.Length > 0)
             {
-                Instantiate(outputTitlePrefab, outputLayoutGrid.transform);
-                Instantiate(columnsPrefab, outputLayoutGrid.transform);
+                GetOrCreatePooledObject(outputTitlePrefab, outputLayoutGrid.transform);
+                GetOrCreatePooledObject(columnsPrefab, outputLayoutGrid.transform);
                 foreach (var outputType in building.OutputTypesWhenCompleted)
                 {
-                    var resourceRow = Instantiate(resourceRowOutputPrefab, outputLayoutGrid.transform);
+                    var resourceRow = GetOrCreatePooledObject(resourceRowOutputPrefab, outputLayoutGrid.transform);
                     var resourceRowOutput = resourceRow.GetComponent<ResourceRowOutput>();
                     resourceRowOutput.ResourceType = outputType;
                     resourceRowOutput.resourceTypeText.text = outputType.ToString();
@@ -87,11 +90,11 @@ namespace UI.BuildingUIViews
 
             if (building is TrainingBuilding trainingBuilding)
             {
-                Instantiate(trainingJobTitlePrefab, trainingJobLayoutGrid.transform);
-                Instantiate(columnsPrefab, trainingJobLayoutGrid.transform);
+                GetOrCreatePooledObject(trainingJobTitlePrefab, trainingJobLayoutGrid.transform);
+                GetOrCreatePooledObject(columnsPrefab, trainingJobLayoutGrid.transform);
                 foreach (var trainingJob in trainingBuilding.TrainingJobs)
                 {
-                    var resourceRow = Instantiate(resourceRowTrainingPrefab, trainingJobLayoutGrid.transform);
+                    var resourceRow = GetOrCreatePooledObject(resourceRowTrainingPrefab, trainingJobLayoutGrid.transform);
                     var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowTraining>();
                     resourceRowJobQueue.UnitType = trainingJob.UnitType;
                     resourceRowJobQueue.TrainingBuilding = trainingBuilding;
@@ -103,11 +106,11 @@ namespace UI.BuildingUIViews
 
             if (building is WorkshopBuilding workshopBuilding)
             {
-                Instantiate(jobQueueTitlePrefab, jobQueueLayoutGrid.transform);
-                Instantiate(columnsPrefab, jobQueueLayoutGrid.transform);
+                GetOrCreatePooledObject(jobQueueTitlePrefab, jobQueueLayoutGrid.transform);
+                GetOrCreatePooledObject(columnsPrefab, jobQueueLayoutGrid.transform);
                 foreach (var outputType in building.OutputTypesWhenCompleted)
                 {
-                    var resourceRow = Instantiate(resourceRowProductionPrefab, jobQueueLayoutGrid.transform);
+                    var resourceRow = GetOrCreatePooledObject(resourceRowProductionPrefab, jobQueueLayoutGrid.transform);
                     var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowProduction>();
                     resourceRowJobQueue.ResourceType = outputType;
                     resourceRowJobQueue.WorkshopBuilding = workshopBuilding;
@@ -118,67 +121,29 @@ namespace UI.BuildingUIViews
             }
         }
 
-
         public void DeactivateBuildingView()
         {
             buildingView.gameObject.SetActive(false);
 
-            if (outputLayoutGrid)
+            foreach (var child in _activeChildren)
             {
-                foreach (Transform child in outputLayoutGrid.transform)
-                {
-                    Destroy(child.gameObject);
-                }
+                child.SetActive(false);
+                child.transform.SetParent(this.transform); 
             }
+            
+            _activeChildren.Clear();
 
-            if (inputLayoutGrid)
-            {
-                foreach (Transform child in inputLayoutGrid.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
-
-            if (trainingJobLayoutGrid)
-            {
-                foreach (Transform child in trainingJobLayoutGrid.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
-
-            if (jobQueueLayoutGrid)
-            {
-                foreach (Transform child in jobQueueLayoutGrid.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
-
-            _resourceRowProduction = new List<ResourceRowProduction>();
-            _resourceRowsInput = new List<ResourceRowInput>();
-            _resourceRowsOutput = new List<ResourceRowOutput>();
-            _resourceRowsTraining = new List<ResourceRowTraining>();
+            _resourceRowProduction.Clear();
+            _resourceRowsInput.Clear();
+            _resourceRowsOutput.Clear();
+            _resourceRowsTraining.Clear();
         }
 
         public void UpdateResourceQuantities(Building building)
         {
-            foreach (var outputRow in _resourceRowsOutput)
-            {
-                var resType = outputRow.ResourceType;
-                var resValue = building.GetInventory().FirstOrDefault(res => res.Key == resType).Value;
-                outputRow.UpdateQuantity(resValue.Current);
-                outputRow.UpdateInOutGoingJobs(resValue.Outgoing);
-            }
-
-            foreach (var inputRow in _resourceRowsInput)
-            {
-                var resType = inputRow.ResourceType;
-                var resValue = building.GetInventory().FirstOrDefault(res => res.Key == resType).Value;
-                inputRow.UpdateQuantity(resValue.Current);
-                inputRow.UpdateInIncomingJobs(resValue.Incoming);
-            }
-
+            UpdateResourceQuantities(_resourceRowsOutput, building);
+            UpdateResourceQuantities(_resourceRowsInput, building);
+            
             if (building is TrainingBuilding trainingBuilding)
             {
                 foreach (var jobRow in _resourceRowsTraining)
@@ -194,6 +159,46 @@ namespace UI.BuildingUIViews
                     productionRow.UpdateQuantity(workshopBuilding.ProductionJobs.Find(el => el.Output.ResourceType == productionRow.ResourceType).Quantity);
                 }
             }
+        }
+        private void UpdateResourceQuantities(List<IResourceRow> resourceRows,  Building building)
+        {
+            var buildingInventory = building.GetInventory();
+            foreach (var row in resourceRows)
+            {
+                var resType = row.ResourceType;
+                
+                if (!buildingInventory.TryGetValue(resType, out var resValue)) continue;
+
+                row.UpdateQuantity(resValue.Current);
+                if (row is ResourceRowOutput) row.UpdateJobs(resValue.Outgoing);
+                if (row is ResourceRowInput) row.UpdateJobs(resValue.Incoming);
+            }
+        }
+        
+        private GameObject GetOrCreatePooledObject(GameObject prefab, Transform parent)
+        {
+            if (!_rowPool.ContainsKey(prefab))
+            {
+                _rowPool[prefab] = new List<GameObject>();
+            }
+
+            var pool = _rowPool[prefab];
+    
+            for (int i = 0; i < pool.Count; i++)
+            {
+                if (pool[i].activeSelf) continue;
+                {
+                    pool[i].SetActive(true);
+                    pool[i].transform.SetParent(parent, false); 
+                    _activeChildren.Add(pool[i]);
+                    return pool[i];
+                }
+            }
+
+            var newObject = Instantiate(prefab, parent);
+            pool.Add(newObject);
+            _activeChildren.Add(newObject);
+            return newObject;
         }
     }
 }
