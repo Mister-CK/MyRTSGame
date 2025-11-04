@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="selection-menu" class="command-panel inactive-panel">
+        <ui:Label text="SELECTION PANEL CONTENT - INLINE" style="color: red;" />
+    </ui:VisualElement>
+</ui:UXML>

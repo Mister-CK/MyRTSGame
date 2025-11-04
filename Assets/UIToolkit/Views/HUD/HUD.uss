@@ -1,0 +1,64 @@
+/* Defines the appearance of the entire left panel container */
+.leftPanel {
+    background-color: rgb(30, 30, 30);
+    border-right-width: 4px;
+    border-color: rgb(70, 70, 70);
+}
+
+/* --- Top Container: Buttons --- */
+.top-container {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 8px;
+    border-bottom-width: 2px;
+    border-color: rgb(70, 70, 70);
+}
+
+.top-container Button {
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 30px;
+    margin: 0 4px;
+    background-color: rgb(70, 70, 70);
+    color: rgb(200, 200, 200);
+    -unity-font-style: bold;
+}
+
+.top-container Button.active {
+    background-color: rgb(120, 120, 120); /* Highlight the selected button */
+    border-bottom-width: 4px;
+    border-color: rgb(0, 150, 255);
+}
+
+
+/* --- Bottom Container: Panels --- */
+
+/* All panels stack on top of each other */
+.command-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+}
+
+/* Generic container styling for content */
+.panel-content {
+    flex-grow: 1;
+    background-color: rgb(40, 40, 40);
+    border-radius: 4px;
+}
+
+
+/* --- The Generic Navigation Logic --- */
+
+/* Hides the element and removes it from the layout flow (Invisible + no input) */
+.inactive-panel {
+    display: none;
+}
+
+/* Makes the element visible (Default: display: flex) */
+.active-panel {
+    display: flex;
+}

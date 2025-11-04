@@ -13,7 +13,6 @@ namespace Units.Model.JobExecutors
         {
             var rc = (ResourceCollectorComponent)unit;
             var rcJob = (CollectResourceJob)job;
-            Debug.Log("");
             if (unit.Data.Destination != rc.CollectorData.Building && !rc.CollectorData.HasResource)
             {
                 rc.TakeResource(rcJob.Destination, rc.CollectorData.ResourceTypeToCollect);

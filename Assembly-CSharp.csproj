@@ -41,9 +41,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll" />
-    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/log4netPlastic.dll" />
-    <Analyzer Include="/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.62f2/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll" />
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.62f2/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -67,6 +64,7 @@
     <Compile Include="Assets/Scripts/Units/UnitList.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingPlacer.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Component/VillagerComponent.cs" />
+    <Compile Include="Assets/UIToolkit/Views/HUD/HUDController.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuildingEventArgs.cs" />
     <Compile Include="Assets/Scripts/Interface/IResourceState.cs" />
     <Compile Include="Assets/Scripts/Interface/IDestination.cs" />
@@ -175,6 +173,7 @@
     <Compile Include="Assets/Scripts/Enums/TerrainType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/CreateNewJobEventArgs.cs" />
+    <Compile Include="Assets/Scripts/UIToolkit/Services/ComponentGenerators/BuildButtonGenerator.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Farmland.cs" />
     <Compile Include="Assets/Scripts/Interface/ITerrainState.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/StoneMinerData.cs" />
@@ -194,6 +193,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingManager.cs" />
     <Compile Include="Assets/Scripts/Enums/UnitType.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/ConsumptionJobQueue.cs" />
+    <Compile Include="Assets/UIToolkit/Components/Panels/PanelController.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/RockView.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SawMill.cs" />
@@ -221,24 +221,33 @@
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets/UIToolkit/Components/Panels/BuildPanel/BuildPanel.uxml" />
+    <None Include="Assets/UIToolkit/Views/HUD/HUD.uss" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+    <None Include="Assets/UIToolkit/Views/HUD/HUD.uxml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+    <None Include="Assets/UIToolkit/Components/Panels/StatsPanel/panel-stats.uxml" />
+    <None Include="Assets/UIToolkit/Components/BuildButton/BuildButton.uss" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets/UIToolkit/Components/BuildButton/BuildButton.uxml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+    <None Include="Assets/UIToolkit/Components/Panels/MenuPanel/panel-menu.uxml" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets/UIToolkit/Components/Panels/JobsPanel/JobsPanel.uxml" />
     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+    <None Include="Assets/UIToolkit/Components/Panels/SelectionPanel/selection-menu.uxml" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
@@ -943,11 +952,11 @@
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AI.Navigation.Editor">
-      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>/Users/cka30181/workspaces/UnityProjects/MyRTSGame/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>

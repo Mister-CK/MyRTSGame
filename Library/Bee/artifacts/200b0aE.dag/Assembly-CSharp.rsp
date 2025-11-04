@@ -361,9 +361,6 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.62f2/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.62f2/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
--analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/log4netPlastic.dll"
--analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Antlr3.Runtime.dll"
--analyzer:"Library/PackageCache/com.unity.collab-proxy@2.7.1/Lib/Editor/Unity.Plastic.Newtonsoft.Json.dll"
 "Assets/Scripts/Application/EventHandlers/BuildingEventsHandler.cs"
 "Assets/Scripts/Application/EventHandlers/ResourceEventsHandler.cs"
 "Assets/Scripts/Application/EventHandlers/UnitEventsHandler.cs"
@@ -508,6 +505,7 @@
 "Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs"
 "Assets/Scripts/UI/SelectionView.cs"
 "Assets/Scripts/UI/UnitUIViews/UnitUIView.cs"
+"Assets/Scripts/UIToolkit/Services/ComponentGenerators/BuildButtonGenerator.cs"
 "Assets/Scripts/Units/Model/Component/BuilderComponent.cs"
 "Assets/Scripts/Units/Model/Component/FarmerComponent.cs"
 "Assets/Scripts/Units/Model/Component/LumberJackComponent.cs"
@@ -535,6 +533,8 @@
 "Assets/Scripts/Units/View/StoneMinerView.cs"
 "Assets/Scripts/Units/View/UnitView.cs"
 "Assets/Scripts/Units/View/VillagerView.cs"
+"Assets/UIToolkit/Components/Panels/PanelController.cs"
+"Assets/UIToolkit/Views/HUD/HUDController.cs"
 -langversion:9.0
 /deterministic
 /optimize+

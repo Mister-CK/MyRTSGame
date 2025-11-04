@@ -1,0 +1,18 @@
+.build-menu-button {
+    width: 60px;   
+    height: 60px;
+    margin: 4px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+
+.button-icon {
+    width: 40px;
+    height: 40px;
+}
+.button-label {
+    font-size: 8px;
+}
