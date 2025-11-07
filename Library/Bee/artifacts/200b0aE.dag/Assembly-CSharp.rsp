@@ -535,6 +535,15 @@
 "Assets/Scripts/Units/View/VillagerView.cs"
 "Assets/UIToolkit/Components/Panels/PanelController.cs"
 "Assets/UIToolkit/Views/HUD/HUDController.cs"
+"Assets/View/Components/ButtonContainer.cs"
+"Assets/View/Components/Panels/BuildPanel.cs"
+"Assets/View/Components/Panels/JobsPanel.cs"
+"Assets/View/Components/Panels/MenuPanel.cs"
+"Assets/View/Components/Panels/Panel.cs"
+"Assets/View/Components/Panels/StatsPanel.cs"
+"Assets/View/Extensions/VisualElementExtensions.cs"
+"Assets/View/HUDConfig.cs"
+"Assets/View/HUDView.cs"
 -langversion:9.0
 /deterministic
 /optimize+

@@ -1,0 +1,53 @@
+.overlay {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.left-panel {
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+    background-color: #141414;
+}
+
+.top-container {
+    flex-direction: row;
+    flex-shrink: 0;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.bottom-container {
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: 8px;
+    color: #CCCCCC;
+    background-color: #333333;
+}
+
+.button {
+    margin-right: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.button.active {
+    background-color: #2680e6;
+}
+
+.panel {
+    flex-grow: 1;
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-right: 8px;
+    display: flex; /* default visible */
+}
+
+.panel.hidden {
+    display: none;
+}
