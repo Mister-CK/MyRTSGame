@@ -1,8 +1,8 @@
-// csharp
-
 using Buildings.Model;
+using Data;
 using System.Collections;
 using System.Collections.Generic;
+using Terrains;
 using UnityEngine;
 using UnityEngine.UIElements;
 using View.Components.Panels;
@@ -13,24 +13,25 @@ namespace View
 {
     public class HUDView : MonoBehaviour
     {
-        [SerializeField] private UIDocument _uiDocument;
-        [SerializeField] private StyleSheet _stylesheet;
-
+        [SerializeField] private UIDocument uiDocument;
+        [SerializeField] private StyleSheet stylesheet;
+        private static BuildingPanelData _buildPanelData;
         private List<Button> _menuButtons;
         private List<HUDPanel> _panels;
         private BuildingPlacer _buildingPlacer;
+        private TerrainPlacer _terrainPlacer;
         private void Start()
         {
             StartCoroutine(InitializeView(4));
             _buildingPlacer = FindObjectOfType<BuildingPlacer>();
+            _terrainPlacer = FindObjectOfType<TerrainPlacer>();
         }
         
-        public IEnumerator InitializeView(int size = 4)
+        private IEnumerator InitializeView(int size = 4)
         {
-            var root = _uiDocument.rootVisualElement;
+            var root = uiDocument.rootVisualElement;
             root.Clear();
-
-            root.styleSheets.Add(_stylesheet);
+            root.styleSheets.Add(stylesheet);
 
             CreateContainers(root, out var overlay, out var leftPanel, out var topContainer, out var bottomContainer);
             CreateMenuAndPanels(topContainer, bottomContainer);
@@ -48,9 +49,14 @@ namespace View
 
         private void CreateMenuAndPanels(VisualElement topContainer, VisualElement bottomContainer)
         { 
+            if (_buildPanelData == null)
+            {
+                _buildPanelData = Resources.Load<BuildingPanelData>("UI/ScriptableObjects/BuildPanelData");
+            }
+            
             var allPanels = new HUDPanel[]
             {
-                new BuildPanel("panel-build", resourcesPath: "Buildings/BuildingObjects", buildingPlacer: _buildingPlacer),
+                new BuildPanel("panel-build", _buildPanelData, _buildingPlacer, _terrainPlacer),
                 new JobsPanel("panel-jobs"),
                 new StatsPanel("panel-stats"),
                 new MenuPanel("panel-menu"),
@@ -83,9 +89,7 @@ namespace View
             var btn = new Button();
             btn.name = $"btn-{index}";
             btn.text = panelId.Replace("panel-", "").ToUpper();
-            btn.style.marginRight = 6;
-            btn.style.paddingLeft = 6;
-            btn.style.paddingRight = 6;
+            btn.AddToClassList("button");
             parent.Add(btn);
             return btn;
         }

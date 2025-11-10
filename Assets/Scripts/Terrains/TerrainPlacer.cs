@@ -6,8 +6,8 @@ namespace Terrains
     public class TerrainPlacer : MonoBehaviour
     {
         private MyTerrain _terrain;
+        private MyTerrain _terrainPrefab;
         private bool _isPlacing;
-
         private void Update()
         {
             if (!_isPlacing) return;
@@ -37,6 +37,8 @@ namespace Terrains
                 {
                     _isPlacing = false;
                     _terrain.SetState(new FoundationState(_terrain.GetTerrainType()));
+                    StartPlacingTerrainFoundation(_terrainPrefab);
+                    PlacingState.CheckOverlap(_terrain);
                 }
 
             // If the right mouse button is clicked, cancel the placement
@@ -52,6 +54,7 @@ namespace Terrains
         public void StartPlacingTerrainFoundation(MyTerrain terrainPrefab)
         {
             _isPlacing = true;
+            _terrainPrefab = terrainPrefab;
             _terrain = Instantiate(terrainPrefab);
             _terrain.SetTerrainType(terrainPrefab.GetTerrainType());
             _terrain.SetState(new PlacingState(_terrain.GetTerrainType()));

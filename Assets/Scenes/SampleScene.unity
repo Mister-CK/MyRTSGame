@@ -2837,7 +2837,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 7840acbfcd5334441b1283cbab9f0e27, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: ddca81260819c41c79284d1088ae6057, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 97c4cc257a8344ffa4470b3582b4709c, type: 3}
   m_SortingOrder: 0
@@ -2853,8 +2853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e49db270a3846ea96a1f26e5a97b76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiDocument: {fileID: 243730907}
-  _stylesheet: {fileID: 7433441132597879392, guid: d7911db315c84157848f893c3d1eb127, type: 3}
+  uiDocument: {fileID: 243730907}
+  stylesheet: {fileID: 7433441132597879392, guid: d7911db315c84157848f893c3d1eb127, type: 3}
 --- !u!1 &272337010
 GameObject:
   m_ObjectHideFlags: 0

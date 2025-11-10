@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe759d60bb734518bc3a1a17066e82bc, type: 3}
+  m_Name: BuildPanelData
+  m_EditorClassIdentifier: 
+  buildings:
+  - prefab: {fileID: 176743656094057581, guid: 113351567a5044917b31e9da4573cd47, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: fcf69de6b6fa641049b63b62baa4bf70, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 366814349ccef4e91a3b343a33dc8f9e, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: b85c8b4966d63404682305eef8d0af22, type: 3}
+    displayName: Quarry
+  - prefab: {fileID: 7195368631274351251, guid: 000ab48c7f8db489e8505e52b7ff6b12, type: 3}
+    displayName: 
+  - prefab: {fileID: 2969283358271996689, guid: ff0cdc5a4e78345b5b6722b783975718, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 0b5cb7650785a4bccb504a057197845e, type: 3}
+    displayName: Fish Hut
+  - prefab: {fileID: 8490557435174283000, guid: 78473f61096bb4961b4277f4d48ec6dd, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 31e6afb29268e4999ac07f9756f136ec, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 430d577ca104743698013cc5f804edf6, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 5d51d987933ef4d978e33ac8625cf41d, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 0022e4d84c8284f40a2eae8f1b15abc1, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 7af8db1c26c204f538ffbed8eb4a6425, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 2e0a6985daf5446fba57bfef1649f8d6, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 407256c9c7b49443aa6de7f85de926b7, type: 3}
+    displayName: Workshop
+  - prefab: {fileID: 8490557435174283000, guid: e08340a44def84013b2f37995121a993, type: 3}
+    displayName: Armorer
+  - prefab: {fileID: 8490557435174283000, guid: 3806d14dd57804758a97b94632eaa3fd, type: 3}
+    displayName: Siege Lab
+  - prefab: {fileID: 8490557435174283000, guid: f7076d0fbc59647308d3b67e7991e9d3, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: e03d32be355754aab9f381c8cd54068d, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: 23859632ddc274a6da93b3e4898d103c, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: c00fcdc525aa74f6d892ba6a8bbe0949, type: 3}
+    displayName: Smelter
+  - prefab: {fileID: 8490557435174283000, guid: 683d84dafa1c643c4a2e5068c4d0f1af, type: 3}
+    displayName: Metallurgist
+  - prefab: {fileID: 8490557435174283000, guid: be6acc3fc485647ea8f7e2f19d36e31c, type: 3}
+    displayName: Smith
+  - prefab: {fileID: 8490557435174283000, guid: 350d7f1ba28734c4081a6d54a3e281d3, type: 3}
+    displayName: Armor Smith
+  - prefab: {fileID: 8490557435174283000, guid: ad7afeb8d44f84c62adacba774d8f78e, type: 3}
+    displayName: 
+  - prefab: {fileID: 8490557435174283000, guid: e205213ededae4d31be7a3cba01de174, type: 3}
+    displayName: 
+  terrains:
+  - prefab: {fileID: 4177729164496059029, guid: 5ee0065f60d454fbfb0a5b208db86e69, type: 3}
+    displayName: 
+  - prefab: {fileID: 4177729164496059029, guid: 75c23e91864074ce5a56210ad7c1d2ba, type: 3}
+    displayName: 
+  - prefab: {fileID: 4177729164496059029, guid: 793604f2caf8e4e55956be9ae89f1bb9, type: 3}
+    displayName: 

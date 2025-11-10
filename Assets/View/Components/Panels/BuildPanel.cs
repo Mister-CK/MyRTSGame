@@ -1,70 +1,93 @@
 using Buildings.Model;
+using Data;
+using System.Collections.Generic;
+using Terrains;
 using UnityEngine;
 using UnityEngine.UIElements;
 using View.Extensions;
+using Object = UnityEngine.Object;
+using Terrain = Terrains.Model.Terrain;
 
 namespace View.Components.Panels
 {
-    public class BuildPanel : HUDPanel
+        public class BuildPanel : HUDPanel
     {
-        private static GameObject[] _prefabs;
+        private readonly BuildingPanelData _buildPanelData;
         private static BuildingPlacer _buildingPlacer;
+        private static TerrainPlacer _terrainPlacer;
+
         private static StyleSheet _styleSheetButtonContainer;
-        private readonly string _resourcesPath;
+        
         public BuildPanel(
-            string id = "panel-build",
-            string resourcesPath = "Buildings/BuildingObjects",
-            BuildingPlacer buildingPlacer = null)
+            string id,
+            BuildingPanelData panelData, 
+            BuildingPlacer buildingPlacer,
+            TerrainPlacer terrainPlacer)
             : base(id)
         {
-            _resourcesPath = resourcesPath;
+            _buildPanelData = panelData;
             _buildingPlacer = buildingPlacer;
-            
+            _terrainPlacer = terrainPlacer;
+            if (_buildingPlacer == null)
+            {
+                _buildingPlacer = Object.FindObjectOfType<BuildingPlacer>();
+            }
+            if (_terrainPlacer == null)
+            {
+                _terrainPlacer = Object.FindObjectOfType<TerrainPlacer>();
+            }
         }
 
         public override void Build(VisualElement parent)
         {
             base.Build(parent);
 
-            if (_prefabs == null || _prefabs.Length == 0)
-            {
-                _prefabs = Resources.LoadAll<GameObject>(_resourcesPath);
-            }
-
-            if (_buildingPlacer == null)
-            {
-                _buildingPlacer = Object.FindObjectOfType<BuildingPlacer>();
-            }
             if (_styleSheetButtonContainer == null)
             {
-                _styleSheetButtonContainer = Resources.Load<StyleSheet>("UI/Styling/BuildPanel");
+                _styleSheetButtonContainer = Resources.Load<StyleSheet>("UI/Styling/BuildPanel"); 
             }
+            
             var header = new Label("BUILD");
             header.AddToClassList("panel-header");
             Root.Add(header);
-
-            var buttonContainer = Root.CreateChild("button-container", "button-container");
+            
+            var buttonContainer = Root.CreateChild("button-container","button-container");
             buttonContainer.styleSheets.Add(_styleSheetButtonContainer);
+            AddButtons(buttonContainer, _buildPanelData.terrains, "terrain");
+            AddButtons(buttonContainer, _buildPanelData.buildings, "building");
 
-            foreach (var prefab in _prefabs)
+        }
+
+        private void AddButtons(VisualElement buttonContainer, List<BuildableConfig> terrains, string configType)
+        {
+            foreach (var config in terrains)
             {
-                if (prefab == null) continue;
-                var p = prefab;
+                var prefab = config.prefab;
 
+                if (prefab == null) continue;
+                
                 var btn = new Button(() =>
                 {
-                    var buildingComponent = p.GetComponent<Building>();
-                    _buildingPlacer.StartPlacingBuildingFoundation(buildingComponent);
+                    switch(configType) 
+                    {  
+                        case "terrain" :
+                            var terrainComponent = prefab.GetComponent<Terrain>();
+                            _terrainPlacer.StartPlacingTerrainFoundation(terrainComponent);
+                            return;
+                        case "building" :
+                            var buildingComponent = prefab.GetComponent<Building>();
+                            _buildingPlacer.StartPlacingBuildingFoundation(buildingComponent);
+                            return;
+                    }
                 })
                 {
-                    text = p.name
+                    text = config.displayName?.Length == 0 ? prefab.name : config.displayName
                 };
 
                 btn.AddToClassList("build-button");
-                btn.tooltip = p.name;
+                btn.tooltip = config.displayName?.Length == 0 ? prefab.name : config.displayName;
                 buttonContainer.Add(btn);
             }
-
         }
     }
 }
