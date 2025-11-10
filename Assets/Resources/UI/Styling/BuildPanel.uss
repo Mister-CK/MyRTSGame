@@ -1,0 +1,13 @@
+.button-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.build-button {
+    flex-basis: 21%;
+    flex-shrink: 0;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    color: black;
+}

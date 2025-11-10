@@ -50,7 +50,7 @@ namespace View
         { 
             var allPanels = new HUDPanel[]
             {
-                new BuildPanel("panel-build",  prefabs: null, resourcesPath: "Buildings/BuildingObjects", buildingPlacer: _buildingPlacer),
+                new BuildPanel("panel-build", resourcesPath: "Buildings/BuildingObjects", buildingPlacer: _buildingPlacer),
                 new JobsPanel("panel-jobs"),
                 new StatsPanel("panel-stats"),
                 new MenuPanel("panel-menu"),

@@ -230,6 +230,7 @@
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/CompletedStateBuildingUIView.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets/Resources/UI/Styling/BuildPanel.uss" />
     <None Include="Assets/UIToolkit/Components/Panels/BuildPanel/BuildPanel.uxml" />
     <None Include="Assets/UIToolkit/Views/HUD/HUD.uss" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
@@ -241,7 +242,7 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets/UIToolkit/Components/BuildButton/BuildButton.uxml" />
     <None Include="Assets/View/UI/HUD.uxml" />
-    <None Include="Assets/View/UI/HUD.uss" />
+    <None Include="Assets/Resources/UI/Styling/HUD.uss" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
