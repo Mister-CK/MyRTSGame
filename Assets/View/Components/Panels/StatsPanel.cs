@@ -1,4 +1,5 @@
 using UnityEngine.UIElements;
+using View.Extensions;
 
 namespace View.Components.Panels
 {
@@ -10,13 +11,8 @@ namespace View.Components.Panels
         {
             base.Build(parent);
 
-            var header = new Label("Stats PANEL");
-            header.AddToClassList("panel-header");
-            Root.Add(header);
-
-            var list = new ScrollView();
-            list.Add(new Label("stat 1"));
-            Root.Add(list);
+            var header = Root.CreateChild<Label>("panel-header");
+            header.text = "STATS PANEL";
         }
     
     }

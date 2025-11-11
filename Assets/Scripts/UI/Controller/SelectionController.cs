@@ -2,6 +2,7 @@ using Buildings.Model;
 using Interface;
 using Units.Model.Component;
 using UnityEngine;
+using View;
 
 
 namespace UI.Controller
@@ -16,7 +17,7 @@ namespace UI.Controller
         [SerializeField] private GameEvent onRemoveOccupantFromBuildingEvent;
         
         [SerializeField] private SelectionView selectionView;
-        
+        [SerializeField] private HUDController hudController;
         private void OnEnable()
         {
             onSelectionEvent.RegisterListener(HandleSelectObject);
@@ -32,6 +33,7 @@ namespace UI.Controller
         private void HandleUpdateUIView(IGameEventArgs args)
         {
             if (args is not BuildingEventArgs buildingEventArgs) return;
+
             selectionView.UpdateView(buildingEventArgs.Building);
         }
 
@@ -40,6 +42,7 @@ namespace UI.Controller
             if (Input.GetMouseButtonDown(1))
             {
                 onDeselectionEvent.Raise(null);
+                hudController.HideAllPanels();
             }
         }
 
@@ -48,7 +51,10 @@ namespace UI.Controller
             if (args is not SelectionEventArgs selectionEventArgs) return;
 
             var newObject = selectionEventArgs.SelectedObject;
+            
             selectionView.SetView(newObject);
+            
+            hudController.ShowSelectionPanel(newObject);
         }
 
         public void CreateDeleteEvent(ISelectable selectedObject)

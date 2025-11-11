@@ -1,5 +1,6 @@
 // csharp
 using UnityEngine.UIElements;
+using View.Extensions;
 
 namespace View.Components.Panels
 {
@@ -11,14 +12,8 @@ namespace View.Components.Panels
         {
             base.Build(parent);
 
-            var header = new Label("JOBS PANEL");
-            header.AddToClassList("panel-header");
-            Root.Add(header);
-
-            var list = new ScrollView();
-            list.Add(new Label("Job 1"));
-            list.Add(new Label("Job 2"));
-            Root.Add(list);
+            var header = Root.CreateChild<Label>("panel-header");
+            header.text = "JOBS PANEL";            
         }
     }
 }

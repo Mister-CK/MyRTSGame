@@ -1,4 +1,5 @@
 using Buildings.Model;
+using Interface;
 using Terrains;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,8 +18,8 @@ namespace View
 
         private void Awake()
         {
-            var buildingPlacer = FindObjectOfType<BuildingPlacer>();
-            var terrainPlacer = FindObjectOfType<TerrainPlacer>();
+            var buildingPlacer = FindFirstObjectByType<BuildingPlacer>();
+            var terrainPlacer = FindFirstObjectByType<TerrainPlacer>();
             
             _hudView  = new HUDView(buildingPlacer, terrainPlacer);
             
@@ -33,11 +34,21 @@ namespace View
         private void Start()
         {
             _hudView.Initialize(uiDocument, stylesheet);
-            // var panelsMap = SelectionPanelRegistry.CreateAndBuildPanels(bottomContainer);
-            // var purePresenter = new SelectionPresenter(bottomContainer, panelsMap);
+        }
+        
+        private void Update()
+        {
+            _hudView.UpdateSelectionPanel();
+        }
+        
+        public void ShowSelectionPanel(ISelectable selectedObject)
+        {
+            _hudView.ShowSelectionPanel(selectedObject);
+        }
 
-
-            Debug.Log("HUD System fully initialized and dependencies wired.");
+        public void HideAllPanels()
+        {
+            _hudView.HideAllPanels();
         }
     }
 }

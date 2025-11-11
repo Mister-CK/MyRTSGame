@@ -1,5 +1,6 @@
 using Buildings.Model;
 using Data;
+using Interface;
 using System.Collections.Generic;
 using Terrains;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace View
 
             CreateContainers(root, out var overlay, out var leftPanel, out var topContainer, out var bottomContainer);
             CreateMenuAndPanels(topContainer, bottomContainer);
+            CreateSelectionPanel(bottomContainer);
         }
 
         private static void CreateContainers(VisualElement root, out VisualElement overlay, out VisualElement leftPanel, out VisualElement topContainer, out VisualElement bottomContainer)
@@ -74,24 +76,32 @@ namespace View
                 var btn = CreateMenuButton(i, id, topContainer);
                 _menuButtons.Add(btn);
                 BindButtonToPanel(btn, i);
-                
             }
-
         }
 
         private static Button CreateMenuButton(int index, string panelId, VisualElement parent)
         {
-            var btn = new Button();
+            var btn = parent.CreateChild<Button>("button");
             btn.name = $"btn-{index}";
             btn.text = panelId.Replace("panel-", "").ToUpper();
-            btn.AddToClassList("button");
-            parent.Add(btn);
             return btn;
         }
 
         private void BindButtonToPanel(Button btn, int capturedIndex)
         {
             btn.clicked += () => ShowPanel(capturedIndex);
+        }
+        
+        public void HideAllPanels()
+        {
+            foreach (var panel in _panels)
+            {
+                panel.Hide();
+            }
+            foreach (var btn in _menuButtons)
+            {
+                btn.RemoveFromClassList("active");
+            }
         }
 
         private void ShowPanel(int index)
@@ -113,6 +123,35 @@ namespace View
                     if (i < _menuButtons.Count) _menuButtons[i].RemoveFromClassList("active");
                 }
             }
+        }
+
+        public void ShowSelectionPanel(ISelectable selectable)
+        {
+            for (var i = 0; i < _panels.Count; i++)
+            {
+                _panels[i].Hide();
+                _panels[i].OnDeactivated();
+                if (i < _menuButtons.Count) _menuButtons[i].RemoveFromClassList("active");
+            }
+            var found = _panels.Find(p => p is SelectionPanel);
+            if (found is not SelectionPanel selectionPanel) return;
+            selectionPanel.Show();
+            selectionPanel.SetView(selectable);
+        }
+        
+        private void CreateSelectionPanel(VisualElement bottomContainer)
+        {
+            var selectionPanel = new SelectionPanel("panel-selection");
+            selectionPanel.Build(bottomContainer);
+            _panels.Add(selectionPanel);
+            selectionPanel.Hide();
+        }
+        
+        public void UpdateSelectionPanel()
+        {
+            var found = _panels.Find(p => p is SelectionPanel);
+            if (found is not SelectionPanel selectionPanel) return;
+            selectionPanel.UpdateView();
         }
     }
 }

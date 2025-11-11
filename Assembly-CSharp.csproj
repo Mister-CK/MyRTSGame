@@ -85,6 +85,7 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Stable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/ResourceBuilding.cs" />
     <Compile Include="Assets/Scripts/Application/EventHandlers/UnitEventsHandler.cs" />
+    <Compile Include="Assets/View/Components/Panels/SelectionPanel.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/WeaponsWorkshop.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/WorkshopBuilding.cs" />
     <Compile Include="Assets/Scripts/UI/NaturalResourceUIView/NaturalResourceUIView.cs" />
@@ -117,7 +118,6 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/CoalMine.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/CreateNewJobEventArgs.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Farmland.cs" />
-    <Compile Include="Assets/View/Components/Panels/SelectionPanels/SelectionPanelRegistry.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/StoneMinerData.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/PigFarm.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Vinyard.cs" />
@@ -135,7 +135,6 @@
     <Compile Include="Assets/Scripts/ResourceSystem/View/TreeView.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Component/StoneMinerComponent.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/ResourceEventArgs.cs" />
-    <Compile Include="Assets/View/Components/Panels/SelectionPanels/SelectionPanel.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/Presentation/SelectionPresenter.cs" />
@@ -214,7 +213,6 @@
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/GrowingState.cs" />
     <Compile Include="Assets/Scripts/UI/SelectionView.cs" />
-    <Compile Include="Assets/View/Components/Panels/SelectionPanels/BuildingSelectionPanel.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/CompletedState.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueueBase.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingGroups/SpecialBuilding.cs" />

@@ -1,3 +1,5 @@
+using View.Extensions;
+
 namespace View.Components.Panels
 {
     // csharp
@@ -12,14 +14,9 @@ namespace View.Components.Panels
             public override void Build(VisualElement parent)
             {
                 base.Build(parent);
-
-                var header = new Label("Menu PANEL");
-                header.AddToClassList("panel-header");
-                Root.Add(header);
-
-                var list = new ScrollView();
-                list.Add(new Label("option 1"));
-                Root.Add(list);
+                
+                var header = Root.CreateChild<Label>("panel-header", "panel-header");
+                header.text = "Menu PANEL";
             }
         }
     }

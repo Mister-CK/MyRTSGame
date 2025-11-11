@@ -14,16 +14,6 @@ namespace UI.UnitUIViews
         [SerializeField] private GameObject statusBars;
         
         private Slider _slider;
-        
-        private void SetBuildingButton(UnitComponent unit)
-        {
-            if (unit is not ResourceCollectorComponent resourceCollector)
-            {
-                buildingButton.SetActive(false);
-                return;
-            }
-            buildingButton.SetActive(resourceCollector.CollectorData.Building != null);
-        }
 
         public void ActivateView(UnitComponent unit)
         {
@@ -33,6 +23,16 @@ namespace UI.UnitUIViews
             var bar = Instantiate(staminaBarPrefab, statusBars.transform);
             _slider = bar.GetComponent<Slider>();
             _slider.value = unit.Data.GetStamina();
+        }
+        
+        private void SetBuildingButton(UnitComponent unit)
+        {
+            if (unit is not ResourceCollectorComponent resourceCollector)
+            {
+                buildingButton.SetActive(false);
+                return;
+            }
+            buildingButton.SetActive(resourceCollector.CollectorData.Building != null);
         }
 
         public void DeactivateView()
