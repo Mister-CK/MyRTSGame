@@ -1,6 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements">
-    <ui:Button name="build-button" class="build-menu-button">
-        <ui:VisualElement name="button-icon" class="button-icon"/>
-        <ui:Label name="button-label" class="button-label"/>
-    </ui:Button>
-</ui:UXML>

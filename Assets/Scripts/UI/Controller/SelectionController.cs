@@ -48,7 +48,7 @@ namespace UI.Controller
             if (args is not SelectionEventArgs selectionEventArgs) return;
 
             var newObject = selectionEventArgs.SelectedObject;
-            selectionView.SelectObject(newObject);
+            selectionView.SetView(newObject);
         }
 
         public void CreateDeleteEvent(ISelectable selectedObject)

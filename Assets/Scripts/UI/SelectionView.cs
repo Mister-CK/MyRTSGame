@@ -43,6 +43,47 @@ namespace UI
             UpdateView(CurrentSelectedObject);
         }
 
+        public void SetView(ISelectable selectable)
+        {
+            if (CurrentSelectedObject != null && CurrentSelectedObject != selectable)
+            {
+                ClearView();
+            }
+
+            CurrentSelectedObject = selectable;
+            
+            ClearView();
+            switch (selectable)
+            {
+                case Building building:
+                    SetSelectedBuilding(building);
+                    break;
+                case UnitComponent unit:
+                    SetSelectedUnit(unit);
+                    break;
+                case NaturalResource naturalResource:
+                    SetSelectedResource(naturalResource);
+                    break;
+            }
+        }
+        
+        public void ClearView()
+        {
+            _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
+
+            if (_currentGrid != null)
+            {
+                Destroy(_currentGrid);
+                _resourceTexts.Clear();
+            }
+
+            naturalResourceUIView.DeactivateView();
+            unitUIView.DeactivateView();
+            completedStateBuildingUIView.DeactivateBuildingView();
+            foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
+            constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
+        }
+        
         public void UpdateView(ISelectable selectable)
         {
             if (selectable != CurrentSelectedObject) return;
@@ -60,23 +101,7 @@ namespace UI
                     break;
             }
         }
-        private void SetView(ISelectable selectable)
-        {
-            ClearView();
-            switch (selectable)
-            {
-                case Building building:
-                    SetSelectedBuilding(building);
-                    break;
-                case UnitComponent unit:
-                    SetSelectedUnit(unit);
-                    break;
-                case NaturalResource naturalResource:
-                    SetSelectedResource(naturalResource);
-                    break;
-            }
-        }
-
+        
         private void SetSelectedResource(NaturalResource naturalResource)
         {
             naturalResourceUIView.ActivateView(naturalResource);
@@ -179,47 +204,18 @@ namespace UI
             }
         }
 
-        public void ClearView()
-        {
-            _resourceTexts = new Dictionary<ResourceType, TextMeshProUGUI>();
-
-            if (_currentGrid != null)
-            {
-                Destroy(_currentGrid);
-                _resourceTexts.Clear();
-            }
-
-            naturalResourceUIView.DeactivateView();
-            unitUIView.DeactivateView();
-            completedStateBuildingUIView.DeactivateBuildingView();
-            foundationStateBuildingUIView.DeactivateFoundationStateBuildingView();
-            constructionStateBuildingUIView.DeactivateConstructionStateBuildingView();
-        }
-
-        public void SelectObject(ISelectable selectable)
-        {
-            if (CurrentSelectedObject != null && CurrentSelectedObject != selectable)
-            {
-                ClearView();
-            }
-
-            CurrentSelectedObject = selectable;
-
-            SetView(CurrentSelectedObject);
-        }
-
         public void HandleOccupantButtonClick()
         {
             if (CurrentSelectedObject is not Building building) return;
 
-            SelectObject(building.GetOccupant());
+            SetView(building.GetOccupant());
         }
 
         public void HandleBuildingButtonClick()
         {
             if (CurrentSelectedObject is not ResourceCollectorComponent resourceCollector) return;
 
-            SelectObject(resourceCollector.CollectorData.Building);
+            SetView(resourceCollector.CollectorData.Building);
         }
 
         public void HandleDeleteButtonClick()

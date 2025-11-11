@@ -72,10 +72,12 @@ namespace View.Components.Panels
                     {  
                         case "terrain" :
                             var terrainComponent = prefab.GetComponent<Terrain>();
+                            _buildingPlacer.StopPlacingBuildingFoundation();
                             _terrainPlacer.StartPlacingTerrainFoundation(terrainComponent);
                             return;
                         case "building" :
                             var buildingComponent = prefab.GetComponent<Building>();
+                            _terrainPlacer.StopPlacingTerrainFoundation();
                             _buildingPlacer.StartPlacingBuildingFoundation(buildingComponent);
                             return;
                     }

@@ -1,5 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="panel-jobs" class="command-panel inactive-panel">
-        <ui:Label text="JOBS PANEL CONTENT - INLINE" style="color: white;" />
-    </ui:VisualElement>
-</ui:UXML>

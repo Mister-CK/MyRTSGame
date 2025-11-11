@@ -59,5 +59,11 @@ namespace Terrains
             _terrain.SetTerrainType(terrainPrefab.GetTerrainType());
             _terrain.SetState(new PlacingState(_terrain.GetTerrainType()));
         }
+        
+        public void StopPlacingTerrainFoundation()
+        {
+            _isPlacing = false;
+            if (_terrain != null && _terrain.GetState() is PlacingState) Destroy(_terrain.gameObject);
+        }
     }
 }

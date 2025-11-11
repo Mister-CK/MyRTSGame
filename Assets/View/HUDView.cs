@@ -1,6 +1,5 @@
 using Buildings.Model;
 using Data;
-using System.Collections;
 using System.Collections.Generic;
 using Terrains;
 using UnityEngine;
@@ -11,23 +10,20 @@ using View.Extensions;
 
 namespace View
 {
-    public class HUDView : MonoBehaviour
+    public class HUDView
     {
-        [SerializeField] private UIDocument uiDocument;
-        [SerializeField] private StyleSheet stylesheet;
         private static BuildingPanelData _buildPanelData;
         private List<Button> _menuButtons;
         private List<HUDPanel> _panels;
-        private BuildingPlacer _buildingPlacer;
-        private TerrainPlacer _terrainPlacer;
-        private void Start()
+        private readonly BuildingPlacer _buildingPlacer;
+        private readonly TerrainPlacer _terrainPlacer;
+        public HUDView(BuildingPlacer buildingPlacer, TerrainPlacer terrainPlacer)
         {
-            StartCoroutine(InitializeView(4));
-            _buildingPlacer = FindObjectOfType<BuildingPlacer>();
-            _terrainPlacer = FindObjectOfType<TerrainPlacer>();
+            _buildingPlacer = buildingPlacer;
+            _terrainPlacer = terrainPlacer;
         }
         
-        private IEnumerator InitializeView(int size = 4)
+        public void Initialize(UIDocument uiDocument, StyleSheet stylesheet)
         {
             var root = uiDocument.rootVisualElement;
             root.Clear();
@@ -35,8 +31,6 @@ namespace View
 
             CreateContainers(root, out var overlay, out var leftPanel, out var topContainer, out var bottomContainer);
             CreateMenuAndPanels(topContainer, bottomContainer);
-            
-            yield return null;
         }
 
         private static void CreateContainers(VisualElement root, out VisualElement overlay, out VisualElement leftPanel, out VisualElement topContainer, out VisualElement bottomContainer)
@@ -71,15 +65,16 @@ namespace View
             {
                 var id = panelIds.Length > i ? panelIds[i] : $"panel-{i}";
 
-                var btn = CreateMenuButton(i, id, topContainer);
-                _menuButtons.Add(btn);
 
                 var panel = allPanels[i];
                 panel.Build(bottomContainer);
                 _panels.Add(panel);
                 panel.Hide();
 
+                var btn = CreateMenuButton(i, id, topContainer);
+                _menuButtons.Add(btn);
                 BindButtonToPanel(btn, i);
+                
             }
 
         }

@@ -1,11 +1,12 @@
 using UnityEngine.UIElements;
+using View.Extensions;
 
 namespace View.Components.Panels
 {
     public abstract class HUDPanel
     {
         public string Id { get; }
-        public VisualElement Root { get; private set; }
+        protected VisualElement Root { get; private set; }
 
         protected HUDPanel(string id)
         {
@@ -14,9 +15,7 @@ namespace View.Components.Panels
 
         public virtual void Build(VisualElement parent)
         {
-            Root = new VisualElement { name = Id };
-            Root.AddToClassList("panel");
-            parent.Add(Root);
+            Root = parent.CreateChild(Id, "panel");
         }
 
         public virtual void Show()

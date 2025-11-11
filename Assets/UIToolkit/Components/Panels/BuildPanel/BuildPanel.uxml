@@ -1,6 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="panel-build" class="command-panel inactive-panel">
-        <ui:Label text="BUILD PANEL CONTENT - INLINE" style="color: yellow;" />
-        <ui:VisualElement name="build-button-grid" style="flex-direction: row; flex-wrap: wrap; flex-grow: 1;" />
-    </ui:VisualElement>
-</ui:UXML>

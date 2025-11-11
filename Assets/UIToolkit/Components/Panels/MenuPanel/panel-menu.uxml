@@ -1,5 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="panel-menu" class="command-panel inactive-panel">
-        <ui:Label text="PanelMenu" style="color: white;" />
-    </ui:VisualElement>
-</ui:UXML>

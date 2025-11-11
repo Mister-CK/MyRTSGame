@@ -1,4 +1,6 @@
-﻿using Navigation;
+﻿using Enums;
+using Interface;
+using Navigation;
 using Unity.AI.Navigation;
 using UnityEngine;
 
@@ -79,6 +81,12 @@ namespace Buildings.Model
             _building = Instantiate(buildingPrefab);
             _building.SetBuildingType(buildingPrefab.GetBuildingType());
             _building.SetState(new PlacingState(_building.GetBuildingType()));
+        }
+        
+        public void StopPlacingBuildingFoundation()
+        {
+            _isPlacing = false;
+            if (_building != null && _building.GetState() is PlacingState) Destroy(_building.gameObject);
         }
     }
 }
