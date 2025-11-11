@@ -122,27 +122,6 @@ namespace UI
             unitUIView.ActivateView(unit);
         }
 
-        private bool SetViewIfStateHasChanged(Building building)
-        {
-            switch (building.GetState())
-            {
-                case FoundationState when _buildingViewState != BuildingState.FoundationState:
-                    _buildingViewState = BuildingState.FoundationState;
-                    SetView(building);
-                    return true;
-                case ConstructionState when _buildingViewState != BuildingState.ConstructionState:
-                    _buildingViewState = BuildingState.ConstructionState;
-                    SetView(building);
-                    return true;
-                case CompletedState when _buildingViewState != BuildingState.CompletedState:
-                    _buildingViewState = BuildingState.CompletedState;
-                    SetView(building);
-                    return true;
-            }
-
-            return false;
-        }
-
         private void UpdateSelectedBuilding(Building building)
         {
             if (SetViewIfStateHasChanged(building)) return;
@@ -175,6 +154,27 @@ namespace UI
                 completedStateBuildingUIView.SetOccupantButton(building);
                 return;
             }
+        }
+        
+        private bool SetViewIfStateHasChanged(Building building)
+        {
+            switch (building.GetState())
+            {
+                case FoundationState when _buildingViewState != BuildingState.FoundationState:
+                    _buildingViewState = BuildingState.FoundationState;
+                    SetView(building);
+                    return true;
+                case ConstructionState when _buildingViewState != BuildingState.ConstructionState:
+                    _buildingViewState = BuildingState.ConstructionState;
+                    SetView(building);
+                    return true;
+                case CompletedState when _buildingViewState != BuildingState.CompletedState:
+                    _buildingViewState = BuildingState.CompletedState;
+                    SetView(building);
+                    return true;
+            }
+
+            return false;
         }
 
         private void SetSelectedBuilding(Building building)

@@ -1,4 +1,5 @@
 using Buildings.Model;
+using Buildings.Model.BuildingStates;
 using Enums;
 using Interface;
 using MyRTSGame.Model.ResourceSystem.Model;
@@ -7,6 +8,7 @@ using Units.Model.Component;
 using UnityEngine;
 using UnityEngine.UIElements;
 using View.Extensions;
+using CompletedState = Buildings.Model.BuildingStates.CompletedState;
 
 namespace View.Components.Panels
 {
@@ -24,11 +26,18 @@ namespace View.Components.Panels
         // --- CACHED RESOURCE UI ELEMENTS ---
         private VisualElement _resourcePanelContent;
         private Label _resourceNameLabel; 
-        private VisualElement _statusBarContainer; 
+        private VisualElement _resourceStatusBarContainer; 
         private Slider _growthSlider; 
         private Label _resourceQuantityLabel; 
         
         private ResourceType _primaryResourceType; 
+        
+        // --- CACHED BUILDING UI ELEMENTS ---
+        private VisualElement _buildingPanelContent;
+        private Label _buildingNameLabel;
+        private VisualElement _buildingStatusBarContainer; 
+        private Slider _progressSlider;
+        private VisualElement _dynamicContentContainer; 
 
         public SelectionPanel(string id = "panel-selection") : base(id) { }
         
@@ -37,7 +46,9 @@ namespace View.Components.Panels
             base.Build(parent);
             CreateUnitPanelContent();
             CreateNaturalResourcePanelContent(); 
+            CreateBuildingPanelContent(); 
         }
+
         private void CreateUnitPanelContent()
         {
             _unitPanelContent = Root.CreateChild("unit-panel-content");
@@ -65,6 +76,7 @@ namespace View.Components.Panels
             
             _unitPanelContent.style.display = DisplayStyle.None;
         }
+
         private void CreateNaturalResourcePanelContent()
         {
             _resourcePanelContent = Root.CreateChild("resource-panel-content");
@@ -72,14 +84,14 @@ namespace View.Components.Panels
             _resourceNameLabel = _resourcePanelContent.CreateChild<Label>("resource-name-label");
             _resourceNameLabel.AddToClassList("selection-panel-header");
 
-            _statusBarContainer = _resourcePanelContent.CreateChild("status-bar-container");
-            _statusBarContainer.style.flexDirection = FlexDirection.Column;
+            _resourceStatusBarContainer = _resourcePanelContent.CreateChild("resource-status-bar-container");
+            _resourceStatusBarContainer.style.flexDirection = FlexDirection.Column;
             
             _growthSlider = new Slider(0, 100, SliderDirection.Horizontal, 1f);
             _growthSlider.name = "growth-slider";
             _growthSlider.label = "Growth Progress";
             _growthSlider.SetEnabled(false); 
-            _statusBarContainer.Add(_growthSlider);
+            _resourceStatusBarContainer.Add(_growthSlider);
             
             var resourceGrid = _resourcePanelContent.CreateChild("resource-grid");
             resourceGrid.style.flexDirection = FlexDirection.Row;
@@ -94,13 +106,33 @@ namespace View.Components.Panels
             _resourcePanelContent.style.display = DisplayStyle.None;
         }
         
+        private void CreateBuildingPanelContent()
+        {
+            _buildingPanelContent = Root.CreateChild("building-panel-content");
+            
+            _buildingNameLabel = _buildingPanelContent.CreateChild<Label>("building-name-label");
+            _buildingNameLabel.AddToClassList("selection-panel-header");
+
+            _buildingStatusBarContainer = _buildingPanelContent.CreateChild("building-status-bar-container");
+            _buildingStatusBarContainer.style.flexDirection = FlexDirection.Column;
+
+            _progressSlider = new Slider(0, 100, SliderDirection.Horizontal, 1f);
+            _progressSlider.name = "progress-slider";
+            _progressSlider.label = "Progress";
+            _progressSlider.SetEnabled(false);
+            _buildingStatusBarContainer.Add(_progressSlider);
+
+            _dynamicContentContainer = _buildingPanelContent.CreateChild("building-dynamic-content");
+            _dynamicContentContainer.style.flexGrow = 1;
+
+            _buildingPanelContent.style.display = DisplayStyle.None;
+        }
+        
         public void SetView(ISelectable selectable)
         {
             if (CurrentSelectedObject != null && CurrentSelectedObject != selectable) ClearView();
             CurrentSelectedObject = selectable;
             Show();
-
-            
             switch (selectable)
             {
                 case UnitComponent unit:
@@ -121,6 +153,7 @@ namespace View.Components.Panels
         private void SetSelectedUnit(UnitComponent unit)
         {
             _resourcePanelContent.style.display = DisplayStyle.None;
+            _buildingPanelContent.style.display = DisplayStyle.None;
             _unitPanelContent.style.display = DisplayStyle.Flex;
 
             _unitPanelHeader.text = unit.name;
@@ -129,12 +162,44 @@ namespace View.Components.Panels
 
         private void SetSelectedBuilding(Building building)
         {
-            ClearView();
+            _unitPanelContent.style.display = DisplayStyle.None;
+            _resourcePanelContent.style.display = DisplayStyle.None;
+            _buildingPanelContent.style.display = DisplayStyle.Flex;
+
+            _buildingNameLabel.text = building.GetBuildingType().ToString();
+            
+            _dynamicContentContainer.Clear(); 
+            
+            var state = building.GetState();
+            
+            if (state is FoundationState)
+            {
+                _buildingStatusBarContainer.style.display = DisplayStyle.Flex;
+                _progressSlider.label = "Resources Delivered";
+                // TODO: Populate _dynamicContentContainer with Foundation resource requirements grid
+            }
+            else if (state is ConstructionState)
+            {
+                _buildingStatusBarContainer.style.display = DisplayStyle.Flex;
+                _progressSlider.label = "Construction Progress";
+            }
+            else if (state is CompletedState)
+            {
+                _buildingStatusBarContainer.style.display = DisplayStyle.None;
+                
+                // TODO: Populate _dynamicContentContainer with specialized views (e.g., training jobs, inventory, etc.)
+                
+                var statusLabel = _dynamicContentContainer.CreateChild<Label>("completed-status-message");
+                statusLabel.text = "Building is Completed. (Dynamic View Pending)";
+            }
+            
+            UpdateBuildingData(building);
         }
         
         private void SetSelectedResource(NaturalResource resource)
         {
             _unitPanelContent.style.display = DisplayStyle.None;
+            _buildingPanelContent.style.display = DisplayStyle.None;
             _resourcePanelContent.style.display = DisplayStyle.Flex;
             
             _primaryResourceType = resource.GetResourceType();
@@ -143,11 +208,11 @@ namespace View.Components.Panels
 
             if (resource.GetState() is GrowingState)
             {
-                _statusBarContainer.style.display = DisplayStyle.Flex;
+                _resourceStatusBarContainer.style.display = DisplayStyle.Flex;
             }
             else
             {
-                _statusBarContainer.style.display = DisplayStyle.None;
+                _resourceStatusBarContainer.style.display = DisplayStyle.None;
             }
             
             UpdateResourceData(resource);
@@ -157,12 +222,21 @@ namespace View.Components.Panels
         {
             if (CurrentSelectedObject is NaturalResource resource)
             {
+                if (CheckAndSwitchResourceStateView(resource)) return; 
                 UpdateResourceData(resource);
+                
                 return;
             }
             if (CurrentSelectedObject is UnitComponent unit)
             {
                 UpdateUnitData(unit);
+                return;
+            }
+            if (CurrentSelectedObject is Building building)
+            {
+                if (CheckAndSwitchBuildingStateView(building)) return;
+
+                UpdateBuildingData(building);
                 return;
             }
         }
@@ -172,6 +246,20 @@ namespace View.Components.Panels
             _staminaSlider.value = unit.Data.GetStamina(); 
         }
         
+        private void UpdateBuildingData(Building building)
+        {
+            var state = building.GetState();
+            
+            if (state is FoundationState foundationState)
+            {
+                
+            }
+            else if (state is ConstructionState constructionState)
+            {
+                
+            }
+        }
+
         private void UpdateResourceData(NaturalResource resource)
         {
             if (resource.GetState() is GrowingState growingState)
@@ -187,12 +275,51 @@ namespace View.Components.Panels
             }
         }
         
-        private void ClearView()
+        private bool CheckAndSwitchBuildingStateView(Building building)
+        {
+            // Use the Building's state Type as the discriminator for the current view structure
+            var currentState = building.GetState().GetType();
+
+            // We use the Type of the state because that dictates the required UI layout
+            if (CurrentSelectedObject is Building lastBuilding)
+            {
+                var lastKnownState = lastBuilding.GetState().GetType();
+
+                if (currentState != lastKnownState)
+                {
+                    SetSelectedBuilding(building);
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        private bool CheckAndSwitchResourceStateView(NaturalResource resource)
+        {
+            // Use the Building's state Type as the discriminator for the current view structure
+            var currentState = resource.GetState().GetType();
+
+            // We use the Type of the state because that dictates the required UI layout
+            if (CurrentSelectedObject is NaturalResource lastResource)
+            {
+                var lastKnownState = lastResource.GetState().GetType();
+
+                if (currentState != lastKnownState)
+                {
+                    SetSelectedResource(resource);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void ClearView()
         {
             CurrentSelectedObject = null;
             
             if (_unitPanelContent != null) _unitPanelContent.style.display = DisplayStyle.None;
             if (_resourcePanelContent != null) _resourcePanelContent.style.display = DisplayStyle.None;
+            if (_buildingPanelContent != null) _buildingPanelContent.style.display = DisplayStyle.None;
             
             _primaryResourceType = default; 
             
