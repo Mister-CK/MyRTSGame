@@ -25,7 +25,7 @@ namespace Buildings.Model.BuildingStates
             building.BCollider.size = localScale;
             building.BCollider.center = localScale / 2;
 
-            building.InputTypes = building.HasInput ? building.InputTypesWhenCompleted : new ResourceType[0];
+            building.InputTypes = building.HasInput() ? building.InputTypesWhenCompleted : new ResourceType[0];
             building.SetInventory(InventoryHelper.InitInventory(building.InputTypesWhenCompleted
                 .Concat(building.OutputTypesWhenCompleted).ToArray()));
         }

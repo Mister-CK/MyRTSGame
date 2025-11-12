@@ -32,7 +32,7 @@ namespace MyRTSGame.Model
             };
             trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder};
             TrainingJobs = GetTrainingJobsForUnitTypes(trainableUnits);
-            HasInput = true;
+
         }
     }
 }

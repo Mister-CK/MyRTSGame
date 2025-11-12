@@ -19,7 +19,6 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = new[] { ResourceType.Gold };
             trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder, UnitType.StoneMiner, UnitType.LumberJack, UnitType.Farmer};
             TrainingJobs = GetTrainingJobsForUnitTypes(trainableUnits);
-            HasInput = true;
         }
         
         protected override void StartResourceCreationCoroutine()

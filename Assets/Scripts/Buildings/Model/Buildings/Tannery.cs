@@ -18,7 +18,6 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = new[] { ResourceType.Hides};
             OutputTypesWhenCompleted = new[] { ResourceType.Leather};
 
-            HasInput = true;
         }
         
         protected override void StartResourceCreationCoroutine()

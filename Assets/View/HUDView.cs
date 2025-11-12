@@ -113,13 +113,11 @@ namespace View
                 if (i == index)
                 {
                     _panels[i].Show();
-                    _panels[i].OnActivated();
                     if (i < _menuButtons.Count) _menuButtons[i].AddToClassList("active");
                 }
                 else
                 {
                     _panels[i].Hide();
-                    _panels[i].OnDeactivated();
                     if (i < _menuButtons.Count) _menuButtons[i].RemoveFromClassList("active");
                 }
             }
@@ -130,7 +128,6 @@ namespace View
             for (var i = 0; i < _panels.Count; i++)
             {
                 _panels[i].Hide();
-                _panels[i].OnDeactivated();
                 if (i < _menuButtons.Count) _menuButtons[i].RemoveFromClassList("active");
             }
             var found = _panels.Find(p => p is SelectionPanel);

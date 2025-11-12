@@ -77,6 +77,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/BuilderJobListEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/BuildingUIViews/FoundationStateBuildingUIView.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/PlacingState.cs" />
+    <Compile Include="Assets/View/Components/Panels/SelectionPanelStrategies/UnitPanelStrategy.cs" />
     <Compile Include="Assets/Scripts/Application/Services/BuildingService.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/SiegeWorkshop.cs" />
     <Compile Include="Assets/Scripts/Units/View/FarmerView.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets/Scripts/Terrains/TerrainManager.cs" />
     <Compile Include="Assets/Scripts/Enums/DestinationType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Castle.cs" />
+    <Compile Include="Assets/View/Components/Panels/SelectionPanelStrategies/ISelectablePanelStrategy.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/NaturalResourceView.cs" />
     <Compile Include="Assets/Scripts/UI/Components/UIBuildTerrainButtonHandler.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/Wheatfarm.cs" />
@@ -157,11 +159,13 @@
     <Compile Include="Assets/Scripts/UI/Controller/SelectionController.cs" />
     <Compile Include="Assets/Scripts/Application/Services/ResourceService.cs" />
     <Compile Include="Assets/View/Components/Panels/StatsPanel.cs" />
+    <Compile Include="Assets/View/Components/Panels/SelectionPanelStrategies/NaturalResourcePanelStrategy.cs" />
     <Compile Include="Assets/Scripts/Units/View/UnitView.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowTraining.cs" />
     <Compile Include="Assets/Scripts/GameEvents/GameEvent.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/FarmerData.cs" />
     <Compile Include="Assets/View/HUDController.cs" />
+    <Compile Include="Assets/View/Components/Inventory/ResourceTable.cs" />
     <Compile Include="Assets/Scripts/Units/Model/JobExecutors/BuilderJobExecutor.cs" />
     <Compile Include="Assets/Scripts/Application/EventHandlers/BuildingEventsHandler.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/VillagerJob.cs" />
@@ -189,6 +193,7 @@
     <Compile Include="Assets/Scripts/Units/Model/JobExecutors/CollectResourceExecutor.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/BuilderJob.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/ConstructionState.cs" />
+    <Compile Include="Assets/View/Components/Panels/SelectionPanelStrategies/BuildingPanelStrategy.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/TrainingJob.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/Jobs/ProductionJob.cs" />
     <Compile Include="Assets/Scripts/Units/Model/JobExecutors/VillagerJobExecutor.cs" />
@@ -211,6 +216,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingUnitTypeEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronMine.cs" />
+    <Compile Include="Assets/View/Components/Panels/SelectionPanelStrategies/BuildingStatePanelStrategies/IBuildingStatePanelStrategy.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/GrowingState.cs" />
     <Compile Include="Assets/Scripts/UI/SelectionView.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/CompletedState.cs" />

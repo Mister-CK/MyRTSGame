@@ -17,7 +17,7 @@ namespace MyRTSGame.Model
             
             InputTypesWhenCompleted = new[] { ResourceType.Wheat};
             OutputTypesWhenCompleted = new[] { ResourceType.Pork, ResourceType.Hides};
-            HasInput = true;
+
         }
         
         protected override void StartResourceCreationCoroutine()

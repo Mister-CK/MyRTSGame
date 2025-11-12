@@ -20,7 +20,6 @@ namespace MyRTSGame.Model
             //TODO: should have siege weapons as trainingJobs, instead of villagers and builders
             trainableUnits =  new List<UnitType>() {UnitType.Villager, UnitType.Builder};
             TrainingJobs = GetTrainingJobsForUnitTypes(trainableUnits);
-            HasInput = true;
         }
         
         protected override void StartResourceCreationCoroutine()

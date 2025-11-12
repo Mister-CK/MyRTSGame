@@ -16,7 +16,7 @@ namespace MyRTSGame.Model
             base.Start();
             
             InputTypesWhenCompleted = new[] { ResourceType.Stone };
-            HasInput = true;
+
         }
     }
 }

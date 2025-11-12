@@ -16,7 +16,7 @@ namespace MyRTSGame.Model
             base.Start();
             
             InputTypesWhenCompleted = new[] { ResourceType.Bread, ResourceType.Fish, ResourceType.Sausage, ResourceType.Wine};
-            HasInput = true;
+
         }
 
         public override void AddResource(ResourceType resourceType, int quantity)

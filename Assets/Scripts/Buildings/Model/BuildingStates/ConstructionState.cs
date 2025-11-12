@@ -29,5 +29,10 @@ namespace Buildings.Model
                 _building.SetState(new CompletedState(_building.GetBuildingType()));
             }
         }
+
+        public float GetPercentageCompleted()
+        {
+            return this._percentageCompleted;
+        }
     }
 }

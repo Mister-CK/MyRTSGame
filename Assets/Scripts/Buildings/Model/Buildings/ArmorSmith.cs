@@ -41,7 +41,7 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = new[] { ResourceType.Coal, ResourceType.Iron };
             OutputTypesWhenCompleted = new[] { ResourceType.IronShield, ResourceType.IronArmor };
             ProductionJobs = new List<ProductionJob>() {IronShieldJob, IronArmorJob};
-            HasInput = true;
+
         }
         
         protected override void StartResourceCreationCoroutine()

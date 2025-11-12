@@ -52,7 +52,6 @@ namespace MyRTSGame.Model
             }
 
             InputTypesWhenCompleted = _resourceTypes;
-            HasInput = true;
         }
         
         protected override void StartResourceCreationCoroutine()

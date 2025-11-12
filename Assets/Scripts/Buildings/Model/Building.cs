@@ -16,7 +16,6 @@ namespace Buildings.Model
     {
         [SerializeField] private GameEvent onSelectionEvent;
 
-        public bool HasInput;
         public int Capacity = 999;
         public int CapacityForCompletedBuilding { get; set; }
         public int resourceCountNeededForConstruction = 0;
@@ -246,6 +245,16 @@ namespace Buildings.Model
         public float GetBuildRate()
         {
             return _buildRate;
+        }
+
+        public bool HasInput()
+        {
+            return this.InputTypesWhenCompleted.Length > 0;
+        }
+        
+        public bool HasOuput()
+        {
+            return this.OutputTypesWhenCompleted.Length > 0;
         }
     }
     

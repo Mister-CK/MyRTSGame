@@ -47,6 +47,7 @@ namespace UI.BuildingUIViews
         {
             occupantButton.SetActive(building.GetOccupant() != null);
         }
+
         public void ActivateBuildingView(Building building)
         {
             buildingView.gameObject.SetActive(true);

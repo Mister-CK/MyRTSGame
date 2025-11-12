@@ -39,7 +39,7 @@ namespace MyRTSGame.Model
             InputTypesWhenCompleted = new[] { ResourceType.Wood, ResourceType.Leather };
             OutputTypesWhenCompleted = new[] { ResourceType.WoodenShield, ResourceType.LeatherArmor };
             ProductionJobs = new List<ProductionJob>() {WoodenShieldJob, LeatherArmorJob};
-            HasInput = true;
+
         }
         
         protected override void StartResourceCreationCoroutine()
