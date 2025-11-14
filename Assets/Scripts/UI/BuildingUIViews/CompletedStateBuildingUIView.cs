@@ -109,14 +109,14 @@ namespace UI.BuildingUIViews
             {
                 GetOrCreatePooledObject(jobQueueTitlePrefab, jobQueueLayoutGrid.transform);
                 GetOrCreatePooledObject(columnsPrefab, jobQueueLayoutGrid.transform);
-                foreach (var outputType in building.OutputTypesWhenCompleted)
+                foreach (var productionJob in workshopBuilding.ProductionJobs)
                 {
                     var resourceRow = GetOrCreatePooledObject(resourceRowProductionPrefab, jobQueueLayoutGrid.transform);
                     var resourceRowJobQueue = resourceRow.GetComponent<ResourceRowProduction>();
-                    resourceRowJobQueue.ResourceType = outputType;
+                    resourceRowJobQueue.ResourceType = productionJob.Output.ResourceType;
                     resourceRowJobQueue.WorkshopBuilding = workshopBuilding;
-                    resourceRowJobQueue.resourceTypeText.text = outputType.ToString();
-                    resourceRowJobQueue.quantity.text = _resourceQuantities[outputType].ToString();
+                    resourceRowJobQueue.resourceTypeText.text = productionJob.Output.ResourceType.ToString();
+                    resourceRowJobQueue.quantity.text = _resourceQuantities[productionJob.Output.ResourceType].ToString();
                     _resourceRowProduction.Add(resourceRowJobQueue);
                 }
             }

@@ -1,4 +1,5 @@
 using Buildings.Model.BuildingGroups;
+using Buildings.Model.BuildingStates;
 using Enums;
 using System.Collections.Generic;
 
@@ -45,7 +46,6 @@ namespace MyRTSGame.Model
         protected override void Start()
         {            
             base.Start();
-            
             InputTypesWhenCompleted = new[] { ResourceType.Wood };
             OutputTypesWhenCompleted = new[] { ResourceType.Bow, ResourceType.Axe, ResourceType.Spear };
             ProductionJobs = new List<ProductionJob>() { AxeJob, SpearJob, BowJob };

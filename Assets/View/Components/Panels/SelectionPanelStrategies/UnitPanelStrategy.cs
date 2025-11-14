@@ -23,8 +23,7 @@ namespace View.Components.Panels.SelectionPanelStrategies
             var topLeftContainer = _contentRoot.CreateChild("panel-top-left-container");
             _buildingButton = topLeftContainer.CreateChild<Button>("building-button");
             _buildingButton.text = "Building";
-            // Placeholder debug logs for button clicks
-            _buildingButton.clicked += () => { Debug.Log("Building button clicked (Unit)"); }; 
+            _buildingButton.style.display = DisplayStyle.None;
             
             var topMiddleContainer = _contentRoot.CreateChild("panel-top-middle-container");
             _unitPanelHeader = topMiddleContainer.CreateChild<Label>("selection-panel-header"); 
@@ -51,7 +50,11 @@ namespace View.Components.Panels.SelectionPanelStrategies
 
             _contentRoot.style.display = DisplayStyle.Flex;
             _unitPanelHeader.text = unit.name;
-            
+            if (unit is ResourceCollectorComponent resourceCollectorComponent)
+            {
+                //should call ShowSelectionPanel
+                if (resourceCollectorComponent.CollectorData.Building) _buildingButton.clicked += () => { SetView(resourceCollectorComponent.CollectorData.Building); };
+            }
             UpdateView(unit);
         }
 

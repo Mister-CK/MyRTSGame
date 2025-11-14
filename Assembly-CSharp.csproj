@@ -184,6 +184,7 @@
     <Compile Include="Assets/Scripts/Units/Model/Component/BuilderComponent.cs" />
     <Compile Include="Assets/Scripts/Resource.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/Terrains/Vine.cs" />
+    <Compile Include="Assets/View/Components/Inventory/TrainingTable.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/View/GrapesView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/InventoryData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobTypeEventArgs.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Assets/Scripts/Units/Model/Component/ResourceCollectorComponent.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/ArmorWorkshop.cs" />
     <Compile Include="Assets/Scripts/Enums/JobType.cs" />
+    <Compile Include="Assets/View/Components/Inventory/ProductionTable.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/GuardTower.cs" />
     <Compile Include="Assets/Scripts/Interface/IJobExecutor.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Data/LumberJackData.cs" />

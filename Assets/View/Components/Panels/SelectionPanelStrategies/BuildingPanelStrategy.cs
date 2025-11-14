@@ -1,7 +1,9 @@
 using Buildings.Model;
+using Buildings.Model.BuildingGroups;
 using Buildings.Model.BuildingStates;
 using Interface;
 using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 using View.Components.Inventory;
 using View.Extensions;
@@ -12,7 +14,11 @@ namespace View.Components.Panels.SelectionPanelStrategies
     {
         // --- CACHED BUILDING UI ELEMENTS ---
         private VisualElement _contentRoot;
+        private VisualElement _headerContainer; 
+        private Button _leftButton;  
         private Label _buildingNameLabel;
+        private Button _rightButton;
+        
         private VisualElement _statusBarContainer; 
         private Slider _progressSlider;
         private VisualElement _dynamicContentContainer; 
@@ -21,14 +27,34 @@ namespace View.Components.Panels.SelectionPanelStrategies
 
         private ResourceTableComponent _inputTable; 
         private ResourceTableComponent _outputTable; 
-        
+        private ProductionTableComponent _productionTable; 
+        private TrainingTableComponent _trainingTable; 
+
         public void Build(VisualElement rootContainer)
         {
             _contentRoot = rootContainer.CreateChild("building-panel-content");
             
-            _buildingNameLabel = _contentRoot.CreateChild<Label>("building-name-label");
+            _headerContainer = _contentRoot.CreateChild("building-header-container");
+            _headerContainer.style.flexDirection = FlexDirection.Row;
+            _headerContainer.style.alignItems = Align.Center;
+            _headerContainer.style.marginBottom = 10;
+            
+            _leftButton = _headerContainer.CreateChild<Button>("building-left-button");
+            _leftButton.text = "Unit";
+            _leftButton.style.width = 30;
+            _leftButton.style.marginRight = 10;
+            _leftButton.style.display = DisplayStyle.None; 
+            
+            _buildingNameLabel = _headerContainer.CreateChild<Label>("building-name-label");
             _buildingNameLabel.AddToClassList("selection-panel-header");
-
+            
+            _rightButton = _headerContainer.CreateChild<Button>("building-right-button");
+            _rightButton.text = "Delete";
+            _rightButton.style.width = 30;
+            _rightButton.style.marginLeft = 10;
+            _rightButton.style.display = DisplayStyle.None;
+            _rightButton.clicked += () => { Debug.Log("Delete button clicked (Building)"); };
+            
             _statusBarContainer = _contentRoot.CreateChild("building-status-bar-container");
             _statusBarContainer.style.flexDirection = FlexDirection.Column;
 
@@ -41,13 +67,23 @@ namespace View.Components.Panels.SelectionPanelStrategies
             _statusBarContainer.style.display = DisplayStyle.None;
 
             _inputTable = _contentRoot.CreateChild<ResourceTableComponent>("resource-table");
-            _inputTable.SetHeaderText("input");
+            _inputTable.SetHeaderText("Input");
             _inputTable.style.display = DisplayStyle.None;
+            _inputTable.SetTargetLabel("Incomming");
             
             _outputTable = _contentRoot.CreateChild<ResourceTableComponent>("resource-table");
-            _outputTable.SetHeaderText("output");
+            _outputTable.SetHeaderText("Output");
             _outputTable.style.display = DisplayStyle.None;
+            _outputTable.SetTargetLabel("OutGoing");
+            
+            _productionTable = _contentRoot.CreateChild<ProductionTableComponent>("production-table");
+            _productionTable.SetHeaderText("Production");
+            _productionTable.style.display = DisplayStyle.None;
                 
+            _trainingTable = _contentRoot.CreateChild<TrainingTableComponent>("training-table");
+            _trainingTable.SetHeaderText("Training");
+            _trainingTable.style.display = DisplayStyle.None;
+            
             _dynamicContentContainer = _contentRoot.CreateChild("building-dynamic-content");
             _dynamicContentContainer.style.flexGrow = 1;
             _contentRoot.style.display = DisplayStyle.None;
@@ -61,6 +97,14 @@ namespace View.Components.Panels.SelectionPanelStrategies
 
             _buildingNameLabel.text = building.GetBuildingType().ToString();
             
+            if (building.GetOccupant() != null)
+            {
+                _leftButton.style.display = DisplayStyle.Flex;
+                //should call ShowSelectionPanel
+                _leftButton.clicked += () => { SetView(building.GetOccupant()); };
+            }
+            _rightButton.style.display = DisplayStyle.Flex;
+
             _dynamicContentContainer.Clear(); 
             
             var state = building.GetState();
@@ -69,30 +113,59 @@ namespace View.Components.Panels.SelectionPanelStrategies
             if (state is FoundationState)
             {
                 _inputTable.style.display = DisplayStyle.Flex;
+                _inputTable.SetInput(building.GetInventory(), building.InputTypes);
+                
+                _outputTable.style.display = DisplayStyle.None;
+                _productionTable.style.display = DisplayStyle.None;
+                _trainingTable.style.display = DisplayStyle.None;
             }
 
             else if (state is ConstructionState)
             {
                 //Hide foundation style
                 _inputTable.style.display = DisplayStyle.None;
-                
+                _outputTable.style.display = DisplayStyle.None;
+                _productionTable.style.display = DisplayStyle.None;
+                _trainingTable.style.display = DisplayStyle.None;
+
                 _statusBarContainer.style.display = DisplayStyle.Flex;
                 _progressSlider.label = "Construction Progress";
             }
 
             else if (state is CompletedState)
             {
+                //Hide construction style
                 _statusBarContainer.style.display = DisplayStyle.None;
+
                 if (building.HasInput())
                 {
                     _inputTable.style.display = DisplayStyle.Flex;
+                    _inputTable.SetInput(building.GetInventory(), building.InputTypesWhenCompleted);
                 }
-                
+                else _inputTable.style.display = DisplayStyle.None;
+
                 if (building.HasOuput())
                 {
                     _outputTable.style.display = DisplayStyle.Flex;
+                    _outputTable.SetOutput(building.GetInventory(), building.OutputTypesWhenCompleted);
                 }
-                
+                else _outputTable.style.display = DisplayStyle.None;
+
+                if (building is WorkshopBuilding)
+                {
+                    _productionTable.style.display = DisplayStyle.Flex;
+                    _productionTable.SetProduction(building.GetInventory(), building.OutputTypesWhenCompleted);
+                }
+                else _productionTable.style.display = DisplayStyle.None;
+
+                if (building is TrainingBuilding trainingBuilding)
+                {
+                    _trainingTable.style.display = DisplayStyle.Flex;
+                    _trainingTable.SetProduction(trainingBuilding);
+                    
+                }
+                else _trainingTable.style.display = DisplayStyle.None;
+
             }
             
             UpdateView(building);
@@ -108,10 +181,11 @@ namespace View.Components.Panels.SelectionPanelStrategies
             }
             
             var state = building.GetState();
-            
+            if (building.GetOccupant() != null) _leftButton.style.display = DisplayStyle.Flex;
+
             if (state is FoundationState foundationState)
             {
-                _inputTable.SetInput(building.GetInventory(), building.InputTypes);
+                _inputTable.UpdateInputData(building.GetInventory());
                 return;
             }
             if (state is ConstructionState constructionState)
@@ -122,21 +196,15 @@ namespace View.Components.Panels.SelectionPanelStrategies
             
             if (state is CompletedState completedState)
             {
-                if (building.HasInput()) _inputTable.SetInput(building.GetInventory(), building.InputTypesWhenCompleted);
-                if (building.HasOuput()) _outputTable.SetOutput(building.GetInventory(), building.OutputTypesWhenCompleted);
-
+                if (building.HasInput()) _inputTable.UpdateInputData(building.GetInventory());
+                if (building.HasOuput()) _outputTable.UpdateOutputData(building.GetInventory());
+                if (building is WorkshopBuilding)  _productionTable.UpdateProduction(building.GetInventory());
                 return;
             }
         }
-
-        /// <summary>
-        /// Checks if the Building's state (Foundation, Construction, Completed) has changed.
-        /// </summary>
-        /// <param name="building">The currently selected building.</param>
-        /// <returns>True if the state type has changed.</returns>
+        
         public bool HasStateChanged(Building building)
         {
-            // This is the core logic that triggers the full SetView reload in the main panel.
             var currentState = building.GetState().GetType();
             return currentState != _lastKnownStateType;
         }
