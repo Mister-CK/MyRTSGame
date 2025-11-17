@@ -41,7 +41,6 @@ namespace Application.EventHandlers
             onResourceAddedToBuilding.UnregisterListener(OnResourceAdded);
             onResourceRemovedFromDestination.UnregisterListener(OnResourceRemoved);
             onAddProductionJobEvent.UnregisterListener(OnAddProductionJob);
-            onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
             onAddTrainingJobEvent.UnregisterListener(OnAddTrainingJob);
             onRemoveProductionJobEvent.UnregisterListener(OnRemoveProductionJob);
             onDeleteBuildingEvent.UnregisterListener(HandleDeleteBuildingEvent);
