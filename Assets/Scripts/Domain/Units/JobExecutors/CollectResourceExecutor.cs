@@ -13,7 +13,7 @@ namespace Domain.Units.JobExecutors
         {
             var rc = (ResourceCollectorComponent)unit;
             var rcJob = (CollectResourceJob)job;
-            if (unit.Data.Destination != rc.CollectorData.Building && !rc.CollectorData.HasResource)
+            if ((unit.Data.Destination is not Building building || building != rc.CollectorData.Building) && !rc.CollectorData.HasResource)
             {
                 rc.TakeResource(rcJob.Destination, rc.CollectorData.ResourceTypeToCollect);
                 if (rcJob.Destination is Wheat wheat) wheat.GetTerrain().SetHasResource(false);

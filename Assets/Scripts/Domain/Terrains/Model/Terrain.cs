@@ -18,6 +18,7 @@ namespace Terrains.Model
         private readonly float _buildRate = 10f;
         protected bool HasResource;
         protected ResourceType ResourceType;
+
         public void Awake()
         {
             ServiceInjector.Instance.InjectTerrainDependencies(this);
