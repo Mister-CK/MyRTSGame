@@ -10,7 +10,7 @@ namespace Units.Model.JobExecutors{
             var lookingForBuildingJob = (LookingForBuildingJob)job;
             unitComponent.HandleLookingForBuildingJob(lookingForBuildingJob);
                 
-            unitComponent.unitService.CompleteJob(lookingForBuildingJob);
+            unitComponent.OnJobCompleted?.Invoke(lookingForBuildingJob);
             unitComponent.Data.SetIsLookingForBuilding(false);
             unitComponent.Data.ResetJobState();
         }

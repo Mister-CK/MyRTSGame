@@ -1,5 +1,3 @@
-using Application;
-using Application.Services;
 using Enums;
 using Interface;
 using MyRTSGame.Model;
@@ -16,7 +14,12 @@ namespace Units.Model.Component
 {
     public abstract class UnitComponent : MonoBehaviour, ISelectable
     {
-        public UnitService unitService;
+        public Action<UnitComponent, JobType> OnRequestJob { get; set; }
+        public Action<UnitComponent> OnRequestLookingForBuildingJob { get; set; }
+        public Action<IDestination, ResourceType, int> OnRemoveResourceFromDestination { get; set; }
+
+        public Action<Job> OnJobCompleted { get; set; }
+        
         public UnitData Data { get; private set; }
         public NavMeshAgent Agent { get; private set; }
         protected abstract JobType DefaultJobType { get; }
@@ -36,10 +39,6 @@ namespace Units.Model.Component
 
         protected virtual void Start()
         {
-
-            if (ServiceInjector.Instance != null) ServiceInjector.Instance.InjectUnitDependencies(this);
-            else Debug.LogError("ServiceInjector not found. UnitService will be null.");
-
             Agent = GetComponentInChildren<NavMeshAgent>();
             StartCoroutine(InitializeAgentRoutine());
         }
@@ -149,14 +148,14 @@ namespace Units.Model.Component
             
             if (Data.GetStamina() < 30 && !Data.HasRequestedConsumptionJob)
             {
-                unitService.CreateUnitJobRequest(this, JobType.ConsumptionJob);
+                OnRequestJob?.Invoke(this, JobType.ConsumptionJob);
                 Data.SetRequestedConsumptionJob(true);
                 return;
             }
 
             if (Data.IsLookingForBuilding)
             {
-                unitService.CreateNewLookForBuildingJob(this);
+                OnRequestLookingForBuildingJob?.Invoke(this);
                 return;
             }
 
@@ -166,7 +165,7 @@ namespace Units.Model.Component
         
         private void RequestNewJob()
         {
-            unitService.CreateUnitJobRequest(this, DefaultJobType);
+            OnRequestJob?.Invoke(this, DefaultJobType);
         }
     }
 }

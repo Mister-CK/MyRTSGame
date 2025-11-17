@@ -30,9 +30,9 @@ namespace Units.Model.JobExecutors
             {
                 rc.DeliverResource(rc.CollectorData.Building, rc.CollectorData.ResourceTypeToCollect);
 
-                unit.unitService.CreateJobNeededEvent(JobType.VillagerJob, null, rc.CollectorData.Building, rc.CollectorData.ResourceTypeToCollect, null);
+                rc.OnCreateJobNeededEvent?.Invoke(JobType.VillagerJob, null, rc.CollectorData.Building, rc.CollectorData.ResourceTypeToCollect, null);
 
-                unit.unitService.CompleteJob(job);
+                unit.OnJobCompleted?.Invoke(job);
                 unit.Data.ResetJobState();
             }
         }

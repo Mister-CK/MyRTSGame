@@ -21,7 +21,7 @@ namespace Units.Model.JobExecutors
                 return;
             }
             villagerComponent.DeliverResource(villagerJob.Destination, villagerJob.ResourceType);
-            villagerComponent.unitService.CompleteJob(villagerComponent.Data.CurrentJob);
+            villagerComponent.OnJobCompleted?.Invoke(villagerComponent.Data.CurrentJob);
             villagerComponent.Data.SetHasDestination(false);
             villagerComponent.Data.SetCurrentJob(null);
             villagerComponent.Data.SetDestination(null);

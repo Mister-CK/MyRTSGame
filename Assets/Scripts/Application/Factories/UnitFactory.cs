@@ -13,31 +13,35 @@ namespace Application.Factories
         [SerializeField] private StoneMinerComponent stoneMinerPrefab;
         [SerializeField] private LumberJackComponent lumberJackPrefab;
         [SerializeField] private FarmerComponent farmerPrefab;
-        
+        private void Awake()
+        {
+
+        }
         public void CreateNewUnit(Building trainingBuilding,  UnitType unitType)
         {
-            var spawnPosition = trainingBuilding.transform.position +
-                                new Vector3(2, 0, -2);
+            var spawnPosition = trainingBuilding.transform.position + new Vector3(2, 0, -2);
+            UnitComponent unit;
             switch (unitType)
             {
                 case UnitType.Villager:
-                    Instantiate(villagerPrefab, spawnPosition, Quaternion.identity);
+                    unit = Instantiate(villagerPrefab, spawnPosition, Quaternion.identity);
                     break;
                 case UnitType.Builder:
-                    Instantiate(builderPrefab, spawnPosition, Quaternion.identity);
+                    unit = Instantiate(builderPrefab, spawnPosition, Quaternion.identity);
                     break;
                 case UnitType.StoneMiner:
-                    Instantiate(stoneMinerPrefab, spawnPosition, Quaternion.identity);
+                    unit = Instantiate(stoneMinerPrefab, spawnPosition, Quaternion.identity);
                     break;
                 case UnitType.LumberJack:
-                    Instantiate(lumberJackPrefab, spawnPosition, Quaternion.identity);
+                    unit = Instantiate(lumberJackPrefab, spawnPosition, Quaternion.identity);
                     break;
                 case UnitType.Farmer:
-                    Instantiate(farmerPrefab, spawnPosition, Quaternion.identity);
+                    unit = Instantiate(farmerPrefab, spawnPosition, Quaternion.identity);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(unitType.ToString());
             }
+            if (ServiceInjector.Instance != null) ServiceInjector.Instance.InjectUnitDependencies(unit);
         }
     }
 }

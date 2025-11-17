@@ -5,6 +5,7 @@ using UnityEngine;
 using Terrain = Terrains.Model.Terrain;
 using Interface;
 using MyRTSGame.Model;
+using System;
 using Units.Model.Data;
 using Units.Model.JobExecutors;
 
@@ -13,6 +14,7 @@ namespace Units.Model.Component
     public class BuilderComponent : UnitComponent
     {
         protected override JobType DefaultJobType => JobType.BuilderJob;
+
         static BuilderComponent()
         {
             JobExecutorsMap.Add(typeof(BuilderJob), new BuilderJobExecutor());
@@ -45,7 +47,7 @@ namespace Units.Model.Component
                         .IncreasePercentageCompleted(terrain.GetBuildRate());
                 }
             }
-            unitService.CompleteJob(Data.CurrentJob);
+            OnJobCompleted?.Invoke(Data.CurrentJob);
             Data.SetDestination(null);
             Data.SetHasDestination(false);
             Data.SetCurrentJob(null);

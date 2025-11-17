@@ -1,7 +1,9 @@
 using Buildings.Model;
 using Enums;
 using Interface;
+using JetBrains.Annotations;
 using MyRTSGame.Model;
+using System;
 using Units.Model.Data;
 using Units.Model.JobExecutors;
 
@@ -10,6 +12,10 @@ namespace Units.Model.Component
     public class ResourceCollectorComponent : UnitComponent
     {
         protected override JobType DefaultJobType => JobType.CollectResourceJob;
+        public Action<IDestination, ResourceType, int> OnAddResourceToDestination { get; set; }
+        [CanBeNull]
+        public Action<JobType, Building, Building, ResourceType?, UnitType?> OnCreateJobNeededEvent { get; set; }
+        public Action<Job> OnCreatePlantResourceEvent { get; set; }
         static ResourceCollectorComponent()
         {
             JobExecutorsMap.Add(typeof(CollectResourceJob), new CollectResourceExecutor());
@@ -27,7 +33,7 @@ namespace Units.Model.Component
         {
             if (CollectorData.Building != null)
             {
-                unitService.CreateJobNeededEvent(JobType.LookForBuildingJob, CollectorData.Building, null, null, CollectorData.Building.GetOccupantType());
+                OnCreateJobNeededEvent?.Invoke(JobType.LookForBuildingJob, CollectorData.Building, null, null, CollectorData.Building.GetOccupantType());
             }
         }
         
@@ -41,15 +47,15 @@ namespace Units.Model.Component
         public void TakeResource(IDestination destination, ResourceType resourceType)
         {
             CollectorData.SetHasResource(true);
-            unitService.RemoveResourceFromDestination(destination, resourceType, 1);
+            OnRemoveResourceFromDestination?.Invoke(destination, resourceType, 1);
         }
 
         public void DeliverResource(IDestination destination, ResourceType resourceType)
         {
             CollectorData.SetHasResource(false);
-            unitService.AddResourceToDestination(destination, resourceType, 1);
+            OnAddResourceToDestination?.Invoke(destination, resourceType, 1);
         }
-        
+
         public void BuildingDeleted()
         {
             Data.ResetJobState();

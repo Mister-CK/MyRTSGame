@@ -10,7 +10,7 @@ namespace Units.Model.JobExecutors
         {
             var consumptionJob = (ConsumptionJob)job;
         
-            unitComponent.unitService.RemoveResourceFromDestination(consumptionJob.Destination, consumptionJob.ResourceType, 1);
+            unitComponent.OnRemoveResourceFromDestination?.Invoke(consumptionJob.Destination, consumptionJob.ResourceType, 1);
         
             unitComponent.Data.ResetJobState();
             unitComponent.Data.ReplenishStamina();

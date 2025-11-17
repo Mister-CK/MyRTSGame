@@ -47,7 +47,22 @@ namespace Application
         
         public void InjectUnitDependencies(UnitComponent unit)
         {
-            unit.unitService = unitService;
+            unit.OnRequestJob = (u, t) => unitService.CreateUnitJobRequest(u, t);
+            unit.OnRequestLookingForBuildingJob = (u) => unitService.CreateNewLookForBuildingJob(u);
+            unit.OnJobCompleted = (j) => unitService.CompleteJob(j);
+            unit.OnRemoveResourceFromDestination = (u, r, a) => unitService.RemoveResourceFromDestination(u, r, a);
+                
+            if (unit is ResourceCollectorComponent resourceCollectorComponent)
+            {
+                resourceCollectorComponent.OnAddResourceToDestination = (u, r, a) => unitService.AddResourceToDestination(u, r, a);
+                resourceCollectorComponent.OnCreateJobNeededEvent = (jobtype, destination, origin, resourcetype, unitType) => unitService.CreateJobNeededEvent(jobtype, destination, origin, resourcetype, unitType);
+                resourceCollectorComponent.OnCreatePlantResourceEvent = (j) => unitService.CreatePlantResourceEvent(j);
+            }
+                
+            if (unit is VillagerComponent villagerComponent)
+            {
+                villagerComponent.OnAddResourceToDestination = (u, r, a) => unitService.AddResourceToDestination(u, r, a);
+            }
         }
         
         public void InjectUnitDependencies(UnitView unitView)
@@ -72,9 +87,9 @@ namespace Application
         
         private void InjectBuildingService()
         {
-            Building[] allBuildings = FindObjectsOfType<Building>();
+            var allBuildings = FindObjectsByType<Building>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         
-            foreach (Building building in allBuildings)
+            foreach (var building in allBuildings)
             {
                 building.BuildingService = buildingService;
             }
@@ -83,17 +98,13 @@ namespace Application
         private void InjectUnitService()
         {
             
-            UnitComponent[] allUnits = FindObjectsOfType<UnitComponent>();
-            foreach (UnitComponent unit in allUnits)
-            {
-                unit.unitService = unitService;
-            }
-
+            var allUnits = FindObjectsByType<UnitComponent>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (var unit in allUnits) InjectUnitDependencies(unit);
         }
         
         private void InjectTerrainService()
         {
-            var allTerrains = FindObjectsOfType<Terrain>();
+            var allTerrains = FindObjectsByType<Terrain>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (var terrain in allTerrains)
             {
                 terrain.terrainService = terrainService;
@@ -102,7 +113,7 @@ namespace Application
         
         private void InjectResourceService()
         {
-            var allResources = FindObjectsOfType<NaturalResource>();
+            var allResources = FindObjectsByType<NaturalResource>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (var resource in allResources)
             {
                 resource.resourceService = resourceService;
