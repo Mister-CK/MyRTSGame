@@ -22,12 +22,12 @@ namespace UI.Components
 
         public void HandleClickAddButton()
         {   
-            onAddTrainingJobEvent.Raise(new TrainingBuildingBuildingResourceTypeEventArgs(TrainingBuilding, UnitType));
+            onAddTrainingJobEvent.Raise(new TrainingBuildingUnitTypeEventArgs(TrainingBuilding, UnitType));
         }
 
         public void HandleClickRemoveButton()
         {
-            onRemoveTrainingJobEvent.Raise(new TrainingBuildingBuildingResourceTypeEventArgs(TrainingBuilding, UnitType));
+            onRemoveTrainingJobEvent.Raise(new TrainingBuildingUnitTypeEventArgs(TrainingBuilding, UnitType));
         }
     }
 }

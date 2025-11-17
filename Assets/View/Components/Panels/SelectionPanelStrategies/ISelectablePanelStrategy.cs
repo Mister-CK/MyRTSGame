@@ -1,4 +1,5 @@
 using Interface;
+using UI.Controller;
 using UnityEngine.UIElements;
 
 namespace View.Components.Panels.SelectionPanelStrategies
@@ -7,7 +8,7 @@ namespace View.Components.Panels.SelectionPanelStrategies
     public interface ISelectablePanelStrategy
     {
         // Builds the specific UI elements within the panel's root container.
-        void Build(VisualElement rootContainer);
+        void Build(SelectionPanel selectionPanel, VisualElement rootContainer);
     
         // Sets up the view when an object of this type is selected.
         void SetView(ISelectable selectable);

@@ -1,9 +1,11 @@
 using Buildings.Model;
+using Buildings.Model.BuildingGroups;
 using Enums;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using View.Components.Panels;
 using View.Extensions;
 
 namespace View.Components.Inventory
@@ -73,7 +75,7 @@ namespace View.Components.Inventory
         /// Initializes the production table by creating and caching all necessary UI elements (rows, buttons).
         /// This should only be called when the *view* is set, not every update.
         /// </summary>
-        public void SetProduction(Dictionary<ResourceType, InventoryData> inventory, ResourceType[] outputTypes)
+        public void SetProduction(SelectionPanel selectionPanel, Dictionary<ResourceType, InventoryData> inventory, ResourceType[] outputTypes)
         {
             // Clear existing UI elements and the cache
             _tableBody.Clear();
@@ -108,13 +110,13 @@ namespace View.Components.Inventory
                 // Attach persistent event listener
                 reduceButton.clicked += () =>
                 {
-                    Debug.Log("reduce output for " + resourceType); 
+                    selectionPanel.ReduceMethod(resourceType);
                 };
 
                 // Column 3: Production Queue (30%) - This is the element that will be updated
                 var outgoingLabel = row.CreateChild<Label>("item-production-queue");
                 // Initial data set
-                outgoingLabel.text = item.Value.Outgoing.ToString(); 
+                outgoingLabel.text = item.Value.InJob.ToString(); 
                 outgoingLabel.style.width = new StyleLength(new Length(30, LengthUnit.Percent));
                 outgoingLabel.style.flexShrink = 0; 
                 outgoingLabel.style.unityTextAlign = UnityEngine.TextAnchor.MiddleRight;
@@ -131,7 +133,8 @@ namespace View.Components.Inventory
                 // Attach persistent event listener
                 addButton.clicked += () => 
                 {
-                    Debug.Log("add output for " + resourceType);
+                    Debug.Log("add clicked for " + resourceType);
+                    selectionPanel.AddMethod(resourceType);
                 };
                 
                 _tableBody.Add(row);
@@ -145,17 +148,13 @@ namespace View.Components.Inventory
         /// Updates the text data for existing production rows. 
         /// This is designed to be called efficiently in the Update cycle.
         /// </summary>
-        public void UpdateProduction(Dictionary<ResourceType, InventoryData> inventory)
+        public void UpdateProduction(Dictionary<ResourceType, InventoryData> inventory, WorkshopBuilding workshopBuilding)
         {
             if (_currentRows.Count == 0) return;
 
             foreach (var row in _currentRows)
             {
-                if (inventory.TryGetValue(row.Key, out var data))
-                {
-                    // Only update the label text based on the latest inventory data
-                    row.Value.text = data.Outgoing.ToString();
-                }
+                row.Value.text = (workshopBuilding.ProductionJobs.Find(el => el.Output.ResourceType == row.Key).Quantity).ToString();
             }
         }
 

@@ -1,7 +1,10 @@
 using Buildings.Model;
+using Buildings.Model.BuildingGroups;
+using Enums;
 using Interface;
 using MyRTSGame.Model.ResourceSystem.Model;
 using Units.Model.Component;
+using UnityEngine;
 using UnityEngine.UIElements;
 using View.Components.Panels.SelectionPanelStrategies;
 
@@ -15,21 +18,22 @@ namespace View.Components.Panels
         private readonly UnitPanelStrategy _unitStrategy;
         private readonly NaturalResourcePanelStrategy _resourceStrategy;
         private readonly BuildingPanelStrategy _buildingStrategy;
-
-        public SelectionPanel(string id = "panel-selection") : base(id) 
+        private readonly HUDController _hudController;
+        public SelectionPanel(HUDController hudController, string id = "panel-selection") : base(id) 
         {
             _unitStrategy = new UnitPanelStrategy();
             _resourceStrategy = new NaturalResourcePanelStrategy();
             _buildingStrategy = new BuildingPanelStrategy();
+            _hudController = hudController;
         }
         
         public override void Build(VisualElement parent)
         {
             base.Build(parent);
             
-            _unitStrategy.Build(Root);
-            _resourceStrategy.Build(Root);
-            _buildingStrategy.Build(Root);
+            _unitStrategy.Build(this, Root );
+            _resourceStrategy.Build(this, Root);
+            _buildingStrategy.Build(this, Root);
         }
 
         /// <summary>
@@ -89,7 +93,7 @@ namespace View.Components.Panels
             
         }
         
-        public void ClearView()
+        private void ClearView()
         {
             if (_activeStrategy != null)
             {
@@ -100,5 +104,48 @@ namespace View.Components.Panels
             
             Hide(); 
         }
+        
+        public void DeleteObject()
+        {
+            _hudController.CreateDeleteEvent(CurrentSelectedObject);
+        }
+        
+        public void ShowUnit()
+        {
+            if (CurrentSelectedObject is not Building building) return;
+            _hudController.ShowSelectionPanel(building.GetOccupant());
+        }
+        
+        public void ShowBuilding()
+        {
+            if (CurrentSelectedObject is not ResourceCollectorComponent resourceCollectorComponent) return;
+            _hudController.ShowSelectionPanel(resourceCollectorComponent.CollectorData.Building);
+        }
+        
+        public void ReduceMethod(ResourceType resourceType)
+        {
+            if (CurrentSelectedObject is not WorkshopBuilding workshopBuilding) return;
+            _hudController.ReduceProduction(workshopBuilding, resourceType);
+        }
+        
+        public void AddMethod(ResourceType resourceType)
+        {
+            if (CurrentSelectedObject is not WorkshopBuilding workshopBuilding) return;
+            _hudController.IncreaseProduction(workshopBuilding, resourceType);
+        }
+        
+        public void RemoveTrainingJob(UnitType unitType)
+        {
+            if (CurrentSelectedObject is not TrainingBuilding trainingBuilding) return;
+            _hudController.RemoveTrainingJob(trainingBuilding, unitType);
+        }
+        
+        public void AddTrainigJob(UnitType unitType)
+        {
+            if (CurrentSelectedObject is not TrainingBuilding trainingBuilding) return;
+            _hudController.AddTrainigJob(trainingBuilding, unitType);
+        }
+        
+        
     }
 }

@@ -3,6 +3,7 @@ using Data;
 using Interface;
 using System.Collections.Generic;
 using Terrains;
+using UI.Controller;
 using UnityEngine;
 using UnityEngine.UIElements;
 using View.Components.Panels;
@@ -18,8 +19,10 @@ namespace View
         private List<HUDPanel> _panels;
         private readonly BuildingPlacer _buildingPlacer;
         private readonly TerrainPlacer _terrainPlacer;
-        public HUDView(BuildingPlacer buildingPlacer, TerrainPlacer terrainPlacer)
+        private readonly HUDController _hudController;
+        public HUDView(HUDController hudController, BuildingPlacer buildingPlacer, TerrainPlacer terrainPlacer)
         {
+            _hudController = hudController;
             _buildingPlacer = buildingPlacer;
             _terrainPlacer = terrainPlacer;
         }
@@ -32,7 +35,7 @@ namespace View
 
             CreateContainers(root, out var overlay, out var leftPanel, out var topContainer, out var bottomContainer);
             CreateMenuAndPanels(topContainer, bottomContainer);
-            CreateSelectionPanel(bottomContainer);
+            CreateSelectionPanel(bottomContainer, _hudController);
         }
 
         private static void CreateContainers(VisualElement root, out VisualElement overlay, out VisualElement leftPanel, out VisualElement topContainer, out VisualElement bottomContainer)
@@ -136,9 +139,9 @@ namespace View
             selectionPanel.SetView(selectable);
         }
         
-        private void CreateSelectionPanel(VisualElement bottomContainer)
+        private void CreateSelectionPanel(VisualElement bottomContainer, HUDController hudController)
         {
-            var selectionPanel = new SelectionPanel("panel-selection");
+            var selectionPanel = new SelectionPanel(hudController, "panel-selectio");
             selectionPanel.Build(bottomContainer);
             _panels.Add(selectionPanel);
             selectionPanel.Hide();

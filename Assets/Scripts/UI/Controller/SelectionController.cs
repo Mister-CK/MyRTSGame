@@ -17,7 +17,6 @@ namespace UI.Controller
         [SerializeField] private GameEvent onRemoveOccupantFromBuildingEvent;
         
         [SerializeField] private SelectionView selectionView;
-        [SerializeField] private HUDController hudController;
         private void OnEnable()
         {
             onSelectionEvent.RegisterListener(HandleSelectObject);
@@ -42,7 +41,6 @@ namespace UI.Controller
             if (Input.GetMouseButtonDown(1))
             {
                 onDeselectionEvent.Raise(null);
-                hudController.HideAllPanels();
             }
         }
 
@@ -53,8 +51,6 @@ namespace UI.Controller
             var newObject = selectionEventArgs.SelectedObject;
             
             selectionView.SetView(newObject);
-            
-            hudController.ShowSelectionPanel(newObject);
         }
 
         public void CreateDeleteEvent(ISelectable selectedObject)

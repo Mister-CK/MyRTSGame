@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using View.Components.Panels;
 using View.Extensions;
 
 namespace View.Components.Inventory
@@ -73,7 +74,7 @@ namespace View.Components.Inventory
         /// Initializes the production table by creating and caching all necessary UI elements (rows, buttons).
         /// This should only be called when the *view* is set, not every update.
         /// </summary>
-        public void SetProduction(TrainingBuilding trainingBuilding)
+        public void SetProduction(SelectionPanel selectionPanel, TrainingBuilding trainingBuilding)
         {
             // Clear existing UI elements and the cache
             _tableBody.Clear();
@@ -105,7 +106,7 @@ namespace View.Components.Inventory
                 // Attach persistent event listener
                 reduceButton.clicked += () =>
                 {
-                    Debug.Log("reduce output for " + unitType); 
+                    selectionPanel.RemoveTrainingJob(job.UnitType);
                 };
 
                 // Column 3: Production Queue (30%) - This is the element that will be updated
@@ -128,13 +129,27 @@ namespace View.Components.Inventory
                 // Attach persistent event listener
                 addButton.clicked += () => 
                 {
-                    Debug.Log("add output for " + unitType);
+                    selectionPanel.AddTrainigJob(job.UnitType);
                 };
                 
                 _tableBody.Add(row);
 
                 // Cache the row data for quick updates
                 _currentRows.Add(unitType, outgoingLabel);
+            }
+        }
+        
+        /// <summary>
+        /// Updates the text data for existing production rows. 
+        /// This is designed to be called efficiently in the Update cycle.
+        /// </summary>
+        public void UpdateProduction(Dictionary<ResourceType, InventoryData> inventory, TrainingBuilding trainingBuilding)
+        {
+            if (_currentRows.Count == 0) return;
+
+            foreach (var row in _currentRows)
+            {
+                row.Value.text = (trainingBuilding.TrainingJobs.Find(el => el.UnitType == row.Key).Quantity).ToString();
             }
         }
 

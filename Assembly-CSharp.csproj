@@ -139,7 +139,6 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/ResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobEventArgsAndDestinationType.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/BuildingStates/CompletedState.cs" />
-    <Compile Include="Assets/Scripts/Presentation/SelectionPresenter.cs" />
     <Compile Include="Assets/Scripts/JobSystem/Model/JobQueues/LookingForBuildingJobQueue.cs" />
     <Compile Include="Assets/Scripts/Units/Model/Component/UnitComponent.cs" />
     <Compile Include="Assets/Scripts/Units/Model/JobExecutors/ConsumptionExecutor.cs" />
@@ -188,7 +187,6 @@
     <Compile Include="Assets/Scripts/ResourceSystem/View/GrapesView.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/InventoryData.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitWithJobTypeEventArgs.cs" />
-    <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuldingResourceEventArgs.cs" />
     <Compile Include="Assets/Scripts/UI/Components/ResourceRowProduction.cs" />
     <Compile Include="Assets/Scripts/Enums/PanelType.cs" />
     <Compile Include="Assets/Scripts/Units/Model/JobExecutors/CollectResourceExecutor.cs" />
@@ -217,7 +215,6 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingUnitTypeEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Buildings/Model/Buildings/IronMine.cs" />
-    <Compile Include="Assets/View/Components/Panels/SelectionPanelStrategies/BuildingStatePanelStrategies/IBuildingStatePanelStrategy.cs" />
     <Compile Include="Assets/Scripts/ResourceSystem/Model/ResourceStates/GrowingState.cs" />
     <Compile Include="Assets/Scripts/UI/SelectionView.cs" />
     <Compile Include="Assets/Scripts/Terrains/Model/TerrainStates/CompletedState.cs" />

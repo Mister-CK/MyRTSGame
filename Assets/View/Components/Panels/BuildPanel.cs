@@ -10,7 +10,7 @@ using Terrain = Terrains.Model.Terrain;
 
 namespace View.Components.Panels
 {
-        public class BuildPanel : HUDPanel
+    public class BuildPanel : HUDPanel
     {
         private readonly BuildingPanelData _buildPanelData;
         private static BuildingPlacer _buildingPlacer;
@@ -30,11 +30,11 @@ namespace View.Components.Panels
             _terrainPlacer = terrainPlacer;
             if (_buildingPlacer == null)
             {
-                _buildingPlacer = Object.FindObjectOfType<BuildingPlacer>();
+                _buildingPlacer = Object.FindFirstObjectByType<BuildingPlacer>();
             }
             if (_terrainPlacer == null)
             {
-                _terrainPlacer = Object.FindObjectOfType<TerrainPlacer>();
+                _terrainPlacer = Object.FindFirstObjectByType<TerrainPlacer>();
             }
         }
 

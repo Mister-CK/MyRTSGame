@@ -68,6 +68,7 @@ namespace Application.EventHandlers
         private void OnAddProductionJob(IGameEventArgs args)
         {
             if (args is not WorkshopBuildingBuildingResourceTypeEventArgs eventArgs) return;
+            Debug.Log("Adding production job");
             buildingService.AddProductionJob(eventArgs.WorkshopBuilding, eventArgs.ResourceType);
         }
         
@@ -79,13 +80,13 @@ namespace Application.EventHandlers
         
         private void OnAddTrainingJob(IGameEventArgs args)
         {
-            if (args is not TrainingBuildingBuildingResourceTypeEventArgs eventArgs) return;
+            if (args is not TrainingBuildingUnitTypeEventArgs eventArgs) return;
             buildingService.AddTrainingJob(eventArgs.TrainingBuilding, eventArgs.UnitType);
         }
         
         private void OnRemoveTrainingJob(IGameEventArgs args)
         {
-            if (args is not TrainingBuildingBuildingResourceTypeEventArgs eventArgs) return;
+            if (args is not TrainingBuildingUnitTypeEventArgs eventArgs) return;
             buildingService.RemoveTrainingJob(eventArgs.TrainingBuilding, eventArgs.UnitType);
         }
 

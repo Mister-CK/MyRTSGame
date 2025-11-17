@@ -208,7 +208,6 @@ namespace View.Components.Inventory
             }
         }
 
-
         private VisualElement CreateRow(string name, bool isHeader = false)
         {
             var row = new VisualElement();

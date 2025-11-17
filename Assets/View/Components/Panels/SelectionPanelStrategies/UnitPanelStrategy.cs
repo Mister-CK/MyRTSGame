@@ -1,6 +1,7 @@
 using Interface;
+using System;
+using UI.Controller;
 using Units.Model.Component;
-using UnityEngine;
 using UnityEngine.UIElements;
 using View.Extensions;
 
@@ -13,12 +14,15 @@ namespace View.Components.Panels.SelectionPanelStrategies
         private Label _unitPanelHeader;
         private Button _buildingButton;
         private Button _deleteButton;
-        private Slider _staminaSlider; 
+        private Slider _staminaSlider;
+
+        private SelectionPanel _selectionPanel;
         
-        public void Build(VisualElement rootContainer)
+        public void Build(SelectionPanel selectionPanel, VisualElement rootContainer)
         {
             // Note: The UI element creation is now self-contained here.
             _contentRoot = rootContainer.CreateChild("unit-panel-content");
+            _selectionPanel = selectionPanel;
             
             var topLeftContainer = _contentRoot.CreateChild("panel-top-left-container");
             _buildingButton = topLeftContainer.CreateChild<Button>("building-button");
@@ -31,7 +35,10 @@ namespace View.Components.Panels.SelectionPanelStrategies
             var topRightContainer = _contentRoot.CreateChild("panel-top-right-container");
             _deleteButton = topRightContainer.CreateChild<Button>("delete-button");
             _deleteButton.text = "Delete";
-            _deleteButton.clicked += () => { Debug.Log("Delete button clicked (Unit)"); }; 
+            _deleteButton.clicked += () =>
+            {
+                _selectionPanel.DeleteObject();
+            }; 
            
             _contentRoot.CreateChild("panel-bottom-container");
             
@@ -52,8 +59,14 @@ namespace View.Components.Panels.SelectionPanelStrategies
             _unitPanelHeader.text = unit.name;
             if (unit is ResourceCollectorComponent resourceCollectorComponent)
             {
-                //should call ShowSelectionPanel
-                if (resourceCollectorComponent.CollectorData.Building) _buildingButton.clicked += () => { SetView(resourceCollectorComponent.CollectorData.Building); };
+                if (resourceCollectorComponent.CollectorData.Building)
+                {
+                    _buildingButton.style.display = DisplayStyle.Flex;
+                    _buildingButton.clicked += () =>
+                    {
+                        _selectionPanel.ShowBuilding();
+                    };
+                }
             }
             UpdateView(unit);
         }

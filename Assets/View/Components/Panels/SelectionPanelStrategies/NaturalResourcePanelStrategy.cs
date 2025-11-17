@@ -3,6 +3,7 @@ using Interface;
 using MyRTSGame.Model.ResourceSystem.Model;
 using MyRTSGame.Model.ResourceSystem.Model.ResourceStates;
 using System;
+using UI.Controller;
 using UnityEngine.UIElements;
 using View.Extensions;
 
@@ -17,11 +18,14 @@ namespace View.Components.Panels.SelectionPanelStrategies
         private Slider _growthSlider; 
         private Label _resourceQuantityLabel; 
         private Type _lastKnownStateType;
-        private ResourceType _primaryResourceType; 
+        private ResourceType _primaryResourceType;
+
+        private SelectionPanel _selectionPanel;
         
-        public void Build(VisualElement rootContainer)
+        public void Build(SelectionPanel selectionPanel, VisualElement rootContainer)
         {
             _contentRoot = rootContainer.CreateChild("resource-panel-content");
+            _selectionPanel = selectionPanel;
             
             _resourceNameLabel = _contentRoot.CreateChild<Label>("resource-name-label");
             _resourceNameLabel.AddToClassList("selection-panel-header");

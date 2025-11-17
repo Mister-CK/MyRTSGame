@@ -3,7 +3,6 @@ using Buildings.Model.BuildingGroups;
 using Buildings.Model.BuildingStates;
 using Interface;
 using System;
-using UnityEngine;
 using UnityEngine.UIElements;
 using View.Components.Inventory;
 using View.Extensions;
@@ -28,11 +27,14 @@ namespace View.Components.Panels.SelectionPanelStrategies
         private ResourceTableComponent _inputTable; 
         private ResourceTableComponent _outputTable; 
         private ProductionTableComponent _productionTable; 
-        private TrainingTableComponent _trainingTable; 
+        private TrainingTableComponent _trainingTable;
+        
+        private SelectionPanel _selectionPanel;
 
-        public void Build(VisualElement rootContainer)
+        public void Build(SelectionPanel selectionPanel, VisualElement rootContainer)
         {
             _contentRoot = rootContainer.CreateChild("building-panel-content");
+            _selectionPanel = selectionPanel;
             
             _headerContainer = _contentRoot.CreateChild("building-header-container");
             _headerContainer.style.flexDirection = FlexDirection.Row;
@@ -53,7 +55,10 @@ namespace View.Components.Panels.SelectionPanelStrategies
             _rightButton.style.width = 30;
             _rightButton.style.marginLeft = 10;
             _rightButton.style.display = DisplayStyle.None;
-            _rightButton.clicked += () => { Debug.Log("Delete button clicked (Building)"); };
+            _rightButton.clicked += () =>
+            {
+                _selectionPanel.DeleteObject();
+            };
             
             _statusBarContainer = _contentRoot.CreateChild("building-status-bar-container");
             _statusBarContainer.style.flexDirection = FlexDirection.Column;
@@ -100,8 +105,10 @@ namespace View.Components.Panels.SelectionPanelStrategies
             if (building.GetOccupant() != null)
             {
                 _leftButton.style.display = DisplayStyle.Flex;
-                //should call ShowSelectionPanel
-                _leftButton.clicked += () => { SetView(building.GetOccupant()); };
+                _leftButton.clicked += () =>
+                {
+                    _selectionPanel.ShowUnit();
+                };
             }
             _rightButton.style.display = DisplayStyle.Flex;
 
@@ -154,15 +161,14 @@ namespace View.Components.Panels.SelectionPanelStrategies
                 if (building is WorkshopBuilding)
                 {
                     _productionTable.style.display = DisplayStyle.Flex;
-                    _productionTable.SetProduction(building.GetInventory(), building.OutputTypesWhenCompleted);
+                    _productionTable.SetProduction(_selectionPanel, building.GetInventory(), building.OutputTypesWhenCompleted);
                 }
                 else _productionTable.style.display = DisplayStyle.None;
 
                 if (building is TrainingBuilding trainingBuilding)
                 {
                     _trainingTable.style.display = DisplayStyle.Flex;
-                    _trainingTable.SetProduction(trainingBuilding);
-                    
+                    _trainingTable.SetProduction(_selectionPanel, trainingBuilding);
                 }
                 else _trainingTable.style.display = DisplayStyle.None;
 
@@ -198,7 +204,8 @@ namespace View.Components.Panels.SelectionPanelStrategies
             {
                 if (building.HasInput()) _inputTable.UpdateInputData(building.GetInventory());
                 if (building.HasOuput()) _outputTable.UpdateOutputData(building.GetInventory());
-                if (building is WorkshopBuilding)  _productionTable.UpdateProduction(building.GetInventory());
+                if (building is WorkshopBuilding workshopBuilding) _productionTable.UpdateProduction(building.GetInventory(), workshopBuilding);
+                if (building is TrainingBuilding trainingBuilding) _trainingTable.UpdateProduction(building.GetInventory(), trainingBuilding);
                 return;
             }
         }
