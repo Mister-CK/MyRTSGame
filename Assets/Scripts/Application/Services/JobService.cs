@@ -1,5 +1,6 @@
 using Buildings.Model;
 using Buildings.Model.BuildingGroups;
+using Domain.LocationDestination;
 using Enums;
 using Interface;
 using Domain.Model;

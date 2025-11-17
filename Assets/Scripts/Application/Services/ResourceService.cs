@@ -1,4 +1,5 @@
 using Application.Factories;
+using Domain.LocationDestination;
 using Enums;
 using Interface;
 using Domain.Model;
@@ -37,9 +38,13 @@ namespace Application.Services
         public void PlantResource(PlantResourceJob job)
         {
             var plantedGameObject =  resourceFactory.CreateResource(job.Destination.GetPosition(), job.ResourceType).gameObject;
-            if (job.Destination is not Terrain terrain) return;
-            terrain.SetHasResource(true);
-            plantedGameObject.GetComponent<NaturalResource>().SetTerrain(terrain);
+            if (job.Destination is LocationDestination locationDestination) Destroy(locationDestination.gameObject);
+            
+            if (job.Destination is Terrain terrain)
+            {
+                terrain.SetHasResource(true);
+                plantedGameObject.GetComponent<NaturalResource>().SetTerrain(terrain);
+            }
         }
         
         public void HandleClick(ISelectable selectable)

@@ -167,7 +167,6 @@
     <Compile Include="Assets/Scripts/Domain/JobSystem/Model/Jobs/ConsumptionJob.cs" />
     <Compile Include="Assets/Scripts/Domain/Units/Data/VillagerData.cs" />
     <Compile Include="Assets/Scripts/Domain/Units/Component/LumberJackComponent.cs" />
-    <Compile Include="Assets/Scripts/Domain/JobSystem/Model/LocationDestination.cs" />
     <Compile Include="Assets/Scripts/Domain/Buildings/Model/InventoryData.cs" />
     <Compile Include="Assets/Scripts/Domain/Buildings/Model/Buildings/Tannery.cs" />
     <Compile Include="Assets/Scripts/Domain/JobSystem/Model/Jobs/PlantResourceJob.cs" />
@@ -209,6 +208,7 @@
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/TrainingBuildingUnitTypeEventArgs.cs" />
     <Compile Include="Assets/Scripts/GameEvents/EventArgs/UnitEventArgs.cs" />
     <Compile Include="Assets/Scripts/Domain/Units/JobExecutors/VillagerJobExecutor.cs" />
+    <Compile Include="Assets/Scripts/Domain/LocationDestination/LocationDestination.cs" />
     <Compile Include="Assets/Scripts/Domain/Buildings/Model/Buildings/IronMine.cs" />
     <Compile Include="Assets/Scripts/View/UI/Components/Panels/JobsPanel.cs" />
     <Compile Include="Assets/Scripts/Domain/Units/JobExecutors/PlantResourceExecutor.cs" />
