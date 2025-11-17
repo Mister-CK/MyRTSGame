@@ -1,10 +1,9 @@
 using Buildings.Model;
 using Interface;
-using MyRTSGame.Model;
-using Units.Model.Component;
-using UnityEngine;
+using Domain.Model;
+using Domain.Units.Component;
 
-namespace Units.Model.JobExecutors
+namespace Domain.Units.JobExecutors
 {
     public class VillagerJobExecutor: IJobExecutor
     {

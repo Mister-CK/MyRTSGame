@@ -1,7 +1,7 @@
 using Interface;
 using System;
-using MyRTSGame.Model;
-using MyRTSGame.Model.ResourceSystem.Model;
+using Domain;
+using Domain.Model.ResourceSystem.Model;
 
 public class NaturalResourceEventArgs : EventArgs, IGameEventArgs
 {

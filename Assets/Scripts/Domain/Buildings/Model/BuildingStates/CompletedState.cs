@@ -1,6 +1,6 @@
 ﻿using Enums;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
 using System.Linq;
 
 namespace Buildings.Model.BuildingStates

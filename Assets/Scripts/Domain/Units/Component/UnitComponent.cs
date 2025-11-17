@@ -1,16 +1,17 @@
 using Enums;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 using Navigation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Units.Model.Data;
-using Units.Model.JobExecutors;
+using Domain.Units.Data;
+using Domain.Units.JobExecutors;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Units.Model.Component
+namespace Domain.Units.Component
 {
     public abstract class UnitComponent : MonoBehaviour, ISelectable
     {

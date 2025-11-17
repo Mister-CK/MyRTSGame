@@ -1,5 +1,6 @@
-using MyRTSGame.Model;
-using Units.Model.Component;
+using Domain;
+using Domain.Model;
+using Domain.Units.Component;
 
 namespace Interface
 {

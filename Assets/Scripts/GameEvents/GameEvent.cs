@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using MyRTSGame.Model;
+using Domain;
 
 [CreateAssetMenu]
 public class GameEvent : ScriptableObject

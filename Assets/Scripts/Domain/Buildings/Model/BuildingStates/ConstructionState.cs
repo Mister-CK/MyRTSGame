@@ -1,6 +1,6 @@
 ﻿using Buildings.Model.BuildingStates;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
 
 namespace Buildings.Model
 {

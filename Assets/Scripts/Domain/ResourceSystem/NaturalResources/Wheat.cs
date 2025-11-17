@@ -1,7 +1,7 @@
 using Enums;
 using Interface;
 
-namespace MyRTSGame.Model.ResourceSystem.Model.NaturalResources
+namespace Domain.Model.ResourceSystem.Model.NaturalResources
 {
     public class Wheat : NaturalResource
     {

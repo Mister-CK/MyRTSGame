@@ -1,6 +1,6 @@
 ﻿using Enums;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
 using UnityEngine;
 
 namespace Buildings.Model
@@ -43,7 +43,6 @@ namespace Buildings.Model
 
             // If we reach this point, all required resources are present in the required quantities.
             // We can transition the building to the next state.
-            Debug.Log("Set buildingState to ConstructionState for building: " + building.GetBuildingType());
             building.SetState(new ConstructionState(building));
         }
     }

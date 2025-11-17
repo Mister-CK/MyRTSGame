@@ -1,14 +1,14 @@
 using Application;
 using Application.Services;
 using Buildings.Model;
+using Domain.Model.ResourceSystem.Model.ResourceStates;
 using Enums;
 using Interface;
 using System;
 using System.Collections.Generic;
-using MyRTSGame.Model.ResourceSystem.Model.ResourceStates;
 using UnityEngine;
 
-namespace MyRTSGame.Model.ResourceSystem.Model
+namespace Domain.Model.ResourceSystem.Model
 {
     public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory, IState<IResourceState>
     {

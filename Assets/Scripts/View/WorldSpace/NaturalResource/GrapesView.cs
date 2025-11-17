@@ -1,4 +1,4 @@
-using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
+using Domain.Model.ResourceSystem.Model.NaturalResources;
 
 namespace ResourceSystem.View
 {

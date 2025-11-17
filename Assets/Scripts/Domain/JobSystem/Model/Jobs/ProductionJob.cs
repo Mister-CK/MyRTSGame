@@ -1,4 +1,4 @@
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class ProductionJob
     {

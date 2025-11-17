@@ -1,6 +1,6 @@
-using Units.Model.Data;
+using Domain.Units.Data;
 
-namespace Units.Model.Component
+namespace Domain.Units.Component
 {
     public class LumberJackComponent: ResourceCollectorComponent
     {

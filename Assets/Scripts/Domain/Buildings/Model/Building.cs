@@ -1,12 +1,12 @@
 using Application;
 using Application.Services;
 using Buildings.Model.BuildingStates;
+using Domain.Model;
 using Enums;
 using Interface;
-using MyRTSGame.Model;
 using System;
 using System.Collections.Generic;
-using Units.Model.Component;
+using Domain.Units.Component;
 using Unity.VisualScripting;
 using UnityEngine;
 

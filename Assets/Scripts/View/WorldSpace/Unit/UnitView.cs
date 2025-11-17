@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class UnitView : MonoBehaviour
     {

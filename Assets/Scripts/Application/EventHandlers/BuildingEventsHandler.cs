@@ -67,7 +67,6 @@ namespace Application.EventHandlers
         private void OnAddProductionJob(IGameEventArgs args)
         {
             if (args is not WorkshopBuildingBuildingResourceTypeEventArgs eventArgs) return;
-            Debug.Log("Adding production job");
             buildingService.AddProductionJob(eventArgs.WorkshopBuilding, eventArgs.ResourceType);
         }
         

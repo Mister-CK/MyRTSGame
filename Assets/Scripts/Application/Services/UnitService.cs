@@ -2,8 +2,9 @@ using Application.Factories;
 using Buildings.Model;
 using Enums;
 using Interface;
-using MyRTSGame.Model;
-using Units.Model.Component;
+using Domain;
+using Domain.Model;
+using Domain.Units.Component;
 using UnityEngine;
 
 namespace Application.Services

@@ -1,6 +1,7 @@
 using Application.Services;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 using UnityEngine;
 
 namespace Application.EventHandlers

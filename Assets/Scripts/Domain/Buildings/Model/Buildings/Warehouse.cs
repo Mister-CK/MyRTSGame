@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class Warehouse : SpecialBuilding
     {

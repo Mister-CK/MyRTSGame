@@ -2,12 +2,13 @@ using Buildings.Model;
 using Enums;
 using Interface;
 using JetBrains.Annotations;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 using System;
-using Units.Model.Data;
-using Units.Model.JobExecutors;
+using Domain.Units.Data;
+using Domain.Units.JobExecutors;
 
-namespace Units.Model.Component
+namespace Domain.Units.Component
 {
     public class ResourceCollectorComponent : UnitComponent
     {

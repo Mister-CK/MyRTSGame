@@ -1,7 +1,7 @@
 using Enums;
 using System.Collections.Generic;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class TrainingJob
     {

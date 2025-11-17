@@ -1,8 +1,9 @@
 using Enums;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 
-namespace Units.Model.Data
+namespace Domain.Units.Data
 {
     public class UnitData
     {

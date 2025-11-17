@@ -2,7 +2,7 @@ using Interface;
 using System.Collections;
 using UnityEngine;
 
-namespace MyRTSGame.Model.ResourceSystem.Model.ResourceStates
+namespace Domain.Model.ResourceSystem.Model.ResourceStates
 {
     public class GrowingState: IResourceState
     {

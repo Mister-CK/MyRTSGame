@@ -1,6 +1,6 @@
 using Enums;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
 using UnityEngine;
 
 namespace Buildings.Model

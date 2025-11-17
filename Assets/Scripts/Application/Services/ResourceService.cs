@@ -1,8 +1,9 @@
 using Application.Factories;
 using Enums;
 using Interface;
-using MyRTSGame.Model;
-using MyRTSGame.Model.ResourceSystem.Model;
+using Domain;
+using Domain.Model;
+using Domain.Model.ResourceSystem.Model;
 using UnityEngine;
 using Terrain = Terrains.Model.Terrain;
 

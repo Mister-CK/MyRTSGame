@@ -4,12 +4,11 @@ using System.Collections;
 using UnityEngine;
 using Terrain = Terrains.Model.Terrain;
 using Interface;
-using MyRTSGame.Model;
-using System;
-using Units.Model.Data;
-using Units.Model.JobExecutors;
+using Domain.Model;
+using Domain.Units.Data;
+using Domain.Units.JobExecutors;
 
-namespace Units.Model.Component
+namespace Domain.Units.Component
 {
     public class BuilderComponent : UnitComponent
     {

@@ -1,5 +1,5 @@
 using Interface;
-using Units.Model.Component;
+using Domain.Units.Component;
 using UnityEngine.UIElements;
 using View.Extensions;
 

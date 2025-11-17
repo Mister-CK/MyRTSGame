@@ -1,7 +1,7 @@
 using Enums;
 using Interface;
-using MyRTSGame.Model.ResourceSystem.Model;
-using MyRTSGame.Model.ResourceSystem.Model.ResourceStates;
+using Domain.Model.ResourceSystem.Model;
+using Domain.Model.ResourceSystem.Model.ResourceStates;
 using System;
 using UnityEngine.UIElements;
 using View.Extensions;

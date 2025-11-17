@@ -2,7 +2,7 @@ using Buildings.Model.BuildingGroups;
 using Enums;
 using Interface;
 using System;
-using MyRTSGame.Model;
+using Domain;
 
 public class WorkshopBuildingBuildingResourceTypeEventArgs : EventArgs, IGameEventArgs
 {

@@ -1,6 +1,6 @@
 ﻿using Enums;
 
-namespace MyRTSGame.Model
+namespace Domain
 {
     public class Resource
     {

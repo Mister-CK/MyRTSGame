@@ -133,7 +133,6 @@ namespace View.Components.Inventory
                 // Attach persistent event listener
                 addButton.clicked += () => 
                 {
-                    Debug.Log("add clicked for " + resourceType);
                     selectionPanel.AddMethod(resourceType);
                 };
                 

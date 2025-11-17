@@ -2,7 +2,7 @@ using Buildings.Model.BuildingGroups;
 using Enums;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class Lumberjack : ResourceBuilding
     {

@@ -1,8 +1,8 @@
 using Interface;
-using MyRTSGame.Model;
-using Units.Model.Component;
+using Domain.Model;
+using Domain.Units.Component;
 
-namespace Units.Model.JobExecutors{
+namespace Domain.Units.JobExecutors{
     public class LookingForBuildingExecutor: IJobExecutor
     {
         public void Execute(UnitComponent unitComponent, Job job)

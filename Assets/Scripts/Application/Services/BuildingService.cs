@@ -3,7 +3,8 @@ using Buildings.Model.BuildingGroups;
 using Enums;
 using Interface;
 using JetBrains.Annotations;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -1,11 +1,10 @@
 using Enums;
 using Interface;
-using MyRTSGame.Model;
-using MyRTSGame.Model.ResourceSystem.Model.NaturalResources;
-using Units.Model.Component;
-using UnityEngine;
+using Domain.Model;
+using Domain.Model.ResourceSystem.Model.NaturalResources;
+using Domain.Units.Component;
 
-namespace Units.Model.JobExecutors
+namespace Domain.Units.JobExecutors
 {
     public class CollectResourceExecutor : IJobExecutor
     {

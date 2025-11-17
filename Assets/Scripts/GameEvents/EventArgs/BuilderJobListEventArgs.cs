@@ -1,7 +1,8 @@
 using Interface;
 using System;
 using System.Collections.Generic;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 
 public class BuilderJobListEventArgs : EventArgs, IGameEventArgs
 {

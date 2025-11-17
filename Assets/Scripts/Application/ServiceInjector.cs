@@ -1,9 +1,10 @@
 using Application.Services;
 using Buildings.Model;
-using MyRTSGame.Model;
-using MyRTSGame.Model.ResourceSystem.Model;
+using Domain;
+using Domain.Model;
+using Domain.Model.ResourceSystem.Model;
 using ResourceSystem.View;
-using Units.Model.Component;
+using Domain.Units.Component;
 using UnityEngine;
 using Terrain = Terrains.Model.Terrain;
 

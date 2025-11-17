@@ -1,7 +1,7 @@
 using Interface;
-using Units.Model.Component;
+using Domain.Units.Component;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class Job
     {

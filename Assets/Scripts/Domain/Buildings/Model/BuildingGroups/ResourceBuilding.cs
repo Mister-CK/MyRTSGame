@@ -1,9 +1,10 @@
 using Enums;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using MyRTSGame.Model.ResourceSystem.Model;
+using Domain.Model.ResourceSystem.Model;
 using UnityEngine;
 
 namespace Buildings.Model.BuildingGroups

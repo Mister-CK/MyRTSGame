@@ -1,10 +1,10 @@
 using Buildings.Model;
 using Interface;
-using MyRTSGame.Model;
+using Domain.Model;
 using Terrains.Model;
-using Units.Model.Component;
+using Domain.Units.Component;
 
-namespace Units.Model.JobExecutors
+namespace Domain.Units.JobExecutors
 {
     public class BuilderJobExecutor: IJobExecutor
     {

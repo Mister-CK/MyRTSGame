@@ -1,6 +1,7 @@
 using Interface;
 using System;
-using MyRTSGame.Model;
+using Domain;
+using Domain.Model;
 
 public class JobEventArgs : EventArgs, IGameEventArgs
 {

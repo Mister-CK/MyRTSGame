@@ -1,7 +1,7 @@
 using Enums;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     [CreateAssetMenu(fileName = "LookingForBuildingJobQueue", menuName = "ScriptableObjects/LookingForBuildingJobQueue", order = 1)]
     public class LookingForBuildingJobQueue: JobQueueBase<LookingForBuildingJob>

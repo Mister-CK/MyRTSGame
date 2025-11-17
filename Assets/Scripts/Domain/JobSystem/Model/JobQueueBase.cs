@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class JobQueueBase<T> : ScriptableObject where T : Job
     {

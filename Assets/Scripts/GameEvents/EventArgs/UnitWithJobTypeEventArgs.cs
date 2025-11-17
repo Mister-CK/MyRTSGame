@@ -1,7 +1,7 @@
 using Enums;
 using Interface;
 using System;
-using Units.Model.Component;
+using Domain.Units.Component;
 
 public class UnitWithJobTypeEventArgs : EventArgs, IGameEventArgs
 {

@@ -1,6 +1,6 @@
 using Interface;
 using System;
-using MyRTSGame.Model;
+using Domain;
 
 public class SelectionEventArgs : EventArgs, IGameEventArgs
 {

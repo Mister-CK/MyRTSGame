@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Units.Model.Component;
+using Domain.Units.Component;
 using UnityEngine;
 
-namespace Units
+namespace Domain.Units
 {
     public class UnitList : MonoBehaviour
     {

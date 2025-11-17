@@ -1,7 +1,7 @@
 using Buildings.Model;
 using Enums;
 using System;
-using Units.Model.Component;
+using Domain.Units.Component;
 using UnityEngine;
 
 namespace Application.Factories

@@ -1,7 +1,7 @@
 using Interface;
 using UnityEngine;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class LocationDestination : MonoBehaviour, IDestination
     {

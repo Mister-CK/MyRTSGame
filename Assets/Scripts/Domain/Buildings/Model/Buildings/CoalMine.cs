@@ -1,7 +1,7 @@
 using Buildings.Model.BuildingGroups;
 using Enums;
 
-namespace MyRTSGame.Model
+namespace Domain.Model
 {
     public class CoalMine : ResourceBuilding
     {

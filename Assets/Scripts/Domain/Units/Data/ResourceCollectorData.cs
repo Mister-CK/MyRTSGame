@@ -1,7 +1,7 @@
 using Buildings.Model;
 using Enums;
 
-namespace Units.Model.Data
+namespace Domain.Units.Data
 {
     public class ResourceCollectorData : UnitData
     {

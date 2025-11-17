@@ -1,8 +1,8 @@
 using Enums;
 using Interface;
-using MyRTSGame.Model;
+using Domain;
 
-namespace Units.Model.Data
+namespace Domain.Units.Data
 {
     public class VillagerData : UnitData
     {

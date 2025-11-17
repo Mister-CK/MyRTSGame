@@ -3,7 +3,7 @@ using Buildings.Model.BuildingGroups;
 using Enums;
 using Interface;
 using Terrains;
-using Units.Model.Component;
+using Domain.Units.Component;
 using UnityEngine;
 using UnityEngine.UIElements;
 
