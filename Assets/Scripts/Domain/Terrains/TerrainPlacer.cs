@@ -1,6 +1,7 @@
 ﻿using Terrains.Model.TerrainStates;
 using UnityEngine;
 using MyTerrain = Terrains.Model.Terrain;
+
 namespace Terrains
 {
     public class TerrainPlacer : MonoBehaviour
@@ -47,9 +48,7 @@ namespace Terrains
                 _isPlacing = false;
                 Destroy(_terrain.gameObject);
             }
-            
         }
-
 
         public void StartPlacingTerrainFoundation(MyTerrain terrainPrefab)
         {

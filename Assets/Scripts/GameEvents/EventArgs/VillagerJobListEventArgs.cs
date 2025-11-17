@@ -2,7 +2,6 @@ using Enums;
 using Interface;
 using System;
 using System.Collections.Generic;
-using Domain;
 using Domain.Model;
 
 public class VillagerJobListEventArgs : EventArgs, IGameEventArgs

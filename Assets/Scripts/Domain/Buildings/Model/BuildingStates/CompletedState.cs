@@ -1,6 +1,5 @@
 ﻿using Enums;
 using Interface;
-using Domain;
 using System.Linq;
 
 namespace Buildings.Model.BuildingStates

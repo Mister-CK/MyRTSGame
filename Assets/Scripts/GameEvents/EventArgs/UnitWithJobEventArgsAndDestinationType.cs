@@ -2,7 +2,6 @@ using Enums;
 using Interface;
 using System;
 using JetBrains.Annotations;
-using Domain;
 using Domain.Model;
 using Domain.Units.Component;
 

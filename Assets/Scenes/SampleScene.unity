@@ -148,8 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea9f83234d84130828d7a250abcb04a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobListText: {fileID: 1420246623}
-  villagerJobQueue: {fileID: 11400000, guid: 07bfbf2128cb640cb8f203145f95dace, type: 2}
 --- !u!4 &8652102
 Transform:
   m_ObjectHideFlags: 0
@@ -663,8 +661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb49c63bdf7441089bca765d0cd42309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainPrefab: {fileID: 1452487574963390485, guid: 75c23e91864074ce5a56210ad7c1d2ba, type: 3}
-  terrainPlacer: {fileID: 942762450}
 --- !u!1 &79878985
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,14 +747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f2adb931384b2da1917772f074ba10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceUIView: {fileID: 83996172}
-  naturalResourceName: {fileID: 1649275232}
-  statusBarPrefab: {fileID: 7640077128010801710, guid: 875fb93ffac6c46d5a3037089d5950fb, type: 3}
-  statusBars: {fileID: 502635277}
-  resourceGrid: {fileID: 32334586}
-  resourceGridTitle: {fileID: 8863278155091339003, guid: 0ad6cb3e9a9f840ddb41a8ce0dc000ae, type: 3}
-  resourceRowPrefab: {fileID: 6483289830034000424, guid: cdece34f4e52d4446a96bd22e91cd8ab, type: 3}
-  columnsPrefab: {fileID: 2819131119705230285, guid: 98c639de350cb403faf14b42d4b2d07e, type: 3}
 --- !u!114 &83996171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,8 +965,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -1520293061641354086, guid: 350d7f1ba28734c4081a6d54a3e281d3, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &112078394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,50 +1361,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139159902}
   m_CullTransparentMesh: 1
---- !u!1 &152345428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 152345429}
-  - component: {fileID: 152345430}
-  m_Layer: 5
-  m_Name: SelectionPresenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &152345429
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152345428}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1958554221}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &152345430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 152345428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b66792c32fb3447da8f27003e71490a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &161940880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,8 +2332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -4873794173270685453, guid: 407256c9c7b49443aa6de7f85de926b7, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &218202260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2674,8 +2614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 636898961282055473, guid: fcf69de6b6fa641049b63b62baa4bf70, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &233368280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2911,7 +2849,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 243730907}
   stylesheet: {fileID: 7433441132597879392, guid: d7911db315c84157848f893c3d1eb127, type: 3}
-  selectionController: {fileID: 604154919}
+  onDeleteBuildingEvent: {fileID: 11400000, guid: 7555918c225f7461db7cc26fcd0da987, type: 2}
+  onDeleteUnitEvent: {fileID: 11400000, guid: a6600ef06dcaa46f384318c783d56b79, type: 2}
+  onRemoveOccupantFromBuildingEvent: {fileID: 11400000, guid: e398ba74d22404f98bcd8978ac45a5e8, type: 2}
+  onAddProductionJobEvent: {fileID: 11400000, guid: af36e03a9e3e04cd6a5d366519bbaa6e, type: 2}
+  onRemoveProductionJobEvent: {fileID: 11400000, guid: 09c2862670ca543e78c8e7a3faac2171, type: 2}
+  onAddTrainingJobEvent: {fileID: 11400000, guid: 477b4c2a8d67541f58440f600845cc16, type: 2}
+  onRemoveTrainingJobEvent: {fileID: 11400000, guid: d0dd539a6a09e4a2986e8a2dafd3e1e2, type: 2}
+  onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+  onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
 --- !u!1 &272337010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,13 +3109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bd193d656848bea2ff4cd8e6bd3d09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildPanel: {fileID: 1876233368}
-  jobsPanel: {fileID: 11918450}
-  statsPanel: {fileID: 419677631}
-  menuPanel: {fileID: 189051309}
-  selectedPanel: {fileID: 2057471058}
-  onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
-  onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
 --- !u!1 &276552122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3645,8 +3584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 2616831479755180950, guid: 113351567a5044917b31e9da4573cd47, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &296720978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3999,17 +3936,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311654285}
   m_CullTransparentMesh: 1
---- !u!114 &318475139 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7755465208157846515, guid: 2992a9e33511345ae8bf844737f7607b, type: 3}
-  m_PrefabInstance: {fileID: 2312335448735733547}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243fd2077c33b41a9a66c6a8a2de1a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &328688139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,8 +4121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -7509772053278564057, guid: e205213ededae4d31be7a3cba01de174, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &334573810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4343,8 +4267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 1623959894014395380, guid: 0b5cb7650785a4bccb504a057197845e, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &347798970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5295,8 +5217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 6370013049585915297, guid: 23859632ddc274a6da93b3e4898d103c, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &411717120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5872,8 +5792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3872918777280874328, guid: 78473f61096bb4961b4277f4d48ec6dd, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &465642131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6562,8 +6480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 6069463790924367183, guid: 5d51d987933ef4d978e33ac8625cf41d, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &529028323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7025,8 +6941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 2451293875310770983, guid: 0022e4d84c8284f40a2eae8f1b15abc1, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &564699053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7369,58 +7283,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7336935787240069783, guid: 916ef07e9b5e041b3b627b9bbe6f9ae9, type: 3}
   m_PrefabInstance: {fileID: 432419303}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &604154918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 604154920}
-  - component: {fileID: 604154919}
-  m_Layer: 0
-  m_Name: SelectionService
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &604154919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604154918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd1f7547b5a84710987c5b6c90fcfd54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
-  onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
-  onDeleteBuildingEvent: {fileID: 11400000, guid: 7555918c225f7461db7cc26fcd0da987, type: 2}
-  onDeleteUnitEvent: {fileID: 11400000, guid: a6600ef06dcaa46f384318c783d56b79, type: 2}
-  onUpdateUIViewForBuildingEvent: {fileID: 11400000, guid: 7c2328ddcf1704d1f8b050b675f9df0b, type: 2}
-  onRemoveOccupantFromBuildingEvent: {fileID: 11400000, guid: e398ba74d22404f98bcd8978ac45a5e8, type: 2}
-  selectionView: {fileID: 2057471062}
-  hudController: {fileID: 243730908}
---- !u!4 &604154920
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604154918}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.41491, y: 3.8738003, z: 1.0863113}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1583620799}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &621797393
 GameObject:
   m_ObjectHideFlags: 0
@@ -7732,12 +7594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda8654c16dd4b9bbd16613a23e6a702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foundationStateBuildingView: {fileID: 671366364}
-  foundationStateBuildingName: {fileID: 272337012}
-  inputTitlePrefab: {fileID: 7088837718260890455, guid: 91dea68316a00465cbfda5f37864365d, type: 3}
-  columnsPrefab: {fileID: 2819131119705230285, guid: 98c639de350cb403faf14b42d4b2d07e, type: 3}
-  resourceRowInputPrefab: {fileID: 6483289830034000424, guid: ee71917aea10b4dc5ba749a5256e3a03, type: 3}
-  inputLayoutGrid: {fileID: 575104576}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8576,8 +8432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 4132305323593172328, guid: be6acc3fc485647ea8f7e2f19d36e31c, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &828015423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8725,11 +8579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3387b0251b4957bf0def4bb0889db9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitUIView: {fileID: 831199727}
-  unitName: {fileID: 478625517}
-  buildingButton: {fileID: 562044225}
-  staminaBarPrefab: {fileID: 7640077128010801710, guid: 875fb93ffac6c46d5a3037089d5950fb, type: 3}
-  statusBars: {fileID: 1110005427}
 --- !u!114 &831199726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9271,8 +9120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -8955277670983543986, guid: e08340a44def84013b2f37995121a993, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &900507817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10331,8 +10178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 3497243416989719787, guid: 000ab48c7f8db489e8505e52b7ff6b12, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &972682531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10661,8 +10506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 7828197378678885892, guid: ff0cdc5a4e78345b5b6722b783975718, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1014846463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10809,8 +10652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 95734144688151740, guid: f7076d0fbc59647308d3b67e7991e9d3, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1023865872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11832,22 +11673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2e7a727fc641b2807160aaf9e1505e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingView: {fileID: 1110109881}
-  buildingName: {fileID: 311654287}
-  columnsPrefab: {fileID: 2819131119705230285, guid: 98c639de350cb403faf14b42d4b2d07e, type: 3}
-  occupantButton: {fileID: 328688139}
-  inputLayoutGrid: {fileID: 765399206}
-  inputTitlePrefab: {fileID: 7088837718260890455, guid: 91dea68316a00465cbfda5f37864365d, type: 3}
-  resourceRowInputPrefab: {fileID: 6483289830034000424, guid: ee71917aea10b4dc5ba749a5256e3a03, type: 3}
-  outputLayoutGrid: {fileID: 1910553885}
-  outputTitlePrefab: {fileID: 8863278155091339003, guid: 0ad6cb3e9a9f840ddb41a8ce0dc000ae, type: 3}
-  resourceRowOutputPrefab: {fileID: 6483289830034000424, guid: cdece34f4e52d4446a96bd22e91cd8ab, type: 3}
-  trainingJobLayoutGrid: {fileID: 1352187676}
-  trainingJobTitlePrefab: {fileID: 8863278155091339003, guid: 36e7bc20d846e45bb8cfa738cd8afb6b, type: 3}
-  resourceRowTrainingPrefab: {fileID: 6483289830034000424, guid: c7719d6e5ad3f45108ab944c8b445799, type: 3}
-  jobQueueLayoutGrid: {fileID: 2077289325}
-  jobQueueTitlePrefab: {fileID: 8863278155091339003, guid: 36e7bc20d846e45bb8cfa738cd8afb6b, type: 3}
-  resourceRowProductionPrefab: {fileID: 6483289830034000424, guid: a5ab49cf350924b38b90c625536b3095, type: 3}
 --- !u!114 &1110109880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11944,8 +11769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a9ea2242e048fcbed4d62209f78de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constructionStateBuildingView: {fileID: 1119149290}
-  constructionStateBuildingName: {fileID: 1010436774}
 --- !u!224 &1119149289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12576,8 +12399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb49c63bdf7441089bca765d0cd42309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainPrefab: {fileID: -8953618131679644414, guid: 5ee0065f60d454fbfb0a5b208db86e69, type: 3}
-  terrainPlacer: {fileID: 942762450}
 --- !u!4 &1165224371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7336935787240069783, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
@@ -13322,8 +13143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 2754002612896962203, guid: 3806d14dd57804758a97b94632eaa3fd, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1283232777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14225,8 +14044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb49c63bdf7441089bca765d0cd42309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainPrefab: {fileID: -8538958959602705874, guid: 793604f2caf8e4e55956be9ae89f1bb9, type: 3}
-  terrainPlacer: {fileID: 942762450}
 --- !u!1 &1349801082
 GameObject:
   m_ObjectHideFlags: 0
@@ -14279,8 +14096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 4355469057617232313, guid: c00fcdc525aa74f6d892ba6a8bbe0949, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1349801085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15101,6 +14916,7 @@ MonoBehaviour:
   resourceFactory: {fileID: 2114057366}
   onAddCollectResourceJobsEvent: {fileID: 11400000, guid: e615dd2f8548248f390d38b1388ce5c3, type: 2}
   onSelectionEvent: {fileID: 11400000, guid: 2900b1896d4454d579c5c30f8eee07c8, type: 2}
+  onDeselectionEvent: {fileID: 11400000, guid: 6c64d55bd8d504ef190d061f53d0aaf3, type: 2}
 --- !u!1 &1463963394
 GameObject:
   m_ObjectHideFlags: 0
@@ -15615,7 +15431,6 @@ Transform:
   m_Children:
   - {fileID: 1266247124}
   - {fileID: 1492421415}
-  - {fileID: 604154920}
   - {fileID: 1219401900}
   - {fileID: 1454350578}
   - {fileID: 1757019531}
@@ -15811,8 +15626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 4118909104274661759, guid: e03d32be355754aab9f381c8cd54068d, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1588817045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16276,8 +16089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -7615425864688425429, guid: 430d577ca104743698013cc5f804edf6, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1611164406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16809,8 +16620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -672785199249896158, guid: 683d84dafa1c643c4a2e5068c4d0f1af, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1670770599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17314,8 +17123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -3676066282929572028, guid: 5cb3c0431238e4599a055b201a8b0cc5, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1713402467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17566,8 +17373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 7707458459796965524, guid: ad7afeb8d44f84c62adacba774d8f78e, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1739331845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18190,8 +17995,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 3930822372519343704, guid: 366814349ccef4e91a3b343a33dc8f9e, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1857961392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18443,8 +18246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 5669148175730067889, guid: b85c8b4966d63404682305eef8d0af22, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1885985823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19140,8 +18941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: -8004228598434704686, guid: 2e0a6985daf5446fba57bfef1649f8d6, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1936373010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19266,7 +19065,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 243730906}
-  - {fileID: 152345429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1965168675
@@ -19321,8 +19119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 8391042799036013519, guid: 7af8db1c26c204f538ffbed8eb4a6425, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1965168678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19469,8 +19265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0868c81c3ef645fcba35ee168f57e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 5752189215745021240, guid: 31e6afb29268e4999ac07f9756f136ec, type: 3}
-  buildingPlacer: {fileID: 318475139}
 --- !u!114 &1977908326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19937,12 +19731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdf4fb0c17a4e4898cf9f4862cbebe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foundationStateBuildingUIView: {fileID: 671366366}
-  constructionStateBuildingUIView: {fileID: 1119149288}
-  completedStateBuildingUIView: {fileID: 1110109879}
-  unitUIView: {fileID: 831199725}
-  naturalResourceUIView: {fileID: 83996170}
-  selectionController: {fileID: 604154919}
 --- !u!1001 &2066527908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20529,9 +20317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 456c28ea083d464ea324b311d458752c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheatPrefab: {fileID: 1843492253250498778, guid: efc0b0f7b74ba4dedbac20c7030c9461, type: 3}
-  treePrefab: {fileID: 3946421596193778632, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
-  grapesPrefab: {fileID: 1843492253250498778, guid: 794066c9a372a4ac1b4abce76991b034, type: 3}
+  wheatPrefab: {fileID: 8623189987435137773, guid: efc0b0f7b74ba4dedbac20c7030c9461, type: 3}
+  treePrefab: {fileID: 7819787411422215065, guid: 681139c8771f242b58d0c5707aed7f31, type: 3}
+  grapesPrefab: {fileID: 57732862090660610, guid: 794066c9a372a4ac1b4abce76991b034, type: 3}
 --- !u!1 &2133122187
 GameObject:
   m_ObjectHideFlags: 0

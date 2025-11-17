@@ -1,4 +1,3 @@
-using Domain;
 using Domain.Model.ResourceSystem.Model;
 using Enums;
 using Interface;

@@ -1,6 +1,5 @@
 using Application.Services;
 using Buildings.Model;
-using Domain;
 using Domain.Model;
 using Domain.Model.ResourceSystem.Model;
 using ResourceSystem.View;
@@ -73,7 +72,8 @@ namespace Application
 
         public void InjectResourceDependencies(NaturalResource naturalResource)
         {
-            naturalResource.resourceService = resourceService;
+            naturalResource.OnCreateAddResourceJobsEvent = (r) => resourceService.CreateAddResourceJobsEvent(r);
+            naturalResource.OnObjectDestroyed = () => resourceService.HandleDeselect();
         }
         
         public void InjectTerrainDependencies(Terrain terrain)
@@ -117,7 +117,7 @@ namespace Application
             var allResources = FindObjectsByType<NaturalResource>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (var resource in allResources)
             {
-                resource.resourceService = resourceService;
+                InjectResourceDependencies(resource);
             }
         }
     }

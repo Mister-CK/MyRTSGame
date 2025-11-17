@@ -2,7 +2,6 @@ using Application.Factories;
 using Buildings.Model;
 using Enums;
 using Interface;
-using Domain;
 using Domain.Model;
 using Domain.Units.Component;
 using UnityEngine;

@@ -1,3 +1,4 @@
+using Buildings.Model;
 using Enums;
 using Interface;
 using Domain.Model;

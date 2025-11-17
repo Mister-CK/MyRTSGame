@@ -1,6 +1,5 @@
 using Application.Services;
 using Interface;
-using Domain;
 using Domain.Model;
 using UnityEngine;
 

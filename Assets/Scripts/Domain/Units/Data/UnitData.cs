@@ -1,6 +1,5 @@
 using Enums;
 using Interface;
-using Domain;
 using Domain.Model;
 
 namespace Domain.Units.Data

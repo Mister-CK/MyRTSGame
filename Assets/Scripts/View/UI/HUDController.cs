@@ -26,17 +26,21 @@ namespace View
         [SerializeField] private GameEvent onRemoveTrainingJobEvent;
         
         [SerializeField] private GameEvent onSelectionEvent;
+        [SerializeField] private GameEvent onDeselectionEvent;
 
         private HUDView _hudView;
 
         private void OnEnable()
         {
             onSelectionEvent.RegisterListener(HandleSelectObject);
+            onDeselectionEvent.RegisterListener(HandleDeselectObject);
         }
 
         private void OnDisable()
         {
             onSelectionEvent.UnregisterListener(HandleSelectObject);
+            onDeselectionEvent.RegisterListener(HandleDeselectObject);
+
         }
         
         private void Awake()
@@ -60,6 +64,10 @@ namespace View
         private void LateUpdate()
         {
             if (Input.GetMouseButtonDown(1)) _hudView.HideAllPanels();
+        }
+        private void HandleDeselectObject(IGameEventArgs args)
+        {
+            _hudView.HideAllPanels();
         }
         
         public void ShowSelectionPanel(ISelectable selectedObject)

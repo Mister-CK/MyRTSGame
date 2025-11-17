@@ -21,7 +21,7 @@ namespace Buildings.Model
                 Destroy(gameObject);
             }
 
-            _buildings = new List<Building>(FindObjectsOfType<Building>());
+            _buildings = new List<Building>(FindObjectsByType<Building>(FindObjectsInactive.Include, FindObjectsSortMode.None));
         }
 
         public void SetFirstWareHouse(bool firstWarehouse)

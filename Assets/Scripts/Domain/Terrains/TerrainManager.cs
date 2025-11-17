@@ -22,7 +22,6 @@ namespace Terrains
 
         private void Awake()
         {
-            // Ensure there is only one instance of BuildingManager
             if (Instance == null)
                 Instance = this;
             else

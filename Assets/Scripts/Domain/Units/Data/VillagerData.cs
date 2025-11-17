@@ -1,6 +1,4 @@
 using Enums;
-using Interface;
-using Domain;
 
 namespace Domain.Units.Data
 {

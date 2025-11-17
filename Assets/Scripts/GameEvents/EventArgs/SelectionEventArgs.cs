@@ -1,6 +1,5 @@
 using Interface;
 using System;
-using Domain;
 
 public class SelectionEventArgs : EventArgs, IGameEventArgs
 {

@@ -1,7 +1,6 @@
 using Interface;
 using System;
 using System.Collections.Generic;
-using Domain;
 using Domain.Model;
 
 public class BuilderJobListEventArgs : EventArgs, IGameEventArgs

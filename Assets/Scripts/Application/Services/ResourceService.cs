@@ -1,7 +1,6 @@
 using Application.Factories;
 using Enums;
 using Interface;
-using Domain;
 using Domain.Model;
 using Domain.Model.ResourceSystem.Model;
 using UnityEngine;
@@ -15,7 +14,7 @@ namespace Application.Services
 
         [SerializeField] private GameEvent onAddCollectResourceJobsEvent;
         [SerializeField] private GameEvent onSelectionEvent;
-        
+        [SerializeField] private GameEvent onDeselectionEvent;
         public void CreateAddResourceJobsEvent(NaturalResource naturalResource)
         {
             onAddCollectResourceJobsEvent.Raise(new NaturalResourceEventArgs(naturalResource));
@@ -37,7 +36,7 @@ namespace Application.Services
 
         public void PlantResource(PlantResourceJob job)
         {
-            var plantedGameObject =  resourceFactory.CreateResource(job.Destination.GetPosition(), job.ResourceType);
+            var plantedGameObject =  resourceFactory.CreateResource(job.Destination.GetPosition(), job.ResourceType).gameObject;
             if (job.Destination is not Terrain terrain) return;
             terrain.SetHasResource(true);
             plantedGameObject.GetComponent<NaturalResource>().SetTerrain(terrain);
@@ -46,6 +45,10 @@ namespace Application.Services
         public void HandleClick(ISelectable selectable)
         {
             onSelectionEvent.Raise(new SelectionEventArgs(selectable));
+        }
+        public void HandleDeselect()
+        {
+            onDeselectionEvent.Raise(null);
         }
     }
 }

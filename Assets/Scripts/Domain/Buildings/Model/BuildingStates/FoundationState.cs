@@ -1,7 +1,5 @@
 ﻿using Enums;
 using Interface;
-using Domain;
-using UnityEngine;
 
 namespace Buildings.Model
 {

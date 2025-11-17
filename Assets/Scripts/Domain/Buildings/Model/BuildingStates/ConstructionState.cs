@@ -1,6 +1,5 @@
 ﻿using Buildings.Model.BuildingStates;
 using Interface;
-using Domain;
 
 namespace Buildings.Model
 {

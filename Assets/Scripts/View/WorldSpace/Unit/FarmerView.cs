@@ -1,4 +1,3 @@
-using Domain;
 using Domain.Model;
 using Domain.Units.Component;
 

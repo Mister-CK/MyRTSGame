@@ -54,20 +54,14 @@ namespace View.Components.Panels.SelectionPanelStrategies
         public void SetView(ISelectable selectable)
         {
             if (selectable is not NaturalResource resource) return;
-
+            if (resource == null) return; 
             _contentRoot.style.display = DisplayStyle.Flex;
             
             _primaryResourceType = resource.GetResourceType();
             _resourceNameLabel.text = resource.name;
 
-            if (resource.GetState() is GrowingState)
-            {
-                _statusBarContainer.style.display = DisplayStyle.Flex;
-            }
-            else
-            {
-                _statusBarContainer.style.display = DisplayStyle.None;
-            }
+            if (resource.GetState() is GrowingState) _statusBarContainer.style.display = DisplayStyle.Flex;
+            else _statusBarContainer.style.display = DisplayStyle.None;
             
             UpdateView(resource);
         }
@@ -75,7 +69,8 @@ namespace View.Components.Panels.SelectionPanelStrategies
         public void UpdateView(ISelectable selectable)
         {
             if (selectable is not NaturalResource resource) return;
-            
+            if (resource == null) return; 
+
             if (resource.GetState() is GrowingState growingState)
             {
                 _growthSlider.value = growingState.GetPercentageGrown(); 

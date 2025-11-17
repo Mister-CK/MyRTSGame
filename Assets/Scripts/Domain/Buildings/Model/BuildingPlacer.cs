@@ -14,7 +14,7 @@ namespace Buildings.Model
         private bool _isPlacing;
         private void Start()
         {
-            _navMeshManager = FindObjectOfType<NavMeshManager>();
+            _navMeshManager = FindFirstObjectByType<NavMeshManager>();
         }
         private void Update()
         {

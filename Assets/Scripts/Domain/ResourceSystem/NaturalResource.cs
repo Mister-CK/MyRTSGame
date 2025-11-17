@@ -1,5 +1,3 @@
-using Application;
-using Application.Services;
 using Buildings.Model;
 using Domain.Model.ResourceSystem.Model.ResourceStates;
 using Enums;
@@ -17,15 +15,12 @@ namespace Domain.Model.ResourceSystem.Model
         private IResourceState _state;
         protected Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         protected ResourceType ResourceType;
-        public BoxCollider BCollider { get; private set; }
-        private List<CollectResourceJob> _collectResourceJobs = new List<CollectResourceJob>();
-        protected Terrains.Model.Terrain Terrain;
-        
-        public ResourceService resourceService;
-
+        private List<CollectResourceJob> _collectResourceJobs = new ();
+        private Terrains.Model.Terrain _terrain;
+        public Action<NaturalResource> OnCreateAddResourceJobsEvent { get; set; } 
+        public Action OnObjectDestroyed { get; set; }
         protected virtual void Start()
         {
-            ServiceInjector.Instance.InjectResourceDependencies(this);
             _state = new GrowingState(this, this, GrowthRate);
         }
 
@@ -57,6 +52,7 @@ namespace Domain.Model.ResourceSystem.Model
             if (IsInventoryEmpty())
             {
                 Destroy(gameObject); //this doesn't work well, the object is destroyed but it remains in the UI.
+                OnObjectDestroyed?.Invoke();
             }
         }
         
@@ -103,18 +99,18 @@ namespace Domain.Model.ResourceSystem.Model
             if (_state is ResourceStates.CompletedState)
             {
                 ModifyInventory(ResourceType, data => data.Current = MaxQuantity);
-                resourceService.CreateAddResourceJobsEvent(this); // I don't think this is used anymore
+                OnCreateAddResourceJobsEvent?.Invoke(this); // I don't think this is used anymore
             }
         }
         
         public void SetTerrain(Terrains.Model.Terrain terrain)
         {
-            Terrain = terrain;
+            _terrain = terrain;
         }
         
         public Terrains.Model.Terrain GetTerrain()
         {
-            return Terrain;
+            return _terrain;
         }
     }
 }

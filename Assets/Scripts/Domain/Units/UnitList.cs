@@ -21,7 +21,7 @@ namespace Domain.Units
                 Destroy(gameObject);
             }
 
-            _units = new List<UnitComponent>(FindObjectsOfType<UnitComponent>());
+            _units = new List<UnitComponent>(FindObjectsByType<UnitComponent>(FindObjectsInactive.Include, FindObjectsSortMode.None));
         }
         
         public List<UnitComponent> GetUnits()

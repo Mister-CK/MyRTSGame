@@ -70,7 +70,6 @@ namespace  Buildings.Model
 
         private void Awake()
         {
-            // Ensure there is only one instance of BuildingManager
             if (Instance == null)
                 Instance = this;
             else
@@ -82,7 +81,7 @@ namespace  Buildings.Model
             FoundationObjects = new Dictionary<BuildingType, GameObject>();
             CompletedObjects = new Dictionary<BuildingType, GameObject>();
 
-            // Add the foundation and completed GameObjects for each building type
+            //foundations
             FoundationObjects.Add(BuildingType.School, schoolFoundation);
             FoundationObjects.Add(BuildingType.Restaurant, restaurantFoundation);
             FoundationObjects.Add(BuildingType.Warehouse, warehouseFoundation);
@@ -111,6 +110,7 @@ namespace  Buildings.Model
             FoundationObjects.Add(BuildingType.GuardTower, guardTowerFoundation);
             FoundationObjects.Add(BuildingType.Castle, castleFoundation);
 
+            //completed
             CompletedObjects.Add(BuildingType.School, schoolCompleted);
             CompletedObjects.Add(BuildingType.Restaurant, restaurantCompleted);
             CompletedObjects.Add(BuildingType.Warehouse, warehouseCompleted);

@@ -1,6 +1,5 @@
 using Interface;
 using System;
-using Domain;
 using Domain.Model;
 
 public class JobEventArgs : EventArgs, IGameEventArgs
