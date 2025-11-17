@@ -1,5 +1,6 @@
 using Application;
 using Application.Services;
+using Buildings.Model;
 using Enums;
 using Interface;
 using Unity.VisualScripting;
@@ -9,16 +10,16 @@ namespace Terrains.Model
 {
     public class Terrain : MonoBehaviour, IDestination, IState<ITerrainState>, IBuildable
     {
-        protected ITerrainState State;
+        private ITerrainState _state;
         protected TerrainType TerrainType;
-        protected Material Material { get; set; }
-        protected BoxCollider BCollider { get; private set; }
+        private Material Material { get; set; }
+        private BoxCollider BCollider { get; set; }
         private GameObject _terrainObject;
-        public TerrainService terrainService;
         private readonly float _buildRate = 10f;
-        protected bool HasResource;
+        private bool _hasResource;
         protected ResourceType ResourceType;
-
+        public Action<JobType, Terrain, Building, ResourceType?, UnitType?> OnCreateJobNeededEvent { get; set; }
+        
         public void Awake()
         {
             ServiceInjector.Instance.InjectTerrainDependencies(this);
@@ -47,23 +48,19 @@ namespace Terrains.Model
         
         public void Start()
         {
-            State = new TerrainStates.PlacingState(TerrainType);
+            _state = new TerrainStates.PlacingState(TerrainType);
         }
         
         public void SetState(ITerrainState terrainState)
         {
-            State = terrainState;
-            State.SetObject(this);
-            if (State is TerrainStates.FoundationState) terrainService.CreateJobNeededEvent(JobType.BuilderJob, this, null, null, null);
-
-            //TerrainController.CreateUpdateViewForBuildingEvent(this);
-            //if (State is CompletedState) do something
-            //if (State is ConstructionState) TerrainController.CreateJobNeededEvent(JobType.BuilderJob, this, null, null, null);
+            _state = terrainState;
+            _state.SetObject(this);
+            if (_state is TerrainStates.FoundationState) OnCreateJobNeededEvent?.Invoke(JobType.BuilderJob, this, null, null, null);
         }
         
         public ITerrainState GetState()
         {
-            return State;
+            return _state;
         }
         
         public void SetTerrainType(TerrainType terrainType)
@@ -95,12 +92,12 @@ namespace Terrains.Model
 
         public bool GetHasResource()
         {
-            return HasResource;
+            return _hasResource;
         }
         
         public void SetHasResource(bool hasResource)
         {
-            HasResource = hasResource;
+            _hasResource = hasResource;
         }
         
         public ResourceType GetResourceType()

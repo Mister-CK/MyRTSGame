@@ -78,7 +78,7 @@ namespace Application
         
         public void InjectTerrainDependencies(Terrain terrain)
         {
-            terrain.terrainService = terrainService;
+            terrain.OnCreateJobNeededEvent = (jobType, t, d, rType, uType) => terrainService.CreateJobNeededEvent(jobType, t, d, rType, uType);
         }
         
         public void InjectNaturalResourceViewDependencies(NaturalResourceView resourceView)
@@ -108,7 +108,7 @@ namespace Application
             var allTerrains = FindObjectsByType<Terrain>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (var terrain in allTerrains)
             {
-                terrain.terrainService = terrainService;
+                InjectTerrainDependencies(terrain);
             }
         }
         
