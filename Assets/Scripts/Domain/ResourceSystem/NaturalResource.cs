@@ -5,7 +5,7 @@ using Interface;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Terrain = Terrains.Model.Terrain;
 namespace Domain.Model.ResourceSystem.Model
 {
     public class NaturalResource: MonoBehaviour, IDestination, ISelectable, IInventory, IState<IResourceState>
@@ -16,7 +16,7 @@ namespace Domain.Model.ResourceSystem.Model
         protected Dictionary<ResourceType, InventoryData> Inventory { get; set; }
         protected ResourceType ResourceType;
         private List<CollectResourceJob> _collectResourceJobs = new ();
-        private Terrains.Model.Terrain _terrain;
+        private Terrain _terrain;
         public Action<NaturalResource> OnCreateAddResourceJobsEvent { get; set; } 
         public Action OnObjectDestroyed { get; set; }
         protected virtual void Start()
@@ -103,12 +103,12 @@ namespace Domain.Model.ResourceSystem.Model
             }
         }
         
-        public void SetTerrain(Terrains.Model.Terrain terrain)
+        public void SetTerrain(Terrain terrain)
         {
             _terrain = terrain;
         }
         
-        public Terrains.Model.Terrain GetTerrain()
+        public Terrain GetTerrain()
         {
             return _terrain;
         }

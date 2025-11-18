@@ -13,11 +13,8 @@ namespace Application.Factories
         [SerializeField] private StoneMinerComponent stoneMinerPrefab;
         [SerializeField] private LumberJackComponent lumberJackPrefab;
         [SerializeField] private FarmerComponent farmerPrefab;
-        private void Awake()
-        {
 
-        }
-        public void CreateNewUnit(Building trainingBuilding,  UnitType unitType)
+        public void CreateNewUnit(Building trainingBuilding, UnitType unitType)
         {
             var spawnPosition = trainingBuilding.transform.position + new Vector3(2, 0, -2);
             UnitComponent unit;

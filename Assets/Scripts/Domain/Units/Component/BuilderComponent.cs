@@ -7,7 +7,6 @@ using Interface;
 using Domain.Model;
 using Domain.Units.Data;
 using Domain.Units.JobExecutors;
-
 namespace Domain.Units.Component
 {
     public class BuilderComponent : UnitComponent

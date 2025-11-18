@@ -1,4 +1,3 @@
-// csharp
 using UnityEngine.UIElements;
 using View.Extensions;
 
@@ -13,7 +12,7 @@ namespace View.Components.Panels
             base.Build(parent);
 
             var header = Root.CreateChild<Label>("panel-header");
-            header.text = "JOBS PANEL";            
+            header.text = "JOBS PANEL";       
         }
     }
 }
